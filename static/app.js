@@ -981,185 +981,206 @@
 
 
   /* ===================== 使用手册 ===================== */
-  /* 内容按页面结构分节（① 概述 → ⑨ FAQ），顶部锚点按钮用 scrollIntoView 跳章。
-     只写界面真实现状：密度三档已是生成链路里真实生效的逻辑。 */
+  /* 重新设计版：渐变 hero + 实时数据徽章 + 四 Tab（概览 / 流程 / 开关 / 技巧）。
+     只留结论，细节用卡片网格承载；窄屏自动单栏，Esc / 遮罩可关。 */
   function openGuide() {
     if ($('#guideDlg')) { $('#guideDlg').style.display = 'flex'; return; }
-    const B = t => `<b style="color:#27364f">${t}</b>`;
-    const P = t => `<p style="margin:0 0 6px;color:#46586f;font-size:12.5px;line-height:1.85">${t}</p>`;
-    const sub = t => `<div style="font-weight:600;font-size:12.5px;color:#2f6fe0;margin:9px 0 3px">${t}</div>`;
-    const UL = arr => '<ul style="margin:0;padding-left:18px;color:#46586f;font-size:12.5px;line-height:1.85">' +
-      arr.map(x => `<li style="margin:3px 0">${x}</li>`).join('') + '</ul>';
-    const NAV = [['g1', '概述'], ['g2', '工具栏'], ['g3', '标签库'], ['g4', '已选'],
-                 ['g5', '草稿·历史'], ['g6', '结果'], ['g7', '流程'], ['g8', '注意'], ['g9', 'FAQ']];
-    const SECS = [
-      ['g1', '① 这是什么',
-        P('本地运行的动漫插画提示词工作台，一条链路走完：' + B('图反推 → AI 扩写 → 拆标签 → 生成 MOSS / WAI / Pony 提示词') + '。') +
-        UL([
-          '词库约 1.1 万条中英对照标签（角色、外形、服装、动作、道具、场景、画风，其中 NSFW 约 4 千条），另有 50 张画风缩略图。',
-          '三个出口：' + B('MOSS') + '（中文段落，配 MOSS 系模型）、' + B('WAI / NoobAI') + '、' + B('Pony V6 XL') + '（英文 tag 串），每条都成对给正向与负向。',
-          '拼装和生成全在 127.0.0.1:8901 本机完成，不联网；只有勾选「API」或润色选「API」时文字才会发给 DeepSeek。',
-          '顶部步骤条 ① 反推 / 描述 → ② 挑标签 → ③ 出结果 只是流程提示，不会自动跳转。',
-        ])],
-      ['g2', '② 顶部工具栏',
-        UL([
-          B('API') + '：勾上时「AI 扩写」走 DeepSeek 云端（失败会自动回退 Ollama）；取消则直接用本机 Ollama（离线可用，但更慢）。润色走 API 还是本地，由下面的「润色」下拉决定，跟这个勾选框无关。',
-          B('NSFW模式') + '：控制' + B('扩写 / 润色') + '是否生成成人内容。关闭时扩写要求「保持健康内容」，本地润色强制改用安全模型 qwen2.5:7b；它同时决定生成时是否过滤 NSFW 标签、负向是否追加裸露词。',
-          B('⚙ API') + '：配置 API 地址、模型名、Key。Key 存在本地（浏览器 localStorage + 服务端 api_config.json），回显为掩码（前 6 位 + 末 4 位）；要换 Key 请整串重新粘贴，掩码不是真实 Key。',
-          B('生成结果') + '：按当前「已选」一次性生成 MOSS + WAI + Pony（含各自负向）到右栏。',
-        ]) +
-        sub('润色 下拉（四档）') +
-        UL([
-          B('API') + '：调 DeepSeek 把规则拼好的 MOSS 改写成通顺中文段落；不占显存，通常几秒。API 失败或返回为空时不回退本地，结果栏保留规则底稿。',
-          B('本地') + '：强制走 Ollama 改写；安全模式用 qwen2.5:7b，NSFW 开着时用 goonsai 3B。占显存，一次约 40–90 秒。',
-          B('关') + '：不润色，直接输出标签式 MOSS，最快，但读起来是「标签串」。',
-          B('模板') + '：规则模板拼接后直接返回，结果标记「模板拼接」，同样不经过模型。',
-          '怎么选：MOSS 想读得顺 → API；要离线 → 本地；赶时间或只关心 WAI / Pony → 关。',
-        ]) +
-        sub('密度 下拉（精简 / 标准 / 复杂）') +
-        UL([
-          B('精简') + '：每个角色最多 8 个标签、全局最多 6 个，提示词短，适合低步数快出图。',
-          B('标准') + '：每个角色最多 18 个、全局最多 14 个（默认，接近历史输出）。',
-          B('复杂') + '：每个角色最多 30 个、全局最多 24 个，细节最全，建议配更高步数与适当 CFG。',
-          '只裁剪 ' + B('WAI / Pony') + ' 的英文标签数量，MOSS 中文段落不受影响；截断按「已选」顺序保留，角色名、quality 前缀、(2girls:1.45) 这类计数永远不会被裁掉。标签本来就没到上限时，三档输出完全一致。',
-        ]) +
-        sub('负向 下拉（三档）') +
-        UL([
-          B('完整') + '：默认。WAI 约 590 字符（画质、手部、解剖、水印、裁切等），Pony 额外带 score_4 / score_5 / score_6 系列。',
-          B('精简') + '：只留约 7 项核心负向（约 215 字符），提示词短、可读性好。',
-          B('关') + '：不输出负向（空串），适合自己另配负向。',
-          '三档都会自适应：正向里已出现裸体 / uncensored / chibi / 单色等词时自动剔除冲突负向；' + B('NSFW模式关闭') + '时追加 nude / naked / topless 等；' + B('只有一个角色') + '时追加 2girls / multiple_girls / split_screen 等防克隆词。',
-        ])],
-      ['g3', '③ 左栏：标签库',
-        UL([
-          B('分类芯片') + '：全部 / 角色 / 外形 / 服装 / 动作 / 道具 / 场景 / 其他（即「自定义」）/ 自定义2 / 自定义3，外加你自建的顶级分类；点一下切换。',
-          B('子分类芯片') + '：带「▾」的分类会展开第二排。角色 → 游戏 / 动漫 / MOSS原创 / 自定义；动作 → 单人 / 亲密 / 双人互动 / 姿势 / 日常；外形 → 发型 / 发色 / 眼睛 / 表情 / 身体 / 体型；服装 → 上装 / 下装 / 制服 / 连衣裙 / 泳装 / 袜鞋 / 配饰 / 情趣；场景 → 室内 / 室外 / 光线 / 建筑 / 天气 / 时间段；道具 → 日常 / NSFW；其他 → 构图 / 画质 / 风格 / 视角 / 镜头 / 色彩 / 效果。',
-          B('搜索') + '：同时匹配中文名、英文 tag、作品名与别名，「迷宫饭」「EVA」「蓝发」「long hair」都能命中；只输作品名会列出该作品的全部角色。',
-          B('重置筛选') + '：清空搜索词和分类 / 子分类选择，回到「全部」。',
-          B('描述框 + AI 扩写') + '：左上写自然语言，点「AI 扩写」补成标准格式；结果显示在右栏「扩写结果」，同时存进历史。',
-          B('点此选图反推 或拖图') + '：上传或拖入图片 → WD14 打标 → 命中的标签自动进「已选」，识别原文写进左上描述框；图里带 NSFW 标签时会自动打开标签库的 NSFW 开关。',
-          B('标签卡') + '：单击加入「已选」（角色卡 = 直接建角色框）；左下 ★ 收藏，勾上「收藏」后置顶；角色卡右键可编辑（中文名 / 英文 tag / 作品 / 发色发型 / 眼睛 / 服装 / 体型 / 胸围）；自定义角色拖到垃圾桶即删除。',
-          B('拖动标签') + '：拖到分类芯片或子分类芯片 = 改分类（只存在浏览器里，不动服务端词库）；拖到「已选」的角色框 = 归给该角色；拖到垃圾桶 = 从当前已选移除（若是自定义角色 / 自定义子分类，则是真删除）。',
-          B('画风库') + '：50 张风格缩略图，点一张就把对应画风 tag 加进全局标签。',
-          B('收藏') + '：勾上后收藏的标签排在列表最前面。',
-          B('NSFW（分类栏）') + '：只控制词库是否显示 NSFW 标签，默认关闭；和顶部「NSFW模式」是两个独立开关。',
-          B('垃圾桶') + '：拖标签进来删除或从已选移除，规则见上面的「拖动标签」。',
-          B('＋ 新增分类') + '：可建顶级分类（出现在分类芯片里，右键可改名，留空即删除），也可建当前分类下的子分类（双击或右键改名，× 删除）。',
-          B('＋ 添加角色') + '：只在「角色」分类出现。中文名必填，英文 tag 自动转小写下划线，可填作品与外观；保存到浏览器 localStorage 并同步服务端 custom_chars.json。',
-        ])],
-      ['g4', '④ 中栏：已选',
-        UL([
-          B('角色框') + '：把左侧标签拖进某个角色框 = 这个标签只属于她。在标签库里单击角色卡会直接建一个角色框。框右上 × 删除角色框，标签后的 − / + 调权重（0.1 一档，范围 0.1–2.0）。',
-          B('全局标签') + '：不属于任何角色的共享标签，所有角色共用（场景、画风、构图通常放这里）。点卡片上的 − / + 调权重，× 删除单条，区块右上 × 一键清空全部全局标签。',
-          B('√ 无冲突 / ⚠ 冲突') + '：每次改动自动检测互斥项 —— 裸体 × 穿衣、室内 × 室外、单人 × 多人、笑 × 哭，多个角色重名也会提示。只提示，不会自动删标签。',
-          B('清空') + '：清空全部已选（角色框 + 全局标签）。',
-          '权重：1.0 是默认；不等于 1 时，WAI / Pony 里会写成 (tag:1.2) 这种加权形式。',
-        ])],
-      ['g5', '⑤ 下栏：草稿 + 历史',
-        UL([
-          B('草稿') + '：可直接编辑的文本区，改完还能再加工。',
-          B('拆成标签') + '：调 /api/parse 把草稿（草稿为空时用左上描述框）拆成角色和标签 —— 角色进角色框，场景等进全局标签。',
-          B('生成 MOSS') + '：按「已选」生成中文 MOSS 与负向，送到右栏。若已选为空，会先把草稿（或左上描述框）自动拆解再生成。',
-          B('历史记录') + '：每次「AI 扩写」的结果都会存一条，最多 30 条；点一条回填到草稿。清空只清历史。',
-        ])],
-      ['g6', '⑥ 右栏：结果',
-        UL([
-          B('标签页开关') + '：MOSS / WAI / Pony / 扩写结果 四个 chip，点一下显示或隐藏对应区块；把 MOSS 关掉后，「生成结果」不再生成 MOSS。',
-          '「生成结果」会出 6 个区块：MOSS 中文、负向 · MOSS、WAI / NoobAI、负向 · WAI、Pony V6 XL、负向 · Pony。',
-          '每个区块右上角「复制」复制该块全文；「扩写结果」还多一个「填入草稿」。',
-          B('清空结果') + '：清掉右栏输出，不影响已选和词库。',
-        ])],
-      ['g7', '⑦ 推荐使用流程',
-        sub('路径 A：图 → 提示词（最快）') +
-        UL([
-          '① 点「点此选图反推」或把图片拖进去，等 WD14 打标完成。',
-          '② 检查「已选」：删掉无关标签，把人物标签拖进对应角色框，场景留在全局。',
-          '③ 点「生成结果」，在右栏复制 MOSS / WAI / Pony。',
-        ]) +
-        sub('路径 B：文字 → 提示词') +
-        UL([
-          '① 左上描述框写自然语言，例：' + B('初音未来：蓝色长双马尾，白色连衣裙，站在窗边，微笑') + '。',
-          '② 点「AI 扩写」，右栏「扩写结果」给出标准格式，同时存进历史。',
-          '③ 点「填入草稿」→ 按需修改 → 「拆成标签」或「生成 MOSS」。',
-        ]) +
-        sub('路径 C：纯标签拼装') +
-        UL([
-          '① 从词库点标签加入「已选」，角色卡会直接建角色框。',
-          '② 把外形 / 服装 / 动作标签拖进对应角色框，场景和画风放全局。',
-          '③ 点「生成结果」。',
-        ]) +
-        sub('多角色补充') +
-        UL([
-          '每个角色一个角色框，标签拖进各自的框；WAI / Pony 会自动加 (2girls:1.45) 这类多角色词。',
-          '位置标签（画面左侧 / 正中 / 右侧）也要放进对应角色的框，才能把人和位置绑在一起。',
-          '图反推通常只得到一堆散标签，记得手动归位，否则会全进全局标签。',
-        ])],
-      ['g8', '⑧ 注意事项',
-        UL([
-          '首次使用先在 ⚙ API 填地址、模型、Key；不填也能用，但扩写和润色只能走本地 Ollama。',
-          '本地模型（Ollama）会占显存：生图前把「润色」设为 API 或关，避免和生图抢显存。',
-          'NSFW 有两个开关：顶部「NSFW模式」管扩写 / 润色的尺度与生成时的过滤；分类栏「NSFW」只管词库显示。',
-          '词库含成人内容，仅限 18 岁以上使用；请遵守所在地法律与平台规则。',
-          '角色名与作品版权归原作者；本工具只做提示词整理，生成内容的合规性请自行判断。',
-          '面板尺寸会自动记住（拖分隔条调整）；拖乱了点本说明书底部「重置面板尺寸」。',
-          '数据存在浏览器 localStorage（收藏、分类改名、自定义角色、设置、历史）+ 服务端 custom_chars.json；清浏览器数据会丢前端那份。',
-          '小提示：「生成 MOSS」读的是分类栏的 NSFW 开关，「生成结果」读的是顶部 NSFW模式 —— 发现 MOSS 里 NSFW 内容和预期不符时，先看分类栏那个开关。',
-        ])],
-      ['g9', '⑨ 常见问题',
-        sub('Q1 生成出来为什么是标签串，不是通顺句子？') +
-        P('润色选了「模板」或「关」。改成「API」或「本地」重新生成即可；只关心 WAI / Pony 时不受影响。') +
-        sub('Q2 为什么角色外观和我的设定不一致？') +
-        P('词库里的角色自带外观（发色 / 瞳色 / 服装）。你手动加的同类标签优先，自动外观会跳过对应项；也可以右键角色卡直接改外观并保存。AI 扩写时会把文本里出现的角色外观当成硬约束放在最前面，你写在描述里的发色 / 瞳色 / 服装优先于词库，扩写不会改掉它们。') +
-        sub('Q3 图反推结果里有英文没翻译？') +
-        P('词库暂缺该词的中文译名，只能原样显示英文 tag；可当普通标签用，或建个自定义分类收纳。') +
-        sub('Q4 为什么画不出多个角色？') +
-        P('单角色时负向会自动追加 2girls / multiple_girls / split_screen 等防克隆词。要多角色：加多个角色框，每个框放各自标签；仍不行就把负向改成「精简」或「关」。') +
-        sub('Q5 服务打不开 / 页面白屏怎么办？') +
-        P('确认 8901 端口有 pythonw 在跑（任务管理器看命令行是否含 studio2\\app.py）；没有就用「启动工作台.bat」或手动 pythonw app.py 启动，再刷新 http://127.0.0.1:8901 。') +
-        sub('Q6 改了数据要刷新页面吗？') +
-        P('标签数据来自 /api/tags，只在页面加载时读一次；改词库文件或服务端角色后请刷新页面。前端新增 / 编辑的角色会立即生效。') +
-        sub('Q7 密度调了三档，输出为什么看起来一样？') +
-        P('密度只裁剪 WAI / Pony 的英文标签数量（精简 每角色 8 / 全局 6，标准 18 / 14，复杂 30 / 24），标签本来就少于上限时三档完全一致；MOSS 中文段落不读这个参数。')],
-    ];
+    if (!$('#guideCss')) {
+      const st = document.createElement('style');
+      st.id = 'guideCss';
+      st.textContent = `
+        #guideDlg{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(18,26,44,.5);backdrop-filter:blur(3px)}
+        #guideDlg *{box-sizing:border-box}
+        #guideDlg .gesheet{width:840px;max-width:96vw;max-height:78vh;display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 26px 70px rgba(20,40,80,.3)}
+        #guideDlg .ghero{position:relative;display:flex;align-items:center;gap:18px;padding:22px 46px 22px 26px;color:#fff;background:linear-gradient(135deg,#4c8bf5 0%,#7c5cf5 100%)}
+        #guideDlg .ghero:after{content:"";position:absolute;right:-40px;top:-70px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.09)}
+        #guideDlg .ghero .gt{font-size:21px;font-weight:800;letter-spacing:.6px;line-height:1.2}
+        #guideDlg .ghero .gs{margin-top:7px;font-size:12.5px;opacity:.92;line-height:1.5}
+        #guideDlg .gbadges{margin-left:auto;display:flex;gap:9px;position:relative;z-index:1}
+        #guideDlg .gb{min-width:74px;padding:8px 10px;border-radius:12px;text-align:center;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26)}
+        #guideDlg .gb b{display:block;font-size:17px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+        #guideDlg .gb span{font-size:10.5px;opacity:.88}
+        #guideDlg .gx{position:absolute;top:13px;right:15px;width:24px;height:24px;line-height:23px;text-align:center;border-radius:8px;cursor:pointer;color:#fff;opacity:.8;font-size:13px;z-index:2}
+        #guideDlg .gx:hover{opacity:1;background:rgba(255,255,255,.18)}
+        #guideDlg .gtabs{display:flex;gap:7px;padding:12px 26px;border-bottom:1px solid #eef4fc;background:#fff}
+        #guideDlg .gtab{padding:6px 15px;border-radius:999px;border:1px solid #e2ebf8;background:#f8fbfe;color:#8494ab;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;transition:.15s}
+        #guideDlg .gtab:hover{border-color:#bcd7ff;color:#2f6fe0}
+        #guideDlg .gtab.on{background:linear-gradient(135deg,#5a95f7,#7a5df5);border-color:transparent;color:#fff;box-shadow:0 5px 14px rgba(76,139,245,.3)}
+        #guideDlg .gbody{flex:1;min-height:0;overflow:auto;padding:16px 26px 4px;background:#fbfdff}
+        #guideDlg .gpanel{display:none}
+        #guideDlg .gpanel.on{display:block}
+        #guideDlg .glead{padding:14px 16px;border-radius:14px;background:linear-gradient(120deg,#f2f7ff,#f8f5ff);border:1px solid #e4ecfb;margin-bottom:16px}
+        #guideDlg .glead-t{font-size:14px;font-weight:700;color:#27364f;line-height:1.55}
+        #guideDlg .glead-t b{color:#4c6bf5}
+        #guideDlg .glead-s{margin-top:5px;font-size:12px;color:#66799a;line-height:1.6}
+        #guideDlg .gtitle{font-size:12px;font-weight:700;color:#8ba0bd;letter-spacing:1.2px;margin:0 0 10px}
+        #guideDlg .ggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:12px;margin-bottom:4px}
+        #guideDlg .gk{padding:13px 15px;border:1px solid #e8f0fb;border-radius:14px;background:#fff;box-shadow:0 2px 10px rgba(40,80,150,.05)}
+        #guideDlg .gk.hi{border-left:3px solid #4c8bf5;background:linear-gradient(135deg,#f8fbff,#fdfbff)}
+        #guideDlg .gk h4{margin:0 0 6px;display:flex;align-items:center;gap:7px;font-size:13.5px;color:#27364f;line-height:1.4}
+        #guideDlg .gk h4 .gi{font-size:14px;line-height:1}
+        #guideDlg .gk p{margin:0;font-size:12px;color:#5f7290;line-height:1.72}
+        #guideDlg .gk p b{color:#3a72d4}
+        #guideDlg .gmini{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:7px 0 7px}
+        #guideDlg .gmini span{padding:2px 8px;border-radius:999px;background:#eef4ff;color:#3a72d4;font-size:11px;font-weight:600;white-space:nowrap}
+        #guideDlg .gmini i{color:#b9c9e2;font-style:normal;font-size:11px}
+        #guideDlg .gsteps{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:6px}
+        #guideDlg .gsteps span{padding:4px 12px;border-radius:999px;background:#fff;border:1px solid #dbe7ff;color:#3a72d4;font-size:12px;font-weight:600}
+        #guideDlg .gsteps i{color:#b9c9e2;font-style:normal}
+        #guideDlg .ghint{margin:0 0 16px;font-size:11.5px;color:#93a5c0;line-height:1.6}
+        #guideDlg .grows{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 12px}
+        #guideDlg .grow{display:flex;gap:10px;align-items:baseline;padding:7px 11px;border:1px solid #eef4fc;border-radius:10px;background:#fff}
+        #guideDlg .grow b{flex:0 0 72px;font-size:12.5px;color:#2f6fe0;white-space:nowrap}
+        #guideDlg .grow span{font-size:12px;color:#5f7290;line-height:1.6;min-width:0}
+        #guideDlg .gnote{display:flex;gap:8px;padding:8px 12px;margin-bottom:7px;border-radius:10px;background:#fffaf0;border:1px solid #fbe8c4;font-size:12px;color:#8a6a2f;line-height:1.62}
+        #guideDlg .gfoot{display:flex;gap:9px;justify-content:flex-end;padding:13px 26px;border-top:1px solid #eef4fc;background:#fff}
+        @media (max-width:700px){
+          #guideDlg{padding:10px}
+          #guideDlg .gesheet{width:100%;max-width:100%;max-height:88vh}
+          #guideDlg .ghero{flex-direction:column;align-items:flex-start;gap:13px;padding:18px 18px 16px}
+          #guideDlg .ghero .gt{font-size:18px}
+          #guideDlg .gbadges{margin-left:0;flex-wrap:wrap;gap:7px;width:100%}
+          #guideDlg .gb{flex:1 1 0;min-width:0;padding:7px 5px}
+          #guideDlg .gb b{font-size:15px}
+          #guideDlg .gtabs{padding:10px 16px;overflow-x:auto}
+          #guideDlg .gbody{padding:14px 16px 4px}
+          #guideDlg .ggrid,#guideDlg .grows{grid-template-columns:1fr}
+          #guideDlg .gfoot{padding:12px 16px}
+        }
+      `;
+      document.head.appendChild(st);
+    }
+    const lib = (S && S.lib) || [];
+    let nChar = 0;
+    for (let i = 0; i < lib.length; i++) { const t = lib[i]; if (t && t.cat === '角色') nChar++; }
+    const nTag = lib.length;
+    const BADGE = (v, k) => `<div class="gb"><b>${v}</b><span>${k}</span></div>`;
+    const CARD = (icon, title, steps, desc) => `<div class="gk">
+      <h4><span class="gi">${icon}</span>${title}</h4>
+      ${steps ? `<div class="gmini">${steps.map(s => `<span>${s}</span>`).join('<i>→</i>')}</div>` : ''}
+      <p>${desc}</p></div>`;
+    const HI = (title, desc) => `<div class="gk hi"><h4>${title}</h4><p>${desc}</p></div>`;
+    const ROW = (k, v) => `<div class="grow"><b>${k}</b><span>${v}</span></div>`;
+    const NOTE = t => `<div class="gnote"><span>⚠</span><span>${t}</span></div>`;
+    const TAB = [['概览', 0], ['流程', 1], ['开关', 2], ['技巧', 3]];
+
+    const P0 = `
+      <div class="glead">
+        <div class="glead-t">图反推 → AI 扩写 → 拆标签 → 生成 <b>MOSS / WAI / Pony</b></div>
+        <div class="glead-s">全程本机 127.0.0.1:8901 运行，不联网；只有勾选 API 时，文字才会发给 DeepSeek。</div>
+      </div>
+      <div class="gtitle">三条主路径</div>
+      <div class="ggrid" style="margin-bottom:12px">
+        ${CARD('🖼️', '图 → 提示词', ['选图反推', '检查标签', '生成'], '丢一张图自动打标，确认标签后一键出结果，最快。')}
+        ${CARD('✍️', '文字 → 提示词', ['写描述', 'AI 扩写', '拆标签'], '一句话说清角色，扩写成标准格式，再拆回标签。')}
+        ${CARD('🏷️', '标签 → 提示词', ['挑标签', '拖进角色框', '生成'], '词库点选、按角色归位，最精确也最可控。')}
+      </div>
+      <p class="ghint" style="margin:0"><b style="color:#3a72d4">多角色</b>：一个角色一个框，位置标签拖进对应角色框才绑得住人；图反推常给一堆散标签，记得手动归位。</p>`;
+
+    const P1 = `
+      <div class="gsteps"><span>① 反推 / 描述</span><i>→</i><span>② 挑标签</span><i>→</i><span>③ 出结果</span></div>
+      <p class="ghint">顶部步骤条只是流程提示，点击不会自动跳转。</p>
+      <div class="gtitle">核心按钮速查</div>
+      <div class="grows">
+        ${ROW('生成结果', '一次出 MOSS + WAI + Pony 及各自负向')}
+        ${ROW('AI 扩写', '把描述补成标准格式，同时存进历史')}
+        ${ROW('拆成标签', '草稿拆成角色与标签，各归各位')}
+        ${ROW('生成 MOSS', '只按「已选」出中文段落与负向')}
+        ${ROW('画风库', '50 张缩略图，点一张即加画风标签')}
+        ${ROW('反推选图', '上传或拖图，WD14 打标后进「已选」')}
+        ${ROW('⚙API', '配置地址、模型、Key，回显为掩码')}
+        ${ROW('润色', 'API / 本地 / 模板 / 关，四档')}
+        ${ROW('密度', '精简 / 标准 / 复杂，控制标签数量')}
+        ${ROW('负向', '完整 / 精简 / 关，控制负向长度')}
+      </div>
+      <p class="ghint" style="margin:12px 0 0">「生成结果」一次出 6 个区块（三种模型 + 三种负向），每块右上角可单独复制；润色只影响 MOSS 中文段落，WAI / Pony 始终是标签串。</p>`;
+
+    const P2 = `
+      <div class="gtitle">三个必须知道的开关</div>
+      <div class="ggrid" style="margin-bottom:16px">
+        ${HI('NSFW 有两个，别混', '顶部「NSFW模式」控制扩写 / 润色的内容尺度，也决定生成时是否过滤 NSFW 标签；分类栏「NSFW」只控制标签库是否显示。两个不是一回事。')}
+        ${HI('润色四档：速度换通顺', '模板 / 关 = 0 秒但生硬，读起来是标签串；API / 本地 = 通顺但慢，本地还占显存，一次约 40–90 秒。')}
+        ${HI('密度：标签数量', '精简 8/6 · 标准 18/14 · 复杂 30/24（每角色 / 全局）；只裁 WAI / Pony 的英文标签，MOSS 中文不受影响。')}
+      </div>
+      <div class="gtitle">注意事项</div>
+      ${NOTE('生图前把润色设为「API」或「关」，避免本地模型占显存、拖慢出图。')}
+      ${NOTE('词库含成人内容，仅限 18 岁以上使用，请遵守所在地法律与平台规则。')}
+      ${NOTE('角色名与作品版权归原作者；生成内容的合规性请自行判断。')}`;
+
+    const P3 = `
+      <div class="gtitle">亮点技巧</div>
+      <div class="ggrid">
+        ${CARD('🎯', '拖拽三用', null, '拖到<b>角色框</b> = 归给该角色；拖到<b>分类芯片</b> = 改分类；拖到<b>垃圾桶</b> = 删除或移出（自定义角色才是真删）。')}
+        ${CARD('🖱️', '右键角色卡', null, '直接改外观、作品、英文名，保存到浏览器与服务端，立即生效。')}
+        ${CARD('✅', '手动优先', null, '手动加的标签优先于词库自动外观，扩写也不会覆盖你写的发色与瞳色。')}
+        ${CARD('💾', '尺寸自动记忆', null, '拖分隔条调好的面板宽度会被记住；拖乱了点底部「重置面板尺寸」即可。')}
+        ${CARD('🔗', '权重微调', null, '标签后的 − / + 以 0.1 调权重，范围 0.1–2.0，非 1.0 会写成 (tag:1.2) 形式。')}
+        ${CARD('🔍', '搜索够宽', null, '中文名、英文 tag、作品名、别名都能命中；只输作品名会列出该作全部角色。')}
+      </div>`;
+
     const d = document.createElement('div');
     d.id = 'guideDlg';
-    d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:rgba(20,30,50,.42);backdrop-filter:blur(2px)';
-    d.innerHTML = `<div style="width:780px;max-width:94vw;max-height:92vh;display:flex;flex-direction:column;background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(20,40,80,.25);overflow:hidden">
-      <div style="padding:17px 24px 13px;border-bottom:1px solid #eef4fc;display:flex;align-items:center;gap:10px">
-        <div style="font-size:18px">📖</div><div style="font-weight:700;font-size:16px">使用手册</div>
-        <div style="color:#9db0c8;font-size:11.5px">提示词工作台 · 完整说明</div>
-        <div style="margin-left:auto;color:#b6c3d6;cursor:pointer;font-size:15px" id="guideX">✕</div>
+    d.innerHTML = `<div class="gesheet">
+      <div class="ghero">
+        <div>
+          <div class="gt">提示词工作台</div>
+          <div class="gs">图反推 · 扩写 · 拆标签 · 一键出三种模型的提示词</div>
+        </div>
+        <div class="gbadges" id="guideBadges">
+          ${BADGE(nTag || '18357', '词条')}${BADGE(nChar || '3030', '角色')}${BADGE('50', '画风')}${BADGE('3', '模型')}
+        </div>
+        <div class="gx" id="guideX">✕</div>
       </div>
-      <div id="guideNav" style="padding:10px 24px;border-bottom:1px solid #eef4fc;display:flex;flex-wrap:wrap;gap:6px;background:#fbfdff">
-        ${NAV.map(([id, t], i) => `<span class="swchip${i === 0 ? ' on' : ''}" data-go="${id}" style="font-size:12px;cursor:pointer;user-select:none">${t}</span>`).join('')}
+      <div class="gtabs" id="guideTabs">
+        ${TAB.map(([t, i]) => `<div class="gtab${i ? '' : ' on'}" data-tab="${i}">${t}</div>`).join('')}
       </div>
-      <div id="guideBody" style="padding:4px 24px 8px;max-height:70vh;overflow:auto">
-        ${SECS.map(([id, t, h]) => `<section id="${id}" style="padding:13px 0 10px;border-bottom:1px dashed #eef4fc">
-          <div style="font-weight:700;font-size:14.5px;color:#2f6fe0;margin-bottom:7px">${t}</div>${h}</section>`).join('')}
+      <div class="gbody">
+        <section class="gpanel on" data-tab="0">${P0}</section>
+        <section class="gpanel" data-tab="1">${P1}</section>
+        <section class="gpanel" data-tab="2">${P2}</section>
+        <section class="gpanel" data-tab="3">${P3}</section>
       </div>
-      <div style="padding:12px 24px 16px;border-top:1px solid #eef4fc;display:flex;gap:8px;justify-content:flex-end;background:#fff">
-        <button class="btn" id="guideReset" style="height:34px;padding:0 16px">重置面板尺寸</button>
-        <button class="btn primary" id="guideClose" style="height:34px;padding:0 22px">知道了</button>
-      </div></div>`;
+      <div class="gfoot">
+        <button class="btn" id="guideReset">重置面板尺寸</button>
+        <button class="btn primary" id="guideClose">知道了</button>
+      </div>
+    </div>`;
     document.body.appendChild(d);
-    const body = d.querySelector('#guideBody');
-    const chips = [].slice.call(d.querySelectorAll('[data-go]'));
-    chips.forEach(c => c.onclick = () => {
-      const t = d.querySelector('#' + c.dataset.go);
-      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      chips.forEach(x => x.classList.remove('on'));
-      c.classList.add('on');
-    });
-    const close = () => { d.style.display = 'none'; if (body) body.scrollTop = 0; };
+
+    const tabs = [].slice.call(d.querySelectorAll('[data-tab].gtab'));
+    const panels = [].slice.call(d.querySelectorAll('.gpanel'));
+    const bd = d.querySelector('.gbody');
+    const go = i => {
+      tabs.forEach(t => t.classList.toggle('on', t.dataset.tab === String(i)));
+      panels.forEach(p => p.classList.toggle('on', p.dataset.tab === String(i)));
+      if (bd) bd.scrollTop = 0;
+    };
+    tabs.forEach(t => { t.onclick = () => go(t.dataset.tab); });
+
+    const close = () => { d.style.display = 'none'; go(0); };
     d.querySelector('#guideClose').onclick = close;
     d.querySelector('#guideX').onclick = close;
     d.onclick = ev => { if (ev.target === d) close(); };
+    document.addEventListener('keydown', ev => {
+      if (ev.key === 'Escape' && d.style.display !== 'none') close();
+    });
     const gr = d.querySelector('#guideReset');
     if (gr) gr.onclick = () => {
       localStorage.removeItem('pane');
       ['.lib', '.mid', '.rbot', '.tools'].forEach(sel => { const el = document.querySelector(sel); if (el) el.style.flex = ''; });
       toast('面板尺寸已重置');
     };
+    // 徽章：优先用已加载词库；未加载完则异步补数据
+    if (!nTag) {
+      api('/api/tags').then(r => {
+        const ls = (r && r.tags) || [];
+        let nc = 0;
+        ls.forEach(t => { if (t && t.cat === '角色') nc++; });
+        const bs = d.querySelectorAll('#guideBadges .gb b');
+        if (bs[0]) bs[0].textContent = ls.length || 18357;
+        if (bs[1]) bs[1].textContent = nc || 3030;
+      }).catch(() => {});
+    }
   }
 
 

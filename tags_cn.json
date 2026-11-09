@@ -7,84 +7,168 @@
    "en": "hakurei_reimu",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，红色大蝴蝶结",
+    "eyes": "红色眼睛",
+    "outfit": "红白巫女服，白色围裙",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "雾雨魔理沙",
    "en": "kirisame_marisa",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，侧边麻花辫",
+    "eyes": "金色眼睛",
+    "outfit": "黑白女巫服，黑色尖顶帽",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "十六夜咲夜",
    "en": "izayoi_sakuya",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银灰色长发，双麻花辫",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝白女仆装，女仆头饰",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "芙兰朵露·斯卡雷特",
    "en": "flandre_scarlet",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发，侧马尾",
+    "eyes": "红色眼睛",
+    "outfit": "红色洋装，白色洋帽",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "蕾米莉亚·斯卡雷特",
    "en": "remilia_scarlet",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡蓝色长发，双麻花辫",
+    "eyes": "红色眼睛",
+    "outfit": "粉色洋装，白色洋帽",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "帕秋莉·诺蕾姬",
    "en": "patchouli_knowledge",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发，紫色月亮帽",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色长袍，月亮纹样帽子",
+    "body": "纤细",
+    "chest": "标准"
+   }
   },
   {
    "zh": "魂魄妖梦",
    "en": "konpaku_youmu",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银色短发，短双马尾",
+    "eyes": "深蓝色眼睛",
+    "outfit": "绿色和风剑士服，白衬衫",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "西行寺幽幽子",
    "en": "saigyouji_yuyuko",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡粉色长发，直发",
+    "eyes": "粉色眼睛",
+    "outfit": "蓝色和服，白色三角头巾",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "射命丸文",
    "en": "shameimaru_aya",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发，天狗帽",
+    "eyes": "红色眼睛",
+    "outfit": "黑色天狗装，白色衬衫配红领带",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "东风谷早苗",
    "en": "kochiya_sanae",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发，青蛙发饰",
+    "eyes": "绿色眼睛",
+    "outfit": "蓝白巫女服，青蛙发饰",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "八云紫",
    "en": "yakumo_yukari",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，粉色帽子",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色洋装，粉色帽子",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "爱丽丝·玛格特罗伊德",
    "en": "alice_margatroid",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，红色发带",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝色洋装，白色围裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "铃仙·优昙华院·因幡",
@@ -105,84 +189,168 @@
    "en": "fujiwara_no_mokou",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，直发",
+    "eyes": "红色眼睛",
+    "outfit": "白衬衫，红色背带裤",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "蓬莱山辉夜",
    "en": "houraisan_kaguya",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色超长发，直发",
+    "eyes": "棕色眼睛",
+    "outfit": "粉红色和风洋装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "古明地恋",
    "en": "komeiji_koishi",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色短发，黑色帽子",
+    "eyes": "绿色眼睛",
+    "outfit": "黄绿色洋装，黑色帽子",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "古明地觉",
    "en": "komeiji_satori",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发，粉色发饰",
+    "eyes": "粉色眼睛",
+    "outfit": "蓝紫色洋装，粉色发饰",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "四季映姬·亚玛萨那度",
    "en": "shiki_eiki",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发，绿色帽子",
+    "eyes": "红色眼睛",
+    "outfit": "黑色判官和服，绿色帽子",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "比那名居天子",
    "en": "hinanawi_tenshi",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发，红色装饰",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝色和服，红色蝴蝶结",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "伊吹萃香",
    "en": "ibuki_suika",
    "cat": "角色",
    "sub": "东方Project",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，头生双角",
+    "eyes": "棕色眼睛",
+    "outfit": "白色衬衫，紫色裙子",
+    "body": "娇小",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "初音未来",
    "en": "hatsune_miku",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝绿色长发，双马尾",
+    "eyes": "蓝绿色眼睛",
+    "outfit": "灰白色无袖上衣，青绿色领带配黑色短裙",
+    "body": "纤细",
+    "chest": "标准"
+   }
   },
   {
    "zh": "镜音铃",
    "en": "kagamine_rin",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发，白色发带",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色衬衫，黄色马甲配黑色短裤",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "巡音流歌",
    "en": "megurine_luka",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，长直发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色无袖上衣，黑色长裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "洛天依",
    "en": "luo_tianyi",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰色长发，绿色发饰",
+    "eyes": "绿色眼睛",
+    "outfit": "白色旗袍式上衣，绿色短裙",
+    "body": "纤细",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "重音特特",
    "en": "kasane_teto",
    "cat": "角色",
    "sub": "UTAU",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深红色短发，双马尾",
+    "eyes": "红色眼睛",
+    "outfit": "黑色无袖上衣，红色短裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "GUMI",
@@ -203,63 +371,126 @@
    "en": "meiko_(vocaloid)",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "红色无袖上衣，红色短裙配黑色长靴",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "结月缘",
    "en": "yuzuki_yukari",
    "cat": "角色",
    "sub": "VOCALOID",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发，白色腰带",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色和风洋装，白色腰带",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "逢坂大河",
    "en": "aisaka_taiga",
    "cat": "角色",
    "sub": "龙与虎",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅棕长发，散发（右侧发夹）",
+    "eyes": "琥珀色眼睛",
+    "outfit": "校服西装外套，百褶裙配白色长袜",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "栉枝实乃梨",
    "en": "kushieda_minori",
    "cat": "角色",
    "sub": "龙与虎",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕橙色中长发，侧马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，运动外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "川岛亚美",
    "en": "kawashima_ami",
    "cat": "角色",
    "sub": "龙与虎",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深蓝色长发，波浪卷",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，模特风连衣裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "时崎狂三",
    "en": "tokisaki_kurumi",
    "cat": "角色",
    "sub": "约会大作战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，左右不对称双马尾",
+    "eyes": "左眼红色右眼金色异色瞳",
+    "outfit": "黑红相间的哥特灵装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "夜刀神十香",
    "en": "yatogami_tohka",
    "cat": "角色",
    "sub": "约会大作战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色超长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫白色灵装洋装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "五河琴里",
    "en": "itsuka_kotori",
    "cat": "角色",
    "sub": "约会大作战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发，黑色发带双马尾",
+    "eyes": "红色眼睛",
+    "outfit": "白色洋装，红色蝴蝶结",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "四糸乃",
    "en": "yoshino",
    "cat": "角色",
    "sub": "约会大作战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色斗篷，兔子玩偶",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "雷姆",
@@ -280,7 +511,14 @@
    "en": "ram_(re:zero)",
    "cat": "角色",
    "sub": "Re:零",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发",
+    "eyes": "粉色眼睛",
+    "outfit": "黑白女仆装，女仆头饰",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "艾米莉娅",
@@ -301,203 +539,406 @@
    "en": "beatrice_(re:zero)",
    "cat": "角色",
    "sub": "Re:零",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，螺旋卷双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "粉色洋装，蝴蝶发饰",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "亚丝娜",
    "en": "asuna_(sao)",
    "cat": "角色",
    "sub": "刀剑神域",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "栗橙色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "血盟骑士团白红骑士装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "莉法",
    "en": "leafa",
    "cat": "角色",
    "sub": "刀剑神域",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡金色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "绿白色精灵装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "诗乃",
    "en": "sinon",
    "cat": "角色",
    "sub": "刀剑神域",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅蓝色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝色射手装，狙击枪",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "结衣",
    "en": "yui_(sao)",
    "cat": "角色",
    "sub": "刀剑神域",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "深棕色眼睛",
+    "outfit": "白色洋装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "御坂美琴",
    "en": "misaka_mikoto",
    "cat": "角色",
    "sub": "超电磁炮",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "栗棕色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "常盘台校服，白衬衫配灰色背心裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "白井黑子",
    "en": "shirai_kuroko",
    "cat": "角色",
    "sub": "超电磁炮",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "茶色双马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "常盘台校服，风纪委员臂章",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "初春饰利",
    "en": "uiharu_kazari",
    "cat": "角色",
    "sub": "超电磁炮",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发，花饰发箍",
+    "eyes": "黑色眼睛",
+    "outfit": "常盘台校服，风纪委员臂章",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "佐天泪子",
    "en": "saten_ruiko",
    "cat": "角色",
    "sub": "超电磁炮",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，白色发箍",
+    "eyes": "蓝色眼睛",
+    "outfit": "栅川中学水手服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "食蜂操祈",
    "en": "shokuhou_misaki",
    "cat": "角色",
    "sub": "超电磁炮",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，波浪卷",
+    "eyes": "金色眼睛",
+    "outfit": "常盘台校服，白色手套",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "四宫辉夜",
    "en": "shinomiya_kaguya",
    "cat": "角色",
    "sub": "辉夜大小姐",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，红色发带",
+    "eyes": "红色眼睛",
+    "outfit": "秀知院黑西装校服配红裙",
+    "body": "纤细",
+    "chest": "标准"
+   }
   },
   {
    "zh": "藤原千花",
    "en": "fujiwara_chika",
    "cat": "角色",
    "sub": "辉夜大小姐",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉金色长发，蝴蝶结发带",
+    "eyes": "蓝色眼睛",
+    "outfit": "秀知院黑西装校服配红裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "伊井野弥子",
    "en": "iino_miko",
    "cat": "角色",
    "sub": "辉夜大小姐",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深棕色双马尾，丝带装饰",
+    "eyes": "棕色眼睛",
+    "outfit": "秀知院黑西装校服配红裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "白银圭",
    "en": "shirogane_kei",
    "cat": "角色",
    "sub": "辉夜大小姐",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "秀知院黑西装校服配红裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "雪之下雪乃",
    "en": "yukinoshita_yukino",
    "cat": "角色",
    "sub": "我的青春恋爱物语",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "蓝色眼睛",
+    "outfit": "总武高黑色西装校服配红格裙",
+    "body": "纤细",
+    "chest": "标准"
+   }
   },
   {
    "zh": "由比滨结衣",
    "en": "yuigahama_yui",
    "cat": "角色",
    "sub": "我的青春恋爱物语",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙粉色中长发，侧马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "总武高黑色西装校服配红格裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "一色彩羽",
    "en": "isshiki_iroha",
    "cat": "角色",
    "sub": "我的青春恋爱物语",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅棕色长发，一侧编发",
+    "eyes": "棕色眼睛",
+    "outfit": "总武高黑色西装校服配红格裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野三玖",
    "en": "nakano_miku",
    "cat": "角色",
    "sub": "五等分的新娘",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，中分配耳机",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，蓝色针织衫配耳机",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野一花",
    "en": "nakano_ichika",
    "cat": "角色",
    "sub": "五等分的新娘",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野二乃",
    "en": "nakano_nino",
    "cat": "角色",
    "sub": "五等分的新娘",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "偏粉红色长发，双蝴蝶结",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野四叶",
    "en": "nakano_yotsuba",
    "cat": "角色",
    "sub": "五等分的新娘",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色短发，绿色丝带",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野五月",
    "en": "nakano_itsuki",
    "cat": "角色",
    "sub": "五等分的新娘",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色长发，星星发夹",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "和泉纱雾",
    "en": "izumi_sagiri",
    "cat": "角色",
    "sub": "埃罗芒阿老师",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色连衣裙，粉色开衫",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "康娜·卡姆依",
    "en": "kanna_kamui",
    "cat": "角色",
    "sub": "小林家的龙女仆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，头生双角",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色连衣裙，黑色发饰",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "托尔",
    "en": "tohru_(maidragon)",
    "cat": "角色",
    "sub": "小林家的龙女仆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，头生双角",
+    "eyes": "红色眼睛",
+    "outfit": "黑白女仆装，龙角",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "露科亚",
    "en": "lucoa",
    "cat": "角色",
    "sub": "小林家的龙女仆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅绿色长卷发",
+    "eyes": "金色眼睛",
+    "outfit": "白绿色露肩装，宽檐帽",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "伊莉雅斯菲尔·冯·爱因兹贝伦",
    "en": "illyasviel_von_einzbern",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "紫色洋装，白色披肩",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "远坂凛",
    "en": "tohsaka_rin",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，红色发带双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "红色上衣，黑色短裙配黑色长袜",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "间桐樱",
    "en": "matou_sakura",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅紫色长发，蝴蝶结发饰",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色洋装，白色围裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿尔托莉雅·潘德拉贡",
@@ -518,14 +959,28 @@
    "en": "mash_kyrielight",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡粉紫色短发，遮住一只眼",
+    "eyes": "紫色眼睛",
+    "outfit": "白黑色紧身战斗服，盾牌",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "贞德",
    "en": "jeanne_d'arc_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，编辫",
+    "eyes": "蓝色眼睛",
+    "outfit": "银色铠甲，白蓝色礼服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "斯卡哈",
@@ -588,315 +1043,630 @@
    "en": "tifa_lockhart",
    "cat": "角色",
    "sub": "最终幻想7",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深棕色长发，马尾",
+    "eyes": "红色眼睛",
+    "outfit": "白色背心，黑色短裙配格斗手套",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "爱丽丝·盖恩斯巴勒",
    "en": "aerith_gainsborough",
    "cat": "角色",
    "sub": "最终幻想7",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "栗棕色长发，编发粉红发带",
+    "eyes": "绿色眼睛",
+    "outfit": "粉色连衣裙，红色短外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "明日香·兰格雷",
    "en": "souryuu_asuka_langley",
    "cat": "角色",
    "sub": "EVA",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "红色战斗驾驶服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "绫波丽",
    "en": "ayanami_rei",
    "cat": "角色",
    "sub": "EVA",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡蓝色短发",
+    "eyes": "红色眼睛",
+    "outfit": "白色战斗服，校服",
+    "body": "纤细",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "葛城美里",
    "en": "katsuragi_misato",
    "cat": "角色",
    "sub": "EVA",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "红色外套，黑色连衣裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "鹿目圆",
    "en": "kaname_madoka",
    "cat": "角色",
    "sub": "魔法少女小圆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发，短双马尾",
+    "eyes": "粉色眼睛",
+    "outfit": "粉色魔法少女装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "晓美焰",
    "en": "akemi_homura",
    "cat": "角色",
    "sub": "魔法少女小圆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑紫色魔法少女装",
+    "body": "纤细",
+    "chest": "标准"
+   }
   },
   {
    "zh": "美树沙耶香",
    "en": "miki_sayaka",
    "cat": "角色",
    "sub": "魔法少女小圆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝色骑士风魔法少女装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "巴麻美",
    "en": "tomoe_mami",
    "cat": "角色",
    "sub": "魔法少女小圆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发，螺旋卷",
+    "eyes": "黄色眼睛",
+    "outfit": "黄棕色魔法少女装，帽子",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "佐仓杏子",
    "en": "sakura_kyouko",
    "cat": "角色",
    "sub": "魔法少女小圆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发，马尾",
+    "eyes": "红色眼睛",
+    "outfit": "红色魔法少女装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "加藤惠",
    "en": "kato_megumi",
    "cat": "角色",
    "sub": "路人女主",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发，波波头",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白色发箍",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "泽村英梨梨",
    "en": "sawamura_spencer_eriri",
    "cat": "角色",
    "sub": "路人女主",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "霞之丘诗羽",
    "en": "kasumigaoka_utaha",
    "cat": "角色",
    "sub": "路人女主",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，黑色长袜",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "高木同学",
    "en": "takagi_(karakai_jouzu)",
    "cat": "角色",
    "sub": "擅长捉弄的高木同学",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，齐刘海",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "小鸟游六花",
    "en": "takanashi_rikka",
    "cat": "角色",
    "sub": "中二病也要谈恋爱",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，黑色眼罩",
+    "eyes": "蓝绿色眼睛",
+    "outfit": "校服，黑色眼罩",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "千反田爱瑠",
    "en": "chitanda_eru",
    "cat": "角色",
    "sub": "冰菓",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "紫色眼睛",
+    "outfit": "神山高校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "平泽唯",
    "en": "hirasawa_yui",
    "cat": "角色",
    "sub": "轻音少女",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发，波波头",
+    "eyes": "棕色眼睛",
+    "outfit": "樱丘高中校服，吉他",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "秋山澪",
    "en": "akiyama_mio",
    "cat": "角色",
    "sub": "轻音少女",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "灰色眼睛",
+    "outfit": "樱丘高中校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "中野梓",
    "en": "nakano_azusa",
    "cat": "角色",
    "sub": "轻音少女",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，双马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "樱丘高中校服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "凉宫春日",
    "en": "suzumiya_haruhi",
    "cat": "角色",
    "sub": "凉宫春日",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，黄色发带",
+    "eyes": "棕色眼睛",
+    "outfit": "北高校服，黄色发带",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "长门有希",
    "en": "nagato_yuki",
    "cat": "角色",
    "sub": "凉宫春日",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "淡紫色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "北高校服",
+    "body": "纤细",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "朝比奈实玖瑠",
    "en": "asahina_mikuru",
    "cat": "角色",
    "sub": "凉宫春日",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，侧马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "北高校服，女仆装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "泉此方",
    "en": "izumi_konata",
    "cat": "角色",
    "sub": "幸运星",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅蓝色长发，呆毛",
+    "eyes": "绿色眼睛",
+    "outfit": "陵樱学园校服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "柊镜",
    "en": "hiiragi_kagami",
    "cat": "角色",
    "sub": "幸运星",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "陵樱学园校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "柊司",
    "en": "hiiragi_tsukasa",
    "cat": "角色",
    "sub": "幸运星",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅紫色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "陵樱学园校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "战场原黑仪",
    "en": "senjougahara_hitagi",
    "cat": "角色",
    "sub": "物语系列",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发，紫色发带",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，紫色发带",
+    "body": "纤细",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "八九寺真宵",
    "en": "hachikuji_mayoi",
    "cat": "角色",
    "sub": "物语系列",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发，小双马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，大背包",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "忍野忍",
    "en": "oshino_shinobu",
    "cat": "角色",
    "sub": "物语系列",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "金色眼睛",
+    "outfit": "金色洋装，帽子",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "千石抚子",
    "en": "sengoku_nadeko",
    "cat": "角色",
    "sub": "物语系列",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发，白色帽子",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白色帽子",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "羽川翼",
    "en": "hanekawa_tsubasa",
    "cat": "角色",
    "sub": "物语系列",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，双麻花辫",
+    "eyes": "紫色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "夏娜",
    "en": "shana",
    "cat": "角色",
    "sub": "灼眼的夏娜",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发，火焰般的直发",
+    "eyes": "红色眼睛",
+    "outfit": "黑色外套，红黑色战斗装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "露易丝·瓦利埃尔",
    "en": "louise_francoise",
    "cat": "角色",
    "sub": "零之使魔",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "桃粉色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "魔法学院制服，白衬衫配斗篷",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "三千院凪",
    "en": "sanzenin_nagi",
    "cat": "角色",
    "sub": "旋风管家",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "粉色洋装，校服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "桂雏菊",
    "en": "katsura_hinagiku",
    "cat": "角色",
    "sub": "旋风管家",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，木刀",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "雾岛董香",
    "en": "kirishima_touka",
    "cat": "角色",
    "sub": "东京喰种",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色短发，及肩",
+    "eyes": "紫色眼睛",
+    "outfit": "咖啡店制服，校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "黑雪姬",
    "en": "kuroyukihime",
    "cat": "角色",
    "sub": "加速世界",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝黑色战斗装，校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "三笠·阿克曼",
    "en": "mikasa_ackerman",
    "cat": "角色",
    "sub": "进击的巨人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "黑色眼睛",
+    "outfit": "调查兵团制服，绿色披风",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "阿尼·利昂纳德",
    "en": "annie_leonhart",
    "cat": "角色",
    "sub": "进击的巨人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，盘发",
+    "eyes": "蓝色眼睛",
+    "outfit": "调查兵团制服，绿色披风",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "萨莎·布劳斯",
    "en": "sasha_blouse",
    "cat": "角色",
    "sub": "进击的巨人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红棕色长发，马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "调查兵团制服，绿色披风",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "克里斯塔·连兹",
    "en": "christa_lenz",
    "cat": "角色",
    "sub": "进击的巨人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "调查兵团制服，绿色披风",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "娜美",
    "en": "nami_(one_piece)",
    "cat": "角色",
    "sub": "海贼王",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色长卷发",
+    "eyes": "棕色眼睛",
+    "outfit": "橙色比基尼上衣配牛仔裤",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "妮可·罗宾",
    "en": "nico_robin",
    "cat": "角色",
    "sub": "海贼王",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "深色连衣裙，短外套",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "波雅·汉库克",
    "en": "boa_hancock",
    "cat": "角色",
    "sub": "海贼王",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "红色旗袍式连衣裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "佩罗娜",
    "en": "perona",
    "cat": "角色",
    "sub": "海贼王",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，双马尾",
+    "eyes": "红色眼睛",
+    "outfit": "黑色哥特洋装，白色幽灵",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "春野樱",
    "en": "haruno_sakura",
    "cat": "角色",
    "sub": "火影忍者",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "红色忍者装，忍者护额",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "纲手",
@@ -917,147 +1687,294 @@
    "en": "hyuuga_hinata",
    "cat": "角色",
    "sub": "火影忍者",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深蓝紫色长发",
+    "eyes": "白色眼睛，白眼",
+    "outfit": "紫色外套，忍者装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "照美冥",
    "en": "mei_terumi",
    "cat": "角色",
    "sub": "火影忍者",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红棕色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "蓝白色水影装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "井上织姬",
    "en": "inoue_orihime",
    "cat": "角色",
    "sub": "死神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，黑色死神装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "朽木露琪亚",
    "en": "kuchiki_rukia",
    "cat": "角色",
    "sub": "死神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑色死神和服，白色羽织",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "四枫院夜一",
    "en": "shihouin_yoruichi",
    "cat": "角色",
    "sub": "死神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色长发，高马尾",
+    "eyes": "金色眼睛",
+    "outfit": "黑色紧身衣，橙色外套",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "妮莉艾露·杜·欧德修凡克",
    "en": "nel_tu",
    "cat": "角色",
    "sub": "死神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝绿色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白色破面装，头骨发饰",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "艾露莎·舒卡勒托",
    "en": "erza_scarlet",
    "cat": "角色",
    "sub": "妖精的尾巴",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绯红色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "银色换装铠甲，白色衬衫",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "露西·哈特菲利亚",
    "en": "lucy_heartfilia",
    "cat": "角色",
    "sub": "妖精的尾巴",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "白色蓝色短裙，皮鞭",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "温蒂·玛贝尔",
    "en": "wendy_marvell",
    "cat": "角色",
    "sub": "妖精的尾巴",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深蓝色长发，双马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "蓝白色连衣裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "白星",
    "en": "shirahoshi",
    "cat": "角色",
    "sub": "海贼王",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白粉色人鱼装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "月野兔",
    "en": "tsukino_usagi",
    "cat": "角色",
    "sub": "美少女战士",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，双丸子双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "水手服，月亮胸针",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "木之本樱",
    "en": "kinomoto_sakura",
    "cat": "角色",
    "sub": "魔卡少女樱",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "友枝小学校服，战斗服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "大道寺知世",
    "en": "daidouji_tomoyo",
    "cat": "角色",
    "sub": "魔卡少女樱",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "友枝小学校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "神乐",
    "en": "kagura_(gintama)",
    "cat": "角色",
    "sub": "银魂",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "橙红色旗袍，白色裤子",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "月咏",
    "en": "tsukuyo",
    "cat": "角色",
    "sub": "银魂",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色和服，烟管",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "灰原哀",
    "en": "haibara_ai",
    "cat": "角色",
    "sub": "名侦探柯南",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕红色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "校服，白大褂",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "毛利兰",
    "en": "moori_ran",
    "cat": "角色",
    "sub": "名侦探柯南",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，长直发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，空手道服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "贝尔摩德",
    "en": "vermouth",
    "cat": "角色",
    "sub": "名侦探柯南",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "黑色紧身衣，风衣",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "C.C.",
    "en": "c.c.",
    "cat": "角色",
    "sub": "叛逆的鲁路修",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅绿色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白色拘束服，黑色骑士装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "尤菲米娅·Li·布里塔尼亚",
    "en": "euphemia_li_britannia",
    "cat": "角色",
    "sub": "叛逆的鲁路修",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "白粉色公主裙，校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "夏莉·菲内特",
    "en": "shirley_fenette",
    "cat": "角色",
    "sub": "叛逆的鲁路修",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色波浪短发",
+    "eyes": "绿色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "赫萝",
@@ -1066,11 +1983,11 @@
    "sub": "狼与香辛料",
    "nsfw": false,
    "app": {
-    "hair": "",
-    "eyes": "蓝色眼睛",
-    "outfit": "",
-    "body": "",
-    "chest": ""
+    "hair": "棕色长发，狼耳狼尾",
+    "eyes": "红色眼睛",
+    "outfit": "白棕色长袍，狼耳狼尾",
+    "body": "标准",
+    "chest": "巨乳"
    }
   },
   {
@@ -1078,112 +1995,224 @@
    "en": "mizuhara_chizuru",
    "cat": "角色",
    "sub": "租借女友",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "棕色眼睛",
+    "outfit": "白色连衣裙，校服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "七海麻美",
    "en": "nanami_mami",
    "cat": "角色",
    "sub": "租借女友",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "宇崎花",
    "en": "uzaki_hana",
    "cat": "角色",
    "sub": "宇崎学妹想要玩",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色长发，侧边小马尾",
+    "eyes": "琥珀色眼睛",
+    "outfit": "校服，运动外套",
+    "body": "娇小",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "长瀞同学",
    "en": "nagatoro_hayase",
    "cat": "角色",
    "sub": "长瀞同学",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，黑色马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，运动外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "喜多川海梦",
    "en": "kitagawa_marin",
    "cat": "角色",
    "sub": "更衣人偶",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，粉色渐变发梢",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，各种cosplay服装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "黑川茜",
    "en": "kurokawa_akane",
    "cat": "角色",
    "sub": "更衣人偶",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长直发",
+    "eyes": "深棕色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "芙莉莲",
    "en": "frieren",
    "cat": "角色",
    "sub": "芙莉莲",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发，双马尾",
+    "eyes": "绿色眼睛",
+    "outfit": "白色金色魔法使长袍",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "菲伦",
    "en": "fern_(sousou_no_frieren)",
    "cat": "角色",
    "sub": "芙莉莲",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅紫色长发，双马尾",
+    "eyes": "紫色眼睛",
+    "outfit": "白黑色魔法使装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "阿乌拉",
    "en": "aura_(sousou_no_frieren)",
    "cat": "角色",
    "sub": "芙莉莲",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，双马尾，头生双角",
+    "eyes": "金色眼睛",
+    "outfit": "黑紫色魔族装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "钉崎野蔷薇",
    "en": "kugisaki_nobara",
    "cat": "角色",
    "sub": "咒术回战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙棕色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "咒术高专校服，锤子与钉子",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "禅院真希",
    "en": "zen'in_maki",
    "cat": "角色",
    "sub": "咒术回战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深绿色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "咒术高专校服，眼镜",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "家入硝子",
    "en": "ieiri_shouko",
    "cat": "角色",
    "sub": "咒术回战",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长卷发",
+    "eyes": "棕色眼睛",
+    "outfit": "白色大褂，香烟",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "灶门祢豆子",
    "en": "kamado_nezuko",
    "cat": "角色",
    "sub": "鬼灭之刃",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，橙色发梢",
+    "eyes": "粉色眼睛",
+    "outfit": "粉色和服，绿色腰带",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "蝴蝶忍",
    "en": "kochou_shinobu",
    "cat": "角色",
    "sub": "鬼灭之刃",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，紫色发梢",
+    "eyes": "紫色眼睛",
+    "outfit": "蝴蝶纹羽织，鬼杀队制服",
+    "body": "纤细",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "甘露寺蜜璃",
    "en": "kanroji_mitsuri",
    "cat": "角色",
    "sub": "鬼灭之刃",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉绿色渐变长发，麻花辫",
+    "eyes": "绿色眼睛",
+    "outfit": "鬼杀队制服，白色羽织",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "栗花落香奈乎",
    "en": "tsuyuri_kanao",
    "cat": "角色",
    "sub": "鬼灭之刃",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，蝴蝶发饰",
+    "eyes": "紫色眼睛",
+    "outfit": "鬼杀队制服，羽织",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "玛奇玛",
@@ -1192,11 +2221,11 @@
    "sub": "电锯人",
    "nsfw": false,
    "app": {
-    "hair": "",
-    "eyes": "红色瞳孔",
-    "outfit": "黑色长袍",
-    "body": "",
-    "chest": ""
+    "hair": "橙红色长发，麻花辫",
+    "eyes": "红色眼睛，瞳孔呈圈状",
+    "outfit": "白色衬衫，黑色领带配黑色长裤",
+    "body": "高挑",
+    "chest": "巨乳"
    }
   },
   {
@@ -1204,91 +2233,182 @@
    "en": "power_(chainsaw_man)",
    "cat": "角色",
    "sub": "电锯人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，凌乱，头生双角",
+    "eyes": "红色眼睛",
+    "outfit": "白色衬衫，红色领带配牛仔裤",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "蕾塞",
    "en": "reze",
    "cat": "角色",
    "sub": "电锯人",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "白色衬衫，黑色短裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "约尔·福杰",
    "en": "yor_forger",
    "cat": "角色",
    "sub": "间谍过家家",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，发髻",
+    "eyes": "红色眼睛",
+    "outfit": "黑色刺客服，白色连衣裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿尼亚·福杰",
    "en": "anya_forger",
    "cat": "角色",
    "sub": "间谍过家家",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发，头饰小角",
+    "eyes": "绿色眼睛",
+    "outfit": "黑色连衣裙，校服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "后藤一里",
    "en": "gotoh_hitori",
    "cat": "角色",
    "sub": "孤独摇滚",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，侧马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "粉色运动服",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "伊地知虹夏",
    "en": "ijichi_nijika",
    "cat": "角色",
    "sub": "孤独摇滚",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发，侧马尾",
+    "eyes": "红色眼睛",
+    "outfit": "校服，粉色开衫",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "山田凉",
    "en": "yamada_ryo",
    "cat": "角色",
    "sub": "孤独摇滚",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色短发",
+    "eyes": "黄色眼睛",
+    "outfit": "校服，连帽衫",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "喜多郁代",
    "en": "kita_ikuyo",
    "cat": "角色",
    "sub": "孤独摇滚",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，红色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "锦木千束",
    "en": "chisato_nishikigi",
    "cat": "角色",
    "sub": "Lycoris Recoil",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，白色渐变",
+    "eyes": "红色眼睛",
+    "outfit": "红色白色莉可丽丝制服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "井之上泷奈",
    "en": "takina_inoue",
    "cat": "角色",
    "sub": "Lycoris Recoil",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，马尾",
+    "eyes": "紫色眼睛",
+    "outfit": "蓝白色莉可丽丝制服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "星野爱",
    "en": "hoshino_ai",
    "cat": "角色",
    "sub": "我推的孩子",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发，星星瞳孔",
+    "eyes": "紫色眼睛，星星高光",
+    "outfit": "白色偶像服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "星野露比",
    "en": "hoshino_ruby",
    "cat": "角色",
    "sub": "我推的孩子",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，星星瞳孔",
+    "eyes": "蓝色眼睛，星星高光",
+    "outfit": "白色偶像服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "有马加奈",
    "en": "arima_kana",
    "cat": "角色",
    "sub": "我推的孩子",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，偶像服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "伊蕾娜",
@@ -1297,11 +2417,11 @@
    "sub": "魔女之旅",
    "nsfw": false,
    "app": {
-    "hair": "",
-    "eyes": "",
-    "outfit": "巫女服",
-    "body": "",
-    "chest": ""
+    "hair": "灰白色长发",
+    "eyes": "紫灰色眼睛",
+    "outfit": "黑白魔女袍，三角帽配胸针",
+    "body": "标准",
+    "chest": "标准"
    }
   },
   {
@@ -1309,119 +2429,238 @@
    "en": "roxy_migurdia",
    "cat": "角色",
    "sub": "无职转生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝色魔女帽与长袍",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "艾莉丝·伯雷亚斯·格雷拉特",
    "en": "eris_boreas_greyrat",
    "cat": "角色",
    "sub": "无职转生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "冒险者装，长剑",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "希露菲叶特",
    "en": "sylphiette",
    "cat": "角色",
    "sub": "无职转生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "白绿色长袍",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "利姆鲁·特恩佩斯特",
    "en": "rimuru_tempest",
    "cat": "角色",
    "sub": "转生史莱姆",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银蓝色长发",
+    "eyes": "金色眼睛",
+    "outfit": "蓝黑色外套，围巾",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "雅儿贝德",
    "en": "albedo_(overlord)",
    "cat": "角色",
    "sub": "OVERLORD",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，头生双角",
+    "eyes": "金色眼睛",
+    "outfit": "白黑色哥特洋装，黑色翅膀",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "夏提雅·布拉德弗伦",
    "en": "shalltear_bloodfallen",
    "cat": "角色",
    "sub": "OVERLORD",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发，双马尾",
+    "eyes": "红色眼睛",
+    "outfit": "黑粉色哥特洋装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "拉芙塔莉雅",
    "en": "raphtalia",
    "cat": "角色",
    "sub": "盾之勇者",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "褐色长发，浣熊耳与尾巴",
+    "eyes": "红色眼睛",
+    "outfit": "白棕色冒险装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "零二",
    "en": "zero_two_(darling_in_the_franxx)",
    "cat": "角色",
    "sub": "Darling in the Franxx",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，头生双角",
+    "eyes": "青绿色眼睛",
+    "outfit": "白红色驾驶服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "莓",
    "en": "ichigo_(darling_in_the_franxx)",
    "cat": "角色",
    "sub": "Darling in the Franxx",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅蓝色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色驾驶服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "宝多六花",
    "en": "takarada_rikka",
    "cat": "角色",
    "sub": "SSSS.GRIDMAN",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "新条茜",
    "en": "shinjou_akane",
    "cat": "角色",
    "sub": "SSSS.GRIDMAN",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "莉可",
    "en": "riko_(made_in_abyss)",
    "cat": "角色",
    "sub": "来自深渊",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "褐色长发，双马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "白黄色探险服，头盔",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "娜娜奇",
    "en": "nanachi",
    "cat": "角色",
    "sub": "来自深渊",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "米白色绒毛长发，兔耳",
+    "eyes": "金色眼睛",
+    "outfit": "白色围巾与斗篷",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "薮猫",
    "en": "serval_(kemono_friends)",
    "cat": "角色",
    "sub": "兽娘动物园",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黄色长发，兽耳",
+    "eyes": "绿色眼睛",
+    "outfit": "白黄色连衣裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "尤菲·如月",
    "en": "yuffie_kisaragi",
    "cat": "角色",
    "sub": "最终幻想7",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "绿白色忍者装，头巾",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "雷霆",
    "en": "lightning_(ff13)",
    "cat": "角色",
    "sub": "最终幻想13",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉红色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白银色铠甲，披风",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "阿米娅",
    "en": "amiya_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，兔耳",
+    "eyes": "蓝色眼睛",
+    "outfit": "罗德岛制服，黑色外套",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "凯尔希",
@@ -1442,7 +2681,14 @@
    "en": "texas_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，狼耳",
+    "eyes": "红色眼睛",
+    "outfit": "黑色橙色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "能天使",
@@ -1463,119 +2709,238 @@
    "en": "skadi_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑白潜水战斗服，长剑",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "史尔特尔",
    "en": "surtr_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色外套，长剑",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "陈",
    "en": "chen_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "黑蓝色制服，长剑",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "银灰",
    "en": "silverash",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白灰色长外套",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "歌蕾蒂娅",
    "en": "gladiia",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色制服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "泥岩",
    "en": "mudrock",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰白色长发",
+    "eyes": "橙色眼睛",
+    "outfit": "黑色重甲，白色礼服",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "令",
    "en": "ling_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "青绿色长发",
+    "eyes": "金色眼睛",
+    "outfit": "青绿色和风长袍",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "号角",
    "en": "horn_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "金色眼睛",
+    "outfit": "深蓝色军装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "夜莺",
    "en": "nightingale_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色护士装与长袍",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "闪灵",
    "en": "shining_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白黑色医疗制服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "星熊",
    "en": "hoshiguma",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色短发",
+    "eyes": "绿色眼睛",
+    "outfit": "黑绿色警备制服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "推进之王",
    "en": "siege_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色中长发",
+    "eyes": "金色眼睛",
+    "outfit": "深蓝色军装，红色披风",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "安洁莉娜",
    "en": "angelina_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕黑色长发，狐耳",
+    "eyes": "红色眼睛",
+    "outfit": "黑白制服",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "黑",
    "en": "schwarz_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑灰色外套",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "白金",
    "en": "platinum_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "白银色制服，弓箭",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "蓝毒",
    "en": "blue_poison_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "金色眼睛",
+    "outfit": "黑蓝色制服，弩箭",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "空",
    "en": "sora_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色短发",
+    "eyes": "红色眼睛",
+    "outfit": "白红色偶像装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "初雪",
@@ -1596,14 +2961,28 @@
    "en": "cliffheart",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色攀登装，钩爪",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "拉普兰德",
    "en": "lappland",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "莫斯提马",
@@ -1612,11 +2991,11 @@
    "sub": "明日方舟",
    "nsfw": false,
    "app": {
-    "hair": "",
+    "hair": "蓝黑色长发",
     "eyes": "蓝色眼睛",
-    "outfit": "",
-    "body": "",
-    "chest": ""
+    "outfit": "黑蓝色长袍",
+    "body": "高挑",
+    "chest": "巨乳"
    }
   },
   {
@@ -1624,126 +3003,252 @@
    "en": "eunectes",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "白绿色工装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "温蒂",
    "en": "weedy",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色实验服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "早露",
    "en": "rosa_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色长袍，弩",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "瑕光",
    "en": "blemishine",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "银蓝色骑士铠甲",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "迷迭香",
    "en": "rosmontis",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "灰白色眼睛",
+    "outfit": "白黑色大褂",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "棘刺",
    "en": "thorns_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白黑色学者长袍",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "山",
    "en": "mountain_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发，白虎兽人",
+    "eyes": "金色眼睛",
+    "outfit": "白灰色西装",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "焰尾",
    "en": "flametail",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红色骑士装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "耀骑士临光",
    "en": "nearl_the_radiant_knight",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "银色骑士铠甲，白色披风",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "归溟幽灵鲨",
    "en": "specter_the_unchained",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白黑色修女装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "百炼嘉维尔",
    "en": "gavial_the_invincible",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发，鳄鱼尾",
+    "eyes": "绿色眼睛",
+    "outfit": "绿黑色战斗装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "浊心斯卡蒂",
    "en": "skadi_the_corrupting_heart",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，红色发梢",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色深渊装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "菲亚梅塔",
    "en": "fiammetta",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色制服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "多萝西",
    "en": "dorothy_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白金色长袍",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "鸿雪",
    "en": "pozemka",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色猎装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "缄默德克萨斯",
    "en": "texas_the_omertosa",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，狼耳",
+    "eyes": "红色眼睛",
+    "outfit": "黑色西装",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "白面鸮",
    "en": "ptilopsis",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "红色眼睛",
+    "outfit": "白蓝色实验服，耳机",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "赫默",
    "en": "silence_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白色实验服，眼镜",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "麦哲伦",
@@ -1752,11 +3257,11 @@
    "sub": "明日方舟",
    "nsfw": false,
    "app": {
-    "hair": "",
+    "hair": "白色长发",
     "eyes": "蓝色眼睛",
-    "outfit": "",
-    "body": "",
-    "chest": ""
+    "outfit": "白蓝色探险装，企鹅伙伴",
+    "body": "标准",
+    "chest": "标准"
    }
   },
   {
@@ -1778,378 +3283,756 @@
    "en": "eyjafjalla",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长卷发",
+    "eyes": "棕色眼睛",
+    "outfit": "白棕色学者装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "伊芙利特",
    "en": "ifrit_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "红色眼睛",
+    "outfit": "白黑色病服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "天火",
    "en": "skyfire_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红白色学者装，帽子",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "砾",
    "en": "gravel_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "银色骑士铠甲",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "流星",
    "en": "meteor_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "棕绿色猎装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "杰西卡",
    "en": "jessica_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发，猫耳",
+    "eyes": "蓝色眼睛",
+    "outfit": "黑蓝色警备制服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "蛇屠箱",
    "en": "cuora",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色短发，龟壳盾",
+    "eyes": "红色眼睛",
+    "outfit": "红灰色重甲",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "古米",
    "en": "gummy_(arknights)",
    "cat": "角色",
    "sub": "明日方舟",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕金色长发，熊耳",
+    "eyes": "棕色眼睛",
+    "outfit": "棕白色厨师装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "姬子",
    "en": "himeko_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙红色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白红色外套",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "三月七",
    "en": "march_7th",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白粉色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "希儿",
    "en": "seele_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫黑色战斗装，镰刀",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "布洛妮娅",
    "en": "bronya_rand",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白灰色军装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "卡芙卡",
    "en": "kafka_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑红色风衣",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "银狼",
    "en": "silver_wolf",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰色长发，低马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "灰白色连帽衫",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "镜流",
    "en": "jingliu",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白蓝色长袍，长剑",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "花火",
    "en": "sparkle_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发，双马尾",
+    "eyes": "红色眼睛",
+    "outfit": "红白色和风洋装，面具",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "黄泉",
    "en": "acheron_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑紫色和风装，长刀",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "流萤",
    "en": "firefly_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "青色眼睛",
+    "outfit": "白青色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "佩拉",
    "en": "pela_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发，帽子",
+    "eyes": "紫色眼睛",
+    "outfit": "白紫色制服，眼镜",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "停云",
    "en": "tingyun",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，狐耳",
+    "eyes": "金色眼睛",
+    "outfit": "白红色和风装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "符玄",
    "en": "fu_xuan",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉白色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "白紫色和风装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "黑天鹅",
    "en": "black_swan_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫黑色长袍",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "克拉拉",
    "en": "clara_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白红色外套",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "白露",
    "en": "bailu_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，龙角",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色医疗装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "娜塔莎",
    "en": "natasha_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "白灰色医疗外套",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "希露瓦",
    "en": "serval_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色工装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "虎克",
    "en": "hook_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红棕色外套，帽子",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "素裳",
    "en": "sushang",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色剑士装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "青雀",
    "en": "qingque",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "青绿色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "青绿色和风装，麻将牌",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "桂乃芬",
    "en": "guinaifen",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红黑色和风装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "玲可",
    "en": "lynx_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色探险装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "寒鸦",
    "en": "hanya_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑紫色和风装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "雪衣",
    "en": "xueyi",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑白武斗装",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "阮·梅",
    "en": "ruan_mei",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰白色长发",
+    "eyes": "金色眼睛",
+    "outfit": "灰白色和风装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "托帕",
    "en": "topaz_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白橙色西装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "藿藿",
    "en": "huohuo",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，狐耳",
+    "eyes": "绿色眼睛",
+    "outfit": "白青色和风装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "知更鸟",
    "en": "robin_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白金色歌手装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "米沙",
    "en": "misha_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色短发",
+    "eyes": "橙色眼睛",
+    "outfit": "白棕色制服",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "艾丝妲",
    "en": "asta_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "橙色眼睛",
+    "outfit": "白红色制服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "黑塔",
    "en": "herta",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "白黑色洋装，人偶伙伴",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "翡翠",
    "en": "jade_(honkai:_star_rail)",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫黑色洋装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "云璃",
    "en": "yunli",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白金色武斗装，巨剑",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "飞霄",
    "en": "feixiao",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，狐耳",
+    "eyes": "金色眼睛",
+    "outfit": "白青色战装",
+    "body": "高挑",
+    "chest": "标准"
+   }
   },
   {
    "zh": "灵砂",
    "en": "lingsha",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "青绿色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "绿白色和风装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "乱破",
    "en": "rappa",
    "cat": "角色",
    "sub": "崩坏星穹铁道",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫黑色忍者装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "琪亚娜·卡斯兰娜",
    "en": "kiana_kaslana",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "雷电芽衣",
    "en": "raiden_mei",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "白紫色战斗服，太刀",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "八重樱",
    "en": "yae_sakura",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，狐耳",
+    "eyes": "粉色眼睛",
+    "outfit": "粉白色和风装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "德丽莎·阿波卡利斯",
    "en": "theresa_apocalypse",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白红色修女装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "符华",
    "en": "fu_hua",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "灰白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白黑色武斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "丽塔·洛丝薇瑟",
    "en": "rita_rossweisse",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "深紫黑色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑白女仆装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "幽兰黛尔",
    "en": "durandal_(honkai_impact)",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色骑士装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "爱莉希雅",
    "en": "elysia_(honkai_impact)",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "粉色眼睛",
+    "outfit": "白粉色礼服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "希儿·芙乐艾",
    "en": "seele_vollerei",
    "cat": "角色",
    "sub": "崩坏3",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝黑色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝黑色战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "霞",
@@ -2158,11 +4041,11 @@
    "sub": "死或生",
    "nsfw": false,
    "app": {
-    "hair": "",
-    "eyes": "蓝色眼睛",
-    "outfit": "",
-    "body": "",
-    "chest": ""
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "蓝白色忍者装",
+    "body": "标准",
+    "chest": "标准"
    }
   },
   {
@@ -2170,133 +4053,266 @@
    "en": "ayane_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色忍者装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "玛丽·罗斯",
    "en": "marie_rose",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白黑色哥特洋装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "穗乃果",
    "en": "honoka_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色长发",
+    "eyes": "橙色眼睛",
+    "outfit": "白橙色服装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "心",
    "en": "kokoro_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "白粉色和服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "蒂娜·阿姆斯特朗",
    "en": "tina_armstrong",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色紧身衣",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "雷芳",
    "en": "lei_fang",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "红金色中式旗袍",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "瞳",
    "en": "hitomi_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "白蓝色道服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "克里斯蒂",
    "en": "christie_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白黑色紧身衣",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "海莲娜·道格拉斯",
    "en": "helena_douglas",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "紫黑色礼服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "米拉",
    "en": "mira_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "黑红色战斗装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "红叶",
    "en": "momiji_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，马尾",
+    "eyes": "黑色眼睛",
+    "outfit": "红白色忍者装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "瑞秋",
    "en": "rachel_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "棕黑色探险装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "女天狗",
    "en": "nyotengu",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，黑色羽翼",
+    "eyes": "黑色眼睛",
+    "outfit": "紫黑色和服，黑色翅膀",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "环",
    "en": "tamaki_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "紫白色和服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "丽萨·汉密尔顿",
    "en": "lisa_hamilton",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长卷发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色泳装与探险装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "妮可",
    "en": "nico_(doa)",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "黑紫色哥特装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "第四阶段",
    "en": "phase_4",
    "cat": "角色",
    "sub": "死或生",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白灰色紧身衣",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "不知火舞",
    "en": "mai_shiranui",
    "cat": "角色",
    "sub": "拳皇",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，高马尾",
+    "eyes": "棕色眼睛",
+    "outfit": "红色忍者装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "库拉·戴尔蒙多",
    "en": "kula_diamond",
    "cat": "角色",
    "sub": "拳皇",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝白色短裙",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "甘雨",
@@ -2331,28 +4347,56 @@
    "en": "raiden_shogun",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发，麻花辫",
+    "eyes": "紫色眼睛",
+    "outfit": "紫色和服式雷电将军装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "八重神子",
    "en": "yae_miko",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发，狐耳",
+    "eyes": "紫色眼睛",
+    "outfit": "粉白色巫女装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "芙宁娜",
    "en": "furina",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝白色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝白色礼服，礼帽",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "神里绫华",
    "en": "kamisato_ayaka",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "浅蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色和风洋装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "宵宫",
@@ -2373,7 +4417,14 @@
    "en": "sangonomiya_kokomi",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色巫女装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "纳西妲",
@@ -2450,7 +4501,14 @@
    "en": "mona_(genshin_impact)",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝黑色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝黑色紧身衣，帽子",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "菲谢尔",
@@ -2569,28 +4627,56 @@
    "en": "barbara_(genshin_impact)",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金黄色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色偶像装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "琴",
    "en": "jean_(genshin_impact)",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色骑士装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "丽莎",
    "en": "lisa_(genshin_impact)",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "紫黑色女巫装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "安柏",
    "en": "amber_(genshin_impact)",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发，红色发带",
+    "eyes": "琥珀色眼睛",
+    "outfit": "红白色侦查骑士装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "荧",
@@ -2611,42 +4697,84 @@
    "en": "arlecchino",
    "cat": "角色",
    "sub": "原神",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛，瞳孔呈叉状",
+    "outfit": "黑红色愚人众装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿露",
    "en": "aru_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，黑色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "白子",
    "en": "shiroko_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发，狼耳",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "星野",
    "en": "hoshino_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白色外套",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "优香",
    "en": "yuuka_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "日奈",
    "en": "hina_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，黑色外套",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "爱丽丝",
@@ -2667,189 +4795,378 @@
    "en": "koharu_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色短发",
+    "eyes": "粉色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "未花",
    "en": "mika_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "圣娅",
    "en": "seia_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "修女装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "梓",
    "en": "azusa_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，双马尾",
+    "eyes": "紫色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "美游",
    "en": "miyu_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "睦月",
    "en": "mutsuki_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "佳代子",
    "en": "kayoko_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "春香",
    "en": "haruka_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色短发",
+    "eyes": "棕色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "若藻",
    "en": "wakamo_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发，狐耳",
+    "eyes": "红色眼睛",
+    "outfit": "校服，和服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "伊织",
    "en": "iori_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "红色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "千夏",
    "en": "chinatsu_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "紫色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "桃井",
    "en": "momoi_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "绿",
    "en": "midori_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "花子",
    "en": "hanako_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "粉色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "明日奈",
    "en": "asuna_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "花凛",
    "en": "karin_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "亚子",
    "en": "ako_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "晴奈",
    "en": "haruna_(blue_archive)",
    "cat": "角色",
    "sub": "蔚蓝档案",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "校服，白衬衫配百褶裙",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "摩根",
    "en": "morgan_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑紫色洋装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "芭万·希",
    "en": "baobhan_sith",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑白洋装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "阿尔托莉雅·卡斯特",
    "en": "artoria_caster",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "蓝白色魔法使装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "光之高扬斯卡娅",
    "en": "koyanskaya_of_light",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉金色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白金色洋装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "美露莘",
    "en": "melusine_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发，龙翼",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色洋装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "埃列什基伽勒",
    "en": "ereshkigal_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "紫色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑紫色洋装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿比盖尔·威廉姆斯",
    "en": "abigail_williams_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发，双马尾",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝白色洋装",
+    "body": "娇小",
+    "chest": "贫乳"
+   }
   },
   {
    "zh": "葛饰北斋",
    "en": "katsushika_hokusai",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "黑色眼睛",
+    "outfit": "蓝白色和风装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "谜之女主角X",
    "en": "mystery_heroine_x",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝黑色骑士装，帽子",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "冲田总司",
@@ -2912,21 +5229,42 @@
    "en": "tomoe_gozen",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红黑色和服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "迦摩",
    "en": "kama_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白红色洋装",
+    "body": "娇小",
+    "chest": "标准"
+   }
   },
   {
    "zh": "杀生院祈荒",
    "en": "kiara_sesshouin",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "金色眼睛",
+    "outfit": "白金色佛教装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "溶解莉莉丝",
@@ -2947,77 +5285,154 @@
    "en": "space_ishtar",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "橙色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白蓝色宇宙装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿纳斯塔西娅",
    "en": "anastasia_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "银白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色俄罗斯风洋装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "卡米拉",
    "en": "carmilla_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色洋装",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "尼莫",
    "en": "nemo_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色航海装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "清姬",
    "en": "kiyohime_(fate)",
    "cat": "角色",
    "sub": "Fate",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "绿白色和服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "拉毗",
    "en": "rapi_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白红色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "阿妮斯",
    "en": "anis_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "妮恩",
    "en": "neon_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色短发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "玛丽安",
    "en": "marian_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "白黑色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "桃乐丝",
    "en": "dorothy_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白金色礼服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "白雪公主",
    "en": "snow_white_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "白色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色战斗服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "小红帽",
@@ -3038,84 +5453,168 @@
    "en": "modernia",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "紫色眼睛",
+    "outfit": "黑紫色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "艾玛",
    "en": "emma_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "白棕色战斗服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "安妮",
    "en": "anne_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "粉色眼睛",
+    "outfit": "白粉色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "露菲",
    "en": "rupee_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "金色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白金色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "迪塞尔",
    "en": "diesel_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色短发",
+    "eyes": "蓝色眼睛",
+    "outfit": "黑白战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "普莉瓦蒂",
    "en": "privaty",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "蓝白色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "苏打",
    "en": "soda_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "蓝色长发",
+    "eyes": "蓝色眼睛",
+    "outfit": "白蓝色护士装",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "恩华",
    "en": "eunhwa",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "黑色长发",
+    "eyes": "红色眼睛",
+    "outfit": "黑红色战斗服",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "丽塔",
    "en": "liter_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "棕色长发",
+    "eyes": "棕色眼睛",
+    "outfit": "棕白色战斗服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "诺伊兹",
    "en": "noise_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "粉色长发",
+    "eyes": "粉色眼睛",
+    "outfit": "白粉色偶像装",
+    "body": "标准",
+    "chest": "标准"
+   }
   },
   {
    "zh": "斯卡蕾特",
    "en": "scarlet_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "红色长发",
+    "eyes": "红色眼睛",
+    "outfit": "红黑色战斗服",
+    "body": "高挑",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "毒蛇",
    "en": "viper_(nikke)",
    "cat": "角色",
    "sub": "胜利女神NIKKE",
-   "nsfw": false
+   "nsfw": false,
+   "app": {
+    "hair": "绿色长发",
+    "eyes": "绿色眼睛",
+    "outfit": "绿黑色战斗服",
+    "body": "标准",
+    "chest": "巨乳"
+   }
   },
   {
    "zh": "角色A",
