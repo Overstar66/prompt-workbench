@@ -24,8 +24,8 @@
 **1. 获取代码**
 
 ```bash
-git clone <仓库地址>
-cd studio2
+git clone https://github.com/Overstar66/prompt-workbench.git
+cd prompt-workbench
 ```
 
 **2. 安装依赖（可选，只在用图反推时装）**
@@ -54,7 +54,7 @@ cp api_config.example.json api_config.json
 python app.py
 ```
 
-Windows 也可双击 `启动工作台.bat`。脚本里的 Python 解释器路径是示例，请按你的安装位置修改，或直接用上面的命令。
+Windows 也可双击 `启动工作台.bat`——脚本会自动探测 pythonw / py / python，找到就启动，找不到会提示安装 Python。
 
 打开 <http://127.0.0.1:8901>。默认端口 **8901**，改 `app.py` 顶部的 `PORT = 8901` 后重启即可，访问地址跟着换。
 macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一致。
