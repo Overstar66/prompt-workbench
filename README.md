@@ -59,6 +59,13 @@ Windows 也可双击 `启动工作台.bat`——脚本会自动探测 pythonw / 
 打开 <http://127.0.0.1:8901>。默认端口 **8901**，改 `app.py` 顶部的 `PORT = 8901` 后重启即可，访问地址跟着换。
 macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一致。
 
+## 两种省事装法
+
+| 方式 | 适合 | 怎么做 |
+|---|---|---|
+| **Windows 安装向导** | 不想敲命令 | 双击根目录的 install.bat，按提示选轻量版或完整离线版 |
+| **让 AI 代装** | 装了 DeepSeek Harness | 把 [docs/DEPLOY_WITH_DSH.md](docs/DEPLOY_WITH_DSH.md) 里那段指令复制给 DSH |
+
 ## 三种使用模式
 
 | 模式 | 需要什么 | 适合谁 | 怎么配 |
