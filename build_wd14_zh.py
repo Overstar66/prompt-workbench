@@ -50,7 +50,8 @@ MAXLEN = 12
 
 CJK = re.compile(r"[\u4e00-\u9fff]")
 LATIN = re.compile(r"[A-Za-z]")
-BAD_ZH = ("游戏", "关联", "未知", "名字", "角色名", "（无）", "无中文")
+BAD_ZH = ("游戏", "关联", "未知", "名字", "角色名", "无中文")
+BAD_EXACT = {"游戏", "关联", "未知", "名字", "角色名", "无中文", "游戏名", "中文"}
 
 # ── 规则层词表（人工整理，按 Danbooru 常见构词） ──────────────────────────
 COLORS = {
@@ -88,16 +89,106 @@ SYMBOLS = {
     "39": "感谢", "3:": "猫嘴表情", "o-ring": "O形环", "o_ring": "O形环",
 }
 
-# 人工校对：跑完抽样后发现的明显错译，按 en 覆盖（任何来源都会被它盖掉）
+# 人工校对：模型/社区表搞不定的（占位符、拉丁字母、枪械型号、冷门角色），
+# 按 en 覆盖（任何来源都会被它盖掉）
 MANUAL = {
-    "u_u": "困倦表情", "mmf_threesome": "三人行", "mmf_threesome_": "三人行",
-    "mmm_threesome": "三人行", "ffm_threesome": "三人行", "fff_threesome": "三人行",
-    "yes": "肯定", "on_head": "放在头上", "boned_meat": "带骨肉",
-    "column": "柱子", "gao": "吼叫", "meta": "元梗", "bow_(weapon)": "弓",
-    "bow_(music)": "琴弓", "meme": "梗图", "2011": "2011年", "2012": "2012年",
-    "2013": "2013年", "2014": "2014年", "2015": "2015年", "2016": "2016年",
-    "2017": "2017年", "2018": "2018年", "2019": "2019年", "2020": "2020年",
+    # —— 符号/手势/量词 ——
+    "v": "胜利手势", "double_v": "双胜利手势", "double_w": "双手势",
+    "v-fin": "叉形天线", "v-neck": "深领口", "v_over_eye": "遮眼手势",
+    "x": "叉号", "x-shaped_pupils": "叉形瞳孔", "circled_9": "圆圈九",
+    "3d_background": "三维背景", "o-ring_bikini": "圆环比基尼", "z-ring": "环形手环",
+    "character_name": "角色名称",
+    "facebook_username": "社交网站用户名",
+    # —— 网络/平台 ——
+    "twitter_username": "推特用户名", "patreon_username": "赞助平台用户名",
+    "deviantart_username": "绘站用户名", "instagram_username": "照片墙用户名",
+    "pixiv_username": "插画站用户名", "pixiv_id": "插画站编号",
+    "weibo_logo": "微博标志", "patreon_logo": "赞助平台标志",
+    # —— 游戏机/电子 ——
+    "gameplay_mechanics": "玩法机制", "video_game": "电子游戏",
+    "game_console": "游戏主机", "handheld_game_console": "掌上游戏机",
+    "gamepad": "游戏手柄", "playstation_controller": "游戏机手柄",
+    "playstation_portable": "掌上游戏机", "nintendo_switch": "任天堂游戏机",
+    "nintendo_ds": "任天堂掌上机", "nintendo_3ds": "任天堂掌上机",
+    "game_boy": "掌上机", "ipod": "音乐播放器", "dvd_cover": "光盘封面",
+    "holding_game_controller": "拿着游戏手柄", "karaoke": "唱歌",
+    # —— 服装/鞋 ——
+    "toeless_footwear": "露趾鞋", "winged_footwear": "带翅鞋",
+    "plunging_neckline": "深领口",
+    "bc_freedom_military_uniform": "自由联邦军服",
+    "griffin_&_kryuger_military_uniform": "格里芬军服",
+    "hololive_idol_uniform": "虚拟主播偶像制服",
+    "homurahara_academy_school_uniform": "穗群原学园制服",
+    "tsab_ground_military_uniform": "管理局陆军制服",
+    "pegasus_knight_uniform_(fire_emblem)": "天马骑士制服",
+    "mod3_(girls'_frontline)": "三改人形", "elite_ii_(arknights)": "精英二",
+    # —— 枪械 ——
+    "m4_carbine": "卡宾枪", "ar-15": "自动步枪", "ak-47": "突击步枪",
+    "m1911": "手枪", "p90": "冲锋枪", "beretta_92": "手枪",
+    "h&k_hk416": "突击步枪", "h&k_ump": "冲锋枪", "m16a1": "步枪",
+    "ump45_(girls'_frontline)": "冲锋枪人形", "ump9_(girls'_frontline)": "冲锋枪人形",
+    "m4a1_(girls'_frontline)": "卡宾枪人形", "an-94_(girls'_frontline)": "步枪人形",
+    "g36_(girls'_frontline)": "步枪人形", "g41_(girls'_frontline)": "步枪人形",
+    "wa2000_(girls'_frontline)": "狙击枪人形", "z23_(azur_lane)": "驱逐舰娘",
+    # —— 杂项 ——
+    "karakasa_obake": "唐伞小僧", "vocaloid_append": "虚拟歌姬追加音源",
+    "voyakiloid": "波亚基洛依德", "squidbeak_splatoon": "乌贼军团",
+    "player_2": "二号玩家", "team_9": "九号小队", "super_saiyan_1": "超级赛亚人一",
+    "panzerkampfwagen_iv": "四号坦克", "boo_(mario)": "幽灵布",
+    "ui_(blue_archive)": "忧", "fine_motion_(umamusume)": "优美运动",
+    "yumeno_himiko": "梦野秘密子", "shishiro_botan": "狮白牡丹",
+    "touhoku_kiritan": "东北切丹", "ranma-chan": "女乱马", "nu-13": "纽十三",
+    "matou_kariya": "间桐雁夜", "yorha_no._9_type_s": "九号机体",
+    "heckler_&_koch": "冲锋枪",
+    "hiro_(darling_in_the_franxx)": "广",
+    "reines_el-melloi_archisorte": "莱妮丝",
+    "kayneth_el-melloi_archibald": "凯奈斯",
+    # —— 冷门角色/皮肤 ——
+    "hatsune_miku_(append)": "初音未来追加音源", "ia_(vocaloid)": "伊亚",
+    "i-19_(kancolle)": "伊号一九潜", "i-8_(kancolle)": "伊号八潜",
+    "i-168_(kancolle)": "伊号一六八潜", "i-13_(kancolle)": "伊号一三潜",
+    "agano_(kancolle)": "阿贺野", "tokitsukaze_(kancolle)": "时津风",
+    "richelieu_(kancolle)": "黎塞留",
+    "jeanne_d'arc_alter_(swimsuit_berserker)_(fate)": "泳装黑贞德",
+    "jeanne_d'arc_alter_santa_lily_(fate)": "圣诞黑贞德",
+    "jeanne_d'arc_(swimsuit_archer)_(second_ascension)_(fate)": "泳装贞德",
+    "bb_(swimsuit_mooncancer)_(second_ascension)_(fate)": "泳装比伊",
+    "mysterious_heroine_x_(fate)": "谜之女主角甲",
+    "mysterious_heroine_xx_(fate)": "谜之女主角乙",
+    "mysterious_heroine_x_alter_(first_ascension)_(fate)": "谜之女主角丙",
+    # —— 社区表/模型明显错译的修正 ——
+    "u_u": "困倦表情", "mmf_threesome": "三人行", "ffm_threesome": "三人行",
+    "fff_threesome": "三人行", "mmm_threesome": "三人行", "yes": "肯定",
+    "on_head": "放在头上", "boned_meat": "带骨肉", "column": "柱子",
+    "gao": "吼叫", "meta": "元梗", "bow_(weapon)": "弓", "bow_(music)": "琴弓",
+    "meme": "梗图", "2011": "2011年", "2012": "2012年", "2013": "2013年",
+    "2014": "2014年", "2015": "2015年", "2016": "2016年", "2017": "2017年",
+    "2018": "2018年", "2019": "2019年", "2020": "2020年",
     "sakazuki": "酒杯", "hauchiwa": "羽扇", "nanodesu_(phrase)": "呜喵口头禅",
+    "turnaround": "转身展示", "nijigasaki_academy_school_uniform": "虹咲学园校服",
+    "curtained_hair": "窗帘式刘海", "iori_rinko": "伊织凛子",
+    "shindou_takuto": "神童拓人", "tomoe_gozen_(fate)": "巴御前",
+    "nemoto_hina": "根本雏", "asuna_(bunny)_(blue_archive)": "阿丝娜",
+    "master_3_(housamo)": "三号主人", "tiki_(young)_(fire_emblem)": "琪琪",
+    # —— 抽样复核时发现的明显错译（角色） ——
+    "xiao_(genshin_impact)": "魈", "xiangling_(genshin_impact)": "香菱",
+    "kaguya_luna": "辉夜月", "flareon": "火伊布", "kohaku_(tsukihime)": "琥珀",
+    "kinu_(kancolle)": "鬼怒", "hina_ichigo": "雏莓", "sakawa_(kancolle)": "酒匂",
+    "uzuki_(kancolle)": "卯月", "katsuragi_(kancolle)": "葛城",
+    "maya_kai_ni_(kancolle)": "摩耶改二", "gangut_(kancolle)": "甘古特",
+    "kishinami_(kancolle)": "岸波", "zuikaku_(azur_lane)": "瑞鹤",
+    "neru_(blue_archive)": "宁瑠", "tsukumo_benben": "九十九弁弁",
+    "sirius_(azure_horizons)_(azur_lane)": "天狼星", "ookami_mio": "大神澪",
+    "kousaka_reina": "高坂丽奈", "ushiroiya_battler": "右代宫战人",
+    "hisakawa_hayate": "久川飒", "higuchi_madoka": "樋口圆香",
+    "minamino_kanade": "南奏", "jigglypuff": "胖丁",
+    "grass_wonder_(umamusume)": "草上飞", "morpeko": "莫鲁贝可",
+    "kuma_(kancolle)": "球磨", "ushio_(kancolle)": "潮",
+    # —— 抽样复核时发现的明显错译（通用词） ——
+    "newhalf": "变性人", "fingersmile": "手指比笑", "column_lineup": "一字排开",
+    "mitakihara_school_uniform": "见泷原中学制服", "kuki_shinobu": "九鬼忍",
+    "mizunashi_akari": "水无灯里", "scooter": "踏板摩托车",
+    "pov_crotch": "第一人称胯部视角", "kotatsu": "被炉", "gyaru": "辣妹",
 }
 
 SYS_GEN = ("你是资深的 Danbooru 标签中文翻译。翻译必须保留原标签的每一个修饰成分，"
@@ -180,6 +271,17 @@ def clean(zh, strip_alts=True):
     return z
 
 
+KEEP_PAREN = ("女", "男", "幼", "幼年", "少年", "成年", "萝莉", "正太")
+
+
+def strip_series_paren(z):
+    """角色名去掉「（命运）」「（复仇者）」这类作品/职阶尾巴，保留（女）（男）这种区分。"""
+    m = re.fullmatch(r"(.+?)[（(]([^（）()]{1,6})[）)]", z)
+    if m and m.group(2) not in KEEP_PAREN:
+        return m.group(1).strip("·-—")
+    return z
+
+
 def ok_zh(z):
     if not z:
         return False
@@ -189,10 +291,13 @@ def ok_zh(z):
         return False
     if len(z) > MAXLEN or len(z) < 1:
         return False
-    if any(b in z for b in BAD_ZH):
+    if z in BAD_EXACT:
         return False
-    # 只允许中文 + 少量中文标点/间隔号
-    if not re.fullmatch(r"[\u4e00-\u9fff\u3000-\u303f·（）()]+", z):
+    # 社区表里的「（碧蓝幻想）游戏」这类作品名误映射
+    if z[0] in "（(" and any(b in z for b in BAD_ZH):
+        return False
+    # 只允许中文 + 数字 + 少量中文标点/间隔号
+    if not re.fullmatch(r"[\u4e00-\u9fff0-9\u3000-\u303f·（）()]+", z):
         return False
     return True
 
@@ -206,10 +311,11 @@ def rules(name, vocab):
     if low in COLORS:
         return COLORS[low] + "色"
 
-    # 数字/人数：1girl / 2boys / multiple_girls
-    m = re.fullmatch(r"(\d+)(girl|boy|other)s?", low)
+    # 数字/人数：1girl / 2boys / 6+others / multiple_girls
+    m = re.fullmatch(r"(\d+)(\+)?(girl|boy|other)s?", low)
     if m:
-        return "%s个%s" % (m.group(1), {"girl": "女孩", "boy": "男孩", "other": "人"}[m.group(2)])
+        n_zh = {"girl": "女孩", "boy": "男孩", "other": "其他人"}[m.group(3)]
+        return "%s个%s%s" % (m.group(1), "以上" if m.group(2) else "", n_zh)
 
     words = low.split("_")
 
@@ -280,20 +386,22 @@ def parse_arr(txt):
         return []
 
 
-def translate_batch(tags, is_char, attempt=0):
-    """返回 {tag: zh}，只含通过质量闸的。"""
+def translate_batch(tags, kind="gen", attempt=0):
+    """kind: gen / cha / cha2。返回 {tag: zh}，只含通过质量闸的。"""
     if not tags:
         return {}
-    system = SYS_CHA if is_char else SYS_GEN
-    ex = EX_CHA if is_char else EX_GEN
-    extra = ""
-    if attempt:
-        extra = "注意：只输出中文，绝对不能出现英文字母。\n"
-    prompt = (("把下列 {n} 个英文 Danbooru 角色标签按原顺序翻译成中文，输出长度为 {n} 的 JSON 字符串数组。\n"
-               if is_char else
-               "把下列 {n} 个英文 Danbooru 标签按原顺序翻译成中文，输出长度为 {n} 的 JSON 字符串数组。\n")
-              ).format(n=len(tags)) + ex + extra + LEN_HINTS.format(n=len(tags)) + \
-             "\n输入 " + json.dumps(tags, ensure_ascii=False) + "\n输出"
+    if kind == "cha":
+        system, ex = SYS_CHA, EX_CHA
+        head = "把下列 {n} 个英文 Danbooru 角色标签按原顺序翻译成中文，输出长度为 {n} 的 JSON 字符串数组。\n"
+    elif kind == "cha2":
+        system, ex = SYS_CHA2, EX_CHA2
+        head = "把下列 {n} 个英文角色标签按原顺序音译成中文名，输出长度为 {n} 的 JSON 字符串数组。\n"
+    else:
+        system, ex = SYS_GEN, EX_GEN
+        head = "把下列 {n} 个英文 Danbooru 标签按原顺序翻译成中文，输出长度为 {n} 的 JSON 字符串数组。\n"
+    extra = "注意：只输出中文，绝对不能出现英文字母。\n" if attempt else ""
+    prompt = (head.format(n=len(tags)) + ex + extra + LEN_HINTS.format(n=len(tags))
+              + "\n输入 " + json.dumps(tags, ensure_ascii=False) + "\n输出")
     try:
         txt = ollama(system, prompt)
     except Exception as e:
@@ -310,31 +418,31 @@ def translate_batch(tags, is_char, attempt=0):
     return out
 
 
-def translate_all(tags, is_char, batch, progress=None):
-    """批量翻译，失败项折半重试一次，最后仍失败的丢弃。"""
+def translate_all(tags, kind, batch, progress=None, flush=None):
+    """批量翻译；失败项折半重试一次，最后仍失败的丢弃。flush 每批回调一次（存缓存）。"""
     todo = list(tags)
     out = {}
-    first = True
+    n_done = 0
     while todo:
         chunk, todo = todo[:batch], todo[batch:]
-        got = translate_batch(chunk, is_char)
+        got = translate_batch(chunk, kind)
         out.update(got)
         miss = [t for t in chunk if t not in got]
         if miss:
-            # 失败项：折半再试一次
             half = max(1, len(miss) // 2)
             for seg in (miss[:half], miss[half:]):
                 if not seg:
                     continue
-                g2 = translate_batch(seg, is_char, attempt=1)
-                out.update(g2)
-                miss2 = [t for t in seg if t not in g2]
+                got2 = translate_batch(seg, kind, attempt=1)
+                out.update(got2)
+                miss2 = [t for t in seg if t not in got2]
                 if miss2:
-                    g3 = translate_batch(miss2, is_char, attempt=1)
-                    out.update(g3)
+                    out.update(translate_batch(miss2, kind, attempt=1))
+        n_done += len(chunk)
+        if flush:
+            flush(out, n_done, len(tags))
         if progress:
-            progress(out, first)
-            first = False
+            progress(out, n_done, len(tags))
     return out
 
 
@@ -394,8 +502,10 @@ def main():
             plan[en] = zh
             src_count[src] = src_count.get(src, 0) + 1
 
-    # 1) 缓存
+    # 1) 缓存（人工校对表里的词不许被旧缓存盖住）
     for en, zh in cache.items():
+        if en in MANUAL:
+            continue
         put(en, zh, "cache")
     # 2) 社区译名表（general 优先；角色表里大量是作品名误映射，不用）
     for en in miss_gen:
@@ -415,36 +525,53 @@ def main():
         left_cha = left_cha[:args.limit]
 
     # 4) Ollama 兜底
+    def flush_cache(*_a) -> None:
+        allmap = {k: v for k, v in cache.items()}
+        allmap.update({e: z for e, z in plan.items() if ok_zh(z)})
+        try:
+            tmp = CACHE + ".tmp"
+            json.dump({"model": MODEL, "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
+                       "zh": dict(sorted(allmap.items()))},
+                      open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+            os.replace(tmp, CACHE)
+        except Exception as e:
+            sys.stderr.write("[warn] 缓存写入失败 %s\n" % e)
+
+    def prog(out, n_done, n_total):
+        print("  Ollama 进度 %d/%d（本阶段成功 %d）…" % (n_done, n_total, len(out)), flush=True)
+        if n_done % 200 < 25:
+            flush_cache()
+
     t0 = time.time()
-    done = [0]
-    total = len(left_gen) + len(left_cha)
-
-    def prog(d, first):
-        done[0] = len(plan) - src_count.get("zhcsv", 0) - src_count.get("rule", 0) - src_count.get("cache", 0)
-        print("  Ollama 进度 %d/%d …" % (len([1 for e in d if e]), total), flush=True)
-
     if left_gen:
         print("[Ollama] general %d 条，批 25 …" % len(left_gen), flush=True)
-        res = translate_all(left_gen, False, 25, progress=prog)
+        res = translate_all(left_gen, "gen", 25, progress=prog, flush=flush_cache)
         for en, zh in res.items():
             put(en, zh, "ollama_gen")
         print("  完成 %.1fs，成功 %d/%d" % (time.time() - t0, len(res), len(left_gen)), flush=True)
     t1 = time.time()
     if left_cha:
         print("[Ollama] character %d 条，批 18 …" % len(left_cha), flush=True)
-        res = translate_all(left_cha, True, 18, progress=prog)
+        res = translate_all(left_cha, "cha", 18, progress=prog, flush=flush_cache)
         for en, zh in res.items():
             put(en, zh, "ollama_cha")
         print("  完成 %.1fs，成功 %d/%d" % (time.time() - t1, len(res), len(left_cha)), flush=True)
-
-    # 角色名可疑的再试一轮
-    sus = [en for en in miss_cha if en in plan and (len(plan[en]) < 2 or len(plan[en]) > 8)]
-    if sus:
-        print("[Ollama] 角色名可疑 %d 条，重译 …" % len(sus), flush=True)
-        res = translate_all(sus, True, 12)
-        for en, zh in res.items():
-            if en in plan and (len(plan[en]) < 2 or len(plan[en]) > 8):
-                plan[en] = zh
+        # 第一轮没出来的角色：换「音译兜底」提示词再逼一轮
+        left_cha2 = [en for en in left_cha if en not in plan]
+        if left_cha2:
+            print("[Ollama] character 兜底 %d 条（音译提示词）…" % len(left_cha2), flush=True)
+            res = translate_all(left_cha2, "cha2", 15, progress=prog, flush=flush_cache)
+            for en, zh in res.items():
+                put(en, zh, "ollama_cha2")
+            print("  兜底成功 %d/%d" % (len(res), len(left_cha2)), flush=True)
+        # 再不行：退回社区译名表里的汉字写法（去掉 ? 分隔符）
+        left_cha3 = [en for en in left_cha if en not in plan]
+        for en in left_cha3:
+            z = clean((zhcsv.get(en.lower()) or "").replace("?", "·").replace("？", "·"))
+            put(en, z, "zhcsv_cha")
+        if left_cha3:
+            print("  社区表兜底 %d 条 → 补上 %d"
+                  % (len(left_cha3), len([e for e in left_cha3 if e in plan])), flush=True)
 
     # 人工校对覆盖（最后生效）
     for en, zh in MANUAL.items():
@@ -457,7 +584,10 @@ def main():
         if not zh:
             continue
         if cat == CAT_CHARACTER:
-            new_entries.append({"zh": zh, "en": en, "cat": "角色", "sub": "图反推",
+            z = strip_series_paren(zh)
+            if not ok_zh(z):
+                z = zh
+            new_entries.append({"zh": z, "en": en, "cat": "角色", "sub": "图反推",
                                 "nsfw": False,
                                 "app": {"hair": "", "eyes": "", "outfit": "", "body": "", "chest": ""}})
         else:
@@ -474,14 +604,7 @@ def main():
         print("  未覆盖 %d 条：%s" % (len(fail), fail[:12]))
 
     # 缓存回写（只存通过质量闸的）
-    allmap = {k: v for k, v in cache.items()}
-    allmap.update({e["en"]: e["zh"] for e in new_entries})
-    try:
-        json.dump({"model": MODEL, "updated": time.strftime("%Y-%m-%d %H:%M:%S"),
-                   "zh": dict(sorted(allmap.items()))},
-                  open(CACHE, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
-    except Exception as e:
-        sys.stderr.write("[warn] 缓存写入失败 %s\n" % e)
+    flush_cache()
 
     # 抽样检查
     if new_entries and args.samples:
@@ -495,14 +618,28 @@ def main():
         print("[dry-run] 未写入 tags_cn.json，耗时 %.1fs" % (time.time() - t_start))
         return
 
-    if not new_entries:
+    need_fix = [e for e in old_tags
+                if (e.get("en") or "").strip() in MANUAL and e.get("sub") == "图反推"
+                and ok_zh(MANUAL[(e.get("en") or "").strip()])
+                and e.get("zh") != MANUAL[(e.get("en") or "").strip()]]
+    if not new_entries and not need_fix:
         print("没有需要新增的条目，直接结束")
         return
 
-    stamp = time.strftime("%Y%m%d_%H%M")
+    stamp = time.strftime("%Y%m%d_%H%M%S")
     bak = os.path.join(HERE, "tags_cn.backup_wd14_%s.json" % stamp)
+    n = 1
+    while os.path.exists(bak):          # 别覆盖已有备份
+        bak = os.path.join(HERE, "tags_cn.backup_wd14_%s_%d.json" % (stamp, n))
+        n += 1
     shutil.copy2(LIB, bak)
     print("已备份:", os.path.basename(bak))
+
+    # 人工校对表对本脚本此前写入的条目同样生效（可重复修正，保持幂等）
+    for e in need_fix:
+        e["zh"] = MANUAL[(e.get("en") or "").strip()]
+    if need_fix:
+        print("人工校对修正既有条目 %d 条" % len(need_fix))
 
     data["tags"] = old_tags + new_entries
     save_lib(data)
