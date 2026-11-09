@@ -15,13 +15,13 @@
 
 ## 效果展示
 
-同一角色（原创角色C）由工作台生成的提示词直接出图（WAI-illustrious v16）：
+三个不同角色（原创 角色B / 角色D / 角色E），提示词全部由本工作台生成，ComfyUI + WAI-illustrious v16 出图：
 
-| 海边 chibi | 樱花道 | 霓虹夜街 |
+| 角色B · 樱花道 | 角色D · 海边黄昏 | 角色E · 街角 |
 |---|---|---|
-| ![海边](docs/showcase-1.jpg) | ![樱花](docs/showcase-2.jpg) | ![夜街](docs/showcase-3.jpg) |
+| ![角色B](docs/showcase-1.jpg) | ![角色D](docs/showcase-2.jpg) | ![角色E](docs/showcase-3.jpg) |
 
-> 提示词由本工作台生成，出图使用 ComfyUI + WAI，与工具本身无强绑定。
+> 服装、发色、瞳色均由词库中的角色外观自动生成；换角色即换画风。
 
 ## 功能
 
