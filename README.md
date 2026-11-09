@@ -15,13 +15,21 @@
 
 ## 效果展示
 
-三张图全部由本工作台生成提示词，ComfyUI + WAI-illustrious v16 出图：
+三张图全部由本工作台生成提示词，ComfyUI + WAI-illustrious v16 出图。
 
-| Q版 · 角色C | 粉发 · 角色E | 白发 · 角色A |
-|---|---|---|
-| ![Q版](docs/showcase-1.jpg) | ![粉发](docs/showcase-2.jpg) | ![白发](docs/showcase-3.jpg) |
+**Q版 · 角色C**
 
-> 角色外观（发色/瞳色/服装）来自词库角色设定；同一套标签换角色即换风格。
+![Q版 角色C](docs/showcase-1.jpg)
+
+**粉发 · 角色E**
+
+![粉发 角色E](docs/showcase-2.jpg)
+
+**白发 · 角色A**
+
+![白发 角色A](docs/showcase-3.jpg)
+
+> 角色外观（发色 / 瞳色 / 服装）来自词库角色设定；同一套标签换角色即换风格。
 
 ## 功能
 
