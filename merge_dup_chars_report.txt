@@ -1,0 +1,203 @@
+合并重名角色报告 2026-11-09 22:03:12
+======================================================================
+备份文件: tags_cn.backup_merge_20261109_220312.json
+角色条数: 3113 → 2922（共删除 191 条）
+阶段1 组内重名: 162 组 → 0（删除 169 条）
+阶段2 与 chars_extra.json 跨文件重复: 删除 22 条「图反推」重复
+合并字段: 188 个（其中 app 子字段 188 个）
+疑似同名不同人、跳过外观合并: 1 条
+  x 翡翠: 保留 jade_(honkai:_star_rail)  ← 丢弃 hisui_(tsukihime) 的外观（作品对不上，可能是同名不同人）
+无法判断是否同一人、已合并外观（建议人工扫一眼）: 3 条
+  ? 2B: 保留 2b_(nier)  ← 取自 yorha_no._2_type_b
+  ? 赫萝: 保留 horo  ← 取自 holo
+  ? 白雪: 保留 shirayuki_(kancolle)  ← 取自 shirase_sakuya
+
+阶段1 明细（zh | 保留 en / sub | 删除 en / sub | 合并进来的字段）
+----------------------------------------------------------------------
+雾雨魔理沙 | 保留 kirisame_marisa / 东方Project | 删除 miss_cloud / 图反推 | 合并 - | -
+魂魄妖梦 | 保留 konpaku_youmu / 东方Project | 删除 konpaku_youmu_(ghost) / 图反推 | 合并 - | -
+铃仙·优昙华院·因幡 | 保留 reisen_udongein_inaba / 东方Project | 删除 reisen_(touhou_bougetsushou) / 图反推 | 合并 app.hair, app.eyes, app.outfit | -
+GUMI | 保留 gumi_(vocaloid) / VOCALOID | 删除 gumi / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+雷姆 | 保留 rem / Re:零 | 删除 rem_(re:zero) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+艾米莉娅 | 保留 emilia / Re:零 | 删除 emilia_(re:zero) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+结衣 | 保留 yui_(sao) / 刀剑神域 | 删除 yui_(princess_connect!) / 图反推 | 合并 - | -
+露科亚 | 保留 lucoa / 小林家的龙女仆 | 删除 lucoa_(maidragon) / 图反推 | 合并 - | -
+阿尔托莉雅·潘德拉贡 | 保留 artoria_pendragon / Fate | 删除 artoria_pendragon_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+斯卡哈 | 保留 scathach / Fate | 删除 scathach_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+尼禄·克劳狄乌斯 | 保留 nero_claudius / Fate | 删除 nero_claudius_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+玉藻前 | 保留 tamamo_no_mae / Fate | 删除 tamamo_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+2B | 保留 2b_(nier) / 尼尔 | 删除 yorha_no._2_type_b / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | 外观待确认
+加藤惠 | 保留 kato_megumi / 路人女主 | 删除 katou_megumi / 图反推 | 合并 - | -
+纲手 | 保留 tsunade / 火影忍者 | 删除 tsunade_(naruto) / 图反推 | 合并 app.hair | -
+赫萝 | 保留 horo / 狼与香辛料 | 删除 holo / 图反推 | 合并 app.eyes | 外观待确认
+玛奇玛 | 保留 makima / 电锯人 | 删除 makima_(chainsaw_man) / 图反推 | 合并 app.eyes, app.outfit | -
+蕾塞 | 保留 reze / 电锯人 | 删除 reze_(chainsaw_man) / 图反推 | 合并 - | -
+约尔·福杰 | 保留 yor_forger / 间谍过家家 | 删除 yor_briar / 图反推 | 合并 - | -
+伊蕾娜 | 保留 elaina_(majo_no_tabiji) / 魔女之旅 | 删除 elaina_(majo_no_tabitabi) / 图反推 | 合并 app.outfit | -
+凯尔希 | 保留 kal'tsit / 明日方舟 | 删除 kal'tsit_(arknights) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+能天使 | 保留 exusiai / 明日方舟 | 删除 exusiai_(arknights) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+斯卡蒂 | 保留 skadi_(arknights) / 明日方舟 | 删除 scathach_skadi_(fate) / 图反推 | 合并 - | -
+陈 | 保留 chen_(arknights) / 明日方舟 | 删除 ch'en_(arknights) / 图反推 | 合并 - | -
+泥岩 | 保留 mudrock / 明日方舟 | 删除 mudrock_(arknights) / 图反推 | 合并 - | -
+星熊 | 保留 hoshiguma / 明日方舟 | 删除 hoshiguma_(arknights) / 图反推 | 合并 - | -
+初雪 | 保留 pramanix / 明日方舟 | 删除 pramanix_(arknights) / 图反推; hatsuyuki_(kancolle) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+拉普兰德 | 保留 lappland / 明日方舟 | 删除 lappland_(arknights) / 图反推 | 合并 - | -
+莫斯提马 | 保留 mostima / 明日方舟 | 删除 mostima_(arknights) / 图反推 | 合并 app.eyes | -
+森蚺 | 保留 eunectes / 明日方舟 | 删除 eunectes_(arknights) / 图反推 | 合并 - | -
+迷迭香 | 保留 rosmontis / 明日方舟 | 删除 rosmontis_(arknights) / 图反推 | 合并 - | -
+麦哲伦 | 保留 magallan / 明日方舟 | 删除 magallan_(arknights) / 图反推 | 合并 app.eyes | -
+刻俄柏 | 保留 ceobe / 明日方舟 | 删除 ceobe_(arknights) / 图反推 | 合并 app.hair, app.eyes | -
+艾雅法拉 | 保留 eyjafjalla / 明日方舟 | 删除 eyjafjalla_(arknights) / 图反推 | 合并 - | -
+白露 | 保留 bailu_(honkai:_star_rail) / 崩坏星穹铁道 | 删除 shiratsuyu_(kancolle) / 图反推; bianca_(pokemon) / 图反推 | 合并 - | -
+翡翠 | 保留 jade_(honkai:_star_rail) / 崩坏星穹铁道 | 删除 hisui_(tsukihime) / 图反推 | 合并 - | 跳过外观(疑似不同人)
+霞 | 保留 kasumi_(doa) / 死或生 | 删除 kasumi_(kancolle) / 图反推 | 合并 app.eyes | -
+米拉 | 保留 mira_(doa) / 死或生 | 删除 milla_maxwell / 图反推 | 合并 - | -
+不知火舞 | 保留 mai_shiranui / 拳皇 | 删除 shiranui_mai / 图反推 | 合并 - | -
+甘雨 | 保留 ganyu / 原神 | 删除 ganyu_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+胡桃 | 保留 hu_tao / 原神 | 删除 hu_tao_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+宵宫 | 保留 yoimiya / 原神 | 删除 yoimiya_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+纳西妲 | 保留 nahida / 原神 | 删除 nahida_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+妮露 | 保留 nilou / 原神 | 删除 nilou_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+申鹤 | 保留 shenhe / 原神 | 删除 shenhe_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+夜兰 | 保留 yelan / 原神 | 删除 yelan_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+刻晴 | 保留 keqing / 原神 | 删除 keqing_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+菲谢尔 | 保留 fischl / 原神 | 删除 fischl_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+优菈 | 保留 eula / 原神 | 删除 eula_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+可莉 | 保留 klee / 原神 | 删除 klee_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+迪奥娜 | 保留 diona / 原神 | 删除 diona_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+罗莎莉亚 | 保留 rosaria / 原神 | 删除 rosaria_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+北斗 | 保留 beidou / 原神 | 删除 beidou_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+凝光 | 保留 ningguang / 原神 | 删除 ningguang_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+香菱 | 保留 xiangling / 原神 | 删除 xiangling_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+荧 | 保留 lumine / 原神 | 删除 lumine_(genshin_impact) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+爱丽丝 | 保留 alice_(blue_archive) / 蔚蓝档案 | 删除 alice_(alice_in_wonderland) / 图反推; aris_(blue_archive) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+睦月 | 保留 mutsuki_(blue_archive) / 蔚蓝档案 | 删除 mutsuki_(kancolle) / 图反推 | 合并 - | -
+葛饰北斋 | 保留 katsushika_hokusai / Fate | 删除 katsushika_hokusai_(fate) / 图反推 | 合并 - | -
+谜之女主角X | 保留 mystery_heroine_x / Fate | 删除 mysterious_heroine_x_(fate) / 图反推 | 合并 - | -
+冲田总司 | 保留 okita_souji / Fate | 删除 okita_souji_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+织田信长 | 保留 oda_nobunaga / Fate | 删除 oda_nobunaga_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+酒吞童子 | 保留 shuten_douji / Fate | 删除 shuten_douji_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+源赖光 | 保留 minamoto_no_raikou / Fate | 删除 minamoto_no_raikou_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+巴御前 | 保留 tomoe_gozen / Fate | 删除 tomoe_gozen_(fate) / 图反推 | 合并 - | -
+杀生院祈荒 | 保留 kiara_sesshouin / Fate | 删除 sesshouin_kiara / 图反推 | 合并 - | -
+溶解莉莉丝 | 保留 meltryllis / Fate | 删除 meltryllis_(fate) / 图反推 | 合并 app.hair, app.eyes, app.outfit, app.body, app.chest | -
+小红帽 | 保留 red_hood_(nikke) / 胜利女神NIKKE | 删除 little_red_riding_hood_(grimm) / 图反推 | 合并 app.hair, app.outfit | -
+蒙奇·D·路飞 | 保留 monkey_d_luffy / 海贼王 | 删除 monkey_d._luffy / 图反推 | 合并 - | -
+山治 | 保留 sanji / 海贼王 | 删除 sanji_(one_piece) / 图反推 | 合并 - | -
+神威 | 保留 kamui_(gintama) / 银魂 | 删除 kamoi_(kancolle) / 图反推 | 合并 - | -
+琪琪 | 保留 chichi / 龙珠 | 删除 tiki_(fire_emblem) / 图反推; chi-chi_(dragon_ball) / 图反推 | 合并 - | -
+小小兔 | 保留 chibiusa / 美少女战士 | 删除 chibi_usa / 图反推 | 合并 - | -
+可鲁贝洛斯 | 保留 keroberos / 魔卡少女樱 | 删除 kero / 图反推 | 合并 - | -
+埼玉 | 保留 saitama_(one_punch_man) / 一拳超人 | 删除 saitama_(one-punch_man) / 图反推 | 合并 - | -
+桐人 | 保留 kirigaya_kazuto / 刀剑神域 | 删除 kirito / 图反推 | 合并 - | -
+库·丘林 | 保留 cu_chulainn / Fate | 删除 cu_chulainn_(fate) / 图反推 | 合并 - | -
+宫本武藏 | 保留 musashi_(fate) / Fate | 删除 miyamoto_musashi_(fate) / 图反推 | 合并 - | -
+刑部姬 | 保留 osakabehime_(fate) / Fate | 删除 osakabe-hime_(fate) / 图反推 | 合并 - | -
+达·芬奇 | 保留 leonardo_da_vinci_(fate) / Fate | 删除 leonardo_da_vinci_(rider)_(fate) / 图反推 | 合并 - | -
+优木雪菜 | 保留 yuuki_setsuna / LoveLive | 删除 yuuki_setsuna_(love_live!) / 图反推 | 合并 - | -
+吹雪 | 保留 fubuki_(kancolle) / 舰Colle | 删除 fubuki_(one-punch_man) / 图反推 | 合并 - | -
+赤城 | 保留 akagi_(kancolle) / 舰Colle | 删除 akagi_(azur_lane) / 图反推 | 合并 - | -
+加贺 | 保留 kaga_(kancolle) / 舰Colle | 删除 kaga_(azur_lane) / 图反推 | 合并 - | -
+长门 | 保留 nagato_(kancolle) / 舰Colle | 删除 nagato_(azur_lane) / 图反推 | 合并 - | -
+大和 | 保留 yamato_(kancolle) / 舰Colle | 删除 oikawa_shizuku / 图反推 | 合并 - | -
+瑞鹤 | 保留 zuikaku / 舰Colle | 删除 zuikaku_(kancolle) / 图反推 | 合并 - | -
+翔鹤 | 保留 shoukaku / 舰Colle | 删除 shoukaku_(azur_lane) / 图反推; shoukaku_(kancolle) / 图反推 | 合并 - | -
+夕立 | 保留 yuudachi_(kancolle) / 舰Colle | 删除 yuudachi_(azur_lane) / 图反推 | 合并 - | -
+大凤 | 保留 taihou_(kancolle) / 舰Colle | 删除 taihou_(azur_lane) / 图反推 | 合并 - | -
+爱宕 | 保留 atago_(kancolle) / 舰Colle | 删除 atago_(azur_lane) / 图反推 | 合并 - | -
+高雄 | 保留 takao_(kancolle) / 舰Colle | 删除 takao_(azur_lane) / 图反推 | 合并 - | -
+响 | 保留 hibiki_(kancolle) / 舰Colle | 删除 hibiki_(blue_archive) / 图反推 | 合并 - | -
+无名 | 保留 mumei_(kabaneri) / 甲铁城 | 删除 nanashi_mumei / 图反推 | 合并 - | -
+雨宫莲 | 保留 ren_amamiya / 女神异闻录5 | 删除 amamiya_ren / 图反推 | 合并 - | -
+高卷杏 | 保留 takamaki_ann / 女神异闻录5 | 删除 takamaki_anne / 图反推 | 合并 - | -
+9S | 保留 9s_(nier) / 尼尔 | 删除 yorha_no._9_type_s / 图反推 | 合并 - | -
+A2 | 保留 a2_(nier) / 尼尔 | 删除 yorha_type_a_no._2 / 图反推 | 合并 - | -
+两面宿傩 | 保留 ryoumen_sukuna / 咒术回战 | 删除 ryoumen_sukuna_(jujutsu_kaisen) / 图反推 | 合并 - | -
+目白麦昆 | 保留 mejiro_mcqueen / 赛马娘 | 删除 mejiro_mcqueen_(umamusume) / 图反推 | 合并 - | -
+鲁道夫象征 | 保留 symboli_rudolf / 赛马娘 | 删除 symboli_rudolf_(umamusume) / 图反推 | 合并 - | -
+大和赤骥 | 保留 daiwa_scarlet / 赛马娘 | 删除 daiwa_scarlet_(umamusume) / 图反推 | 合并 - | -
+草上飞 | 保留 grass_wonder / 赛马娘 | 删除 grass_wonder_(umamusume) / 图反推 | 合并 - | -
+米浴 | 保留 rice_shower / 赛马娘 | 删除 rice_shower_(umamusume) / 图反推 | 合并 - | -
+北部玄驹 | 保留 kitasan_black / 赛马娘 | 删除 kitasan_black_(umamusume) / 图反推 | 合并 - | -
+里见光钻 | 保留 satono_diamond / 赛马娘 | 删除 satono_diamond_(umamusume) / 图反推 | 合并 - | -
+爱丽速子 | 保留 agnes_tachyon / 赛马娘 | 删除 agnes_tachyon_(umamusume) / 图反推 | 合并 - | -
+曼城茶座 | 保留 manhattan_cafe / 赛马娘 | 删除 manhattan_cafe_(umamusume) / 图反推 | 合并 - | -
+成田白仁 | 保留 narita_brian / 赛马娘 | 删除 narita_brian_(umamusume) / 图反推 | 合并 - | -
+早川秋 | 保留 aki_hayakawa / 电锯人 | 删除 hayakawa_aki / 图反推 | 合并 - | -
+派蒙 | 保留 paimon / 原神 | 删除 paimon_(genshin_impact) / 图反推 | 合并 - | -
+温迪 | 保留 venti / 原神 | 删除 venti_(genshin_impact) / 图反推 | 合并 - | -
+钟离 | 保留 zhongli / 原神 | 删除 zhongli_(genshin_impact) / 图反推 | 合并 - | -
+行秋 | 保留 xingqiu / 原神 | 删除 xingqiu_(genshin_impact) / 图反推 | 合并 - | -
+重云 | 保留 chongyun / 原神 | 删除 chongyun_(genshin_impact) / 图反推 | 合并 - | -
+迪卢克 | 保留 diluc / 原神 | 删除 diluc_(genshin_impact) / 图反推 | 合并 - | -
+凯亚 | 保留 kaeya / 原神 | 删除 kaeya_(genshin_impact) / 图反推 | 合并 - | -
+天狼星 | 保留 sirius_(azur_lane) / 碧蓝航线 | 删除 sirius_(azure_horizons)_(azur_lane) / 图反推 | 合并 - | -
+欧根亲王 | 保留 prinz_eugen / 碧蓝航线 | 删除 prinz_eugen_(kancolle) / 图反推; prinz_eugen_(azur_lane) / 图反推 | 合并 - | -
+俾斯麦 | 保留 bismarck_(azur_lane) / 碧蓝航线 | 删除 bismarck_(kancolle) / 图反推 | 合并 - | -
+绫波 | 保留 ayanami_(azur_lane) / 碧蓝航线 | 删除 ayanami_(kancolle) / 图反推 | 合并 - | -
+明石 | 保留 akashi_(azur_lane) / 碧蓝航线 | 删除 akashi_(kancolle) / 图反推 | 合并 - | -
+岛田爱里寿 | 保留 shimada_arisa / 少女与战车 | 删除 shimada_arisu / 图反推 | 合并 - | -
+佩可莉姆 | 保留 pecorine / 公主连结 | 删除 pecorine_(princess_connect!) / 图反推 | 合并 - | -
+可可萝 | 保留 kokkoro / 公主连结 | 删除 kokkoro_(princess_connect!) / 图反推 | 合并 - | -
+凯露 | 保留 kyaru / 公主连结 | 删除 karyl_(princess_connect!) / 图反推 | 合并 - | -
+优衣 | 保留 yui_(princess_connect) / 公主连结 | 删除 yuuki_(princess_connect!) / 图反推 | 合并 - | -
+茨木童子 | 保留 ibaraki_douji / 阴阳师 | 删除 ibaraki_douji_(fate) / 图反推 | 合并 - | -
+M4A1 | 保留 m4a1_(girls_frontline) / 少女前线 | 删除 m4a1_(girls'_frontline) / 图反推 | 合并 - | -
+HK416 | 保留 hk416_(girls_frontline) / 少女前线 | 删除 hk416_(girls'_frontline) / 图反推 | 合并 - | -
+UMP45 | 保留 ump45_(girls_frontline) / 少女前线 | 删除 ump45_(girls'_frontline) / 图反推 | 合并 - | -
+春田 | 保留 springfield_(girls_frontline) / 少女前线 | 删除 springfield_(girls'_frontline) / 图反推 | 合并 - | -
+95式 | 保留 type95_(girls_frontline) / 少女前线 | 删除 type_95_(girls'_frontline) / 图反推 | 合并 - | -
+山吹沙绫 | 保留 yamabuki_saya / BanG Dream | 删除 yamabuki_inori / 图反推 | 合并 - | -
+阿库娅 | 保留 aqua_(konosuba) / 为美好的世界献上祝福 | 删除 azura_(fire_emblem) / 图反推 | 合并 - | -
+泽塔 | 保留 zeta_(shadow_garden) / 影之实力者 | 删除 zeta_(granblue_fantasy) / 图反推 | 合并 - | -
+金色暗影 | 保留 golden_darkness / 出包王女 | 删除 konjiki_no_yami / 图反推 | 合并 - | -
+梦梦·贝莉雅·戴比路克 | 保留 momo_belia_deviluke / 出包王女 | 删除 momo_velia_deviluke / 图反推 | 合并 - | -
+佩琳·H·克洛斯特曼 | 保留 perrine_h_clostermann / 强袭魔女 | 删除 perrine_h._clostermann / 图反推 | 合并 - | -
+凉风青叶 | 保留 suzunari_aoba / NEW GAME | 删除 suzukaze_aoba / 图反推 | 合并 - | -
+保登心爱 | 保留 kafuu_cocoa / 点兔 | 删除 hoto_cocoa / 图反推 | 合并 - | -
+丽日御茶子 | 保留 uraraka_ochaco / 我的英雄学院 | 删除 uraraka_ochako / 图反推 | 合并 - | -
+欧尔麦特 | 保留 all_might / 我的英雄学院 | 删除 endeavor_(boku_no_hero_academia) / 图反推 | 合并 - | -
+苍崎青子 | 保留 aozaki_aoki / 魔法使之夜 | 删除 aozaki_aoko / 图反推 | 合并 - | -
+橙黄白毫 | 保留 orange_pekoe / 少女与战车 | 删除 orange_pekoe_(girls_und_panzer) / 图反推 | 合并 - | -
+夏洛特·E·叶格 | 保留 charlotte_e_yeager / 强袭魔女 | 删除 charlotte_e._yeager / 图反推 | 合并 - | -
+天王遥 | 保留 tenou_haruka / 美少女战士 | 删除 ten'ou_haruka / 图反推 | 合并 - | -
+海王满 | 保留 kaioh_michiru / 美少女战士 | 删除 kaiou_michiru / 图反推 | 合并 - | -
+武藏 | 保留 musashi_(pokemon) / 宝可梦 | 删除 jessie_(pokemon) / 图反推; musashi_(kancolle) / 图反推 | 合并 - | -
+阿斯托尔福 | 保留 astolfo_(fate) / 图反推 | 删除 astolfo_(sailor_paladin)_(fate) / 图反推 | 合并 - | -
+山城 | 保留 yamashiro_(kancolle) / 图反推 | 删除 yamashiro_(azur_lane) / 图反推 | 合并 - | -
+齐柏林伯爵 | 保留 graf_zeppelin_(azur_lane) / 图反推 | 删除 graf_zeppelin_(kancolle) / 图反推 | 合并 - | -
+阳炎 | 保留 yang_xiao_long / 图反推 | 删除 kagerou_(kancolle) / 图反推 | 合并 - | -
+如月 | 保留 kisaragi_(kancolle) / 图反推 | 删除 kisaragi_(azur_lane) / 图反推 | 合并 - | -
+妮亚 | 保留 nia_(xenoblade) / 图反推 | 删除 nia_(blade)_(xenoblade) / 图反推 | 合并 - | -
+白雪 | 保留 shirayuki_(kancolle) / 图反推 | 删除 shirase_sakuya / 图反推 | 合并 app.outfit | 外观待确认
+艾琳 | 保留 alena_(dq4) / 图反推 | 删除 elin / 图反推 | 合并 - | -
+猫娘 | 保留 nekomusume / 图反推 | 删除 nekomusume_(gegege_no_kitarou_6) / 图反推 | 合并 - | -
+玛丽 | 保留 marie_(girls_und_panzer) / 图反推 | 删除 mari_(blue_archive) / 图反推 | 合并 app.outfit | -
+扎拉 | 保留 zara_(kancolle) / 图反推 | 删除 zara_(azur_lane) / 图反推 | 合并 - | -
+艾莉丝 | 保留 elesis_(elsword) / 图反推 | 删除 iris_(pokemon) / 图反推 | 合并 - | -
+天城 | 保留 amagi_(kancolle) / 图反推 | 删除 amagi_(azur_lane) / 图反推 | 合并 app.hair | -
+
+阶段2 明细（zh | 删除 tags_cn 的 en | 保留 chars_extra.json 的 en / sub | 丢掉的外观字段）
+----------------------------------------------------------------------
+田井中律 | 删除 tainaka_ritsu | 保留(extra) tainaka_ritsu / 轻音少女 | 丢掉外观 -
+琴吹紬 | 删除 kotobuki_tsumugi | 保留(extra) kotobuki_tsumugi / 轻音少女 | 丢掉外观 -
+美杜莎 | 删除 medusa_(fate) | 保留(extra) medusa_(fate) / Fate/stay night | 丢掉外观 -
+黄金船 | 删除 gold_ship_(umamusume) | 保留(extra) gold_ship / 赛马娘 | 丢掉外观 -
+东海帝王 | 删除 tokai_teio_(umamusume) | 保留(extra) tokai_teio / 赛马娘 | 丢掉外观 -
+布洛妮娅·扎伊切克 | 删除 bronya_zaychik | 保留(extra) bronya_zaychik / 崩坏3 | 丢掉外观 -
+无声铃鹿 | 删除 silence_suzuka_(umamusume) | 保留(extra) silence_suzuka / 赛马娘 | 丢掉外观 -
+铃兰 | 删除 suzuran_(arknights) | 保留(extra) suzuran_(arknights) / 明日方舟 | 丢掉外观 -
+特别周 | 删除 special_week_(umamusume) | 保留(extra) special_week / 赛马娘 | 丢掉外观 -
+平泽忧 | 删除 hirasawa_ui | 保留(extra) hirasawa_ui / 轻音少女 | 丢掉外观 -
+小栗帽 | 删除 oguri_cap_(umamusume) | 保留(extra) oguri_cap / 赛马娘 | 丢掉外观 -
+塞雷娅 | 删除 saria_(arknights) | 保留(extra) saria_(arknights) / 明日方舟 | 丢掉外观 -
+高坂丽奈 | 删除 kousaka_reina | 保留(extra) kousaka_reina / 吹响！上低音号 | 丢掉外观 -
+烟绯 | 删除 yanfei_(genshin_impact) | 保留(extra) yanfei / 原神 | 丢掉外观 -
+东山小红 | 删除 higashiyama_kobeni | 保留(extra) higashiyama_kobeni / 电锯人 | 丢掉外观 -
+樱岛麻衣 | 删除 sakurajima_mai | 保留(extra) sakurajima_mai / 兔女郎学姐 | 丢掉外观 -
+早坂爱 | 删除 hayasaka_ai | 保留(extra) hayasaka_ai / 辉夜大小姐 | 丢掉外观 -
+澄闪 | 删除 goldenglow_(arknights) | 保留(extra) goldenglow_(arknights) / 明日方舟 | 丢掉外观 -
+山田妖精 | 删除 yamada_elf | 保留(extra) yamada_elf / 埃罗芒阿老师 | 丢掉外观 -
+久岐忍 | 删除 kuki_shinobu | 保留(extra) kuki_shinobu / 原神 | 丢掉外观 -
+泉奈 | 删除 izuna_(blue_archive) | 保留(extra) izuna_(blue_archive) / 蔚蓝档案 | 丢掉外观 -
+诗怀雅 | 删除 swire_(arknights) | 保留(extra) swire_(arknights) / 明日方舟 | 丢掉外观 -

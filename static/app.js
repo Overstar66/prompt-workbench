@@ -372,6 +372,14 @@
     const f = favs();
     if (S.favTop) list.sort((a, b) => (f.has(b.en) ? 1 : 0) - (f.has(a.en) ? 1 : 0));
     if (S.nsfw) list.sort((a, b) => (b.nsfw ? 1 : 0) - (a.nsfw ? 1 : 0));
+    /* 「角色」分类（含 游戏 / 动漫 / 自定义 等子分类芯片）：内置精修 + 用户自定义排在前面，
+       sub == "图反推" 的角色一律排到最后。只切两段、不重排段内顺序（词库顺序 / 收藏置顶 /
+       NSFW 置顶的相对次序都保留），其它分类完全不受影响。 */
+    if (S.cat === '角色') {
+      const main = [], reverse = [];
+      list.forEach(e => (subOf(e) === '图反推' ? reverse : main).push(e));
+      return main.concat(reverse);
+    }
     return list;
   }
 
