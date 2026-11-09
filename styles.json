@@ -1,0 +1,302 @@
+[
+ {
+  "tag": "anime style",
+  "zh": "动漫风格",
+  "desc": "标准二次元插画",
+  "img": null
+ },
+ {
+  "tag": "official art",
+  "zh": "官方画风",
+  "desc": "官图质感、干净线稿",
+  "img": null
+ },
+ {
+  "tag": "illustration",
+  "zh": "插画",
+  "desc": "一般插画风格",
+  "img": null
+ },
+ {
+  "tag": "sketch",
+  "zh": "线稿/速写",
+  "desc": "铅笔或钢笔线稿",
+  "img": null
+ },
+ {
+  "tag": "lineart",
+  "zh": "干净线稿",
+  "desc": "只有线条，无上色",
+  "img": null
+ },
+ {
+  "tag": "monochrome",
+  "zh": "黑白/单色",
+  "desc": "单色绘制",
+  "img": null
+ },
+ {
+  "tag": "greyscale",
+  "zh": "灰度",
+  "desc": "灰阶明暗层次",
+  "img": null
+ },
+ {
+  "tag": "watercolor (medium)",
+  "zh": "水彩",
+  "desc": "水彩晕染质感",
+  "img": null
+ },
+ {
+  "tag": "oil painting",
+  "zh": "油画",
+  "desc": "厚涂油彩",
+  "img": null
+ },
+ {
+  "tag": "impasto",
+  "zh": "厚涂",
+  "desc": "笔触厚重的油画感",
+  "img": null
+ },
+ {
+  "tag": "pastel colors",
+  "zh": "粉彩色",
+  "desc": "柔和低饱和粉彩",
+  "img": null
+ },
+ {
+  "tag": "flat color",
+  "zh": "平涂",
+  "desc": "色块平涂、无渐变",
+  "img": null
+ },
+ {
+  "tag": "cel shading",
+  "zh": "赛璐璐",
+  "desc": "动画式硬边阴影",
+  "img": null
+ },
+ {
+  "tag": "pixel art",
+  "zh": "像素风",
+  "desc": "低分辨率像素画",
+  "img": null
+ },
+ {
+  "tag": "3d",
+  "zh": "3D 渲染",
+  "desc": "三维渲染质感",
+  "img": null
+ },
+ {
+  "tag": "realistic",
+  "zh": "写实",
+  "desc": "接近照片的写实风",
+  "img": null
+ },
+ {
+  "tag": "photo (medium)",
+  "zh": "摄影",
+  "desc": "照片质感",
+  "img": null
+ },
+ {
+  "tag": "chibi",
+  "zh": "Q版",
+  "desc": "二头身可爱比例",
+  "img": null
+ },
+ {
+  "tag": "comic",
+  "zh": "美漫/漫画",
+  "desc": "漫画分镜感",
+  "img": null
+ },
+ {
+  "tag": "4koma",
+  "zh": "四格漫画",
+  "desc": "四格排版",
+  "img": null
+ },
+ {
+  "tag": "retro artstyle",
+  "zh": "复古画风",
+  "desc": "老动画/复古上色",
+  "img": null
+ },
+ {
+  "tag": "ukiyo-e",
+  "zh": "浮世绘",
+  "desc": "日本传统版画风",
+  "img": null
+ },
+ {
+  "tag": "traditional media",
+  "zh": "传统媒介",
+  "desc": "手绘颜料质感",
+  "img": null
+ },
+ {
+  "tag": "vector trace",
+  "zh": "矢量描摹",
+  "desc": "矢量平涂描边",
+  "img": null
+ },
+ {
+  "tag": "high contrast",
+  "zh": "高对比",
+  "desc": "强明暗对比",
+  "img": null
+ },
+ {
+  "tag": "soft lighting",
+  "zh": "柔光",
+  "desc": "柔和漫射光",
+  "img": null
+ },
+ {
+  "tag": "backlighting",
+  "zh": "逆光",
+  "desc": "背后打光、轮廓光",
+  "img": null
+ },
+ {
+  "tag": "cinematic lighting",
+  "zh": "电影光效",
+  "desc": "电影感的布光",
+  "img": null
+ },
+ {
+  "tag": "depth of field",
+  "zh": "景深",
+  "desc": "背景虚化",
+  "img": null
+ },
+ {
+  "tag": "bloom",
+  "zh": "泛光",
+  "desc": "高光溢出",
+  "img": null
+ },
+ {
+  "tag": "lens flare",
+  "zh": "镜头光晕",
+  "desc": "光斑/耀斑",
+  "img": null
+ },
+ {
+  "tag": "vignetting",
+  "zh": "暗角",
+  "desc": "四角压暗",
+  "img": null
+ },
+ {
+  "tag": "chromatic aberration",
+  "zh": "色散",
+  "desc": "镜头色边",
+  "img": null
+ },
+ {
+  "tag": "manga cover",
+  "zh": "漫画封面",
+  "desc": "杂志封面排版感",
+  "img": null
+ },
+ {
+  "tag": "poster",
+  "zh": "海报风",
+  "desc": "平面设计构图",
+  "img": null
+ },
+ {
+  "tag": "claymore (style)",
+  "zh": "厚涂人像",
+  "desc": "厚涂质感人像",
+  "img": null
+ },
+ {
+  "tag": "hatching (texture)",
+  "zh": "排线纹理",
+  "desc": "交叉排线阴影",
+  "img": null
+ },
+ {
+  "tag": "dithering",
+  "zh": "网点",
+  "desc": "网点/抖动色阶",
+  "img": null
+ },
+ {
+  "tag": "halftone",
+  "zh": "半调网点",
+  "desc": "印刷网点质感",
+  "img": null
+ },
+ {
+  "tag": "screentone",
+  "zh": "漫画网点",
+  "desc": "漫画网点纸效果",
+  "img": null
+ },
+ {
+  "tag": "sketchbook",
+  "zh": "速写本",
+  "desc": "速写本页面感",
+  "img": null
+ },
+ {
+  "tag": "traditional chinese painting",
+  "zh": "国风水墨",
+  "desc": "水墨写意",
+  "img": null
+ },
+ {
+  "tag": "ink wash painting",
+  "zh": "水墨",
+  "desc": "墨色晕染",
+  "img": null
+ },
+ {
+  "tag": "niji style",
+  "zh": "彩虹风",
+  "desc": "NijiJourney 风格",
+  "img": null
+ },
+ {
+  "tag": "studio ghibli (style)",
+  "zh": "吉卜力风",
+  "desc": "宫崎骏动画质感",
+  "img": null
+ },
+ {
+  "tag": "shin'ya (style)",
+  "zh": "新海诚风",
+  "desc": "新海诚式光影",
+  "img": null
+ },
+ {
+  "tag": "kawaii",
+  "zh": "可爱风",
+  "desc": "萌系可爱",
+  "img": null
+ },
+ {
+  "tag": "dark fantasy",
+  "zh": "暗黑奇幻",
+  "desc": "阴郁奇幻氛围",
+  "img": null
+ },
+ {
+  "tag": "cyberpunk",
+  "zh": "赛博朋克",
+  "desc": "霓虹未来感",
+  "img": null
+ },
+ {
+  "tag": "vaporwave",
+  "zh": "蒸汽波",
+  "desc": "紫粉霓虹复古",
+  "img": null
+ }
+]

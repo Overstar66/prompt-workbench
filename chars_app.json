@@ -1,0 +1,3328 @@
+{
+ "hakurei_reimu": {
+  "zh": "博丽灵梦",
+  "hair": "黑色长发，红色大蝴蝶结",
+  "eyes": "红色眼睛",
+  "outfit": "红白巫女服，白色围裙",
+  "body": "娇小",
+  "chest": "标准",
+  "hair_en": [
+   "brown_hair",
+   "long_hair",
+   "side_tail",
+   "hair_tubes"
+  ],
+  "eyes_en": [
+   "brown_eyes"
+  ],
+  "outfit_en": [
+   "miko",
+   "sleeveless",
+   "red_skirt",
+   "hair_ribbon"
+  ]
+ },
+ "kirisame_marisa": {
+  "zh": "雾雨魔理沙",
+  "hair": "金色长发，侧边麻花辫",
+  "eyes": "金色眼睛",
+  "outfit": "黑白女巫服，黑色尖顶帽",
+  "body": "娇小",
+  "chest": "贫乳",
+  "hair_en": [
+   "blonde_hair",
+   "long_hair",
+   "side_braid",
+   "witch_hat"
+  ],
+  "eyes_en": [
+   "yellow_eyes"
+  ],
+  "outfit_en": [
+   "witch_hat",
+   "long_sleeves",
+   "apron",
+   "cape"
+  ]
+ },
+ "izayoi_sakuya": {
+  "zh": "十六夜咲夜",
+  "hair": "银灰色长发，双麻花辫",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝白女仆装，女仆头饰",
+  "body": "标准",
+  "chest": "标准",
+  "hair_en": [
+   "silver_hair",
+   "braid",
+   "short_hair",
+   "hairband"
+  ],
+  "eyes_en": [
+   "blue_eyes"
+  ],
+  "outfit_en": [
+   "maid",
+   "maid_headdress",
+   "apron",
+   "white_gloves"
+  ]
+ },
+ "flandre_scarlet": {
+  "zh": "芙兰朵露·斯卡雷特",
+  "hair": "金色短发，侧马尾",
+  "eyes": "红色眼睛",
+  "outfit": "红色洋装，白色洋帽",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "remilia_scarlet": {
+  "zh": "蕾米莉亚·斯卡雷特",
+  "hair": "淡蓝色长发，双麻花辫",
+  "eyes": "红色眼睛",
+  "outfit": "粉色洋装，白色洋帽",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "patchouli_knowledge": {
+  "zh": "帕秋莉·诺蕾姬",
+  "hair": "紫色长发，紫色月亮帽",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色长袍，月亮纹样帽子",
+  "body": "纤细",
+  "chest": "标准"
+ },
+ "konpaku_youmu": {
+  "zh": "魂魄妖梦",
+  "hair": "银色短发，短双马尾",
+  "eyes": "深蓝色眼睛",
+  "outfit": "绿色和风剑士服，白衬衫",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "saigyouji_yuyuko": {
+  "zh": "西行寺幽幽子",
+  "hair": "淡粉色长发，直发",
+  "eyes": "粉色眼睛",
+  "outfit": "蓝色和服，白色三角头巾",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "shameimaru_aya": {
+  "zh": "射命丸文",
+  "hair": "黑色短发，天狗帽",
+  "eyes": "红色眼睛",
+  "outfit": "黑色天狗装，白色衬衫配红领带",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kochiya_sanae": {
+  "zh": "东风谷早苗",
+  "hair": "绿色长发，青蛙发饰",
+  "eyes": "绿色眼睛",
+  "outfit": "蓝白巫女服，青蛙发饰",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yakumo_yukari": {
+  "zh": "八云紫",
+  "hair": "金色长发，粉色帽子",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色洋装，粉色帽子",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "alice_margatroid": {
+  "zh": "爱丽丝·玛格特罗伊德",
+  "hair": "金色长发，红色发带",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝色洋装，白色围裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "reisen_udongein_inaba": {
+  "zh": "铃仙·优昙华院·因幡",
+  "hair": "淡紫色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白衬衫，黑色背心裙配红领带",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "fujiwara_no_mokou": {
+  "zh": "藤原妹红",
+  "hair": "白色长发，直发",
+  "eyes": "红色眼睛",
+  "outfit": "白衬衫，红色背带裤",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "houraisan_kaguya": {
+  "zh": "蓬莱山辉夜",
+  "hair": "黑色超长发，直发",
+  "eyes": "棕色眼睛",
+  "outfit": "粉红色和风洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "komeiji_koishi": {
+  "zh": "古明地恋",
+  "hair": "绿色短发，黑色帽子",
+  "eyes": "绿色眼睛",
+  "outfit": "黄绿色洋装，黑色帽子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "komeiji_satori": {
+  "zh": "古明地觉",
+  "hair": "粉色短发，粉色发饰",
+  "eyes": "粉色眼睛",
+  "outfit": "蓝紫色洋装，粉色发饰",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "shiki_eiki": {
+  "zh": "四季映姬·亚玛萨那度",
+  "hair": "绿色长发，绿色帽子",
+  "eyes": "红色眼睛",
+  "outfit": "黑色判官和服，绿色帽子",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hinanawi_tenshi": {
+  "zh": "比那名居天子",
+  "hair": "蓝色长发，红色装饰",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝色和服，红色蝴蝶结",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ibuki_suika": {
+  "zh": "伊吹萃香",
+  "hair": "棕色长发，头生双角",
+  "eyes": "棕色眼睛",
+  "outfit": "白色衬衫，紫色裙子",
+  "body": "娇小",
+  "chest": "巨乳"
+ },
+ "hatsune_miku": {
+  "zh": "初音未来",
+  "hair": "蓝绿色长发，双马尾",
+  "eyes": "蓝绿色眼睛",
+  "outfit": "灰白色无袖上衣，青绿色领带配黑色短裙",
+  "body": "纤细",
+  "chest": "标准",
+  "hair_en": [
+   "aqua_hair",
+   "twintails",
+   "very_long_hair",
+   "hair_ribbon"
+  ],
+  "eyes_en": [
+   "aqua_eyes"
+  ],
+  "outfit_en": [
+   "sleeveless",
+   "necktie",
+   "black_skirt",
+   "thighhighs",
+   "detached_sleeves"
+  ]
+ },
+ "kagamine_rin": {
+  "zh": "镜音铃",
+  "hair": "金色短发，白色发带",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色衬衫，黄色马甲配黑色短裤",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "megurine_luka": {
+  "zh": "巡音流歌",
+  "hair": "粉色长发，长直发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色无袖上衣，黑色长裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "luo_tianyi": {
+  "zh": "洛天依",
+  "hair": "灰色长发，绿色发饰",
+  "eyes": "绿色眼睛",
+  "outfit": "白色旗袍式上衣，绿色短裙",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "kasane_teto": {
+  "zh": "重音特特",
+  "hair": "深红色短发，双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "黑色无袖上衣，红色短裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "gumi_(vocaloid)": {
+  "zh": "GUMI",
+  "hair": "绿色短发，护目镜",
+  "eyes": "绿色眼睛",
+  "outfit": "绿色无袖上衣，橙色短裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "meiko_(vocaloid)": {
+  "zh": "MEIKO",
+  "hair": "棕色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "红色无袖上衣，红色短裙配黑色长靴",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "yuzuki_yukari": {
+  "zh": "结月缘",
+  "hair": "紫色长发，白色腰带",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色和风洋装，白色腰带",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "aisaka_taiga": {
+  "zh": "逢坂大河",
+  "hair": "浅棕长发，散发（右侧发夹）",
+  "eyes": "琥珀色眼睛",
+  "outfit": "校服西装外套，百褶裙配白色长袜",
+  "body": "娇小",
+  "chest": "贫乳",
+  "hair_en": [
+   "light_brown_hair",
+   "long_hair",
+   "loose_hair",
+   "hair_clip",
+   "sidelocks"
+  ],
+  "eyes_en": [
+   "amber_eyes"
+  ],
+  "outfit_en": [
+   "school_uniform",
+   "blazer",
+   "pleated_skirt",
+   "white_socks",
+   "loafers"
+  ]
+ },
+ "kushieda_minori": {
+  "zh": "栉枝实乃梨",
+  "hair": "棕橙色中长发，侧马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，运动外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kawashima_ami": {
+  "zh": "川岛亚美",
+  "hair": "深蓝色长发，波浪卷",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，模特风连衣裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "tokisaki_kurumi": {
+  "zh": "时崎狂三",
+  "hair": "黑色长发，左右不对称双马尾",
+  "eyes": "左眼红色右眼金色异色瞳",
+  "outfit": "黑红相间的哥特灵装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yatogami_tohka": {
+  "zh": "夜刀神十香",
+  "hair": "深紫色超长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫白色灵装洋装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "itsuka_kotori": {
+  "zh": "五河琴里",
+  "hair": "红色长发，黑色发带双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "白色洋装，红色蝴蝶结",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "yoshino": {
+  "zh": "四糸乃",
+  "hair": "淡蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色斗篷，兔子玩偶",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "rem": {
+  "zh": "雷姆",
+  "hair": "浅蓝色短发，遮住右眼",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑白女仆装，女仆头饰",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ram_(re:zero)": {
+  "zh": "拉姆",
+  "hair": "粉色短发",
+  "eyes": "粉色眼睛",
+  "outfit": "黑白女仆装，女仆头饰",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "emilia": {
+  "zh": "艾米莉娅",
+  "hair": "银色超长发",
+  "eyes": "紫色眼睛",
+  "outfit": "白色精灵洋装，紫色蝴蝶发饰",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "beatrice_(re:zero)": {
+  "zh": "碧翠丝",
+  "hair": "金色长发，螺旋卷双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "粉色洋装，蝴蝶发饰",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "asuna_(sao)": {
+  "zh": "亚丝娜",
+  "hair": "栗橙色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "血盟骑士团白红骑士装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "leafa": {
+  "zh": "莉法",
+  "hair": "淡金色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "绿白色精灵装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sinon": {
+  "zh": "诗乃",
+  "hair": "浅蓝色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝色射手装，狙击枪",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yui_(sao)": {
+  "zh": "结衣",
+  "hair": "黑色长发",
+  "eyes": "深棕色眼睛",
+  "outfit": "白色洋装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "misaka_mikoto": {
+  "zh": "御坂美琴",
+  "hair": "栗棕色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "常盘台校服，白衬衫配灰色背心裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shirai_kuroko": {
+  "zh": "白井黑子",
+  "hair": "茶色双马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "常盘台校服，风纪委员臂章",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "uiharu_kazari": {
+  "zh": "初春饰利",
+  "hair": "黑色短发，花饰发箍",
+  "eyes": "黑色眼睛",
+  "outfit": "常盘台校服，风纪委员臂章",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "saten_ruiko": {
+  "zh": "佐天泪子",
+  "hair": "黑色长发，白色发箍",
+  "eyes": "蓝色眼睛",
+  "outfit": "栅川中学水手服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shokuhou_misaki": {
+  "zh": "食蜂操祈",
+  "hair": "金色长发，波浪卷",
+  "eyes": "金色眼睛",
+  "outfit": "常盘台校服，白色手套",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "shinomiya_kaguya": {
+  "zh": "四宫辉夜",
+  "hair": "黑色长发，红色发带",
+  "eyes": "红色眼睛",
+  "outfit": "秀知院黑西装校服配红裙",
+  "body": "纤细",
+  "chest": "标准"
+ },
+ "fujiwara_chika": {
+  "zh": "藤原千花",
+  "hair": "粉金色长发，蝴蝶结发带",
+  "eyes": "蓝色眼睛",
+  "outfit": "秀知院黑西装校服配红裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "iino_miko": {
+  "zh": "伊井野弥子",
+  "hair": "深棕色双马尾，丝带装饰",
+  "eyes": "棕色眼睛",
+  "outfit": "秀知院黑西装校服配红裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "shirogane_kei": {
+  "zh": "白银圭",
+  "hair": "白金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "秀知院黑西装校服配红裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yukinoshita_yukino": {
+  "zh": "雪之下雪乃",
+  "hair": "黑色长直发",
+  "eyes": "蓝色眼睛",
+  "outfit": "总武高黑色西装校服配红格裙",
+  "body": "纤细",
+  "chest": "标准"
+ },
+ "yuigahama_yui": {
+  "zh": "由比滨结衣",
+  "hair": "橙粉色中长发，侧马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "总武高黑色西装校服配红格裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "isshiki_iroha": {
+  "zh": "一色彩羽",
+  "hair": "浅棕色长发，一侧编发",
+  "eyes": "棕色眼睛",
+  "outfit": "总武高黑色西装校服配红格裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nakano_miku": {
+  "zh": "中野三玖",
+  "hair": "棕色长发，中分配耳机",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，蓝色针织衫配耳机",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nakano_ichika": {
+  "zh": "中野一花",
+  "hair": "粉色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "nakano_nino": {
+  "zh": "中野二乃",
+  "hair": "偏粉红色长发，双蝴蝶结",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nakano_yotsuba": {
+  "zh": "中野四叶",
+  "hair": "橙色短发，绿色丝带",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nakano_itsuki": {
+  "zh": "中野五月",
+  "hair": "橙红色长发，星星发夹",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "izumi_sagiri": {
+  "zh": "和泉纱雾",
+  "hair": "银色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色连衣裙，粉色开衫",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "kanna_kamui": {
+  "zh": "康娜·卡姆依",
+  "hair": "白色长发，头生双角",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色连衣裙，黑色发饰",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "tohru_(maidragon)": {
+  "zh": "托尔",
+  "hair": "金色长发，头生双角",
+  "eyes": "红色眼睛",
+  "outfit": "黑白女仆装，龙角",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "lucoa": {
+  "zh": "露科亚",
+  "hair": "浅绿色长卷发",
+  "eyes": "金色眼睛",
+  "outfit": "白绿色露肩装，宽檐帽",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "illyasviel_von_einzbern": {
+  "zh": "伊莉雅斯菲尔·冯·爱因兹贝伦",
+  "hair": "银白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "紫色洋装，白色披肩",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "tohsaka_rin": {
+  "zh": "远坂凛",
+  "hair": "黑色长发，红色发带双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "红色上衣，黑色短裙配黑色长袜",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "matou_sakura": {
+  "zh": "间桐樱",
+  "hair": "浅紫色长发，蝴蝶结发饰",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色洋装，白色围裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "artoria_pendragon": {
+  "zh": "阿尔托莉雅·潘德拉贡",
+  "hair": "金色长发，盘发蓝发带",
+  "eyes": "绿色眼睛",
+  "outfit": "银蓝色骑士铠甲，白色礼服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "mash_kyrielight": {
+  "zh": "玛修·基列莱特",
+  "hair": "淡粉紫色短发，遮住一只眼",
+  "eyes": "紫色眼睛",
+  "outfit": "白黑色紧身战斗服，盾牌",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "jeanne_d'arc_(fate)": {
+  "zh": "贞德",
+  "hair": "金色长发，编辫",
+  "eyes": "蓝色眼睛",
+  "outfit": "银色铠甲，白蓝色礼服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "scathach": {
+  "zh": "斯卡哈",
+  "hair": "紫红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "紫红色紧身战斗服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nero_claudius": {
+  "zh": "尼禄·克劳狄乌斯",
+  "hair": "金色长发，盘发红发饰",
+  "eyes": "绿色眼睛",
+  "outfit": "红白色罗马风洋装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "tamamo_no_mae": {
+  "zh": "玉藻前",
+  "hair": "粉色长发，狐耳",
+  "eyes": "金色眼睛",
+  "outfit": "白蓝色和风巫女装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "2b_(nier)": {
+  "zh": "2B",
+  "hair": "银白色短发，波波头",
+  "eyes": "蓝灰色眼睛，戴黑色眼罩",
+  "outfit": "黑色哥特连衣裙，黑色眼罩",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "tifa_lockhart": {
+  "zh": "蒂法·洛克哈特",
+  "hair": "深棕色长发，马尾",
+  "eyes": "红色眼睛",
+  "outfit": "白色背心，黑色短裙配格斗手套",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "aerith_gainsborough": {
+  "zh": "爱丽丝·盖恩斯巴勒",
+  "hair": "栗棕色长发，编发粉红发带",
+  "eyes": "绿色眼睛",
+  "outfit": "粉色连衣裙，红色短外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "souryuu_asuka_langley": {
+  "zh": "明日香·兰格雷",
+  "hair": "橙红色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "红色战斗驾驶服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ayanami_rei": {
+  "zh": "绫波丽",
+  "hair": "淡蓝色短发",
+  "eyes": "红色眼睛",
+  "outfit": "白色战斗服，校服",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "katsuragi_misato": {
+  "zh": "葛城美里",
+  "hair": "深紫色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "红色外套，黑色连衣裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "kaname_madoka": {
+  "zh": "鹿目圆",
+  "hair": "粉色短发，短双马尾",
+  "eyes": "粉色眼睛",
+  "outfit": "粉色魔法少女装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "akemi_homura": {
+  "zh": "晓美焰",
+  "hair": "黑色长直发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑紫色魔法少女装",
+  "body": "纤细",
+  "chest": "标准"
+ },
+ "miki_sayaka": {
+  "zh": "美树沙耶香",
+  "hair": "蓝色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝色骑士风魔法少女装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "tomoe_mami": {
+  "zh": "巴麻美",
+  "hair": "金色长卷发，螺旋卷",
+  "eyes": "黄色眼睛",
+  "outfit": "黄棕色魔法少女装，帽子",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "sakura_kyouko": {
+  "zh": "佐仓杏子",
+  "hair": "红色长发，马尾",
+  "eyes": "红色眼睛",
+  "outfit": "红色魔法少女装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "kato_megumi": {
+  "zh": "加藤惠",
+  "hair": "棕色短发，波波头",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白色发箍",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sawamura_spencer_eriri": {
+  "zh": "泽村英梨梨",
+  "hair": "金色长卷发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kasumigaoka_utaha": {
+  "zh": "霞之丘诗羽",
+  "hair": "黑色长直发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，黑色长袜",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "takagi_(karakai_jouzu)": {
+  "zh": "高木同学",
+  "hair": "棕色长发，齐刘海",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "takanashi_rikka": {
+  "zh": "小鸟游六花",
+  "hair": "黑色长发，黑色眼罩",
+  "eyes": "蓝绿色眼睛",
+  "outfit": "校服，黑色眼罩",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "chitanda_eru": {
+  "zh": "千反田爱瑠",
+  "hair": "黑色长直发",
+  "eyes": "紫色眼睛",
+  "outfit": "神山高校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hirasawa_yui": {
+  "zh": "平泽唯",
+  "hair": "棕色短发，波波头",
+  "eyes": "棕色眼睛",
+  "outfit": "樱丘高中校服，吉他",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "akiyama_mio": {
+  "zh": "秋山澪",
+  "hair": "黑色长直发",
+  "eyes": "灰色眼睛",
+  "outfit": "樱丘高中校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nakano_azusa": {
+  "zh": "中野梓",
+  "hair": "黑色长发，双马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "樱丘高中校服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "suzumiya_haruhi": {
+  "zh": "凉宫春日",
+  "hair": "棕色长发，黄色发带",
+  "eyes": "棕色眼睛",
+  "outfit": "北高校服，黄色发带",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nagato_yuki": {
+  "zh": "长门有希",
+  "hair": "淡紫色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "北高校服",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "asahina_mikuru": {
+  "zh": "朝比奈实玖瑠",
+  "hair": "棕色长发，侧马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "北高校服，女仆装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "izumi_konata": {
+  "zh": "泉此方",
+  "hair": "浅蓝色长发，呆毛",
+  "eyes": "绿色眼睛",
+  "outfit": "陵樱学园校服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "hiiragi_kagami": {
+  "zh": "柊镜",
+  "hair": "紫色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "陵樱学园校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hiiragi_tsukasa": {
+  "zh": "柊司",
+  "hair": "浅紫色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "陵樱学园校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "senjougahara_hitagi": {
+  "zh": "战场原黑仪",
+  "hair": "黑色长直发，紫色发带",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，紫色发带",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "hachikuji_mayoi": {
+  "zh": "八九寺真宵",
+  "hair": "黑色短发，小双马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，大背包",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "oshino_shinobu": {
+  "zh": "忍野忍",
+  "hair": "金色长发",
+  "eyes": "金色眼睛",
+  "outfit": "金色洋装，帽子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "sengoku_nadeko": {
+  "zh": "千石抚子",
+  "hair": "棕色短发，白色帽子",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白色帽子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "hanekawa_tsubasa": {
+  "zh": "羽川翼",
+  "hair": "黑色长发，双麻花辫",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "shana": {
+  "zh": "夏娜",
+  "hair": "红色长发，火焰般的直发",
+  "eyes": "红色眼睛",
+  "outfit": "黑色外套，红黑色战斗装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "louise_francoise": {
+  "zh": "露易丝·瓦利埃尔",
+  "hair": "桃粉色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "魔法学院制服，白衬衫配斗篷",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "sanzenin_nagi": {
+  "zh": "三千院凪",
+  "hair": "金色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "粉色洋装，校服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "katsura_hinagiku": {
+  "zh": "桂雏菊",
+  "hair": "粉色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，木刀",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kirishima_touka": {
+  "zh": "雾岛董香",
+  "hair": "深紫色短发，及肩",
+  "eyes": "紫色眼睛",
+  "outfit": "咖啡店制服，校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kuroyukihime": {
+  "zh": "黑雪姬",
+  "hair": "黑色长直发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝黑色战斗装，校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "mikasa_ackerman": {
+  "zh": "三笠·阿克曼",
+  "hair": "黑色短发",
+  "eyes": "黑色眼睛",
+  "outfit": "调查兵团制服，绿色披风",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "annie_leonhart": {
+  "zh": "阿尼·利昂纳德",
+  "hair": "金色长发，盘发",
+  "eyes": "蓝色眼睛",
+  "outfit": "调查兵团制服，绿色披风",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sasha_blouse": {
+  "zh": "萨莎·布劳斯",
+  "hair": "红棕色长发，马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "调查兵团制服，绿色披风",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "christa_lenz": {
+  "zh": "克里斯塔·连兹",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "调查兵团制服，绿色披风",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "nami_(one_piece)": {
+  "zh": "娜美",
+  "hair": "橙色长卷发",
+  "eyes": "棕色眼睛",
+  "outfit": "橙色比基尼上衣配牛仔裤",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nico_robin": {
+  "zh": "妮可·罗宾",
+  "hair": "黑色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "深色连衣裙，短外套",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "boa_hancock": {
+  "zh": "波雅·汉库克",
+  "hair": "黑色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "红色旗袍式连衣裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "perona": {
+  "zh": "佩罗娜",
+  "hair": "粉色长发，双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "黑色哥特洋装，白色幽灵",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "haruno_sakura": {
+  "zh": "春野樱",
+  "hair": "粉色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "红色忍者装，忍者护额",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "tsunade": {
+  "zh": "纲手",
+  "hair": "金色长发，双马尾",
+  "eyes": "琥珀色眼睛",
+  "outfit": "绿色外套，灰色上衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "hyuuga_hinata": {
+  "zh": "日向雏田",
+  "hair": "深蓝紫色长发",
+  "eyes": "白色眼睛，白眼",
+  "outfit": "紫色外套，忍者装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "mei_terumi": {
+  "zh": "照美冥",
+  "hair": "红棕色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "蓝白色水影装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "inoue_orihime": {
+  "zh": "井上织姬",
+  "hair": "橙红色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，黑色死神装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "kuchiki_rukia": {
+  "zh": "朽木露琪亚",
+  "hair": "黑色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑色死神和服，白色羽织",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "shihouin_yoruichi": {
+  "zh": "四枫院夜一",
+  "hair": "深紫色长发，高马尾",
+  "eyes": "金色眼睛",
+  "outfit": "黑色紧身衣，橙色外套",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nel_tu": {
+  "zh": "妮莉艾露·杜·欧德修凡克",
+  "hair": "蓝绿色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白色破面装，头骨发饰",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "erza_scarlet": {
+  "zh": "艾露莎·舒卡勒托",
+  "hair": "绯红色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "银色换装铠甲，白色衬衫",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "lucy_heartfilia": {
+  "zh": "露西·哈特菲利亚",
+  "hair": "金色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "白色蓝色短裙，皮鞭",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "wendy_marvell": {
+  "zh": "温蒂·玛贝尔",
+  "hair": "深蓝色长发，双马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "蓝白色连衣裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "shirahoshi": {
+  "zh": "白星",
+  "hair": "粉色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白粉色人鱼装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "tsukino_usagi": {
+  "zh": "月野兔",
+  "hair": "金色长发，双丸子双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "水手服，月亮胸针",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kinomoto_sakura": {
+  "zh": "木之本樱",
+  "hair": "棕色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "友枝小学校服，战斗服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "daidouji_tomoyo": {
+  "zh": "大道寺知世",
+  "hair": "黑色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "友枝小学校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kagura_(gintama)": {
+  "zh": "神乐",
+  "hair": "橙红色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "橙红色旗袍，白色裤子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "tsukuyo": {
+  "zh": "月咏",
+  "hair": "金色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色和服，烟管",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "haibara_ai": {
+  "zh": "灰原哀",
+  "hair": "棕红色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "校服，白大褂",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "moori_ran": {
+  "zh": "毛利兰",
+  "hair": "黑色长发，长直发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，空手道服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "vermouth": {
+  "zh": "贝尔摩德",
+  "hair": "金色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑色紧身衣，风衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "c.c.": {
+  "zh": "C.C.",
+  "hair": "浅绿色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白色拘束服，黑色骑士装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "euphemia_li_britannia": {
+  "zh": "尤菲米娅·Li·布里塔尼亚",
+  "hair": "粉色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "白粉色公主裙，校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shirley_fenette": {
+  "zh": "夏莉·菲内特",
+  "hair": "橙红色波浪短发",
+  "eyes": "绿色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "horo": {
+  "zh": "赫萝",
+  "hair": "棕色长发，狼耳狼尾",
+  "eyes": "红色眼睛",
+  "outfit": "白棕色长袍，狼耳狼尾",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "mizuhara_chizuru": {
+  "zh": "水原千鹤",
+  "hair": "黑色长直发",
+  "eyes": "棕色眼睛",
+  "outfit": "白色连衣裙，校服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nanami_mami": {
+  "zh": "七海麻美",
+  "hair": "金色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "uzaki_hana": {
+  "zh": "宇崎花",
+  "hair": "橙色长发，侧边小马尾",
+  "eyes": "琥珀色眼睛",
+  "outfit": "校服，运动外套",
+  "body": "娇小",
+  "chest": "巨乳"
+ },
+ "nagatoro_hayase": {
+  "zh": "长瀞同学",
+  "hair": "黑色长发，黑色马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，运动外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kitagawa_marin": {
+  "zh": "喜多川海梦",
+  "hair": "金色长发，粉色渐变发梢",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，各种cosplay服装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "kurokawa_akane": {
+  "zh": "黑川茜",
+  "hair": "黑色长直发",
+  "eyes": "深棕色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "frieren": {
+  "zh": "芙莉莲",
+  "hair": "银白色长发，双马尾",
+  "eyes": "绿色眼睛",
+  "outfit": "白色金色魔法使长袍",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "fern_(sousou_no_frieren)": {
+  "zh": "菲伦",
+  "hair": "浅紫色长发，双马尾",
+  "eyes": "紫色眼睛",
+  "outfit": "白黑色魔法使装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "aura_(sousou_no_frieren)": {
+  "zh": "阿乌拉",
+  "hair": "金色长发，双马尾，头生双角",
+  "eyes": "金色眼睛",
+  "outfit": "黑紫色魔族装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kugisaki_nobara": {
+  "zh": "钉崎野蔷薇",
+  "hair": "橙棕色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "咒术高专校服，锤子与钉子",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "zen'in_maki": {
+  "zh": "禅院真希",
+  "hair": "深绿色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "咒术高专校服，眼镜",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ieiri_shouko": {
+  "zh": "家入硝子",
+  "hair": "棕色长卷发",
+  "eyes": "棕色眼睛",
+  "outfit": "白色大褂，香烟",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "kamado_nezuko": {
+  "zh": "灶门祢豆子",
+  "hair": "黑色长发，橙色发梢",
+  "eyes": "粉色眼睛",
+  "outfit": "粉色和服，绿色腰带",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "kochou_shinobu": {
+  "zh": "蝴蝶忍",
+  "hair": "黑色长发，紫色发梢",
+  "eyes": "紫色眼睛",
+  "outfit": "蝴蝶纹羽织，鬼杀队制服",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "kanroji_mitsuri": {
+  "zh": "甘露寺蜜璃",
+  "hair": "粉绿色渐变长发，麻花辫",
+  "eyes": "绿色眼睛",
+  "outfit": "鬼杀队制服，白色羽织",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "tsuyuri_kanao": {
+  "zh": "栗花落香奈乎",
+  "hair": "黑色长发，蝴蝶发饰",
+  "eyes": "紫色眼睛",
+  "outfit": "鬼杀队制服，羽织",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "makima": {
+  "zh": "玛奇玛",
+  "hair": "橙红色长发，麻花辫",
+  "eyes": "红色眼睛，瞳孔呈圈状",
+  "outfit": "白色衬衫，黑色领带配黑色长裤",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "power_(chainsaw_man)": {
+  "zh": "帕瓦",
+  "hair": "金色长发，凌乱，头生双角",
+  "eyes": "红色眼睛",
+  "outfit": "白色衬衫，红色领带配牛仔裤",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "reze": {
+  "zh": "蕾塞",
+  "hair": "黑色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "白色衬衫，黑色短裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yor_forger": {
+  "zh": "约尔·福杰",
+  "hair": "黑色长发，发髻",
+  "eyes": "红色眼睛",
+  "outfit": "黑色刺客服，白色连衣裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "anya_forger": {
+  "zh": "阿尼亚·福杰",
+  "hair": "粉色短发，头饰小角",
+  "eyes": "绿色眼睛",
+  "outfit": "黑色连衣裙，校服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "gotoh_hitori": {
+  "zh": "后藤一里",
+  "hair": "粉色长发，侧马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "粉色运动服",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "ijichi_nijika": {
+  "zh": "伊地知虹夏",
+  "hair": "金色短发，侧马尾",
+  "eyes": "红色眼睛",
+  "outfit": "校服，粉色开衫",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "yamada_ryo": {
+  "zh": "山田凉",
+  "hair": "蓝色短发",
+  "eyes": "黄色眼睛",
+  "outfit": "校服，连帽衫",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kita_ikuyo": {
+  "zh": "喜多郁代",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，红色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "chisato_nishikigi": {
+  "zh": "锦木千束",
+  "hair": "金色长发，白色渐变",
+  "eyes": "红色眼睛",
+  "outfit": "红色白色莉可丽丝制服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "takina_inoue": {
+  "zh": "井之上泷奈",
+  "hair": "黑色长发，马尾",
+  "eyes": "紫色眼睛",
+  "outfit": "蓝白色莉可丽丝制服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hoshino_ai": {
+  "zh": "星野爱",
+  "hair": "紫色长发，星星瞳孔",
+  "eyes": "紫色眼睛，星星高光",
+  "outfit": "白色偶像服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "hoshino_ruby": {
+  "zh": "星野露比",
+  "hair": "金色长发，星星瞳孔",
+  "eyes": "蓝色眼睛，星星高光",
+  "outfit": "白色偶像服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "arima_kana": {
+  "zh": "有马加奈",
+  "hair": "红色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，偶像服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "elaina_(majo_no_tabiji)": {
+  "zh": "伊蕾娜",
+  "hair": "灰白色长发",
+  "eyes": "紫灰色眼睛",
+  "outfit": "黑白魔女袍，三角帽配胸针",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "roxy_migurdia": {
+  "zh": "洛琪希·米格路迪亚",
+  "hair": "蓝色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝色魔女帽与长袍",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "eris_boreas_greyrat": {
+  "zh": "艾莉丝·伯雷亚斯·格雷拉特",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "冒险者装，长剑",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sylphiette": {
+  "zh": "希露菲叶特",
+  "hair": "银白色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "白绿色长袍",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rimuru_tempest": {
+  "zh": "利姆鲁·特恩佩斯特",
+  "hair": "银蓝色长发",
+  "eyes": "金色眼睛",
+  "outfit": "蓝黑色外套，围巾",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "albedo_(overlord)": {
+  "zh": "雅儿贝德",
+  "hair": "金色长发，头生双角",
+  "eyes": "金色眼睛",
+  "outfit": "白黑色哥特洋装，黑色翅膀",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "shalltear_bloodfallen": {
+  "zh": "夏提雅·布拉德弗伦",
+  "hair": "银白色长发，双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "黑粉色哥特洋装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "raphtalia": {
+  "zh": "拉芙塔莉雅",
+  "hair": "褐色长发，浣熊耳与尾巴",
+  "eyes": "红色眼睛",
+  "outfit": "白棕色冒险装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "zero_two_(darling_in_the_franxx)": {
+  "zh": "零二",
+  "hair": "粉色长发，头生双角",
+  "eyes": "青绿色眼睛",
+  "outfit": "白红色驾驶服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ichigo_(darling_in_the_franxx)": {
+  "zh": "莓",
+  "hair": "浅蓝色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色驾驶服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "takarada_rikka": {
+  "zh": "宝多六花",
+  "hair": "黑色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "shinjou_akane": {
+  "zh": "新条茜",
+  "hair": "深紫色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "riko_(made_in_abyss)": {
+  "zh": "莉可",
+  "hair": "褐色长发，双马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "白黄色探险服，头盔",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "nanachi": {
+  "zh": "娜娜奇",
+  "hair": "米白色绒毛长发，兔耳",
+  "eyes": "金色眼睛",
+  "outfit": "白色围巾与斗篷",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "serval_(kemono_friends)": {
+  "zh": "薮猫",
+  "hair": "黄色长发，兽耳",
+  "eyes": "绿色眼睛",
+  "outfit": "白黄色连衣裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yuffie_kisaragi": {
+  "zh": "尤菲·如月",
+  "hair": "黑色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "绿白色忍者装，头巾",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "lightning_(ff13)": {
+  "zh": "雷霆",
+  "hair": "粉红色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白银色铠甲，披风",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "amiya_(arknights)": {
+  "zh": "阿米娅",
+  "hair": "棕色长发，兔耳",
+  "eyes": "蓝色眼睛",
+  "outfit": "罗德岛制服，黑色外套",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "kal'tsit": {
+  "zh": "凯尔希",
+  "hair": "浅绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "白色大褂，黑色制服",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "texas_(arknights)": {
+  "zh": "德克萨斯",
+  "hair": "黑色长发，狼耳",
+  "eyes": "红色眼睛",
+  "outfit": "黑色橙色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "exusiai": {
+  "zh": "能天使",
+  "hair": "红色短发，头顶光环",
+  "eyes": "红色眼睛",
+  "outfit": "白蓝色制服，枪械",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "skadi_(arknights)": {
+  "zh": "斯卡蒂",
+  "hair": "银白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑白潜水战斗服，长剑",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "surtr_(arknights)": {
+  "zh": "史尔特尔",
+  "hair": "黑红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色外套，长剑",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "chen_(arknights)": {
+  "zh": "陈",
+  "hair": "深蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑蓝色制服，长剑",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "silverash": {
+  "zh": "银灰",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白灰色长外套",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "gladiia": {
+  "zh": "歌蕾蒂娅",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色制服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "mudrock": {
+  "zh": "泥岩",
+  "hair": "灰白色长发",
+  "eyes": "橙色眼睛",
+  "outfit": "黑色重甲，白色礼服",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "ling_(arknights)": {
+  "zh": "令",
+  "hair": "青绿色长发",
+  "eyes": "金色眼睛",
+  "outfit": "青绿色和风长袍",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "horn_(arknights)": {
+  "zh": "号角",
+  "hair": "金色长发",
+  "eyes": "金色眼睛",
+  "outfit": "深蓝色军装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nightingale_(arknights)": {
+  "zh": "夜莺",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色护士装与长袍",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shining_(arknights)": {
+  "zh": "闪灵",
+  "hair": "白色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白黑色医疗制服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "hoshiguma": {
+  "zh": "星熊",
+  "hair": "绿色短发",
+  "eyes": "绿色眼睛",
+  "outfit": "黑绿色警备制服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "siege_(arknights)": {
+  "zh": "推进之王",
+  "hair": "金色中长发",
+  "eyes": "金色眼睛",
+  "outfit": "深蓝色军装，红色披风",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "angelina_(arknights)": {
+  "zh": "安洁莉娜",
+  "hair": "棕黑色长发，狐耳",
+  "eyes": "红色眼睛",
+  "outfit": "黑白制服",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "schwarz_(arknights)": {
+  "zh": "黑",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑灰色外套",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "platinum_(arknights)": {
+  "zh": "白金",
+  "hair": "白色长发，马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "白银色制服，弓箭",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "blue_poison_(arknights)": {
+  "zh": "蓝毒",
+  "hair": "蓝色长发",
+  "eyes": "金色眼睛",
+  "outfit": "黑蓝色制服，弩箭",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sora_(arknights)": {
+  "zh": "空",
+  "hair": "红色短发",
+  "eyes": "红色眼睛",
+  "outfit": "白红色偶像装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "pramanix": {
+  "zh": "初雪",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色圣袍，铃铛",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "cliffheart": {
+  "zh": "崖心",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色攀登装，钩爪",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "lappland": {
+  "zh": "拉普兰德",
+  "hair": "灰白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "mostima": {
+  "zh": "莫斯提马",
+  "hair": "蓝黑色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑蓝色长袍",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "eunectes": {
+  "zh": "森蚺",
+  "hair": "绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "白绿色工装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "weedy": {
+  "zh": "温蒂",
+  "hair": "白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色实验服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rosa_(arknights)": {
+  "zh": "早露",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色长袍，弩",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "blemishine": {
+  "zh": "瑕光",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "银蓝色骑士铠甲",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rosmontis": {
+  "zh": "迷迭香",
+  "hair": "白色短发",
+  "eyes": "灰白色眼睛",
+  "outfit": "白黑色大褂",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "thorns_(arknights)": {
+  "zh": "棘刺",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白黑色学者长袍",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "mountain_(arknights)": {
+  "zh": "山",
+  "hair": "白色短发，白虎兽人",
+  "eyes": "金色眼睛",
+  "outfit": "白灰色西装",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "flametail": {
+  "zh": "焰尾",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红色骑士装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "nearl_the_radiant_knight": {
+  "zh": "耀骑士临光",
+  "hair": "金色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "银色骑士铠甲，白色披风",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "specter_the_unchained": {
+  "zh": "归溟幽灵鲨",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白黑色修女装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "gavial_the_invincible": {
+  "zh": "百炼嘉维尔",
+  "hair": "绿色长发，鳄鱼尾",
+  "eyes": "绿色眼睛",
+  "outfit": "绿黑色战斗装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "skadi_the_corrupting_heart": {
+  "zh": "浊心斯卡蒂",
+  "hair": "白色长发，红色发梢",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色深渊装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "fiammetta": {
+  "zh": "菲亚梅塔",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色制服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "dorothy_(arknights)": {
+  "zh": "多萝西",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白金色长袍",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "pozemka": {
+  "zh": "鸿雪",
+  "hair": "灰蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色猎装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "texas_the_omertosa": {
+  "zh": "缄默德克萨斯",
+  "hair": "黑色长发，狼耳",
+  "eyes": "红色眼睛",
+  "outfit": "黑色西装",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "ptilopsis": {
+  "zh": "白面鸮",
+  "hair": "白色短发",
+  "eyes": "红色眼睛",
+  "outfit": "白蓝色实验服，耳机",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "silence_(arknights)": {
+  "zh": "赫默",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白色实验服，眼镜",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "magallan": {
+  "zh": "麦哲伦",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色探险装，企鹅伙伴",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ceobe": {
+  "zh": "刻俄柏",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白棕色斗篷",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "eyjafjalla": {
+  "zh": "艾雅法拉",
+  "hair": "棕色长卷发",
+  "eyes": "棕色眼睛",
+  "outfit": "白棕色学者装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "ifrit_(arknights)": {
+  "zh": "伊芙利特",
+  "hair": "白色短发",
+  "eyes": "红色眼睛",
+  "outfit": "白黑色病服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "skyfire_(arknights)": {
+  "zh": "天火",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红白色学者装，帽子",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "gravel_(arknights)": {
+  "zh": "砾",
+  "hair": "金色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "银色骑士铠甲",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "meteor_(arknights)": {
+  "zh": "流星",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "棕绿色猎装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "jessica_(arknights)": {
+  "zh": "杰西卡",
+  "hair": "黑色短发，猫耳",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑蓝色警备制服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "cuora": {
+  "zh": "蛇屠箱",
+  "hair": "红色短发，龟壳盾",
+  "eyes": "红色眼睛",
+  "outfit": "红灰色重甲",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "gummy_(arknights)": {
+  "zh": "古米",
+  "hair": "棕金色长发，熊耳",
+  "eyes": "棕色眼睛",
+  "outfit": "棕白色厨师装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "himeko_(honkai:_star_rail)": {
+  "zh": "姬子",
+  "hair": "橙红色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白红色外套",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "march_7th": {
+  "zh": "三月七",
+  "hair": "粉色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白粉色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "seele_(honkai:_star_rail)": {
+  "zh": "希儿",
+  "hair": "深紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫黑色战斗装，镰刀",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "bronya_rand": {
+  "zh": "布洛妮娅",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白灰色军装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kafka_(honkai:_star_rail)": {
+  "zh": "卡芙卡",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑红色风衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "silver_wolf": {
+  "zh": "银狼",
+  "hair": "灰色长发，低马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "灰白色连帽衫",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "jingliu": {
+  "zh": "镜流",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白蓝色长袍，长剑",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "sparkle_(honkai:_star_rail)": {
+  "zh": "花火",
+  "hair": "红色长发，双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "红白色和风洋装，面具",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "acheron_(honkai:_star_rail)": {
+  "zh": "黄泉",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑紫色和风装，长刀",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "firefly_(honkai:_star_rail)": {
+  "zh": "流萤",
+  "hair": "银白色长发",
+  "eyes": "青色眼睛",
+  "outfit": "白青色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "pela_(honkai:_star_rail)": {
+  "zh": "佩拉",
+  "hair": "紫色长发，帽子",
+  "eyes": "紫色眼睛",
+  "outfit": "白紫色制服，眼镜",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "tingyun": {
+  "zh": "停云",
+  "hair": "棕色长发，狐耳",
+  "eyes": "金色眼睛",
+  "outfit": "白红色和风装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "fu_xuan": {
+  "zh": "符玄",
+  "hair": "粉白色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "白紫色和风装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "black_swan_(honkai:_star_rail)": {
+  "zh": "黑天鹅",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫黑色长袍",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "clara_(honkai:_star_rail)": {
+  "zh": "克拉拉",
+  "hair": "白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白红色外套",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "bailu_(honkai:_star_rail)": {
+  "zh": "白露",
+  "hair": "白色长发，龙角",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色医疗装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "natasha_(honkai:_star_rail)": {
+  "zh": "娜塔莎",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "白灰色医疗外套",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "serval_(honkai:_star_rail)": {
+  "zh": "希露瓦",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色工装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hook_(honkai:_star_rail)": {
+  "zh": "虎克",
+  "hair": "棕红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红棕色外套，帽子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "sushang": {
+  "zh": "素裳",
+  "hair": "蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色剑士装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "qingque": {
+  "zh": "青雀",
+  "hair": "青绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "青绿色和风装，麻将牌",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "guinaifen": {
+  "zh": "桂乃芬",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色和风装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "lynx_(honkai:_star_rail)": {
+  "zh": "玲可",
+  "hair": "白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色探险装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "hanya_(honkai:_star_rail)": {
+  "zh": "寒鸦",
+  "hair": "黑色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑紫色和风装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "xueyi": {
+  "zh": "雪衣",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑白武斗装",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "ruan_mei": {
+  "zh": "阮·梅",
+  "hair": "灰白色长发",
+  "eyes": "金色眼睛",
+  "outfit": "灰白色和风装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "topaz_(honkai:_star_rail)": {
+  "zh": "托帕",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白橙色西装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "huohuo": {
+  "zh": "藿藿",
+  "hair": "白色长发，狐耳",
+  "eyes": "绿色眼睛",
+  "outfit": "白青色和风装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "robin_(honkai:_star_rail)": {
+  "zh": "知更鸟",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白金色歌手装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "misha_(honkai:_star_rail)": {
+  "zh": "米沙",
+  "hair": "橙色短发",
+  "eyes": "橙色眼睛",
+  "outfit": "白棕色制服",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "asta_(honkai:_star_rail)": {
+  "zh": "艾丝妲",
+  "hair": "红色长发",
+  "eyes": "橙色眼睛",
+  "outfit": "白红色制服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "herta": {
+  "zh": "黑塔",
+  "hair": "棕色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "白黑色洋装，人偶伙伴",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "jade_(honkai:_star_rail)": {
+  "zh": "翡翠",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫黑色洋装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "yunli": {
+  "zh": "云璃",
+  "hair": "金色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白金色武斗装，巨剑",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "feixiao": {
+  "zh": "飞霄",
+  "hair": "白色长发，狐耳",
+  "eyes": "金色眼睛",
+  "outfit": "白青色战装",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "lingsha": {
+  "zh": "灵砂",
+  "hair": "青绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "绿白色和风装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rappa": {
+  "zh": "乱破",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫黑色忍者装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kiana_kaslana": {
+  "zh": "琪亚娜·卡斯兰娜",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "raiden_mei": {
+  "zh": "雷电芽衣",
+  "hair": "深紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "白紫色战斗服，太刀",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "yae_sakura": {
+  "zh": "八重樱",
+  "hair": "粉色长发，狐耳",
+  "eyes": "粉色眼睛",
+  "outfit": "粉白色和风装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "theresa_apocalypse": {
+  "zh": "德丽莎·阿波卡利斯",
+  "hair": "白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白红色修女装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "fu_hua": {
+  "zh": "符华",
+  "hair": "灰白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白黑色武斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rita_rossweisse": {
+  "zh": "丽塔·洛丝薇瑟",
+  "hair": "深紫黑色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑白女仆装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "durandal_(honkai_impact)": {
+  "zh": "幽兰黛尔",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色骑士装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "elysia_(honkai_impact)": {
+  "zh": "爱莉希雅",
+  "hair": "粉色长发",
+  "eyes": "粉色眼睛",
+  "outfit": "白粉色礼服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "seele_vollerei": {
+  "zh": "希儿·芙乐艾",
+  "hair": "蓝黑色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝黑色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kasumi_(doa)": {
+  "zh": "霞",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "蓝白色忍者装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ayane_(doa)": {
+  "zh": "绫音",
+  "hair": "紫色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色忍者装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "marie_rose": {
+  "zh": "玛丽·罗斯",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白黑色哥特洋装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "honoka_(doa)": {
+  "zh": "穗乃果",
+  "hair": "橙色长发",
+  "eyes": "橙色眼睛",
+  "outfit": "白橙色服装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "kokoro_(doa)": {
+  "zh": "心",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "白粉色和服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "tina_armstrong": {
+  "zh": "蒂娜·阿姆斯特朗",
+  "hair": "金色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色紧身衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "lei_fang": {
+  "zh": "雷芳",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "红金色中式旗袍",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hitomi_(doa)": {
+  "zh": "瞳",
+  "hair": "棕色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "白蓝色道服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "christie_(doa)": {
+  "zh": "克里斯蒂",
+  "hair": "白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白黑色紧身衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "helena_douglas": {
+  "zh": "海莲娜·道格拉斯",
+  "hair": "金色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "紫黑色礼服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "mira_(doa)": {
+  "zh": "米拉",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "黑红色战斗装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "momiji_(doa)": {
+  "zh": "红叶",
+  "hair": "黑色长发，马尾",
+  "eyes": "黑色眼睛",
+  "outfit": "红白色忍者装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "rachel_(doa)": {
+  "zh": "瑞秋",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "棕黑色探险装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nyotengu": {
+  "zh": "女天狗",
+  "hair": "黑色长发，黑色羽翼",
+  "eyes": "黑色眼睛",
+  "outfit": "紫黑色和服，黑色翅膀",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "tamaki_(doa)": {
+  "zh": "环",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "紫白色和服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "lisa_hamilton": {
+  "zh": "丽萨·汉密尔顿",
+  "hair": "金色长卷发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色泳装与探险装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nico_(doa)": {
+  "zh": "妮可",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "黑紫色哥特装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "phase_4": {
+  "zh": "第四阶段",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白灰色紧身衣",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "mai_shiranui": {
+  "zh": "不知火舞",
+  "hair": "黑色长发，高马尾",
+  "eyes": "棕色眼睛",
+  "outfit": "红色忍者装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "kula_diamond": {
+  "zh": "库拉·戴尔蒙多",
+  "hair": "浅蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝白色短裙",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "ganyu": {
+  "zh": "甘雨",
+  "hair": "蓝色长发，头生双角",
+  "eyes": "紫色眼睛",
+  "outfit": "白蓝色仙装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "hu_tao": {
+  "zh": "胡桃",
+  "hair": "深棕色长发，双马尾",
+  "eyes": "红棕色眼睛，梅花瞳",
+  "outfit": "黑红色唐装，帽子",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "raiden_shogun": {
+  "zh": "雷电将军",
+  "hair": "紫色长发，麻花辫",
+  "eyes": "紫色眼睛",
+  "outfit": "紫色和服式雷电将军装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "yae_miko": {
+  "zh": "八重神子",
+  "hair": "粉色长发，狐耳",
+  "eyes": "紫色眼睛",
+  "outfit": "粉白色巫女装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "furina": {
+  "zh": "芙宁娜",
+  "hair": "蓝白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝白色礼服，礼帽",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "kamisato_ayaka": {
+  "zh": "神里绫华",
+  "hair": "浅蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色和风洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "yoimiya": {
+  "zh": "宵宫",
+  "hair": "金橙色长发",
+  "eyes": "橙色眼睛",
+  "outfit": "红白色和风短装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "sangonomiya_kokomi": {
+  "zh": "珊瑚宫心海",
+  "hair": "粉白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色巫女装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "nahida": {
+  "zh": "纳西妲",
+  "hair": "白绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "白绿色洋装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "nilou": {
+  "zh": "妮露",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "蓝白色舞娘装",
+  "body": "高挑",
+  "chest": "标准"
+ },
+ "shenhe": {
+  "zh": "申鹤",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色仙装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "yelan": {
+  "zh": "夜兰",
+  "hair": "深蓝色短发，不对称剪裁",
+  "eyes": "蓝色眼睛",
+  "outfit": "深蓝色短装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "keqing": {
+  "zh": "刻晴",
+  "hair": "紫色长发，双马尾",
+  "eyes": "紫色眼睛",
+  "outfit": "紫白色旗袍式装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "mona_(genshin_impact)": {
+  "zh": "莫娜",
+  "hair": "蓝黑色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝黑色紧身衣，帽子",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "fischl": {
+  "zh": "菲谢尔",
+  "hair": "金色长发，双马尾",
+  "eyes": "绿色眼睛",
+  "outfit": "黑紫色哥特装，眼罩",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "eula": {
+  "zh": "优菈",
+  "hair": "浅蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色骑士装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "klee": {
+  "zh": "可莉",
+  "hair": "金色长发，双马尾",
+  "eyes": "红色眼睛",
+  "outfit": "红白色连衣裙，帽子",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "diona": {
+  "zh": "迪奥娜",
+  "hair": "粉色长发，猫耳",
+  "eyes": "绿色眼睛",
+  "outfit": "蓝白色女仆装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "rosaria": {
+  "zh": "罗莎莉亚",
+  "hair": "黑色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "白黑色修女装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "beidou": {
+  "zh": "北斗",
+  "hair": "棕色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色船长装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "ningguang": {
+  "zh": "凝光",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白金色旗袍",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "xiangling": {
+  "zh": "香菱",
+  "hair": "深蓝色短发，双丸子",
+  "eyes": "橙色眼睛",
+  "outfit": "黄黑色厨师装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "barbara_(genshin_impact)": {
+  "zh": "芭芭拉",
+  "hair": "金黄色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色偶像装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "jean_(genshin_impact)": {
+  "zh": "琴",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色骑士装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "lisa_(genshin_impact)": {
+  "zh": "丽莎",
+  "hair": "棕色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "紫黑色女巫装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "amber_(genshin_impact)": {
+  "zh": "安柏",
+  "hair": "棕色长发，红色发带",
+  "eyes": "琥珀色眼睛",
+  "outfit": "红白色侦查骑士装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "lumine": {
+  "zh": "荧",
+  "hair": "金色短发",
+  "eyes": "金色眼睛",
+  "outfit": "白金色旅行者装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "arlecchino": {
+  "zh": "阿蕾奇诺",
+  "hair": "白色长发",
+  "eyes": "红色眼睛，瞳孔呈叉状",
+  "outfit": "黑红色愚人众装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "aru_(blue_archive)": {
+  "zh": "阿露",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，黑色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shiroko_(blue_archive)": {
+  "zh": "白子",
+  "hair": "白色长发，狼耳",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "hoshino_(blue_archive)": {
+  "zh": "星野",
+  "hair": "粉色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白色外套",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "yuuka_(blue_archive)": {
+  "zh": "优香",
+  "hair": "蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "hina_(blue_archive)": {
+  "zh": "日奈",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，黑色外套",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "alice_(blue_archive)": {
+  "zh": "爱丽丝",
+  "hair": "黑色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "koharu_(blue_archive)": {
+  "zh": "小春",
+  "hair": "粉色短发",
+  "eyes": "粉色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "mika_(blue_archive)": {
+  "zh": "未花",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "seia_(blue_archive)": {
+  "zh": "圣娅",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "修女装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "azusa_(blue_archive)": {
+  "zh": "梓",
+  "hair": "黑色长发，双马尾",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "miyu_(blue_archive)": {
+  "zh": "美游",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "mutsuki_(blue_archive)": {
+  "zh": "睦月",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kayoko_(blue_archive)": {
+  "zh": "佳代子",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "haruka_(blue_archive)": {
+  "zh": "春香",
+  "hair": "棕色短发",
+  "eyes": "棕色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "wakamo_(blue_archive)": {
+  "zh": "若藻",
+  "hair": "黑色长发，狐耳",
+  "eyes": "红色眼睛",
+  "outfit": "校服，和服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "iori_(blue_archive)": {
+  "zh": "伊织",
+  "hair": "金色长发",
+  "eyes": "红色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "chinatsu_(blue_archive)": {
+  "zh": "千夏",
+  "hair": "黑色短发",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "momoi_(blue_archive)": {
+  "zh": "桃井",
+  "hair": "金色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "midori_(blue_archive)": {
+  "zh": "绿",
+  "hair": "金色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "hanako_(blue_archive)": {
+  "zh": "花子",
+  "hair": "粉色长发",
+  "eyes": "粉色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "asuna_(blue_archive)": {
+  "zh": "明日奈",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "karin_(blue_archive)": {
+  "zh": "花凛",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "ako_(blue_archive)": {
+  "zh": "亚子",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "haruna_(blue_archive)": {
+  "zh": "晴奈",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "校服，白衬衫配百褶裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "morgan_(fate)": {
+  "zh": "摩根",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑紫色洋装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "baobhan_sith": {
+  "zh": "芭万·希",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑白洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "artoria_caster": {
+  "zh": "阿尔托莉雅·卡斯特",
+  "hair": "金色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "蓝白色魔法使装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "koyanskaya_of_light": {
+  "zh": "光之高扬斯卡娅",
+  "hair": "粉金色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白金色洋装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "melusine_(fate)": {
+  "zh": "美露莘",
+  "hair": "蓝色长发，龙翼",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "ereshkigal_(fate)": {
+  "zh": "埃列什基伽勒",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑紫色洋装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "abigail_williams_(fate)": {
+  "zh": "阿比盖尔·威廉姆斯",
+  "hair": "金色长发，双马尾",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝白色洋装",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "katsushika_hokusai": {
+  "zh": "葛饰北斋",
+  "hair": "黑色长发",
+  "eyes": "黑色眼睛",
+  "outfit": "蓝白色和风装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "mystery_heroine_x": {
+  "zh": "谜之女主角X",
+  "hair": "蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝黑色骑士装，帽子",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "okita_souji": {
+  "zh": "冲田总司",
+  "hair": "金色短发，马尾",
+  "eyes": "红色眼睛",
+  "outfit": "蓝白色新选组羽织",
+  "body": "娇小",
+  "chest": "贫乳"
+ },
+ "oda_nobunaga": {
+  "zh": "织田信长",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色和服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "shuten_douji": {
+  "zh": "酒吞童子",
+  "hair": "紫色长发，头生双角",
+  "eyes": "紫色眼睛",
+  "outfit": "紫白色和服",
+  "body": "娇小",
+  "chest": "巨乳"
+ },
+ "minamoto_no_raikou": {
+  "zh": "源赖光",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫白色和风装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "tomoe_gozen": {
+  "zh": "巴御前",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色和服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "kama_(fate)": {
+  "zh": "迦摩",
+  "hair": "白色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白红色洋装",
+  "body": "娇小",
+  "chest": "标准"
+ },
+ "kiara_sesshouin": {
+  "zh": "杀生院祈荒",
+  "hair": "黑色长发",
+  "eyes": "金色眼睛",
+  "outfit": "白金色佛教装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "meltryllis": {
+  "zh": "溶解莉莉丝",
+  "hair": "紫色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "紫白色洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "space_ishtar": {
+  "zh": "太空伊什塔尔",
+  "hair": "橙色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白蓝色宇宙装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "anastasia_(fate)": {
+  "zh": "阿纳斯塔西娅",
+  "hair": "银白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色俄罗斯风洋装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "carmilla_(fate)": {
+  "zh": "卡米拉",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色洋装",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "nemo_(fate)": {
+  "zh": "尼莫",
+  "hair": "蓝色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色航海装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "kiyohime_(fate)": {
+  "zh": "清姬",
+  "hair": "绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "绿白色和服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "rapi_(nikke)": {
+  "zh": "拉毗",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白红色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "anis_(nikke)": {
+  "zh": "阿妮斯",
+  "hair": "蓝色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "neon_(nikke)": {
+  "zh": "妮恩",
+  "hair": "红色短发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "marian_(nikke)": {
+  "zh": "玛丽安",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "白黑色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "dorothy_(nikke)": {
+  "zh": "桃乐丝",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白金色礼服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "snow_white_(nikke)": {
+  "zh": "白雪公主",
+  "hair": "白色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色战斗服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "red_hood_(nikke)": {
+  "zh": "小红帽",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "modernia": {
+  "zh": "神罚",
+  "hair": "黑色长发",
+  "eyes": "紫色眼睛",
+  "outfit": "黑紫色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "emma_(nikke)": {
+  "zh": "艾玛",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "白棕色战斗服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "anne_(nikke)": {
+  "zh": "安妮",
+  "hair": "粉色长发",
+  "eyes": "粉色眼睛",
+  "outfit": "白粉色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "rupee_(nikke)": {
+  "zh": "露菲",
+  "hair": "金色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白金色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "diesel_(nikke)": {
+  "zh": "迪塞尔",
+  "hair": "黑色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "黑白战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "privaty": {
+  "zh": "普莉瓦蒂",
+  "hair": "蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "蓝白色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "soda_(nikke)": {
+  "zh": "苏打",
+  "hair": "蓝色长发",
+  "eyes": "蓝色眼睛",
+  "outfit": "白蓝色护士装",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "eunhwa": {
+  "zh": "恩华",
+  "hair": "黑色长发",
+  "eyes": "红色眼睛",
+  "outfit": "黑红色战斗服",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "liter_(nikke)": {
+  "zh": "丽塔",
+  "hair": "棕色长发",
+  "eyes": "棕色眼睛",
+  "outfit": "棕白色战斗服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "noise_(nikke)": {
+  "zh": "诺伊兹",
+  "hair": "粉色长发",
+  "eyes": "粉色眼睛",
+  "outfit": "白粉色偶像装",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "scarlet_(nikke)": {
+  "zh": "斯卡蕾特",
+  "hair": "红色长发",
+  "eyes": "红色眼睛",
+  "outfit": "红黑色战斗服",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "viper_(nikke)": {
+  "zh": "毒蛇",
+  "hair": "绿色长发",
+  "eyes": "绿色眼睛",
+  "outfit": "绿黑色战斗服",
+  "body": "标准",
+  "chest": "巨乳"
+ },
+ "char_a": {
+  "zh": "角色A",
+  "hair": "黑色长发，齐肩",
+  "eyes": "棕色眼睛",
+  "outfit": "白色衬衫，黑色短裙",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "char_b": {
+  "zh": "角色B",
+  "hair": "棕色长发，双马尾",
+  "eyes": "琥珀色眼睛",
+  "outfit": "白色连衣裙，浅色开衫",
+  "body": "标准",
+  "chest": "标准"
+ },
+ "char_c": {
+  "zh": "角色C",
+  "hair": "银白色短发",
+  "eyes": "蓝色眼睛",
+  "outfit": "灰色连帽衫，黑色长裤",
+  "body": "纤细",
+  "chest": "贫乳"
+ },
+ "char_d": {
+  "zh": "角色D",
+  "hair": "红色长发，侧马尾",
+  "eyes": "绿色眼睛",
+  "outfit": "红色外套，黑色短裙",
+  "body": "高挑",
+  "chest": "巨乳"
+ },
+ "char_e": {
+  "zh": "角色E",
+  "hair": "黑色短发",
+  "eyes": "黑色眼睛",
+  "outfit": "深蓝色制服，白色衬衫",
+  "body": "娇小",
+  "chest": "贫乳"
+ }
+}

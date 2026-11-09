@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.ico">
+<title>提示词工作台</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;overflow:hidden;color:#1c2940;
+    font:13.5px/1.7 "Segoe UI","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(950px 520px at 2% -8%, rgba(255,138,181,.14), transparent 62%),
+      radial-gradient(1050px 600px at 98% -10%, rgba(76,139,245,.13), transparent 62%),
+      #f5f8fd;
+    display:flex;flex-direction:column;
+  }
+  header{
+    height:54px;flex:none;display:flex;align-items:center;gap:14px;padding:0 18px;
+    margin:8px 10px 0;background:#fff;border:1px solid #e9f0fa;border-radius:18px;
+    box-shadow:0 6px 22px rgba(76,139,245,.08);
+  }
+  .logo{font-size:19px;font-weight:700;white-space:nowrap}
+  .logo b{color:#4c8bf5}
+  .logo i{font-style:normal;color:#e6b45c}
+  .steps{display:flex;gap:6px;font-size:12.5px;color:#8494ab}
+  .steps i{font-style:normal;background:#f4f8fe;border:1px solid #e7effb;border-radius:999px;padding:3px 12px}
+  .steps i.on{background:#e9f2ff;border-color:#bcd7ff;color:#2f6fe0;font-weight:600}
+  .guide{font-size:12.5px;color:#8494ab;cursor:pointer}
+  .sp{flex:1}
+  .sw{display:flex;align-items:center;gap:5px;font-size:12.5px;color:#40506b;cursor:pointer;white-space:nowrap}
+  .sw input{width:14px;height:14px;accent-color:#4c8bf5}
+  .sw b{color:#4c8bf5}
+  select{height:30px;border:1px solid #dbe6f6;border-radius:10px;background:#fff;color:#2b3852;font-size:12.5px;padding:0 7px;cursor:pointer}
+  .btn{height:32px;border-radius:10px;border:1px solid #dbe6f6;background:#fff;color:#3a4a63;font-size:13px;padding:0 14px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:#bcd7ff;color:#2f6fe0}
+  .btn.primary{background:linear-gradient(135deg,#5a95f7,#3a72d4);color:#fff;border:0;font-weight:600;box-shadow:0 6px 18px rgba(76,139,245,.26)}
+  .btn.sm{height:27px;font-size:12px;padding:0 11px;border-radius:9px}
+
+  main{flex:1;display:flex;gap:8px;padding:8px 10px;min-height:0}
+  .card{background:#fff;border:1px solid #e9f0fa;border-radius:18px;box-shadow:0 8px 26px rgba(76,139,245,.06);
+    display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .lib{flex:0 0 34%}
+  .right{flex:1;display:flex;flex-direction:column;gap:8px;min-height:0;min-width:0}
+  .rtop{flex:1;display:flex;gap:8px;min-height:0}
+  .mid{flex:0 0 38%}
+  .res{flex:1}
+  .rbot{flex:0 0 30%;display:flex;gap:8px;min-height:0}
+  .draft{flex:2 1 0}
+  .tools{flex:1 1 0}
+
+  .hd{height:44px;flex:none;display:flex;align-items:center;gap:8px;padding:0 14px;
+    border-bottom:1px solid #eef4fc;font-weight:600;font-size:13.5px}
+  .hd .sub{color:#93a3b9;font-weight:400;font-size:12px}
+  .hd .r{margin-left:auto;color:#8494ab;font-weight:400;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .hd .r:hover{color:#4c8bf5}
+  .body{padding:12px;overflow:auto;flex:1;min-height:0}
+  .body::-webkit-scrollbar,.taglist::-webkit-scrollbar{width:8px}
+  .body::-webkit-scrollbar-thumb,.taglist::-webkit-scrollbar-thumb{background:#e2ebf8;border-radius:8px}
+
+  .lib .body{display:flex;flex-direction:column;overflow:hidden}
+  .nl{border:1px solid #e9f0fa;border-radius:14px;padding:10px;margin-bottom:10px;background:#fcfdff;flex:none}
+  .nl textarea{width:100%;height:88px;resize:none;border:1px solid #e4ecf9;border-radius:11px;padding:10px;
+    font:13px/1.7 inherit;color:#31415c;background:#fff;outline:none}
+  .nl textarea:focus{border-color:#bcd7ff;box-shadow:0 0 0 3px rgba(76,139,245,.08)}
+  .nlrow{display:flex;align-items:center;gap:8px;margin-top:9px}
+  .row2{display:flex;gap:8px;margin-bottom:10px;flex:none}
+  .drop{flex:0 0 96px;border:1.5px dashed #cfdff5;border-radius:13px;color:#9db0c8;font-size:11.5px;
+    display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.4;background:#fbfdff;cursor:pointer}
+  .drop:hover{border-color:#9fc4f7;color:#5f8fd6}
+  .search{flex:1;display:flex;align-items:center;gap:8px;border:1px solid #e4ecf9;border-radius:13px;
+    padding:0 13px;color:#9db0c8;font-size:12.5px;background:#fff;min-height:44px}
+  .catwrap{display:flex;gap:8px;flex:none;margin-bottom:8px}
+  .catgrid{flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;min-width:0}
+  .chip{border:1px solid #e2ebf8;border-radius:999px;background:#f8fbfe;color:#46586f;font-size:12px;
+    padding:5px 4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:#bcd7ff;color:#2f6fe0}
+  .chip.on{background:linear-gradient(135deg,#5a95f7,#3a72d4);border-color:transparent;color:#fff;font-weight:600}
+  .catact{flex:0 0 168px;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+  .act{border:1px solid #e2ebf8;border-radius:999px;background:#f8fbfe;color:#5a6c85;font-size:11.5px;
+    padding:5px 3px;text-align:center;white-space:nowrap;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .act:hover{border-color:#bcd7ff;color:#2f6fe0}
+  .act.fav{background:#fffbee;border-color:#ffe7b3;color:#a5772a}
+  .act.nsfw{background:#fff5f9;border-color:#ffd8e6}
+  .act.nsfw .sw{color:#d4507f;font-weight:600}
+  .act.hot{background:#ffeef2;border-color:#f2608f;color:#d4507f}
+  .submenu{flex:none;border:1px solid #e9f0fa;border-radius:13px;background:#fcfdff;padding:8px 10px;margin-bottom:10px;
+    display:flex;align-items:center;gap:8px}
+  .submenu-t{font-size:12px;color:#5a6c85;font-weight:600;flex:none}
+  .submenu-list{display:flex;flex-wrap:wrap;gap:5px}
+  .submenu-list span{border:1px solid #e6eef9;border-radius:999px;background:#fff;font-size:11.5px;color:#46586f;padding:3px 10px;cursor:pointer}
+  .submenu-list span:hover{border-color:#bcd7ff;color:#2f6fe0}
+  .submenu-list span.on{background:linear-gradient(135deg,#5a95f7,#3a72d4);border-color:transparent;color:#fff;font-weight:600}
+  .submenu-list .cust{border-color:#bcd7ff;background:#f5faff;color:#2f6fe0}
+  .submenu-list .addchar{border-style:dashed;border-color:#bcd7ff;color:#2f6fe0;background:#f5faff}
+  .taglist{flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:min-content;gap:9px;align-content:start;padding-right:2px}
+  .tag{border:1px solid #eef4fc;border-radius:12px;padding:9px 10px;background:#fbfdff;font-size:12.5px;
+    color:#41526b;cursor:grab;transition:.15s;position:relative}
+  .tag:hover{border-color:#bcd7ff;box-shadow:0 6px 16px rgba(76,139,245,.1);transform:translateY(-1px)}
+  .tag .zht{display:block;font-weight:600;color:#2f405c;padding-left:16px}
+  .tag i{display:block;color:#9db0c8;font-size:11px;font-style:normal;margin-top:2px}
+  .favbtn{position:absolute;left:7px;top:9px;color:#d7e0ec;font-size:11px;cursor:pointer;line-height:1}
+  .favbtn:hover,.favbtn.on{color:#f0b429}
+  .empty{padding:26px;text-align:center;color:#93a3b9;grid-column:1/-1}
+
+  .ok{background:#f2fbf6;border:1px solid #d7f0e2;color:#2f9e6d;border-radius:11px;padding:7px 12px;font-size:12px;margin-bottom:10px}
+  .box{border:1px solid #eef4fc;border-radius:13px;padding:10px;margin-bottom:10px;background:#fcfdff}
+  .box .n{display:flex;align-items:center;font-weight:700;font-size:13px;margin-bottom:7px;color:#27364f}
+  .box .n .x{margin-left:auto;color:#c8d3e2;cursor:pointer;font-weight:400}
+  .box .n .x:hover{color:#f2608f}
+  .tlist{display:flex;flex-wrap:wrap;gap:5px}
+  .t{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid #e6eef9;border-radius:9px;
+    padding:3px 8px;font-size:11.5px;color:#48596f;cursor:grab}
+  .t:hover{border-color:#bcd7ff;color:#2f6fe0}
+  .w{display:inline-flex;align-items:center;gap:2px;color:#a2b0c3;font-size:10.5px}
+  .w b{color:#4c8bf5;font-weight:600}
+  .w span{cursor:pointer;padding:0 1px}
+  .hintdrop{color:#b6c3d6;font-size:11.5px}
+  .gsec{border-top:1px dashed #eef4fc;padding-top:10px}
+  .gn{display:flex;align-items:center;font-weight:700;font-size:13px;margin-bottom:7px;color:#27364f}
+  .gn .x{margin-left:auto;color:#c8d3e2;cursor:pointer;font-weight:400}
+  .tgrid{display:flex;flex-wrap:wrap;gap:7px;min-height:30px}
+  .tcard{border:1px solid #e6eef9;border-radius:11px;background:#fff;padding:7px 10px;min-width:140px;position:relative;cursor:grab}
+  .tcard:hover{border-color:#bcd7ff;box-shadow:0 4px 12px rgba(76,139,245,.08)}
+  .tcard .x{position:absolute;right:7px;top:6px;color:#c8d3e2;cursor:pointer}
+  .tcard .s{color:#f0b429;font-size:10.5px;margin-right:4px}
+  .tcard .zh{font-size:12px;font-weight:600;color:#2f405c}
+  .tcard .en{display:block;font-size:10.5px;color:#9db0c8;margin-top:2px}
+  .tcard .row{display:flex;align-items:center;gap:4px;margin-top:5px;color:#98a6bb;font-size:10.5px}
+  .tcard .row b{color:#4c8bf5;font-size:11px}
+
+  .swchips{display:flex;gap:5px;margin-left:10px}
+  .swchip{border:1px solid #e2ebf8;border-radius:999px;background:#f8fbfe;color:#8f9fb5;font-size:11.5px;
+    padding:3px 12px;cursor:pointer;transition:.15s}
+  .swchip.on{background:linear-gradient(135deg,#5a95f7,#3a72d4);border-color:transparent;color:#fff;font-weight:600}
+  .lbl{display:flex;align-items:center;gap:8px;font-weight:600;font-size:12.5px;margin:14px 0 6px;color:#27364f}
+  .lbl:first-child{margin-top:0}
+  .lbl .r{margin-left:auto;display:flex;gap:8px;color:#8494ab;font-weight:400;font-size:11.5px}
+  .lbl .r u{text-decoration:none;cursor:pointer}
+  .lbl .r u:hover{color:#4c8bf5}
+  .out{border:1px solid #eef4fc;border-radius:11px;background:#fbfdff;padding:10px 12px;font-size:12px;
+    line-height:1.8;color:#3a4b64;white-space:pre-wrap;max-height:220px;overflow:auto}
+  .note{color:#93a3b9;font-size:12px}
+
+  .mbody{flex:1;min-height:0;display:flex}
+  .mbody textarea{flex:1;border:0;resize:none;padding:12px 14px;font:13px/1.85 inherit;color:#2b3a52;background:#fcfdff;outline:none}
+
+  .hist{border:1px solid #eef4fc;border-radius:11px;padding:8px 10px;margin-bottom:7px;cursor:pointer;background:#fcfdff;transition:.15s}
+  .hist:hover{border-color:#bcd7ff;background:#fff;transform:translateY(-1px)}
+  .hist .ht{font-size:11px;color:#8fa3bd}
+  .hist .hx{font-size:11.5px;color:#41526b;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  .grip-v{flex:0 0 8px;cursor:col-resize;border-radius:5px;background:#f7fafd;position:relative}
+  .grip-v:before{content:"";position:absolute;left:3px;top:30%;bottom:30%;width:2px;background:#d7e4f6;border-radius:2px}
+  .grip-v:hover{background:#eef5ff}
+  .grip-h{height:8px;flex:0 0 8px;cursor:row-resize;background:#f7fafd;border-radius:5px;margin:-2px 0;position:relative}
+  .grip-h:before{content:"";position:absolute;left:48%;right:48%;top:3px;height:2px;background:#d7e4f6;border-radius:2px}
+  .grip-h:hover{background:#eef5ff}
+
+  .catact .act{height:26px;padding:0 4px;font-size:11px;border-radius:9px}
+  .catact .act .sw{display:flex;align-items:center;justify-content:center;gap:3px;width:100%;font-size:11px}
+  .catact .act input{width:12px;height:12px;margin:0}
+
+  #nl,#draft{color:#111 !important;font-weight:500}
+  #nl::placeholder{color:#b6c3d6;font-weight:400}
+  .nl textarea{color:#111}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><i>✦</i> 提示词<b>工作台</b> <i>✦</i></div>
+  <div class="steps"><i>① 反推 / 描述</i><i class="on">② 挑标签</i><i>③ 出结果</i></div>
+  <div class="guide">📖 说明书</div>
+  <div class="sp"></div>
+  <label class="sw"><input type="checkbox" id="swApi" checked><b>API</b></label>
+  <label class="sw"><input type="checkbox" id="swNsfwTop">NSFW模式</label>
+  <label class="sw"><input type="checkbox" id="swEn">英文锚点</label>
+  <select id="selPolish"><option value="api" selected>润色 API</option><option value="local">润色 本地</option><option value="off">润色 关</option><option value="tmpl">润色 模板</option></select>
+  <select id="selDensity"><option value="compact">精简</option><option value="normal" selected>标准</option><option value="complex">复杂</option></select>
+  <select id="selNeg"><option value="full" selected>负向 完整</option><option value="simple">负向 精简</option><option value="off">负向 关</option></select>
+  <button class="btn" id="btnCfg">⚙ API</button>
+  <button class="btn primary" id="btnGen">生成结果</button>
+</header>
+
+<main>
+  <section class="card lib">
+    <div class="hd">标签库 <span class="sub" id="libCount">加载中…</span><span class="r" id="btnReset">重置筛选</span></div>
+    <div class="body">
+      <div class="nl">
+        <textarea id="nl" placeholder="例：2个角色 初音未来 洛天依&#10;初音未来：蓝色长双马尾，青色眼睛，穿白色连衣裙，站在窗边，微笑&#10;洛天依：灰色短发，红棕色眼睛，穿校服，坐在课桌旁，安静看书&#10;场景：教室，午后阳光斜照进来，桌面有书和笔"></textarea>
+        <div class="nlrow">
+          <label class="sw"><input type="checkbox" id="autoScene" checked>自动补场景</label>
+          <div class="sp"></div>
+          <button class="btn" id="btnExpand">AI 扩写</button>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="drop" id="dropImg">点此选图反推<br>或拖图</div>
+        <div class="search" id="searchBox">🔍 搜索：蓝发 / long hair / 女仆 / 制服</div>
+      </div>
+      <input type="file" id="fileImg" accept="image/*" style="display:none">
+
+      <div class="catwrap">
+        <div class="catgrid" id="catGrid"></div>
+        <div class="catact" id="catAct"></div>
+      </div>
+
+      <div class="submenu" id="submenu" style="display:none">
+        <div class="submenu-t" id="subTitle">角色</div>
+        <div class="submenu-list" id="subList"></div>
+      </div>
+
+      <div class="taglist" id="tagList"></div>
+    </div>
+  </section>
+
+  <div class="grip-v"></div>
+
+  <section class="right">
+    <div class="rtop">
+      <div class="card mid">
+        <div class="hd">已选 <span class="sub" id="selCount">0</span><span class="r" id="btnClearSel">清空</span></div>
+        <div class="body" id="selBody"></div>
+      </div>
+      <div class="grip-v"></div>
+      <div class="card res">
+        <div class="hd">结果 <span class="swchips" id="secChips"></span><span class="r" id="btnClearRes">清空结果</span></div>
+        <div class="body" id="resBody"><div class="note" style="padding:26px;text-align:center">点「生成结果」后显示</div></div>
+      </div>
+    </div>
+
+    <div class="grip-h"></div>
+
+    <div class="rbot">
+      <div class="card draft">
+        <div class="hd">草稿 <span class="sub">可编辑 · 改完拆标签 / 生成 MOSS</span>
+          <span class="r">
+            <button class="btn sm" id="btnParseDraft">拆成标签</button>
+            <button class="btn sm primary" id="btnMoss">生成 MOSS</button>
+          </span>
+        </div>
+        <div class="mbody"><textarea id="draft"></textarea></div>
+      </div>
+      <div class="grip-v"></div>
+      <div class="card tools">
+        <div class="hd">历史记录 <span class="sub">点一条回填到草稿</span><span class="r" id="btnClearHist">清空</span></div>
+        <div class="body" id="histBody"><div class="note">还没有扩写记录</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="app.js?v=20261109i"></script>
+</body>
+</html>
