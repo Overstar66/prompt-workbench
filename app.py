@@ -171,6 +171,22 @@ def _alias_of(zh):
     return out
 
 
+def _sfw_sanitize(text):
+    """NSFW 关闭时：把露骨词替换成中性词，避免模型直接照抄"""
+    pairs = [
+        ("小穴", "身体"), ("逼部", "身体"), ("掰逼", "摆姿势"), ("掰开B", "摆姿势"),
+        ("乳头环", "装饰"), ("乳头", "胸口"), ("奶子", "胸口"), ("乳房", "胸口"),
+        ("精液", "水渍"), ("淫纹", "纹身"), ("跳蛋控制器", "小道具"),
+        ("跳蛋", "小道具"), ("肛塞", "小道具"), ("全裸", "泳装"), ("赤裸", "泳装"),
+        ("性交", "拥抱"), ("口交", "亲密"), ("自慰", "休息"), ("高潮", "开心"),
+        ("pussy", "body"), ("nipples", "chest"), ("cum", "water"),
+    ]
+    out = text
+    for a, b in pairs:
+        out = out.replace(a, b)
+    return out
+
+
 def _role_hits(text, lib):
     """找出文本里出现的角色：zh / 别名做包含匹配，最长匹配优先，区间不重叠。"""
     if not text:
@@ -574,6 +590,8 @@ class H(BaseHTTPRequestHandler):
                 _sys.path.insert(0, HERE)
             import expand_mod
             # 角色约束注入：先按词库 + 用户原文生成硬约束，由 expand_mod 拼在模型输入最前面
+            if not nsfw_on:
+                text = _sfw_sanitize(text)
             guard = build_char_guard(text)
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
             try:
