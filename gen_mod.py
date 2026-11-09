@@ -360,7 +360,21 @@ def _wtag(t):
     return "(%s:%.1f)" % (tag, w)
 
 
-def build_positive(chars, tags, quality=QUALITY, prefix=""):
+# 密度三档：(每个角色最多拼几个标签, 全局最多拼几个标签)
+# 只裁剪标签数量，角色名 / quality 前缀 / (2girls:1.45) 计数一律不动，顺序按「已选」保留。
+DENSITY_LIMITS = {
+    "compact": (8, 6),
+    "normal": (18, 14),
+    "complex": (30, 24),
+}
+
+
+def density_limits(name):
+    return DENSITY_LIMITS.get(str(name or "").strip().lower(), DENSITY_LIMITS["normal"])
+
+
+def build_positive(chars, tags, quality=QUALITY, prefix="", density="normal"):
+    per_max, glob_max = density_limits(density)
     words = []
     if prefix:
         words.append(prefix)
@@ -372,14 +386,22 @@ def build_positive(chars, tags, quality=QUALITY, prefix=""):
         nm = c.get("en") or c.get("tag_en") or c.get("name") or c.get("zh")
         if nm:
             words.append(f"({nm})")
+        kept = 0
         for t in (c.get("tags") or []):
             x = _wtag(t)
             if x and x not in words:
                 words.append(x)
+                kept += 1
+                if kept >= per_max:
+                    break
+    kept = 0
     for t in (tags or []):
         x = _wtag(t)
         if x and x not in words:
             words.append(x)
+            kept += 1
+            if kept >= glob_max:
+                break
     out, seen = [], set()
     for w in words:
         if w.lower() not in seen:
@@ -409,8 +431,10 @@ def generate(req):
         c2 = dict(c)
         c2["tags"] = list(c.get("tags") or []) + add
         chars2.append(c2)
-    wai = build_positive(chars2, tags)
-    pony = build_positive(chars2, tags, PONY_Q)
+    # 密度：compact / normal / complex → 控制每个角色与全局拼进去的标签数量
+    density = str(req.get("density") or "normal").strip().lower()
+    wai = build_positive(chars2, tags, density=density)
+    pony = build_positive(chars2, tags, PONY_Q, density=density)
     pos_blob = " ".join([_pos_blob(req), wai.lower(), pony.lower()])
     # Q版(chibi)容易画成多角色/角色表 → 单角色时补 solo
     if "chibi" in pos_blob and (len(chars) or 1) == 1:

@@ -33,6 +33,7 @@
 
   const S = { lib: [], all: [], cat: '全部', sub: '全部', q: '', nsfw: false, favTop: false,
               chars: [], global: [], shown: PAGE, sec: { moss: true, wai: true, pony: true, exp: true },
+              autoScene: true,
               /* 拖标签到分类芯片的改动：en → { cat, sub }。分类归属一律走 catOf()，override 优先 */
               catOverrides: {} };
 
@@ -805,13 +806,46 @@
       }),
     }));
   }
+  /* ---------- 自动补场景 ----------
+     勾选「自动补场景」且「已选」里没有任何 cat=场景 的标签时，从词库挑 2~3 个通用场景词拼进请求。
+     优先 室内 / 柔光 / 阳光 这类万金油，避免抽到「体育馆更衣室」这种奇怪场景；
+     只补进本次请求，不写进「已选」列表。 */
+  const SCENE_PREFER = ['室内', '柔光', '自然光', '柔和光线', '阳光', '户外', '室外', '白天'];
+  const libOf = en => S.lib.find(e => e && e.en === en);
+  const isSceneTag = en => { const e = libOf(en); return !!e && catOf(e) === '场景'; };
+  function autoScenePick() {
+    const pool = S.lib.filter(e => e && e.en && e.zh && !e.nsfw && catOf(e) === '场景');
+    if (!pool.length) return [];
+    const want = Math.random() < .5 ? 2 : 3;
+    const out = [];
+    const take = e => {
+      if (e && out.length < want && !out.some(x => x.en === e.en)) out.push({ zh: e.zh, en: e.en, w: 1 });
+    };
+    SCENE_PREFER.forEach(zh => take(pool.find(e => e.zh === zh)));
+    const generic = pool.filter(e => ['室内', '室外', '光线'].indexOf(subOf(e)) >= 0);
+    for (let guard = 0; out.length < want && generic.length && guard < 50; guard++) {
+      take(generic[Math.floor(Math.random() * generic.length)]);
+    }
+    return out;
+  }
+  /* 本次请求的全局标签：已选原样 + 必要时补的场景词（角色框里的场景标签也算已有） */
+  function reqTags() {
+    const tags = S.global.map(t => ({ tag: t.en, weight: t.w }));
+    const hasScene = tags.some(t => isSceneTag(t.tag)) ||
+      S.chars.some(c => (c.tags || []).some(t => isSceneTag(t.en)));
+    if (!S.autoScene || hasScene) return { tags, added: [] };
+    const picked = autoScenePick();
+    return { tags: tags.concat(picked.map(t => ({ tag: t.en, weight: 1 }))), added: picked.map(t => t.zh) };
+  }
   async function doGenerate() {
     if (!S.global.length && !S.chars.length) { toast('先选标签'); return; }
-    const stopWait = toastSticky('生成中…（含本地润色，预计 40-90 秒）');
+    const pick = reqTags();
+    const tip = pick.added.length ? '（已自动补场景：' + pick.added.join('、') + '）' : '';
+    const stopWait = toastSticky('生成中…' + tip + '（含本地润色，预计 40-90 秒）');
     try {
       const wantMoss = S.sec.moss !== false;
       const d = await api('/api/generate', {
-        tags: S.global.map(t => ({ tag: t.en, weight: t.w })), chars: buildChars(),
+        tags: pick.tags, chars: buildChars(),
         ai: false, density: $('#selDensity').value, nsfw: (function(){var e=document.getElementById('swNsfwTop');return e?!!e.checked:false;})(), mossPolish: wantMoss,
         polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
         apiFull: document.getElementById('swApi').checked,
@@ -848,10 +882,11 @@
         renderSel();
       } catch (e) { toast('拆解失败：' + e.message); return; }
     }
-    const stopWait2 = toastSticky('生成草稿中…（含本地润色）');
+    const pick = reqTags();
+    const stopWait2 = toastSticky('生成草稿中…' + (pick.added.length ? '（已自动补场景：' + pick.added.join('、') + '）' : ''));
     try {
       const d = await api('/api/generate', {
-        tags: S.global.map(t => ({ tag: t.en, weight: t.w })), chars: buildChars(),
+        tags: pick.tags, chars: buildChars(),
         ai: false, density: $('#selDensity').value, nsfw: S.nsfw,
         polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
         neg: $('#selNeg') ? $('#selNeg').value : 'full',
@@ -970,7 +1005,7 @@
 
   /* ===================== 使用手册 ===================== */
   /* 内容按页面结构分节（① 概述 → ⑨ FAQ），顶部锚点按钮用 scrollIntoView 跳章。
-     只写界面真实现状：实测不生效的开关（英文锚点 / 密度）如实标注「预留」。 */
+     只写界面真实现状：密度三档、自动补场景都已是生成链路里真实生效的逻辑。 */
   function openGuide() {
     if ($('#guideDlg')) { $('#guideDlg').style.display = 'flex'; return; }
     const B = t => `<b style="color:#27364f">${t}</b>`;
@@ -993,7 +1028,6 @@
         UL([
           B('API') + '：勾上时「AI 扩写」走 DeepSeek 云端（失败会自动回退 Ollama）；取消则直接用本机 Ollama（离线可用，但更慢）。润色走 API 还是本地，由下面的「润色」下拉决定，跟这个勾选框无关。',
           B('NSFW模式') + '：控制' + B('扩写 / 润色') + '是否生成成人内容。关闭时扩写要求「保持健康内容」，本地润色强制改用安全模型 qwen2.5:7b；它同时决定生成时是否过滤 NSFW 标签、负向是否追加裸露词。',
-          B('英文锚点') + '：' + B('预留开关') + '——勾选状态会记进浏览器设置，但当前生成链路没有读取它；现在无论开关如何，英文 tag 都按词库原样输出。',
           B('⚙ API') + '：配置 API 地址、模型名、Key。Key 存在本地（浏览器 localStorage + 服务端 api_config.json），回显为掩码（前 6 位 + 末 4 位）；要换 Key 请整串重新粘贴，掩码不是真实 Key。',
           B('生成结果') + '：按当前「已选」一次性生成 MOSS + WAI + Pony（含各自负向）到右栏。',
         ]) +
@@ -1007,7 +1041,10 @@
         ]) +
         sub('密度 下拉（精简 / 标准 / 复杂）') +
         UL([
-          B('预留参数') + '：当前版本会保存选择，但后端尚未读取它，三档生成结果完全一致（已实测）；设计上用于调节 WAI / Pony 的标签密度。',
+          B('精简') + '：每个角色最多 8 个标签、全局最多 6 个，提示词短，适合低步数快出图。',
+          B('标准') + '：每个角色最多 18 个、全局最多 14 个（默认，接近历史输出）。',
+          B('复杂') + '：每个角色最多 30 个、全局最多 24 个，细节最全，建议配更高步数与适当 CFG。',
+          '只裁剪 ' + B('WAI / Pony') + ' 的英文标签数量，MOSS 中文段落不受影响；截断按「已选」顺序保留，角色名、quality 前缀、(2girls:1.45) 这类计数永远不会被裁掉。标签本来就没到上限时，三档输出完全一致。',
         ]) +
         sub('负向 下拉（三档）') +
         UL([
@@ -1023,7 +1060,7 @@
           B('搜索') + '：同时匹配中文名、英文 tag、作品名与别名，「迷宫饭」「EVA」「蓝发」「long hair」都能命中；只输作品名会列出该作品的全部角色。',
           B('重置筛选') + '：清空搜索词和分类 / 子分类选择，回到「全部」。',
           B('描述框 + AI 扩写') + '：左上写自然语言，点「AI 扩写」补成标准格式；结果显示在右栏「扩写结果」，同时存进历史。',
-          B('自动补场景') + '：描述框下方的勾选框，当前版本尚未接入扩写请求，勾不勾都按模型自己的判断补场景（预留）。',
+          B('自动补场景') + '：默认勾选，状态记在浏览器里，刷新后保持。点「生成结果」或「生成 MOSS」时，如果「已选」里没有任何场景类标签，会自动从词库挑 2~3 个通用场景词（优先 室内 / 柔光 / 阳光 / 白天，避免奇怪场景）拼进本次请求，并在提示里告诉你补了哪几个；补的词不会写进「已选」。不想要自动补就取消勾选。',
           B('点此选图反推 或拖图') + '：上传或拖入图片 → WD14 打标 → 命中的标签自动进「已选」，识别原文写进左上描述框；图里带 NSFW 标签时会自动打开标签库的 NSFW 开关。',
           B('标签卡') + '：单击加入「已选」（角色卡 = 直接建角色框）；左下 ★ 收藏，勾上「收藏」后置顶；角色卡右键可编辑（中文名 / 英文 tag / 作品 / 发色发型 / 眼睛 / 服装 / 体型 / 胸围）；自定义角色拖到垃圾桶即删除。',
           B('拖动标签') + '：拖到分类芯片或子分类芯片 = 改分类（只存在浏览器里，不动服务端词库）；拖到「已选」的角色框 = 归给该角色；拖到垃圾桶 = 从当前已选移除（若是自定义角色 / 自定义子分类，则是真删除）。',
@@ -1105,8 +1142,8 @@
         P('确认 8901 端口有 pythonw 在跑（任务管理器看命令行是否含 studio2\\app.py）；没有就用「启动工作台.bat」或手动 pythonw app.py 启动，再刷新 http://127.0.0.1:8901 。') +
         sub('Q6 改了数据要刷新页面吗？') +
         P('标签数据来自 /api/tags，只在页面加载时读一次；改词库文件或服务端角色后请刷新页面。前端新增 / 编辑的角色会立即生效。') +
-        sub('Q7 「英文锚点」「密度」调了没反应？') +
-        P('这两项当前为预留参数，不影响输出，详见第②节。')],
+        sub('Q7 密度调了三档，输出为什么看起来一样？') +
+        P('密度只裁剪 WAI / Pony 的英文标签数量（精简 每角色 8 / 全局 6，标准 18 / 14，复杂 30 / 24），标签本来就少于上限时三档完全一致；MOSS 中文段落不读这个参数。')],
     ];
     const d = document.createElement('div');
     d.id = 'guideDlg';
@@ -1244,28 +1281,30 @@
   function loadSettings() {
     const c = LS.get('settings', {});
     if (c.api !== undefined) $('#swApi').checked = !!c.api;
-    if (c.en !== undefined) $('#swEn').checked = !!c.en;
     if (c.nsfwTop !== undefined && $('#swNsfwTop')) $('#swNsfwTop').checked = !!c.nsfwTop;
+    if (c.autoScene !== undefined && $('#autoScene')) $('#autoScene').checked = !!c.autoScene;
     if (c.density) $('#selDensity').value = c.density;
     if (c.neg) $('#selNeg').value = c.neg === 'lite' ? 'simple' : c.neg;
     if (c.polishMode && $('#selPolish')) $('#selPolish').value = c.polishMode;
     if (c.nsfw !== undefined) S.nsfw = !!c.nsfw;
     if (c.favTop !== undefined) S.favTop = !!c.favTop;
+    S.autoScene = $('#autoScene') ? $('#autoScene').checked : true;
   }
   function saveSettings() {
+    S.autoScene = $('#autoScene') ? $('#autoScene').checked : true;
     LS.set('settings', {
       api: $('#swApi').checked,
-      en: $('#swEn').checked,
       nsfwTop: $('#swNsfwTop') ? $('#swNsfwTop').checked : false,
-      density: $('#selDensity').value, polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
-      neg: $('#selNeg').value,
+      autoScene: S.autoScene,
+      density: $('#selDensity').value,
       polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
+      neg: $('#selNeg').value,
       nsfw: S.nsfw,
       favTop: S.favTop,
     });
   }
   function bindSettings() {
-    ['#swApi', '#swEn', '#swNsfwTop', '#selDensity', '#selNeg', '#selPolish'].forEach(sel => {
+    ['#swApi', '#swNsfwTop', '#autoScene', '#selDensity', '#selNeg', '#selPolish'].forEach(sel => {
       const el = document.querySelector(sel);
       if (el) el.addEventListener('change', saveSettings);
     });
