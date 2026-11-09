@@ -953,56 +953,200 @@
       fields: [
         { key: 'url', label: 'API 地址', value: old.url },
         { key: 'model', label: '模型', value: old.model },
-        { key: 'key', label: 'API Key', value: old.key, type: 'password', placeholder: '留空则不改（已配置时会显示掩码）' },
+        { key: 'key', label: 'API Key', value: '', type: 'password', placeholder: old._keySet ? '已配置（显示掩码 ' + old.key + '），留空不改；要换请整串粘贴' : '未配置，请粘贴你的 Key' },
       ],
       okText: '保存',
       onOk: v => {
-        const cfg = { url: v.url, model: v.model, key: v.key };
-        LS.set('apiCfg', cfg);
+        const cfg = { url: v.url, model: v.model };
+        // 掩码或留空 → 不覆盖已保存的 Key
+        const k = (v.key || '').trim();
+        if (k && !k.includes('…') && !k.includes('...')) cfg.key = k;
+        LS.set('apiCfg', Object.assign({}, LS.get('apiCfg', {}), cfg));
         api('/api/config', cfg).then(() => toast('已保存并同步后端')).catch(() => toast('已保存到本地'));
       },
     });
   }
 
 
+  /* ===================== 使用手册 ===================== */
+  /* 内容按页面结构分节（① 概述 → ⑨ FAQ），顶部锚点按钮用 scrollIntoView 跳章。
+     只写界面真实现状：实测不生效的开关（英文锚点 / 密度）如实标注「预留」。 */
   function openGuide() {
     if ($('#guideDlg')) { $('#guideDlg').style.display = 'flex'; return; }
+    const B = t => `<b style="color:#27364f">${t}</b>`;
+    const P = t => `<p style="margin:0 0 6px;color:#46586f;font-size:12.5px;line-height:1.85">${t}</p>`;
+    const sub = t => `<div style="font-weight:600;font-size:12.5px;color:#2f6fe0;margin:9px 0 3px">${t}</div>`;
+    const UL = arr => '<ul style="margin:0;padding-left:18px;color:#46586f;font-size:12.5px;line-height:1.85">' +
+      arr.map(x => `<li style="margin:3px 0">${x}</li>`).join('') + '</ul>';
+    const NAV = [['g1', '概述'], ['g2', '工具栏'], ['g3', '标签库'], ['g4', '已选'],
+                 ['g5', '草稿·历史'], ['g6', '结果'], ['g7', '流程'], ['g8', '注意'], ['g9', 'FAQ']];
+    const SECS = [
+      ['g1', '① 这是什么',
+        P('本地运行的动漫插画提示词工作台，一条链路走完：' + B('图反推 → AI 扩写 → 拆标签 → 生成 MOSS / WAI / Pony 提示词') + '。') +
+        UL([
+          '词库约 1.1 万条中英对照标签（角色、外形、服装、动作、道具、场景、画风，其中 NSFW 约 4 千条），另有 50 张画风缩略图。',
+          '三个出口：' + B('MOSS') + '（中文段落，配 MOSS 系模型）、' + B('WAI / NoobAI') + '、' + B('Pony V6 XL') + '（英文 tag 串），每条都成对给正向与负向。',
+          '拼装和生成全在 127.0.0.1:8901 本机完成，不联网；只有勾选「API」或润色选「API」时文字才会发给 DeepSeek。',
+          '顶部步骤条 ① 反推 / 描述 → ② 挑标签 → ③ 出结果 只是流程提示，不会自动跳转。',
+        ])],
+      ['g2', '② 顶部工具栏',
+        UL([
+          B('API') + '：勾上时「AI 扩写」走 DeepSeek 云端（失败会自动回退 Ollama）；取消则直接用本机 Ollama（离线可用，但更慢）。润色走 API 还是本地，由下面的「润色」下拉决定，跟这个勾选框无关。',
+          B('NSFW模式') + '：控制' + B('扩写 / 润色') + '是否生成成人内容。关闭时扩写要求「保持健康内容」，本地润色强制改用安全模型 qwen2.5:7b；它同时决定生成时是否过滤 NSFW 标签、负向是否追加裸露词。',
+          B('英文锚点') + '：' + B('预留开关') + '——勾选状态会记进浏览器设置，但当前生成链路没有读取它；现在无论开关如何，英文 tag 都按词库原样输出。',
+          B('⚙ API') + '：配置 API 地址、模型名、Key。Key 存在本地（浏览器 localStorage + 服务端 api_config.json），回显为掩码（前 6 位 + 末 4 位）；要换 Key 请整串重新粘贴，掩码不是真实 Key。',
+          B('生成结果') + '：按当前「已选」一次性生成 MOSS + WAI + Pony（含各自负向）到右栏。',
+        ]) +
+        sub('润色 下拉（四档）') +
+        UL([
+          B('API') + '：调 DeepSeek 把规则拼好的 MOSS 改写成通顺中文段落；不占显存，通常几秒。API 失败或返回为空时不回退本地，结果栏保留规则底稿。',
+          B('本地') + '：强制走 Ollama 改写；安全模式用 qwen2.5:7b，NSFW 开着时用 goonsai 3B。占显存，一次约 40–90 秒。',
+          B('关') + '：不润色，直接输出标签式 MOSS，最快，但读起来是「标签串」。',
+          B('模板') + '：规则模板拼接后直接返回，结果标记「模板拼接」，同样不经过模型。',
+          '怎么选：MOSS 想读得顺 → API；要离线 → 本地；赶时间或只关心 WAI / Pony → 关。',
+        ]) +
+        sub('密度 下拉（精简 / 标准 / 复杂）') +
+        UL([
+          B('预留参数') + '：当前版本会保存选择，但后端尚未读取它，三档生成结果完全一致（已实测）；设计上用于调节 WAI / Pony 的标签密度。',
+        ]) +
+        sub('负向 下拉（三档）') +
+        UL([
+          B('完整') + '：默认。WAI 约 590 字符（画质、手部、解剖、水印、裁切等），Pony 额外带 score_4 / score_5 / score_6 系列。',
+          B('精简') + '：只留约 7 项核心负向（约 215 字符），提示词短、可读性好。',
+          B('关') + '：不输出负向（空串），适合自己另配负向。',
+          '三档都会自适应：正向里已出现裸体 / uncensored / chibi / 单色等词时自动剔除冲突负向；' + B('NSFW模式关闭') + '时追加 nude / naked / topless 等；' + B('只有一个角色') + '时追加 2girls / multiple_girls / split_screen 等防克隆词。',
+        ])],
+      ['g3', '③ 左栏：标签库',
+        UL([
+          B('分类芯片') + '：全部 / 角色 / 外形 / 服装 / 动作 / 道具 / 场景 / 其他（即「自定义」）/ 自定义2 / 自定义3，外加你自建的顶级分类；点一下切换。',
+          B('子分类芯片') + '：带「▾」的分类会展开第二排。角色 → 游戏 / 动漫 / MOSS原创 / 自定义；动作 → 单人 / 亲密 / 双人互动 / 姿势 / 日常；外形 → 发型 / 发色 / 眼睛 / 表情 / 身体 / 体型；服装 → 上装 / 下装 / 制服 / 连衣裙 / 泳装 / 袜鞋 / 配饰 / 情趣；场景 → 室内 / 室外 / 光线 / 建筑 / 天气 / 时间段；道具 → 日常 / NSFW；其他 → 构图 / 画质 / 风格 / 视角 / 镜头 / 色彩 / 效果。',
+          B('搜索') + '：同时匹配中文名、英文 tag、作品名与别名，「迷宫饭」「EVA」「蓝发」「long hair」都能命中；只输作品名会列出该作品的全部角色。',
+          B('重置筛选') + '：清空搜索词和分类 / 子分类选择，回到「全部」。',
+          B('描述框 + AI 扩写') + '：左上写自然语言，点「AI 扩写」补成标准格式；结果显示在右栏「扩写结果」，同时存进历史。',
+          B('自动补场景') + '：描述框下方的勾选框，当前版本尚未接入扩写请求，勾不勾都按模型自己的判断补场景（预留）。',
+          B('点此选图反推 或拖图') + '：上传或拖入图片 → WD14 打标 → 命中的标签自动进「已选」，识别原文写进左上描述框；图里带 NSFW 标签时会自动打开标签库的 NSFW 开关。',
+          B('标签卡') + '：单击加入「已选」（角色卡 = 直接建角色框）；左下 ★ 收藏，勾上「收藏」后置顶；角色卡右键可编辑（中文名 / 英文 tag / 作品 / 发色发型 / 眼睛 / 服装 / 体型 / 胸围）；自定义角色拖到垃圾桶即删除。',
+          B('拖动标签') + '：拖到分类芯片或子分类芯片 = 改分类（只存在浏览器里，不动服务端词库）；拖到「已选」的角色框 = 归给该角色；拖到垃圾桶 = 从当前已选移除（若是自定义角色 / 自定义子分类，则是真删除）。',
+          B('画风库') + '：50 张风格缩略图，点一张就把对应画风 tag 加进全局标签。',
+          B('收藏') + '：勾上后收藏的标签排在列表最前面。',
+          B('NSFW（分类栏）') + '：只控制词库是否显示 NSFW 标签，默认关闭；和顶部「NSFW模式」是两个独立开关。',
+          B('垃圾桶') + '：拖标签进来删除或从已选移除，规则见上面的「拖动标签」。',
+          B('＋ 新增分类') + '：可建顶级分类（出现在分类芯片里，右键可改名，留空即删除），也可建当前分类下的子分类（双击或右键改名，× 删除）。',
+          B('＋ 添加角色') + '：只在「角色」分类出现。中文名必填，英文 tag 自动转小写下划线，可填作品与外观；保存到浏览器 localStorage 并同步服务端 custom_chars.json。',
+        ])],
+      ['g4', '④ 中栏：已选',
+        UL([
+          B('角色框') + '：把左侧标签拖进某个角色框 = 这个标签只属于她。在标签库里单击角色卡会直接建一个角色框。框右上 × 删除角色框，标签后的 − / + 调权重（0.1 一档，范围 0.1–2.0）。',
+          B('全局标签') + '：不属于任何角色的共享标签，所有角色共用（场景、画风、构图通常放这里）。点卡片上的 − / + 调权重，× 删除单条，区块右上 × 一键清空全部全局标签。',
+          B('√ 无冲突 / ⚠ 冲突') + '：每次改动自动检测互斥项 —— 裸体 × 穿衣、室内 × 室外、单人 × 多人、笑 × 哭，多个角色重名也会提示。只提示，不会自动删标签。',
+          B('清空') + '：清空全部已选（角色框 + 全局标签）。',
+          '权重：1.0 是默认；不等于 1 时，WAI / Pony 里会写成 (tag:1.2) 这种加权形式。',
+        ])],
+      ['g5', '⑤ 下栏：草稿 + 历史',
+        UL([
+          B('草稿') + '：可直接编辑的文本区，改完还能再加工。',
+          B('拆成标签') + '：调 /api/parse 把草稿（草稿为空时用左上描述框）拆成角色和标签 —— 角色进角色框，场景等进全局标签。',
+          B('生成 MOSS') + '：按「已选」生成中文 MOSS 与负向，送到右栏。若已选为空，会先把草稿（或左上描述框）自动拆解再生成。',
+          B('历史记录') + '：每次「AI 扩写」的结果都会存一条，最多 30 条；点一条回填到草稿。清空只清历史。',
+        ])],
+      ['g6', '⑥ 右栏：结果',
+        UL([
+          B('标签页开关') + '：MOSS / WAI / Pony / 扩写结果 四个 chip，点一下显示或隐藏对应区块；把 MOSS 关掉后，「生成结果」不再生成 MOSS。',
+          '「生成结果」会出 6 个区块：MOSS 中文、负向 · MOSS、WAI / NoobAI、负向 · WAI、Pony V6 XL、负向 · Pony。',
+          '每个区块右上角「复制」复制该块全文；「扩写结果」还多一个「填入草稿」。',
+          B('清空结果') + '：清掉右栏输出，不影响已选和词库。',
+        ])],
+      ['g7', '⑦ 推荐使用流程',
+        sub('路径 A：图 → 提示词（最快）') +
+        UL([
+          '① 点「点此选图反推」或把图片拖进去，等 WD14 打标完成。',
+          '② 检查「已选」：删掉无关标签，把人物标签拖进对应角色框，场景留在全局。',
+          '③ 点「生成结果」，在右栏复制 MOSS / WAI / Pony。',
+        ]) +
+        sub('路径 B：文字 → 提示词') +
+        UL([
+          '① 左上描述框写自然语言，例：' + B('初音未来：蓝色长双马尾，白色连衣裙，站在窗边，微笑') + '。',
+          '② 点「AI 扩写」，右栏「扩写结果」给出标准格式，同时存进历史。',
+          '③ 点「填入草稿」→ 按需修改 → 「拆成标签」或「生成 MOSS」。',
+        ]) +
+        sub('路径 C：纯标签拼装') +
+        UL([
+          '① 从词库点标签加入「已选」，角色卡会直接建角色框。',
+          '② 把外形 / 服装 / 动作标签拖进对应角色框，场景和画风放全局。',
+          '③ 点「生成结果」。',
+        ]) +
+        sub('多角色补充') +
+        UL([
+          '每个角色一个角色框，标签拖进各自的框；WAI / Pony 会自动加 (2girls:1.45) 这类多角色词。',
+          '位置标签（画面左侧 / 正中 / 右侧）也要放进对应角色的框，才能把人和位置绑在一起。',
+          '图反推通常只得到一堆散标签，记得手动归位，否则会全进全局标签。',
+        ])],
+      ['g8', '⑧ 注意事项',
+        UL([
+          '首次使用先在 ⚙ API 填地址、模型、Key；不填也能用，但扩写和润色只能走本地 Ollama。',
+          '本地模型（Ollama）会占显存：生图前把「润色」设为 API 或关，避免和生图抢显存。',
+          'NSFW 有两个开关：顶部「NSFW模式」管扩写 / 润色的尺度与生成时的过滤；分类栏「NSFW」只管词库显示。',
+          '词库含成人内容，仅限 18 岁以上使用；请遵守所在地法律与平台规则。',
+          '角色名与作品版权归原作者；本工具只做提示词整理，生成内容的合规性请自行判断。',
+          '面板尺寸会自动记住（拖分隔条调整）；拖乱了点本说明书底部「重置面板尺寸」。',
+          '数据存在浏览器 localStorage（收藏、分类改名、自定义角色、设置、历史）+ 服务端 custom_chars.json；清浏览器数据会丢前端那份。',
+          '小提示：「生成 MOSS」读的是分类栏的 NSFW 开关，「生成结果」读的是顶部 NSFW模式 —— 发现 MOSS 里 NSFW 内容和预期不符时，先看分类栏那个开关。',
+        ])],
+      ['g9', '⑨ 常见问题',
+        sub('Q1 生成出来为什么是标签串，不是通顺句子？') +
+        P('润色选了「模板」或「关」。改成「API」或「本地」重新生成即可；只关心 WAI / Pony 时不受影响。') +
+        sub('Q2 为什么角色外观和我的设定不一致？') +
+        P('词库里的角色自带外观（发色 / 瞳色 / 服装）。你手动加的同类标签优先，自动外观会跳过对应项；也可以右键角色卡直接改外观并保存。') +
+        sub('Q3 图反推结果里有英文没翻译？') +
+        P('词库暂缺该词的中文译名，只能原样显示英文 tag；可当普通标签用，或建个自定义分类收纳。') +
+        sub('Q4 为什么画不出多个角色？') +
+        P('单角色时负向会自动追加 2girls / multiple_girls / split_screen 等防克隆词。要多角色：加多个角色框，每个框放各自标签；仍不行就把负向改成「精简」或「关」。') +
+        sub('Q5 服务打不开 / 页面白屏怎么办？') +
+        P('确认 8901 端口有 pythonw 在跑（任务管理器看命令行是否含 studio2\\app.py）；没有就用「启动工作台.bat」或手动 pythonw app.py 启动，再刷新 http://127.0.0.1:8901 。') +
+        sub('Q6 改了数据要刷新页面吗？') +
+        P('标签数据来自 /api/tags，只在页面加载时读一次；改词库文件或服务端角色后请刷新页面。前端新增 / 编辑的角色会立即生效。') +
+        sub('Q7 「英文锚点」「密度」调了没反应？') +
+        P('这两项当前为预留参数，不影响输出，详见第②节。')],
+    ];
     const d = document.createElement('div');
     d.id = 'guideDlg';
     d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:rgba(20,30,50,.42);backdrop-filter:blur(2px)';
-    const items = [
-      ['① 写描述', '左上输入框写自然语言，例如「初音未来：蓝色长双马尾，白色连衣裙」。'],
-      ['② AI 扩写', '点「AI 扩写」补成标准格式，结果在右侧「扩写结果」，点「填入草稿」送进底部。'],
-      ['③ 拆成标签', '草稿区右上「拆成标签」，角色进角色框、场景进全局标签，自动补外貌。'],
-      ['④ 生成结果', '出 WAI / Pony 的正向与负向；「生成 MOSS」出中文 MOSS 与负向。'],
-      ['⑤ 标签库', '点标签加入已选；拖到分类芯片改分类；拖到垃圾桶删除；★ 收藏可置顶。'],
-      ['⑥ NSFW', '关闭时隐藏 NSFW 内容，打开后优先显示在列表前面。'],
-      ['⑦ 面板', '拖动分隔条可调整各栏大小，尺寸会自动记住；说明书里可一键重置布局。'],
-      ['⑧ 拖动标签', '标签可拖到分类芯片改分类，拖到角色框归给该角色，拖到垃圾桶删除；自定义分类可双击改名或点 × 删除。'],
-      ['⑨ 润色', '结果栏顶部「润色」可选 API / 本地 / 关；API 不占显存，生图时建议用 API 或关。'],
-    ];
-    d.innerHTML = '<div style="width:600px;max-height:82vh;overflow:auto;background:#fff;border-radius:20px;' +
-      'box-shadow:0 24px 70px rgba(20,40,80,.25);overflow-x:hidden">' +
-      '<div style="padding:20px 26px;border-bottom:1px solid #eef4fc;display:flex;align-items:center;gap:10px">' +
-      '<div style="font-size:18px">📖</div><div style="font-weight:700;font-size:16px">使用说明</div>' +
-      '<div style="margin-left:auto;color:#b6c3d6;cursor:pointer" id="guideX">✕</div></div>' +
-      '<div style="padding:18px 26px 6px">' +
-      items.map(([t, c]) => '<div style="display:flex;gap:12px;margin-bottom:15px">' +
-        '<div style="flex:0 0 92px;font-weight:600;color:#2f6fe0;font-size:13px">' + t + '</div>' +
-        '<div style="flex:1;color:#46586f;font-size:12.5px;line-height:1.75">' + c + '</div></div>').join('') +
-      '</div>' +
-      '<div style="padding:14px 26px 22px;text-align:right">' +
-      '<button class="btn primary" id="guideClose" style="height:34px;padding:0 22px">知道了</button></div></div>';
+    d.innerHTML = `<div style="width:780px;max-width:94vw;max-height:92vh;display:flex;flex-direction:column;background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(20,40,80,.25);overflow:hidden">
+      <div style="padding:17px 24px 13px;border-bottom:1px solid #eef4fc;display:flex;align-items:center;gap:10px">
+        <div style="font-size:18px">📖</div><div style="font-weight:700;font-size:16px">使用手册</div>
+        <div style="color:#9db0c8;font-size:11.5px">提示词工作台 · 完整说明</div>
+        <div style="margin-left:auto;color:#b6c3d6;cursor:pointer;font-size:15px" id="guideX">✕</div>
+      </div>
+      <div id="guideNav" style="padding:10px 24px;border-bottom:1px solid #eef4fc;display:flex;flex-wrap:wrap;gap:6px;background:#fbfdff">
+        ${NAV.map(([id, t], i) => `<span class="swchip${i === 0 ? ' on' : ''}" data-go="${id}" style="font-size:12px;cursor:pointer;user-select:none">${t}</span>`).join('')}
+      </div>
+      <div id="guideBody" style="padding:4px 24px 8px;max-height:70vh;overflow:auto">
+        ${SECS.map(([id, t, h]) => `<section id="${id}" style="padding:13px 0 10px;border-bottom:1px dashed #eef4fc">
+          <div style="font-weight:700;font-size:14.5px;color:#2f6fe0;margin-bottom:7px">${t}</div>${h}</section>`).join('')}
+      </div>
+      <div style="padding:12px 24px 16px;border-top:1px solid #eef4fc;display:flex;gap:8px;justify-content:flex-end;background:#fff">
+        <button class="btn" id="guideReset" style="height:34px;padding:0 16px">重置面板尺寸</button>
+        <button class="btn primary" id="guideClose" style="height:34px;padding:0 22px">知道了</button>
+      </div></div>`;
     document.body.appendChild(d);
-    const close = () => d.remove();
+    const body = d.querySelector('#guideBody');
+    const chips = [].slice.call(d.querySelectorAll('[data-go]'));
+    chips.forEach(c => c.onclick = () => {
+      const t = d.querySelector('#' + c.dataset.go);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      chips.forEach(x => x.classList.remove('on'));
+      c.classList.add('on');
+    });
+    const close = () => { d.style.display = 'none'; if (body) body.scrollTop = 0; };
     d.querySelector('#guideClose').onclick = close;
+    d.querySelector('#guideX').onclick = close;
+    d.onclick = ev => { if (ev.target === d) close(); };
     const gr = d.querySelector('#guideReset');
     if (gr) gr.onclick = () => {
       localStorage.removeItem('pane');
       ['.lib', '.mid', '.rbot', '.tools'].forEach(sel => { const el = document.querySelector(sel); if (el) el.style.flex = ''; });
       toast('面板尺寸已重置');
     };
-    d.querySelector('#guideX').onclick = close;
   }
 
 
