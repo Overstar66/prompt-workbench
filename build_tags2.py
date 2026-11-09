@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """标签库 v2：取消 NSFW 子分类（只用开关过滤）；道具扁平；按画面重要性排序"""
-import json
+import json, os
 
 T = []
 def add(cat, sub, items, nsfw=False):
@@ -146,7 +146,7 @@ for e in T:
     seen.add(k)
     out.append(e)
 
-path = r"D:\提示词生成\studio2\tags_cn.json"
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tags_cn.json")
 json.dump({"version": 2, "order": "按画面重要性排序", "tags": out},
           open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 

@@ -217,7 +217,7 @@ for e in T:
     seen.add(key)
     out.append(e)
 
-path = r"D:\提示词生成\studio2\tags_cn.json"
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tags_cn.json")
 with open(path, "w", encoding="utf-8") as f:
     json.dump({"version": 1, "built": "2026-11-08", "tags": out}, f, ensure_ascii=False, indent=1)
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""提示词工作台 v2 后端：只做静态页 + 词库接口 + 代理旧后端(8900)"""
+"""提示词工作台 v2 后端：静态页 + 词库接口 + 扩写/图反推（全部本地/自有数据）"""
 import json, os, re
 import threading
 import urllib.request
@@ -8,7 +8,6 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PORT = 8901
-OLD = "http://127.0.0.1:8900"
 
 _cache = {}
 CHARS_PATH = os.path.join(HERE, "custom_chars.json")
@@ -217,14 +216,6 @@ def api_expand(text, nsfw=False):
     return (d.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
 
 
-def proxy(path, payload, timeout=300):
-    req = urllib.request.Request(OLD + path,
-                                 data=json.dumps(payload, ensure_ascii=False).encode(),
-                                 headers={"content-type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as f:
-        return f.read()
-
-
 class H(BaseHTTPRequestHandler):
     def log_message(self, *a):
         pass
@@ -253,7 +244,7 @@ class H(BaseHTTPRequestHandler):
                                         "key_set": bool(_k)}, ensure_ascii=False))
         elif p == "/api/styles":
             try:
-                sj = os.path.join(HERE, "styles.json") if os.path.isfile(os.path.join(HERE, "styles.json")) else os.path.join(r"D:\提示词生成\studio", "styles.json")
+                sj = os.path.join(HERE, "styles.json")
                 data = json.load(open(sj, encoding="utf-8"))
                 items = data if isinstance(data, list) else data.get("styles", [])
                 out = []
@@ -266,7 +257,7 @@ class H(BaseHTTPRequestHandler):
                     if not img:
                         base = tag.replace(" ", "_").replace("(", "").replace(")", "").replace("__", "_")
                         cands = [base + ".jpg", base.split("_")[0] + ".jpg", tag.replace(" ", "_").split("(")[0].strip() + ".jpg"]
-                        sdir = os.path.join(HERE, "styles") if os.path.isdir(os.path.join(HERE, "styles")) else os.path.join(r"D:\提示词生成\studio", "styles")
+                        sdir = os.path.join(HERE, "styles")
                         for c in cands:
                             if os.path.isfile(os.path.join(sdir, c)):
                                 img = c
@@ -292,7 +283,7 @@ class H(BaseHTTPRequestHandler):
             else:
                 self._send(404, "{}")
         elif p.startswith("/styles/"):
-            _sd = os.path.join(HERE, "styles") if os.path.isdir(os.path.join(HERE, "styles")) else os.path.join(r"D:\提示词生成\studio", "styles")
+            _sd = os.path.join(HERE, "styles")
             fp = os.path.join(_sd, os.path.basename(unquote(p)))
             if os.path.isfile(fp):
                 self._send(200, open(fp, "rb").read(), "image/jpeg")
@@ -350,22 +341,21 @@ class H(BaseHTTPRequestHandler):
                 import sys as _sys
                 if HERE not in _sys.path:
                     _sys.path.insert(0, HERE)
-                import legacy_expand as _L
-                tags = _L.tag_image(img, want_style=True, style_only=False, model="moat") or []
+                import wd14_mod
+                tags = wd14_mod.tag_image(img) or []
                 lib = load_lib()
                 m = {e["en"]: e["zh"] for e in lib}
+                cat_of = {e["en"]: (e.get("cat") or "其他") for e in lib}
                 out = []
                 for t in tags:
-                    en = (t.get("tag") or t.get("en") or "") if isinstance(t, dict) else str(t)
-                    en = en.replace(" ", "_").strip()
+                    en = (t.get("en") or "").replace(" ", "_").strip()
                     if not en:
                         continue
-                    out.append({"en": en, "zh": m.get(en, en)})
+                    out.append({"en": en, "zh": m.get(en) or t.get("zh") or en})
                 # 按分类合成自然语言
                 bycat = {}
                 for x in out:
-                    e = next((z for z in lib if z["en"] == x["en"]), None)
-                    cat = (e or {}).get("cat") or "其他"
+                    cat = cat_of.get(x["en"]) or "其他"
                     bycat.setdefault(cat, []).append(x["zh"])
                 seg = []
                 if bycat.get("外形"):
@@ -428,55 +418,33 @@ class H(BaseHTTPRequestHandler):
             except Exception as e:
                 self._send(500, json.dumps({"error": str(e)}, ensure_ascii=False))
         elif p == "/api/text2tags":
-            self._send(200, proxy("/api/text2tags", data))
+            # 前端未使用；保留同形状返回，走本地解析（不再代理老工作台 8900）
+            try:
+                import sys as _sys
+                if HERE not in _sys.path:
+                    _sys.path.insert(0, HERE)
+                import parse_mod
+                _r = parse_mod.parse_text(str(data.get("text") or ""))
+                _known = {e["en"] for e in load_lib()}
+                _tags = [{"tag": t["en"].replace("_", " "), "raw": t["en"], "zh": t.get("zh") or "",
+                          "inlib": t["en"] in _known, "cat": ""} for t in (_r.get("tags") or [])]
+                self._send(200, json.dumps({"tags": _tags, "expanded": _r.get("expanded") or "",
+                                            "chars": _r.get("chars") or []}, ensure_ascii=False))
+            except Exception as e:
+                self._send(200, json.dumps({"tags": [], "error": str(e)}, ensure_ascii=False))
         elif p == "/api/expand":
             text = str(data.get("text") or "")
             use_api = bool(data.get("apiFull", True))
             nsfw_on = bool(data.get("nsfw", False))
-            out, engine = "", ""
-            # API：DeepSeek
-            if use_api:
-                try:
-                    import sys as _sys
-                    if HERE not in _sys.path:
-                        _sys.path.insert(0, HERE)
-                    import expand_mod
-                    out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=True)
-                except Exception:
-                    out, engine = "", ""
-            # 本地：老工作台三步（扩写→对齐→清洗）
-            if not out:
-                try:
-                    import sys as _sys
-                    if HERE not in _sys.path:
-                        _sys.path.insert(0, HERE)
-                    import legacy_expand as _L
-                    out = (_L.expand_full(text, allow_api=False) or "").strip()
-                    try:
-                        _a = _L.align_format(out)
-                        if _a:
-                            out = _a
-                    except Exception:
-                        pass
-                    try:
-                        _c = _L.clean_expanded(out)
-                        if _c:
-                            out = _c
-                    except Exception:
-                        pass
-                    engine = "legacy-local"
-                except Exception:
-                    out = ""
-            if not out:
-                # 老工作台数据不可用时的兜底：直接用 Ollama
-                try:
-                    import sys as _s3
-                    if HERE not in _s3.path:
-                        _s3.path.insert(0, HERE)
-                    import expand_mod as _em2
-                    out, engine = _em2.expand(text, nsfw=nsfw_on, use_api=False)
-                except Exception:
-                    out, engine = "", ""
+            import sys as _sys
+            if HERE not in _sys.path:
+                _sys.path.insert(0, HERE)
+            import expand_mod
+            # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
+            try:
+                out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api)
+            except Exception as e:
+                out, engine = "", "error:" + str(e)[:80]
             self._send(200, json.dumps({"expanded": out or text, "engine": engine, "local": not use_api}, ensure_ascii=False))
         elif p == "/api/config":
             cfg = {"url": str(data.get("url") or ""), "model": str(data.get("model") or ""),

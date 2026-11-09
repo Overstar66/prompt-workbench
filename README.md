@@ -19,7 +19,9 @@
 
 | 组件 | 必需 | 说明 |
 |---|---|---|
-| Python 3.10+ | ✅ | 只用标准库，无第三方依赖 |
+| Python 3.10+ | ✅ | 后端只用标准库 |
+| onnxruntime + Pillow + numpy | 图反推 | `wd14_mod.py` 用；缺了只影响图反推 |
+| WD14 模型 | 图反推 | `wd-v1-4-moat-tagger-v2.onnx` + 同名 `.csv`，用 `WD14_MODEL` 指定路径 |
 | DeepSeek API Key | 可选 | 用于 API 扩写 / API 润色 |
 | Ollama | 可选 | 本地扩写与润色 |
 | ComfyUI | 可选 | 本项目只生成提示词，出图在 ComfyUI |
@@ -33,6 +35,18 @@ ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest   # 成人向润色
 ```
 
 未安装 Ollama 时，本地扩写会自动降级，不影响其余功能。
+
+### 可选：图反推模型（WD14）
+
+默认读 `D:\Dsh-project\ComfyUI_windows_portable\ComfyUI\custom_nodes\ComfyUI-WD14-Tagger\models\wd-v1-4-moat-tagger-v2.onnx`；
+换位置时设环境变量：
+
+```bash
+set WD14_MODEL=D:\path\to\wd-v1-4-moat-tagger-v2.onnx
+set WD14_TAGS=D:\path\to\wd-v1-4-moat-tagger-v2.csv   # 可选，默认取模型同名 .csv
+```
+
+中文名直接用项目内的 `tags_cn.json` 映射，不需要任何外部数据文件。
 
 ## 快速开始
 
@@ -62,7 +76,7 @@ studio2/
 ├── parse_mod.py           拆标签：中文匹配 + 外貌补全
 ├── gen_mod.py             MOSS / WAI / Pony 生成 + 负向自适应
 ├── expand_mod.py          扩写：DeepSeek / Ollama
-├── legacy_expand.py       老版三步扩写（可选，缺数据会自动降级）
+├── wd14_mod.py            图反推：WD14 onnx 本地打标（不依赖 ComfyUI / 老工作台）
 ├── static/                前端（index.html + app.js）
 ├── styles/                画风库 50 张
 ├── tags_cn.json           词库（11000+ 条）
