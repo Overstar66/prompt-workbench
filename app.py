@@ -253,12 +253,19 @@ def build_char_guard(text, lib=None):
             if val:
                 parts.append("%s=%s%s" % (label, val, _LIB_FLAG))
         if parts:
-            rows.append("- " + h["zh"] + "：" + "；".join(parts))
+            short = []
+            for one in parts:
+                if one.startswith("发色="):
+                    short.append(one.split("=", 1)[1].rstrip("（词库）"))
+                elif one.startswith("瞳色="):
+                    short.append(one.split("=", 1)[1].rstrip("（词库）"))
+                elif one.startswith("服装="):
+                    short.append(one.split("=", 1)[1].rstrip("（词库）"))
+            if short:
+                rows.append(h["zh"] + "=" + "/".join(short))
     if not rows:
         return ""
-    return ("【角色外观必须保持，不得更改】" + _GUARD_NOTE + "\n" +
-            "\n".join(rows) + "\n" +
-            "【禁止】不得把 A 的发色/瞳色/服装写到 B 身上；不得把上面的外观换成别的颜色/发型。\n")
+    return ("【外观锁定，不得更改或互换】" + "；".join(rows) + "\n")
 
 
 CFG_PATH = os.path.join(HERE, "api_config.json")
