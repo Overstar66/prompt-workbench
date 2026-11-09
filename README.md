@@ -1,200 +1,278 @@
 # 提示词工作台（studio2）
 
+本地运行的动漫插画**提示词工作台**：拖图反推 / 中文扩写 → 拆标签 → 一键生成 MOSS、WAI、Pony 全套正向与负向。
+
+`18000+ 词条` · `2900+ 角色` · `50 画风` · `3 套输出` · `后端纯标准库`
+
+> ⚠️ **18+**：本项目内置成人向（NSFW）词库与判定逻辑，仅限 18 岁以上用户，仅供个人学习与创作。
+> 角色名与作品名版权归各自权利人所有，本项目为非官方同人工具，与任何官方无关。
+
 ![界面截图](docs/screenshot.png)
 
-### 内置说明书
+## 这是什么
 
-| 概览 | 开关说明 |
+- 面向 Stable Diffusion / Illustrious / Pony 系模型，把「想画什么」变成可直接粘贴的提示词。
+- 三种输入：拖一张图（WD14 反推）、写几句中文（AI 扩写）、从词库点选。
+- 一次输出 6 个区块：MOSS / WAI / Pony 三套正向，加各自负向。
+- 单文件后端 + 浏览器前端，无数据库、无需构建；只有勾选 API 时文字才出本机。
+- 适合一个人在本机长期用，不适合多人共享或公网部署。
+
+## 快速开始
+
+需要 Python 3.10+（后端只用标准库）。以下 4 步，路径均相对项目根目录。
+
+**1. 获取代码**
+
+```bash
+git clone <仓库地址>
+cd studio2
+```
+
+**2. 安装依赖（可选，只在用图反推时装）**
+
+```bash
+pip install onnxruntime pillow numpy
+```
+
+只用扩写 / 词库 / 模板的话可以跳过。
+
+**3. 配置（可选）**
+
+```bash
+# Windows
+copy api_config.example.json api_config.json
+
+# macOS / Linux
+cp api_config.example.json api_config.json
+```
+
+编辑 `api_config.json`，填 `url` / `model` / `key`。不填也能跑：扩写走本地 Ollama，Ollama 也没有就退回模板。
+
+**4. 启动**
+
+```bash
+python app.py
+```
+
+Windows 也可双击 `启动工作台.bat`。脚本里的 Python 解释器路径是示例，请按你的安装位置修改，或直接用上面的命令。
+
+打开 <http://127.0.0.1:8901>。默认端口 **8901**，改 `app.py` 顶部的 `PORT = 8901` 后重启即可，访问地址跟着换。
+macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一致。
+
+## 三种使用模式
+
+| 模式 | 需要什么 | 适合谁 | 怎么配 |
+|---|---|---|---|
+| 纯本地 | Python；Ollama 可选 | 离线、不想出网、写成人向内容 | 不填 API Key；扩写走 Ollama，没装则退回模板 |
+| 纯 API | 一个 DeepSeek API Key | 要快、要通顺、不想在本机跑模型 | 填 `api_config.json`；扩写与润色都走 API |
+| 混合 | API Key（扩写）+ 本地 | 想省钱又想要 API 的扩写质量 | 扩写选 API，润色选「本地」或「模板」 |
+
+顶部「⚙ API」按钮也能填地址 / 模型 / Key，保存后同时写浏览器与 `api_config.json`。
+三种模式的词库匹配、角色外观补全、负向自适应、标签拼装都在本地完成，与是否联网无关。
+
+## 功能
+
+### 输入侧
+
+| 功能 | 说明 |
 |---|---|
-| ![说明书概览](docs/guide-overview.png) | ![开关说明](docs/guide-switches.png) |
+| 图反推 | WD14 打标 → 标签自动进入「已选」，并给一段中文描述（需可选依赖） |
+| AI 扩写 | 几句中文 → 完整分镜；DeepSeek API 或本地 Ollama |
+| 词库点选 | 18000+ 条、7 大类，搜索 / 收藏 / 拖拽分类 / 右键编辑角色 |
+| 画风库 | 50 张缩略图，点一张即加对应画风标签 |
 
-一个本地运行的动漫插画**提示词工作台**：从图片反推标签 → AI 扩写 → 拆成标签 → 生成 MOSS / WAI / Pony 提示词。
+### 处理侧
 
-> ⚠️ 本项目包含成人向（NSFW）词库与内容，**仅限 18 岁以上用户**，仅供个人学习与创作使用。
-> 角色名与作品名版权归各自权利人所有，本项目为非官方同人工具，与任何官方无关。
+| 功能 | 说明 |
+|---|---|
+| 拆标签 | 中英文标签匹配，草稿自动拆成角色与标签，各归各位 |
+| 外观补全 | 角色自带发色 / 瞳色 / 服装，生成时自动补齐缺失项 |
+| 外观约束 | 扩写时把角色外观锁进提示词，禁止串角色、禁止改设定 |
+| 密度三档 | 精简 / 标准 / 复杂；精简档每角色 8 个、全局 6 个，标准与复杂不截断 |
+| 负向自适应 | 正向出现 uncensored / 裸露 / chibi / 灰度时，自动剔除冲突的负向词 |
+
+### 输出侧
+
+| 功能 | 说明 |
+|---|---|
+| MOSS | 中文段落 + 中文负向，适合中文模型与文案 |
+| WAI | 英文标签串，Illustrious 系直接用 |
+| Pony | `score_9, score_8_up, ...` 前缀 + Pony 专用负向 |
+| 一键复制 | 每个区块右上角单独复制，6 个区块互不影响 |
+| 历史记录 | 最近 30 条扩写记录，可回填 |
 
 ## 效果展示
 
-三张图全部由本工作台生成提示词，ComfyUI + WAI-illustrious v16 出图。
+三张图均由本工作台生成提示词，ComfyUI + WAI-illustrious v16 出图。
 
 **Q版 · 角色C**
 
 ![Q版 角色C](docs/showcase-1.jpg)
 
+Q 版比例，海边、水手服、玫瑰花束，另有两只缩小分身。
+
 **粉发 · 角色E**
 
 ![粉发 角色E](docs/showcase-2.jpg)
+
+街景逆光，粉发粉瞳，单手拈花。
 
 **白发 · 角色A**
 
 ![白发 角色A](docs/showcase-3.jpg)
 
-> 角色外观（发色 / 瞳色 / 服装）来自词库角色设定；同一套标签换角色即换风格。
+室内窗边逆光，白发红瞳，长裙。
 
-## 功能
+> 角色外观来自词库设定；同一套标签换角色即换风格。
 
-- **图反推**：WD14 打标 → 标签自动进入「已选」，同时给出一段中文描述
-- **AI 扩写**：DeepSeek API（快、通顺）或本地 Ollama（离线、可写成人内容）
-- **拆标签**：中英文标签匹配 + 角色外貌自动补全
-- **MOSS / WAI / Pony**：一键生成三套提示词与负向
-- **密度三档**：精简 / 标准 / 复杂，按角色与全局分别限制 WAI / Pony 的标签数量（8+6 / 18+14 / 30+24）
-- **润色四模式**：模板 / 关 / API / 本地
-- **词库 11000+**：角色 1600+（219 部作品，带发色瞳色服装）、外形 / 服装 / 动作 / 道具 / 场景
-- **界面**：面板尺寸记忆、收藏、拖拽分类、右键编辑角色、历史记录
+## 内置说明书
 
-## 环境要求
+点顶部「📖 说明书」打开内置说明书，四个页签：概览 / 流程 / 开关 / 技巧。
 
-| 组件 | 必需 | 说明 |
-|---|---|---|
-| Python 3.10+ | ✅ | 后端只用标准库 |
-| onnxruntime + Pillow + numpy | 图反推 | `wd14_mod.py` 用；缺了只影响图反推 |
-| WD14 模型 | 图反推 | `wd-v1-4-moat-tagger-v2.onnx` + 同名 `.csv`，用 `WD14_MODEL` 指定路径 |
-| DeepSeek API Key | 可选 | 用于 API 扩写 / API 润色 |
-| Ollama | 可选 | 本地扩写与润色 |
-| ComfyUI | 可选 | 本项目只生成提示词，出图在 ComfyUI |
+| 概览 | 开关说明 |
+|---|---|
+| ![说明书概览](docs/guide-overview.png) | ![开关说明](docs/guide-switches.png) |
 
-### 可选：Ollama 模型
+![流程与快捷键](docs/guide-flow.png)
 
-```bash
-ollama pull qwen2.5:7b     # 安全内容润色
-ollama pull qwen2.5:3b     # 备用
-ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest   # 成人向润色
+## 可选依赖
+
+| 组件 | 用途 | 没有它会怎样 | 安装 / 配置 |
+|---|---|---|---|
+| Python 3.10+ | 运行后端 | 起不来 | 从 python.org 安装，勾选 PATH |
+| onnxruntime + Pillow + numpy | 图反推 | 图反推不可用，其余功能正常 | `pip install onnxruntime pillow numpy` |
+| WD14 模型 | 图反推权重 | 图反推不可用，其余功能正常 | 下载 `wd-v1-4-moat-tagger-v2.onnx` + 同名 `.csv` |
+| DeepSeek API Key | API 扩写 / 润色 | 只能用 Ollama 或模板，功能仍完整 | 填 `api_config.json` 或界面「API」 |
+| Ollama | 本地扩写 / 润色 | 本地模式不可用，API 模式不受影响 | 从 [ollama.com](https://ollama.com) 安装并常驻 |
+| ComfyUI | 出图 | 与本工具无关，只影响出图 | 独立安装 |
+
+### WD14 模型路径
+
+默认从 ComfyUI 的插件目录找（下面是示例路径，`<ComfyUI>` 换成你的实际安装目录）：
+
+```
+<ComfyUI>/custom_nodes/ComfyUI-WD14-Tagger/models/wd-v1-4-moat-tagger-v2.onnx
 ```
 
-未安装 Ollama 时，本地扩写会自动降级，不影响其余功能。
-
-### Ollama 故障排查
-
-本地扩写 / 本地润色都走 Ollama（默认 `http://127.0.0.1:11434`），失败不影响其他功能，界面会退回规则模板。排查顺序：
-
-| 现象 | 原因 | 处理 |
-|---|---|---|
-| 等很久后提示失败，`polish_log.txt` 里 `Connection refused` | 没装 Ollama，或装了没启动 | 从 [ollama.com](https://ollama.com) 安装；`ollama serve` 常驻；`curl http://127.0.0.1:11434/api/tags` 能返回 JSON 即正常 |
-| 提示 `model not found`，或润色返回空 | 没拉对应模型 | `ollama pull qwen2.5:7b`（安全）/ `qwen2.5:3b`（备用）/ `goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest`（成人向） |
-| 生成时电脑卡顿、显存不足 / OOM | 7B 模型和生图抢显存 | 生图前把「润色」设为 API 或关；或换 3B 模型；`ollama ps` 看占用，`ollama stop <模型>` 立即卸载 |
-| 端口不是 11434（改过 `OLLAMA_HOST`） | 后端地址写死 `127.0.0.1:11434` | 改回默认端口（`set OLLAMA_HOST=127.0.0.1:11434`），或改 `expand_mod.py` 里的 `OLLAMA` 常量后重启 8901 |
-| 第一次调用特别慢 | 模型正在加载进显存 | 正常现象；可先 `ollama run qwen2.5:7b hi` 预热，或等它 keep_alive 结束前多试几次 |
-
-### 可选：图反推模型（WD14）
-
-默认读 `D:\Dsh-project\ComfyUI_windows_portable\ComfyUI\custom_nodes\ComfyUI-WD14-Tagger\models\wd-v1-4-moat-tagger-v2.onnx`；
-换位置时设环境变量：
+模型放在别处时用环境变量覆盖：
 
 ```bash
-set WD14_MODEL=D:\path\to\wd-v1-4-moat-tagger-v2.onnx
-set WD14_TAGS=D:\path\to\wd-v1-4-moat-tagger-v2.csv   # 可选，默认取模型同名 .csv
+# Windows（仅当前终端有效）
+set WD14_MODEL=<你的模型路径>
+set WD14_TAGS=<你的标签表路径>
+
+# macOS / Linux
+export WD14_MODEL=<你的模型路径>
+export WD14_TAGS=<你的标签表路径>
 ```
 
-中文名直接用项目内的 `tags_cn.json` 映射，不需要任何外部数据文件。
+`WD14_TAGS` 可省略，默认取模型同名 `.csv`，或同目录的 `selected_tags.csv`。
+中文名由项目内 `tags_cn.json` 映射，不需要额外数据文件。模型可从 [SmilingWolf/wd-v1-4-moat-tagger-v2](https://huggingface.co/SmilingWolf/wd-v1-4-moat-tagger-v2) 获取。
 
-## 快速开始
+### Ollama 模型（可选）
 
 ```bash
-git clone <仓库地址>
-cd studio2
-
-# 1) 配置 API（可选）
-copy api_config.example.json api_config.json
-#   填入你的 key
-
-# 2) 启动（Windows）
-python app.py
-#   或双击 启动工作台.bat
-
-# 3) 打开浏览器
-http://127.0.0.1:8901
+ollama pull qwen2.5:7b     # 本地扩写默认模型
+ollama pull qwen2.5:3b     # 备用，显存小时换它
+ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest   # 成人向兜底
 ```
 
-默认端口 **8901**，可在 `app.py` 末尾修改。
+服务地址默认 `http://127.0.0.1:11434`，模型名与地址在 `expand_mod.py` 顶部常量里改。
 
 ## 目录结构
 
 ```
 studio2/
-├── app.py                 后端 HTTP 服务（标准库，无依赖）
-├── parse_mod.py           拆标签：中文匹配 + 外貌补全
-├── gen_mod.py             MOSS / WAI / Pony 生成 + 负向自适应
-├── expand_mod.py          扩写：DeepSeek / Ollama
-├── wd14_mod.py            图反推：WD14 onnx 本地打标（不依赖 ComfyUI / 老工作台）
+├── app.py                 后端 HTTP 服务 + 全部接口（标准库）
+├── parse_mod.py           拆标签：中英文匹配 + 角色外观补全
+├── gen_mod.py             MOSS / WAI / Pony 拼装 + 负向自适应
+├── expand_mod.py          扩写：DeepSeek / Ollama / 模板兜底
+├── wd14_mod.py            图反推：本地 ONNX 打标
 ├── static/                前端（index.html + app.js）
-├── styles/                画风库 50 张
-├── docs/                  README 截图
-├── tags_cn.json           词库（11000+ 条）
-├── chars_app.json         角色外貌表
-├── chars_extra.json       补充角色
+├── styles/                画风库 50 张缩略图
+├── docs/                  README 与说明书截图
+├── tags_cn.json           词库本体（18000+ 条）
+├── chars_app.json         内置角色外观表
+├── chars_extra.json       补充角色外观
 ├── custom_chars.json      用户自定义角色（运行时生成，不入库）
 ├── api_config.json        API 配置（不入库）
-├── verify_density.py      密度三档自检脚本（python verify_density.py）
-└── build_*.py             词库构建脚本（可重跑）
+├── verify_density.py      密度三档自检
+├── verify_nsfw_tiers.py   NSFW 三级判定自检
+└── build_*.py             词库构建脚本（可重跑，一般不用）
 ```
 
 ## 数据说明
 
-- `tags_cn.json`：`{zh, en, cat, sub, nsfw, app}`，角色条目带外貌五字段
-- `chars_app.json`：角色 `hair / eyes / outfit / body / chest` 中文描述
-- 用户自定义角色写入 `custom_chars.json`，优先级高于内置
+**词库字段** `tags_cn.json`
 
-## 数据存储
+```json
+{ "zh": "中文名", "en": "english_tag", "cat": "分类", "sub": "子分类", "nsfw": false, "app": {} }
+```
 
-数据全部在本机，不上传云端（只有勾选「API」或润色选「API」时，文字才会发给 DeepSeek）。前端数据在浏览器 localStorage，清浏览器数据会丢；自定义角色与 API 配置另外落盘到服务器目录。
+- `cat`：角色 / 外形 / 服装 / 动作 / 道具 / 场景 / 自定义
+- `sub`：子分类；角色条目这里是作品名
+- `app`：角色外观五字段 `hair / eyes / outfit / body / chest`，值为中文描述；角色另有 `hair_en / eyes_en / outfit_en` 英文标签
 
-**localStorage 键**
+**自定义角色** 界面上右键角色卡可改外观；新建角色写入 `custom_chars.json`，同时同步到浏览器 localStorage。
+优先级高于内置角色，删掉该文件即恢复内置。
 
-| 键 | 内容 |
-|---|---|
-| `settings` | 顶部开关与下拉：`api` / `nsfwTop` / `density`（密度）/ `polishMode`（润色）/ `neg`（负向）/ `nsfw` / `favTop` |
-| `pane` | 各面板宽度 / 高度记忆 |
-| `favTags` | ★ 收藏的标签（英文 tag 数组） |
-| `catOverrides` | 拖动标签后的分类覆盖 `{ en: { cat, sub } }` |
-| `catLabels` | 分类改名 |
-| `catHidden` | 隐藏的分类 |
-| `cats` | 自建的顶级分类 |
-| `customChars` | 自定义角色（与 `custom_chars.json` 双向同步） |
-| `customSubs` | 自建的子分类 |
-| `apiCfg` | API 地址 / 模型 / Key 的前端副本 |
-| `hist` | AI 扩写历史，最多 30 条 |
+**存储位置**
 
-其余运行期状态（已选标签、角色框、搜索结果）不持久化，刷新即清空。
-
-**服务器文件**
-
-| 文件 | 内容 | 是否入库 |
+| 位置 | 内容 | 是否入库 |
 |---|---|---|
-| `custom_chars.json` | 用户自定义角色，与 localStorage `customChars` 同步 | 否 |
-| `api_config.json` | DeepSeek API 地址 / 模型 / Key | 否 |
-| `tags_cn.json` | 词库本体，改完刷新页面即可（前端只在加载时读一次） | 是 |
+| `tags_cn.json`、`chars_*.json` | 词库与内置角色 | 是 |
+| `custom_chars.json` | 自定义角色 | 否 |
+| `api_config.json` | API 地址 / 模型 / Key | 否 |
+| 浏览器 localStorage | 开关、面板尺寸、收藏、分类调整、扩写历史（30 条） | — |
+
+数据只在本机，不上传云端；只有勾选「API」或润色选「API」时，文字才发给 DeepSeek。
+清浏览器数据会丢 localStorage 里的偏好，`custom_chars.json` 与 API 配置另存于项目目录。
+
+## 常见问题 FAQ
+
+**1. 8901 打不开 / 页面白屏？**
+确认进程在跑（`python app.py` 应打印 `workbench v2 on ...`）；白屏多半是缓存了旧 `app.js`，Ctrl+F5 强制刷新。
+仍不行查端口占用：`netstat -ano | findstr 8901`，或改 `PORT` 重启。
+
+**2. 图反推报错「WD14 模型不存在」？**
+模型没下或路径没对上。按上面的「WD14 模型路径」设 `WD14_MODEL`，确认同目录有 `.csv`，再重启。
+
+**3. 扩写等很久后失败 / 连接被拒？**
+本地扩写走 Ollama：确认已安装、`ollama serve` 在跑、`curl http://127.0.0.1:11434/api/tags` 有 JSON 返回；没拉模型也会失败。
+失败不影响出结果，界面会退回模板。
+
+**4. 生成的是标签串，不是通顺中文？**
+「润色」选了「关」或「模板」。改成「API」或「本地」重新生成；只关心 WAI / Pony 的话不受影响。
+
+**5. 图反推出来有英文没翻译？**
+`tags_cn.json` 里缺该词的中文名，只能原样显示英文。可当普通标签用，或补齐词库后刷新页面。
+
+**6. 改了词库 / 角色要不要重启？**
+`tags_cn.json`、`chars_app.json` 只在页面加载时读一次，改完刷新页面即可；`app.py`、`gen_mod.py` 等 Python 改动必须重启。
 
 ## NSFW 说明
 
-- 词库中约 4000 条标记 `nsfw: true`
-- 界面顶部「NSFW模式」控制扩写是否生成成人内容
-- 关闭时：正向过滤 NSFW 标签，WAI/Pony 负向自动追加裸露类词
-- MOSS 负向不受该开关影响
+三级判定，只作用于扩写出的中文文本：
 
-## 常见问题（FAQ）
+| 级别 | 例子 | 处理 |
+|---|---|---|
+| 露骨 explicit | 具体性器官、性行为描写 | 命中即整句删除 |
+| 擦边 soft | 内裤外露、走光、长筒袜、透视、内衣 | 原样保留，不删句不改写 |
+| 其余 | 普通外观 / 场景描述 | 放行 |
 
-**Q1 为什么生成结果是标签串，不是通顺的中文段落？**
-「润色」选了「关」或「模板」。改成「API」或「本地」重新生成即可；只关心 WAI / Pony 的话不受影响。这两种模式本来就是直接输出标签式 MOSS，最快。
+- 删句后重算人数、清空空壳行；全删时返回占位文本，不会输出空串。
+- 顶部「NSFW 模式」关闭时：正向过滤 NSFW 标签，WAI / Pony 负向追加裸露类词；MOSS 负向不受该开关影响。
+- 词库约 4100 条标记 `nsfw: true`。
+- 自检：`python verify_nsfw_tiers.py`。
 
-**Q2 为什么图反推结果里有英文，没翻译成中文？**
-词库 `tags_cn.json` 里暂时没有该词的中文译名，只能原样显示英文 tag。多数是冷门画风 / 作品 / 品牌词，可以当普通标签用，或丢进「自定义」分类收纳；补齐词库后刷新页面即可。
+## 已知限制
 
-**Q3 为什么角色外观和我的设定不符？**
-词库里的角色自带外观（发色 / 瞳色 / 服装），生成时会自动补全。你手动加的同类标签优先，自动外观会跳过对应类别；也可以右键角色卡直接改外观并保存。想完全控制就自己把发色 / 瞳色 / 服装逐个加进角色框。
-
-AI 扩写也会锁外观：文本里出现过的角色会按「用户写的优先、词库只补缺失」生成一段外观约束，放在发给模型的内容最前面，并要求「角色名、发色、瞳色、服装一经给定，禁止更改；不得把 A 的发色写到 B 身上」。
-
-**Q4 为什么画不出多个角色？**
-单角色时负向会自动追加 `2girls / multiple_girls / split_screen / character_sheet` 等防克隆词。要多角色：加多个角色框，每个框放各自的标签；位置标签（画面左侧 / 右侧）也放进对应角色框；仍画不出就把负向改成「精简」或「关」，并确认 WAI / Pony 正向里有 `(2girls:1.45)`。
-
-**Q5 8901 打不开 / 页面白屏怎么办？**
-先确认进程在跑：任务管理器看有没有 `pythonw.exe`，命令行是否含 `studio2\app.py`；没有就用「启动工作台.bat」或 `pythonw app.py` 启动。再访问 <http://127.0.0.1:8901>。还不行查端口占用：`netstat -ano | findstr 8901`。页面白屏多半是浏览器缓存了旧 `app.js`，强制刷新（Ctrl+F5）即可，版本号就在 `index.html` 末尾的 `app.js?v=`。
-
-**Q6 改了词库 / 服务端文件，要不要重启？**
-`tags_cn.json`、`chars_app.json` 只在页面加载时读一次，改完刷新页面就生效，不用重启服务；但 `app.py`、`gen_mod.py` 等 Python 代码改动必须重启 8901。前端新增 / 编辑 / 删除的角色会立即生效，并同步写 `custom_chars.json`。
-
-**Q7 密度选了三档，为什么输出看起来一样？**
-密度只裁剪 WAI / Pony 的英文标签数量（精简 每角色 8 / 全局 6，标准 18 / 14，复杂 30 / 24），标签本来就少于上限时三档完全一致；MOSS 中文段落不读这个参数。可用 `python verify_density.py` 自检三档字符数是否递增。
+- 本地扩写质量取决于 Ollama 模型：7B 以下容易跑题或被内容策略拒绝；要稳定就上 API 或换更大模型。
+- WD14 只输出英文标签，中文名靠 `tags_cn.json` 映射；词库没有的只能显示英文。
+- 单角色时负向会自动追加 `2girls / multiple_girls / split_screen / character_sheet` 防克隆，这会堵住多角色。
+  要画多角色：加多个角色框，把位置词写进对应角色框，并把负向改成「精简」或「关」。
+- 密度三档里只有「精简」真正截断（每角色 8 / 全局 6），标准与复杂输出一致。
+- 单进程、无鉴权，默认只监听 `127.0.0.1`，不要直接暴露到公网。
 
 ## 许可证
 
@@ -203,6 +281,7 @@ MIT，详见 [LICENSE](LICENSE)。
 ## 致谢
 
 - [DeepSeek](https://deepseek.com) — API 扩写与润色
-- [Ollama](https://ollama.com) — 本地模型
+- [Ollama](https://ollama.com) — 本地模型运行
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — 出图
-- [SmilingWolf](https://huggingface.co/SmilingWolf) — WD14 标签模型（wd-v1-4-moat-tagger-v2）作者，图反推基于其模型与标签表
+- [SmilingWolf](https://huggingface.co/SmilingWolf) — WD14 标签模型与标签表
+- 词库中的角色与作品版权归各自权利人所有
