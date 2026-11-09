@@ -3,12 +3,7 @@
 api_config.json
 custom_chars.json
 *.backup*.json
-polish_log.txt
-_*.py
-_*.txt
-icon_*.png
-char_c_*.png
 *.log
-.git_old*
-版本_v*/
-*.zip
+_*.txt
+icon.png
+docs/shots/

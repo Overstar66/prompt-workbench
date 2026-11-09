@@ -171,164 +171,128 @@ def _alias_of(zh):
     return out
 
 
-# 只保留「假阳性修复」+ 英文兜底：逼 字族的正常词不该被单字兜底误杀。
-# 旧表里「露骨词→中性词」的中和（乳头→胸口、跳蛋→小道具、裸体→泳装…）全部撤掉：
-# 那会让性道具/情趣词逃过「整句删除」，和白名单/黑名单的二分冲突（见 SOFT_WORDS）。
+# 英文露骨词词库里没有、单字兜底也管不到：做温和中性化（不参与删句判定）。
 _SFW_PAIRS = (
-    ("逼真", "写实"), ("逼近", "靠近"), ("逼仄", "狭窄"), ("逼迫", "迫使"),
     ("pussy", "body"), ("nipples", "chest"), ("cum", "water"),
 )
 
 
 def _sfw_repair(text):
-    """假阳性修复：只动 逼 字族的正常词 + 少量英文兜底，不参与露骨词判定。"""
+    """英文露骨词的中性化；中文露骨词走下面的整句删除，不在这里替换。"""
     out = text
     for a, b in _SFW_PAIRS:
         out = out.replace(a, b)
     return out
 
 
-def _soft_apply(text):
-    """白名单词换中性同义词（纯服饰类：只替换，不删句、不计 filtered）。"""
-    soft = soft_words()
-    rx = _soft_rx()
-    if rx is None:
-        return text
-    return rx.sub(lambda m: soft.get(m.group(0), m.group(0)), text)
-
-
 def _sfw_sanitize(text):
-    """NSFW 关闭时的输入中性化：假阳性修复 + 纯服饰词换中性词。"""
-    return _soft_apply(_sfw_repair(text))
+    """NSFW 关闭时的输入中性化：只做英文兜底（中文露骨词在输出侧整句删）。"""
+    return _sfw_repair(text)
 
 
-# ---------- NSFW 词库检测 + 白名单/黑名单整句清洗 ----------
-# 检测集直接吃 tags_cn.json 里所有 nsfw == true 的条目（4000+ 词）。
-# 命中之后怎么处置看是不是纯服饰词：是 → 换中性词；不是 → 整句删。
-_NSFW_EXTRA = ("肉棒", "龟头", "潮吹", "爱液", "肛门", "抽插", "中出", "射精",
-               "奶头", "阴唇", "子宫", "调教", "肉穴", "淫水",
-               # 词库里没有、或 flag 会随数据变动的，这里硬编码兜住（② 必删清单）
-               "假阳具", "肛塞", "拉珠", "开裆", "开裆裤袜", "乳首", "贞操带", "眼罩")
+# ---------- NSFW 三级判定：露骨整句删 / 擦边原样留 ----------
+# 用户反馈：一刀切删掉「内裤外露 / 走光 / 内衣 / 长筒袜」这类擦边内容太狠。
+# 现在把 tags_cn.json 里 nsfw==true 的词分两档（词库文件本身不动，规则全在这）：
+#   露骨 = 性器官/性行为/体液词根、动作-亲密、明确的性玩具  → 命中整句删
+#   擦边 = 服装、外形/表情/姿势、非玩具道具等               → 原样保留（不删句、不改写）
+_EXPLICIT_ROOTS = (
+    "小穴", "阴道", "阴茎", "肉棒", "龟头", "包皮", "阴唇", "阴蒂", "肛门",
+    "乳首", "乳头", "乳晕", "奶头", "精液", "精子", "射精", "爱液", "淫水",
+    "潮吹", "尿液", "口交", "性交", "插入", "抽插", "中出", "肛交", "自慰",
+    "调教", "舔阴", "舔屌", "肉穴", "子宫", "孕肚",
+)
+
+# 词库的 sub 并不完全可靠：做爱/后入/手交/后穴 这些明确性行为落在「双人互动」
+# 或「单人」下，只按 sub=="亲密" 会漏。补一小撮词根，它们同样属于露骨。
+_EXPLICIT_ACTS = ("开裆裤袜", "开裆连裤袜", "开裆内裤", "开裆", 
+    "做爱", "后入", "乳交", "手交", "足交", "抠穴", "扣穴", "后穴", "屁穴",
+    "颜射", "深喉", "口爆", "吞精",
+)
+
+# 明确的性玩具（A 档）；词库里没收录或 flag 不稳的也硬编码兜住
+_TOY_WORDS = (
+    "跳蛋", "假阳具", "肛塞", "拉珠", "口球", "乳夹", "乳铃", "束缚绳", "手铐",
+    "眼罩", "项圈", "触手", "尿道棒", "震动棒", "飞机杯", "避孕套", "按摩棒", "贞操",
+)
+
+_EXPLICIT_MARK_RX = re.compile("|".join(
+    re.escape(w) for w in sorted(
+        set(_EXPLICIT_ROOTS) | set(_EXPLICIT_ACTS) | set(_TOY_WORDS),
+        key=len, reverse=True)))
 
 _NSFW_LOCK = threading.Lock()
-_SOFT_LOCK = threading.Lock()
-_NSFW_WORDS = None
-_NSFW_RX = None
-_SOFT_WORDS = None
-_SOFT_RX = None
-# 替换表兜不住的单字（含易误伤的「逼」）：命中同样整句删除
+_NSFW_TIERS = None      # (explicit_set, soft_set)
+_EXPLICIT_RX = None     # 露骨词正则（长词优先）
+# 单字兜底：词库外的残留露骨字。命中也整句删，但先屏蔽正常词（逼真/逼近/尿尿…）
 _RESIDUE_RX = re.compile(r"逼|淫|尿|屄|屌|肏")
+_RESIDUE_OK = frozenset((
+    "逼近", "逼真", "逼仄", "逼迫", "逼供", "逼问", "逼视", "逼婚", "逼债", "逼上",
+    "紧逼", "直逼", "催逼", "逼不得已", "逼人", "逼走", "屌丝",
+    "淫雨", "淫威", "淫祀", "淫辞",
+    "尿尿", "撒尿", "排尿", "尿急", "尿频", "尿布", "尿床", "尿检", "尿常规", "尿壶",
+))
 # 全被滤掉时的中性兜底，保证接口永远回一段干净文本
 _SFW_EMPTY = "场景：室内，柔和的光线，安静的氛围。"
 
 
+def _tag_explicit(zh, recs):
+    """单个词条是否露骨：含露骨词根/性玩具，或属于「动作-亲密」。"""
+    if _EXPLICIT_MARK_RX.search(zh):
+        return True
+    return any(e.get("cat") == "动作" and e.get("sub") == "亲密" for e in recs)
+
+
 def nsfw_words():
-    """惰性加载：tags_cn.json 里全部 nsfw==true 的中文词 + 补充词（只留长度 ≥2）。"""
-    global _NSFW_WORDS
-    if _NSFW_WORDS is not None:
-        return _NSFW_WORDS
+    """惰性加载并分级：返回 (explicit_set, soft_set)。
+
+    只有 explicit_set 会触发整句删除；soft_set 是擦边词，原样保留。
+    """
+    global _NSFW_TIERS, _EXPLICIT_RX
+    if _NSFW_TIERS is not None:
+        return _NSFW_TIERS
     with _NSFW_LOCK:
-        if _NSFW_WORDS is not None:
-            return _NSFW_WORDS
-        words = set()
+        if _NSFW_TIERS is not None:
+            return _NSFW_TIERS
+        recs = {}
         try:
             with open(os.path.join(HERE, "tags_cn.json"), encoding="utf-8") as f:
                 data = json.load(f)
-            # 同一中文词若存在多条记录，只有「词库里的条目全都是 nsfw」才算露骨。
-            # 「自定义/图反推」是用户自建条目、nsfw 缺省 False，不参与判定——否则
-            # 假阳具、肛塞、眼罩 这种会因为有一条自建重名条目而被整个放过。
-            _flag = {}
             for e in (data.get("tags") or []):
                 if not isinstance(e, dict):
                     continue
-                _z = str(e.get("zh") or "").strip()
-                if not _z or str(e.get("cat") or "") == "自定义":
-                    continue
-                _v = e.get("nsfw") is True
-                _flag[_z] = _flag.get(_z, True) and _v
-            for e in (data.get("tags") or []):
-                if not isinstance(e, dict) or e.get("nsfw") is not True:
-                    continue
                 zh = str(e.get("zh") or "").strip()
-                if not _flag.get(zh):
+                # 「自定义/图反推」是用户自建条目、nsfw 缺省 False，不参与判定；
+                # 否则同名的正式词会被一条自建重名条目整条放过。
+                if (not zh or not re.search(r"[\u4e00-\u9fff]", zh)
+                        or str(e.get("cat") or "") == "自定义"):
                     continue
-                if len(zh) >= 2 and re.search(r"[\u4e00-\u9fff]", zh):
-                    words.add(zh)
+                recs.setdefault(zh, []).append(e)
         except Exception:
-            pass
-        words.update(_NSFW_EXTRA)
-        _NSFW_WORDS = frozenset(words)
-    return _NSFW_WORDS
-
-
-# ---------- 白名单 SOFT_WORDS：纯服饰类 → 中性替换，不删句 ----------
-# 来源：tags_cn.json 里 cat == "服装" 的词条。
-# 为什么不是「cat=="服装" 且 sub!="情趣"」：那份筛选条件在当前数据上只剩 3 条——
-# 透视上衣 / 开裆连裤袜 / 撕裂丝袜，全是透视、开裆、撕裂的性化服饰，恰恰必须删；
-# 而「长筒袜」这类真正的纯服饰词被批量打成了 sub=="情趣"。所以按词义筛：
-# 纯服饰词根 ×（颜色前缀）才进白名单，替换成中性同义词；带性化修饰的
-# （开裆/乳胶/透视/贞操/乳贴/乳夹/项圈/链…）留在黑名单整句删。
-_SOFT_HEADS = {
-    # 袜类 / 连裤袜
-    "长筒袜": "长袜", "大腿袜": "长袜", "网眼长袜": "网纹袜", "蕾丝长袜": "长袜",
-    "吊带袜": "长袜", "渔网袜": "网纹袜", "网袜": "网纹袜",
-    "连裤袜": "连裤袜", "露趾连裤袜": "连裤袜", "无缝连裤袜": "连裤袜",
-    # 睡衣 / 家居服
-    "睡裙": "睡裙", "睡袍": "睡袍", "晨袍": "睡袍", "和服睡袍": "睡袍",
-    "睡衣短裤": "短裤", "睡衣套装": "家居服",
-    # 裙类 / 配饰
-    "流苏裙": "裙装", "拉链裙": "裙装", "手臂套": "臂套", "袜套": "短袜",
-}
-
-_SOFT_COLORS = ("黑色", "白色", "红色", "粉色", "紫色", "蓝色", "浅蓝色", "深蓝色",
-                "绿色", "黄色", "橙色", "棕色", "灰色", "金色", "银色", "酒红色",
-                "浅粉色", "玫红色", "深红色", "香槟金", "玫瑰金", "藏青色", "天蓝色",
-                "薄荷绿")
+            recs = {}
+        # 同词多条记录：全部 nsfw=true 才算命中（半条 nsfw 的不动）
+        words = {zh for zh, es in recs.items()
+                 if len(zh) >= 2 and all(x.get("nsfw") is True for x in es)}
+        words |= set(_EXPLICIT_ROOTS) | set(_EXPLICIT_ACTS) | set(_TOY_WORDS)
+        explicit = {w for w in words if _tag_explicit(w, recs.get(w, ()))}
+        _EXPLICIT_RX = (re.compile("|".join(
+            re.escape(w) for w in sorted(explicit, key=len, reverse=True)))
+            if explicit else None)
+        _NSFW_TIERS = (frozenset(explicit), frozenset(words - explicit))
+    return _NSFW_TIERS
 
 
 def soft_words():
-    """惰性构建白名单 {词: 中性替换}：纯服饰词根 × 颜色前缀，且必须是词库里的服装词。"""
-    global _SOFT_WORDS, _SOFT_RX
-    if _SOFT_WORDS is not None:
-        return _SOFT_WORDS
-    with _SOFT_LOCK:
-        if _SOFT_WORDS is not None:
-            return _SOFT_WORDS
-        cloth = set()
-        try:
-            with open(os.path.join(HERE, "tags_cn.json"), encoding="utf-8") as f:
-                data = json.load(f)
-            for e in (data.get("tags") or []):
-                if isinstance(e, dict) and e.get("cat") == "服装":
-                    zh = str(e.get("zh") or "").strip()
-                    if zh:
-                        cloth.add(zh)
-        except Exception:
-            pass
-        out = {}
-        for head, repl in _SOFT_HEADS.items():
-            for w in (head,) + tuple(c + head for c in _SOFT_COLORS):
-                if w in cloth and repl not in _NSFW_EXTRA:
-                    out[w] = repl
-        _SOFT_WORDS = out
-        _SOFT_RX = (re.compile("|".join(re.escape(w) for w in
-                                        sorted(out, key=len, reverse=True)))
-                    if out else None)
-    return _SOFT_WORDS
+    """擦边词集合（只保留、不删句），给自检/报表用。"""
+    return nsfw_words()[1]
 
 
-def _soft_rx():
-    soft_words()
-    return _SOFT_RX
-
-
-def _hard_rx():
-    """黑名单正则：检测集 − 白名单（长词优先，「开裆连裤袜」不会被拆成「连裤袜」）。"""
-    global _NSFW_RX
-    if _NSFW_RX is None:
-        hard = sorted(set(nsfw_words()) - set(soft_words()), key=len, reverse=True)
-        _NSFW_RX = re.compile("|".join(re.escape(w) for w in hard)) if hard else None
-    return _NSFW_RX
+def _residue_hits(sent):
+    """单字兜底：先屏蔽正常词，剩下的 逼/淫/尿/屄/屌/肏 才算露骨。"""
+    s = sent
+    for w in _RESIDUE_OK:
+        if w in s:
+            s = s.replace(w, "〇")
+    return _RESIDUE_RX.findall(s)
 
 
 def _split_sentences(text):
@@ -370,30 +334,24 @@ def _tidy_filtered(text):
 
 
 def sanitize_nsfw_text(text):
-    """NSFW 关闭时的输出清洗：白名单(纯服饰)换中性词，黑名单(性道具/情趣)整句删。
+    """NSFW 关闭时的输出清洗：只删露骨句，擦边原样保留。
 
-    返回 (清洗后文本, 命中数)；命中数 = 因黑名单被删掉的词个数（白名单替换不计）。
+    返回 (清洗后文本, 命中数)；命中数 = 被删句子里命中的露骨词/单字个数。
     """
     src = str(text or "")
     if not src.strip():
         return src, 0
-    hard_rx = _hard_rx()
+    nsfw_words()
+    rx = _EXPLICIT_RX
     hits, kept = 0, []
     for sent in _split_sentences(src):
-        # 黑名单判定必须排在替换之前：否则「透视连裤袜」会被白名单改写成不含露骨词
-        # 的干净句，露骨内容反而漏出去
-        found = hard_rx.findall(sent) if hard_rx is not None else []
+        found = rx.findall(sent) if rx is not None else []
         if not found:
-            found = _RESIDUE_RX.findall(_sfw_repair(sent))
+            found = _residue_hits(sent)
         if found:
             hits += len(found)
             continue
-        out = _soft_apply(_sfw_repair(sent))
-        # 兜底：替换后万一拼出黑名单词（前缀/颜色组合），仍按删句处理
-        if hard_rx is not None and hard_rx.search(out):
-            hits += 1
-            continue
-        kept.append(out)
+        kept.append(_sfw_repair(sent))
     return _tidy_filtered("".join(kept)), hits
 
 
