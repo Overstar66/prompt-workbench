@@ -11,7 +11,7 @@
 
   const CATS = ['全部', '角色', '外形', '服装', '动作', '道具', '场景', '自定义', '自定义2', '自定义3'];
   const MINE = ['自定义', '自定义2', '自定义3'];
-  const CATNAME = { '自定义': '其他' };
+  const CATNAME = { '自定义': '其他', '自定义2': '自定义', '自定义3': '自定义2' };
   const catLabel = () => LS.get('catLabels', {});
   const catHidden = () => LS.get('catHidden', []);
   /* 用户新建的顶级分类存在 localStorage.cats（配合 catLabels / catHidden 改名·删除） */

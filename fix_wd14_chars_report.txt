@@ -1,0 +1,1277 @@
+WD14 角色词表治理报告（tags_cn.json）
+备份：tags_cn.backup_charfix_20261109_214927.json
+
+① 非角色重新归类 51 条
+   舰队（admiral_(kancolle)） → 自定义 / 图反推  改名为 提督
+   阿维黛尔（avatar_(ff14)） → 自定义 / 图反推  改名为 光之战士（玩家角色）
+   墨鱼（inkling） → 自定义 / 类型  改名为 鱿鱼（Inkling）
+   制作人·偶像大师（producer_(idolmaster)） → 自定义 / 图反推  改名为 制作人
+   墨鱼女孩（inkling_girl） → 自定义 / 类型  改名为 鱿鱼女孩
+   饭糬（manjuu_(azur_lane)） → 道具 / 全部  改名为 蛮啾
+   女将（female_admiral_(kancolle)） → 自定义 / 图反推  改名为 女提督
+   沃级航空母舰（wo-class_aircraft_carrier） → 自定义 / 类型  改名为 WO 级空母
+   医生（doctor_(arknights)） → 自定义 / 图反推
+   妖精（fairy_(kancolle)） → 自定义 / 类型
+   训练员（trainer_(umamusume)） → 自定义 / 图反推
+   指挥官（commander_(azur_lane)） → 自定义 / 图反推
+   非人指挥官（non-human_admiral_(kancolle)） → 自定义 / 图反推  改名为 非人提督
+   怪物猎人（monster_hunter_(character)） → 自定义 / 图反推  改名为 猎人
+   雷击（re-class_battleship） → 自定义 / 类型  改名为 RE 级战列舰
+   提督（t-head_admiral） → 自定义 / 图反推  改名为 T 字头提督
+   奥克托林（octoling） → 自定义 / 类型  改名为 章鱼（Octoling）
+   赫克斯疯子（hex_maniac_(pokemon)） → 自定义 / 图反推  改名为 灵异少女
+   墨水男孩（inkling_boy） → 自定义 / 类型  改名为 鱿鱼男孩
+   阿瓦隆（avatar_(ff11)） → 自定义 / 图反推  改名为 冒险者（玩家角色）
+   总监督（p-head_producer） → 自定义 / 图反推  改名为 P 字头制作人
+   老师（sensei_(blue_archive)） → 自定义 / 图反推
+   制作人（producer_(idolmaster_cinderella_girls_anime)） → 自定义 / 图反推
+   轻巡洋舰（i-class_destroyer） → 自定义 / 类型  改名为 I 级驱逐舰
+   敌机（enemy_aircraft_(kancolle)） → 道具 / 全部
+   雷神（罗格洛克）大主教（arch_bishop_(ragnarok_online)） → 自定义 / 图反推  改名为 大主教
+   小男孩提督（little_boy_admiral_(kancolle)） → 自定义 / 图反推
+   史莱姆（slime_(genshin_impact)） → 自定义 / 类型
+   敌方救生圈（enemy_lifebuoy_(kancolle)） → 道具 / 全部
+   特拉级战列舰（ta-class_battleship） → 自定义 / 类型  改名为 TA 级战列舰
+   鲁级战列舰（ru-class_battleship） → 自定义 / 类型  改名为 RU 级战列舰
+   白魔导士（white_mage） → 自定义 / 图反推
+   三保（saniwa_(touken_ranbu)） → 自定义 / 图反推  改名为 审神者
+   指挥官（commander_(girls'_frontline)） → 自定义 / 图反推
+   高祭司（high_priest_(ragnarok_online)） → 自定义 / 图反推  改名为 祭司长
+   哈罗（haro） → 道具 / 全部
+   魔女（sorceress_(dragon's_crown)） → 自定义 / 图反推  改名为 女巫
+   指挥官·特斯特（commandant_teste_(kancolle)） → 自定义 / 图反推
+   龙之魂史莱姆（slime_(dragon_quest)） → 自定义 / 类型  改名为 史莱姆
+   希利苏尔（hilichurl_(genshin_impact)） → 自定义 / 类型  改名为 丘丘人
+   奥克托琳女孩（octoling_girl） → 自定义 / 类型  改名为 章鱼女孩
+   祭司（priest_(ragnarok_online)） → 自定义 / 图反推
+   男桑野（female_saniwa_(touken_ranbu)） → 自定义 / 图反推  改名为 审神者（女）
+   船员（crewmate_(among_us)） → 自定义 / 图反推  改名为 船员（Among Us）
+   里级重型巡洋舰（ri-class_heavy_cruiser） → 自定义 / 类型  改名为 RI 级重巡洋舰
+   地狱取（helltaker_(character)） → 自定义 / 图反推  改名为 地狱男（主角）
+   水雷敌方战舰（enemy_naval_mine_(kancolle)） → 道具 / 全部  改名为 敌方水雷
+   猎人（hunter_(bloodborne)） → 自定义 / 图反推
+   头部训练师（t-head_trainer） → 自定义 / 图反推  改名为 T 字头训练员
+   迪涅加特·少女前线（dinergate_(girls'_frontline)） → 自定义 / 图反推  改名为 恐爪（铁血小兵）
+   贤者（sage_(dq3)） → 自定义 / 图反推
+
+② 中文名纠正 1038 条
+   阿尔托莉雅·佩恩 → 阿尔托莉雅·潘德拉贡（artoria_pendragon_(fate)）
+   红美玲 → 红美铃（hong_meiling）
+   犬伏桃枝 → 犬走椛（inubashiri_momiji）
+   阿尔托莉雅 → 阿尔托莉雅（Saber）（saber）
+   田原小三郎 → 多多良小伞（tatara_kogasa）
+   结城梨津 → 河城荷取（kawashiro_nitori）
+   小黑 → 小恶魔（koakuma）
+   纳兹林 → 娜兹玲（nazrin）
+   凤凰涅槃 → 封兽鵺（houjuu_nue）
+   天翔 → 天龙（tenryuu_(kancolle)）
+   田宁 → 玉藻前（tamamo_(fate)）
+   八坂神护 → 八坂神奈子（yasaka_kanako）
+   让娜·达克尔·阿尔特 → 贞德（Alter）（jeanne_d'arc_alter_(fate)）
+   水桥帕丝 → 水桥帕露西（mizuhashi_parsee）
+   雾岛妮可 → 瑞鹤（zuikaku_(kancolle)）
+   波凯茨号 → 浜风（hamakaze_(kancolle)）
+   森月临之助 → 森近霖之助（morichika_rinnosuke）
+   格瓦尔·古拉 → 噶呜·古拉（gawr_gura）
+   宝具少女 → 宝钟玛琳（houshou_marine）
+   结城初夏 → 键山雏（kagiyama_hina）
+   上海小姐 → 上海人偶（shanghai_doll）
+   舞裂夜蛾 → 莉格露·奈特巴格（wriggle_nightbug）
+   物部不二 → 物部布都（mononobe_no_futo）
+   苏风雅 → 铃谷（suzuya_(kancolle)）
+   萨迦 → 斯卡哈（scathach_(fate)）
+   雾雨雷云 → 宇佐见莲子（usami_renko）
+   琳米娜·原神 → 荧（lumine_(genshin_impact)）
+   叶隐 → 2B（yorha_no._2_type_b）
+   守部虎丸 → 寅丸星（toramaru_shou）
+   宝具 → 凤翔（houshou_(kancolle)）
+   梅贝尔·海恩 → 玛艾露贝莉·赫恩（maribel_hearn）
+   伊波绮·拂晓 → 今泉影狼（imaizumi_kagerou）
+   雷门彩乃 → 时雨改二（shigure_kai_ni_(kancolle)）
+   暮雨彩乃 → 夕立改二（yuudachi_kai_ni_(kancolle)）
+   谷田理子 → 田井中律（tainaka_ritsu）
+   胡桃·原神 → 胡桃（hu_tao_(genshin_impact)）
+   墨雾 → 丛云（murakumo_(kancolle)）
+   贞德·阿弗特 → 贞德〔Alter〕（复仇者）（jeanne_d'arc_alter_(avenger)_(fate)）
+   天照 → 天津风（amatsukaze_(kancolle)）
+   比良海苔 → 姬海棠果（himekaidou_hatate）
+   北方公主 → 北方栖姬（northern_ocean_princess）
+   冲田总悟 → 冲田总司（okita_souji_(fate)）
+   高画设影 → 霍青娥（kaku_seiga）
+   村山未麻 → 村纱水蜜（murasa_minamitsu）
+   拂晓 → 玉藻前（EXTRA）（tamamo_no_mae_(fate/extra)）
+   白雪 → 白上吹雪（shirakami_fubuki）
+   长尾千鹤 → 永江衣玖（nagae_iku）
+   日向佩可拉 → 兔田佩克拉（usada_pekora）
+   乔斯达·乔巴纳 → 乔瑟夫·乔斯达（青年）（joseph_joestar_(young)）
+   海风 → 曙（akebono_(kancolle)）
+   乔乔·空 → 空条承太郎（kujo_jotaro）
+   伊豆丽千子 → 茨木华扇（ibaraki_kasen）
+   霖灵华 → 连装炮酱（rensouhou-chan）
+   邪王真眼 → 酒吞童子（shuten_douji_(fate)）
+   牟合一凛 → 云居一轮（kumoi_ichirin）
+   黑田山吹 → 黑谷山女（kurodani_yamame）
+   河城京子 → 幽谷响子（kasodani_kyouko）
+   速八九鬼 → 苏我屠自古（soga_no_tojiko）
+   橘千早 → 宫古芳香（miyako_yoshika）
+   普林策·尤根 → 欧根亲王（prinz_eugen_(kancolle)）
+   大和 → 大淀（ooyodo_(kancolle)）
+   百闻目团子 → 琴吹紬（kotobuki_tsumugi）
+   青釭 → 刻晴（keqing_(genshin_impact)）
+   田代 → 龙田（tatsuta_(kancolle)）
+   库丘林 → 库·丘林（cu_chulainn_(fate)）
+   浅香 → 朝潮（asashio_(kancolle)）
+   莱莎·弗蕾亚 → 贝雷特（byleth_(fire_emblem)）
+   普拉娜 → 焰（pyra_(xenoblade)）
+   摩里卡利俄佩 → 森美声（mori_calliope）
+   木乃伊 → 克劳恩皮丝（clownpiece）
+   尼诺梅伊娜丝 → 一伊那尔栖（ninomae_ina'nis）
+   罗萨 → 鸣依（rosa_(pokemon)）
+   玫瑰 → 约尔·福杰（yor_briar）
+   碧悠 → 凑阿库娅（minato_aqua）
+   一绪 → 逸见艾莉卡（itsumi_erika）
+   秋月凛里 → 秋穰子（aki_minoriko）
+   比斯马克 → 俾斯麦（bismarck_(kancolle)）
+   阿彻 → 卫宫（Archer）（archer_(fate)）
+   飞田贵志 → 稗田阿求（hieda_no_akyuu）
+   凯萨·安托尼奥·泽佩利 → 西撒·安东尼奥·齐贝林（caesar_anthonio_zeppeli）
+   金木犀 → 明石（akashi_(kancolle)）
+   计时器 → 赤蛮奇（sekibanki）
+   沙丁鱼 → 安丘比（anchovy_(girls_und_panzer)）
+   结弦 → 纯狐（junko_(touhou)）
+   百合子 → 优子·利特纳（yoko_littner）
+   迷露亚 → 光（mythra_(xenoblade)）
+   尼禄克劳德 → 尼禄·克劳狄乌斯（EXTRA）（nero_claudius_(fate/extra)）
+   冲田总悟 → 冲田总司（Koha-Ace）（okita_souji_(koha-ace)）
+   烈火 → 不知火（shiranui_(kancolle)）
+   达瓦 → D.Va（d.va_(overwatch)）
+   二分之一神明 → 二岩猯藏（futatsuiwa_mamizou）
+   三日月 → 涟（sazanami_(kancolle)）
+   龙凤 → 苍龙（souryuu_(kancolle)）
+   岩岛 → 山城（yamashiro_(kancolle)）
+   紫藤真夏 → 秋静叶（aki_shizuha）
+   见雨·航母 → 五月雨（samidare_(kancolle)）
+   雷装诺娃 → 吕500（ro-500_(kancolle)）
+   沈夜 → 鲜血（senketsu）
+   格洛丽亚·皮卡丘 → 小优（gloria_(pokemon)）
+   黑蛇 → HK416（hk416_(girls'_frontline)）
+   高梨千纱 → 小鸟游琪亚拉（takanashi_kiara）
+   迪奥布兰多 → 迪奥·布兰度（dio_brando）
+   古米 → GUMI（gumi）
+   烟霞·凯利 → 可莉（klee_(genshin_impact)）
+   信浓·韦尼 → 响（Верный）（verniy_(kancolle)）
+   莱蒂白岩 → 蕾蒂·怀特洛克（letty_whiterock）
+   盖欧卡 → 沙奈朵（gardevoir）
+   风之·万圣夜 → 温迪（venti_(genshin_impact)）
+   千叶士希 → 鬼龙院皋月（kiryuuin_satsuki）
+   莫德雷德 → 莫德雷德（Apocrypha）（mordred_(fate/apocrypha)）
+   猫又御影 → 猫又小粥（nekomata_okayu）
+   贝贝 → BB（bb_(fate)）
+   雾雨优弥 → 霞（kasumi_(kancolle)）
+   谢琪娜 → 上白泽慧音（EX）（ex-keine）
+   不列颠（女） → 贝雷丝（byleth_(fire_emblem)_(female)）
+   海卡提亚·蓝宝石 → 赫卡提亚·拉碧斯拉祖利（hecatia_lapislazuli）
+   贞德（从者） → 贞德（Ruler）（jeanne_d'arc_(ruler)_(fate)）
+   高塔 → 爱宕（atago_(azur_lane)）
+   塞巴蒂尔 → 阿尔托莉雅·潘德拉贡〔Alter〕（saber_alter）
+   太刀 → 大凤（taihou_(azur_lane)）
+   余刃 → 夕张（yuubari_(kancolle)）
+   木下 → 木曾（kiso_(kancolle)）
+   塔尔塔利亚 → 达达利亚（tartaglia_(genshin_impact)）
+   桃子公主 → 桃花公主（princess_peach）
+   雨宫炼 → 润羽露西娅（uruha_rushia）
+   星吹秋月 → 星街彗星（hoshimachi_suisei）
+   莫莉根 → 莫莉卡·安斯兰（morrigan_aensland）
+   魔美 → 玛奇玛（makima_(chainsaw_man)）
+   红 → 赤红（red_(pokemon)）
+   雪银奈尔 → 白银诺艾尔（shirogane_noel）
+   白坂杏梦 → 白坂小梅（shirasaka_koume）
+   埃涅尔 → 欧根亲王（prinz_eugen_(azur_lane)）
+   卡莉尔 → 凯露（karyl_(princess_connect!)）
+   高加千代 → 高垣枫（takagaki_kaede）
+   美特丽莉丝 → 溶解莉莉丝（meltryllis_(fate)）
+   迪珍塔 → 姬塔（djeeta_(granblue_fantasy)）
+   格拉夫·齐柏林 → 齐柏林伯爵（graf_zeppelin_(kancolle)）
+   究极魔女玛尔科瓦 → 终极圆神（ultimate_madoka）
+   伯明翰 → 布莱默顿（bremerton_(azur_lane)）
+   稻妻雨 → 米浴（rice_shower_(umamusume)）
+   若狭姬 → 若鹭姬（wakasagihime）
+   犬神虎之助 → 戌神沁音（inugami_korone）
+   御主 → 樱巫女（sakura_miko）
+   凯比 → 卡比（kirby）
+   杀神沙九美 → 稀神探女（kishin_sagume）
+   埃洛斯 → 优菈（eula_(genshin_impact)）
+   美杜莎 → 美杜莎（Rider）（medusa_(rider)_(fate)）
+   时雨桃野夜 → 常闇永远（tokoyami_towa）
+   青鸟麦昆 → 目白麦昆（mejiro_mcqueen_(umamusume)）
+   梦眠流月 → 梦见璃亚梦（yumemi_riamu）
+   京一 → 阿虚（kyon）
+   波西亚特 → 库巴姬（bowsette）
+   塞勒涅 → 美月（selene_(pokemon)）
+   天野卡娜 → 天音彼方（amane_kanata）
+   奥云纯也 → 大空昴（oozora_subaru）
+   大和赤发丽 → 大和赤骥（daiwa_scarlet_(umamusume)）
+   基苏美 → 奇斯美（kisume）
+   库丘林 → 库·丘林（stay night）（cu_chulainn_(fate/stay_night)）
+   海港公主 → 港湾栖姬（seaport_princess）
+   良夜悠 → 鸣上悠（narukami_yuu）
+   千叶可可 → 桐生可可（kiryu_coco）
+   伊号一九潜 → 伊19（i-19_(kancolle)）
+   水手月 → 月野兔（水手月亮）（sailor_moon）
+   最上 → 瑞凤（zuihou_(kancolle)）
+   班内迪克 → 巴纳比·布鲁克斯·Jr（barnaby_brooks_jr.）
+   凯米·怀特 → 嘉米·怀特（cammy_white）
+   空条徐伦 → 花京院典明（kakyoin_noriaki）
+   艾拉 → 艾拉·伊尔玛塔尔·尤蒂莱南（eila_ilmatar_juutilainen）
+   露西娜 → 露琪娜（lucina_(fire_emblem)）
+   狐狸 → 阿狸（ahri_(league_of_legends)）
+   科瑞林 → 卡姆依（corrin_(fire_emblem)）
+   大神功吉 → 王马小吉（ouma_kokichi）
+   河上铁次 → 虎彻·T·卡布拉吉（kaburagi_t._kotetsu）
+   长波奈 → 长波（naganami_(kancolle)）
+   忧郁的药剂师 → 梅蒂欣·梅兰可莉（medicine_melancholy）
+   长门 → 伊58（i-58_(kancolle)）
+   神核 → 申鹤（shenhe_(genshin_impact)）
+   雪华拉米 → 雪花菈米（yukihana_lamy）
+   露娜萨·普里斯姆河 → 露娜萨·普莉兹姆利巴（lunasa_prismriver）
+   奥鲁·克罗尼伊 → 奥罗·克罗尼（ouro_kronii）
+   真由玛 → 摩耶（maya_(kancolle)）
+   心之助 → 可可萝（kokkoro_(princess_connect!)）
+   山吹 → 山风（yamakaze_(kancolle)）
+   雾雨 → 村雨（murasame_(kancolle)）
+   结城 → 桐人（kirito）
+   埃德加尔·冯·赫斯维尔格 → 艾黛尔贾特·冯·弗雷斯贝尔古（edelgard_von_hresvelg）
+   多蕾米甜蜜 → 哆来咪·苏伊特（doremy_sweet）
+   梅西 → 天使（mercy_(overwatch)）
+   秋原结梨奈 → 空条徐伦（kujo_jolyne）
+   杰克·雷普利 → 开膛手杰克（jack_the_ripper_(fate/apocrypha)）
+   芭芭拉 → 波桃（胡桃的幽灵）（boo_tao_(genshin_impact)）
+   乔尔乔·乔瓦尼亚 → 乔鲁诺·乔巴纳（giorno_giovanna）
+   炮宫千代 → 凯（kay_(girls_und_panzer)）
+   妮亚·特利普林 → 妮亚·特佩林（nia_teppelin）
+   清水爱里 → 岛田爱里寿（shimada_arisu）
+   东条桃艾 → 东海帝王（tokai_teio_(umamusume)）
+   冲锋枪人形 → UMP45（ump45_(girls'_frontline)）
+   莱比锡·马斯 → Z1 莱伯雷希特·马斯（z1_leberecht_maass_(kancolle)）
+   佩可琳 → 佩可莉姆（pecorine_(princess_connect!)）
+   紫原翔子 → 紫咲诗音（murasaki_shion）
+   优菈 → 丽日御茶子（uraraka_ochako）
+   柴原修一 → 最原终一（saihara_shuuichi）
+   安雅 → 阿尼亚（anya_(spy_x_family)）
+   马克施图尔茨 → Z3 马克斯·舒尔茨（z3_max_schultz_(kancolle)）
+   伊薇 → 伊布（eevee）
+   秋月 → 秋云（akigumo_(kancolle)）
+   韦弗尔 → 韦伯·维尔维特（waver_velvet）
+   战舰无畏号 → 厌战（warspite_(kancolle)）
+   雾岛风间 → 扶桑（fusou_(kancolle)）
+   纳尔马雅 → 娜露梅雅（narmaya_(granblue_fantasy)）
+   苍龙 → 伊401（i-401_(kancolle)）
+   远野小助 → 本居小铃（motoori_kosuzu）
+   露欧 → 丹帝（leon_(pokemon)）
+   初音未来 → 雪初音（yuki_miku）
+   相叶诗織 → 宇佐见堇子（usami_sumireko）
+   阿丝娜 → 明日奈（兔女郎）（asuna_(bunny)_(blue_archive)）
+   巧克露托娜 → 保登心爱（hoto_cocoa）
+   三叶川直 → 绿川直（midorikawa_nao）
+   春野妙 → 里中千枝（satonaka_chie）
+   霍洛 → 赫萝（holo）
+   雷电芽衣 → 奇巴纳（raihan_(pokemon)）
+   东堂要 → 东方仗助（higashikata_josuke）
+   千秋亚也子 → 黄濑弥生（kise_yayoi）
+   贝特丽丝 → 贝阿朵莉切（beatrice_(umineko)）
+   千翔 → 不知火舞（shiranui_mai）
+   青岸 → 青叶（aoba_(kancolle)）
+   罗宾 → 鲁弗莱（robin_(fire_emblem)）
+   月之子 → 露娜·切露德（luna_child）
+   星宝石 → 斯塔·萨菲雅（star_sapphire）
+   狐狸耳兔 → 耳廓狐（fennec_(kemono_friends)）
+   露波 → 朧（oboro_(kancolle)）
+   贝亚 → 彩豆（bea_(pokemon)）
+   布可 → 波可（boko_(girls_und_panzer)）
+   夏日祭 → 夏色祭（natsuiro_matsuri）
+   摩莫美 → 最上（mogami_(kancolle)）
+   银山 → 云山（unzan）
+   白火 → 不知火芙蕾雅（shiranui_flare）
+   五月雨 → 皋月（satsuki_(kancolle)）
+   若叶 → 足柄（ashigara_(kancolle)）
+   久坂葵乃 → 高坂桐乃（kousaka_kirino）
+   坂本克洛伊 → 沙花叉克萝耶（sakamata_chloe）
+   夕夏 → 能天使（exusiai_(arknights)）
+   兰斯洛特·阿尔托莉雅 → 阿尔托莉雅·潘德拉贡（Lancer）（artoria_pendragon_(lancer)_(fate)）
+   原神希容 → 依神紫苑（yorigami_shion）
+   吹雪 → 阳炎（kagerou_(kancolle)）
+   噛古 → 浦风（urakaze_(kancolle)）
+   森茉莉 → 桑妮·米尔克（sunny_milk）
+   速水 → 矶风（isokaze_(kancolle)）
+   奈斯娅 → 露璃娜（nessa_(pokemon)）
+   崇恋（火纹）（女） → 卡姆依（女）（corrin_(fire_emblem)_(female)）
+   卡伦·斯塔德菲尔德 → 红月卡莲（kallen_stadtfeld）
+   龙王莲 → 云龙（unryuu_(kancolle)）
+   迪亚鲁德·奥杜因 → 迪尔姆德·奥迪那（diarmuid_ua_duibhne_(lancer)_(fate)）
+   风早丽卡 → 菱川六花（hishikawa_rikka）
+   美嘉 → 米卡（mika_(girls_und_panzer)）
+   多伦 → 咚酱（兔田佩克拉）（don-chan_(usada_pekora)）
+   海戦 → 大鲸（taigei_(kancolle)）
+   秋月丸 → 秋津丸（akitsu_maru_(kancolle)）
+   爱丽丝（爱丽丝梦游仙境） → 爱丽丝（alice_(alice_in_wonderland)）
+   狙击枪人形 → WA2000（wa2000_(girls'_frontline)）
+   阿格妮丝 → 爱丽速子（agnes_tachyon_(umamusume)）
+   格特鲁德·巴克霍恩 → 格特露德·巴克霍恩（gertrud_barkhorn）
+   黑暗魔术师女孩 → 黑魔术少女（dark_magician_girl）
+   耶兰 → 夜兰（yelan_(genshin_impact)）
+   初雪 → 初月（hatsuzuki_(kancolle)）
+   三月岛 → 满潮（michishio_(kancolle)）
+   加速器 → 一方通行（accelerator_(toaru_majutsu_no_index)）
+   琴弦 → 立华奏（tachibana_kanade）
+   梅林·普里斯姆河 → 梅露兰·普莉兹姆利巴（merlin_prismriver）
+   太阁 → 高雄（takao_(azur_lane)）
+   尤拉 → 由良（yura_(kancolle)）
+   妙羽·爱德菲尔特 → 美游·艾德费尔特（miyu_edelfelt）
+   秋月·巴特勒 → 右代宫战人（ushiromiya_battler）
+   雷香 → U-511（吕500）（u-511_(kancolle)）
+   莉莉卡普罗 → 莉莉卡·普莉兹姆利巴（lyrica_prismriver）
+   金木研琳猫 → 火焰猫燐（猫形态）（kaenbyou_rin_(cat)）
+   天羽飞弹 → 雨宫莲（amamiya_ren）
+   八三式 → 矢矧（yahagi_(kancolle)）
+   纳希达 → 纳西妲（nahida_(genshin_impact)）
+   柏木千夏 → 柏崎星奈（kashiwazaki_sena）
+   卯月乌比 → 睦月（mutsuki_(kancolle)）
+   琴弦 → 虚子（kyonko）
+   （精灵宝可梦） → 阿响（ethan_(pokemon)）
+   结城诚 → 结城理（yuuki_makoto）
+   赤发 → 赤井心（akai_haato）
+   墨岩 → 泥岩（mudrock_(arknights)）
+   凯尔西特 → 凯尔希（kal'tsit_(arknights)）
+   拂晓猫 → 玉藻猫（tamamo_cat_(fate)）
+   伊号八潜 → 伊8（i-8_(kancolle)）
+   亚特兰蒂斯 → 亚特兰大（atlanta_(kancolle)）
+   阿布卡玛 → 阿武隈（abukuma_(kancolle)）
+   尼露 → 妮露（nilou_(genshin_impact)）
+   深鞠 → 真红（shinku）
+   托内 → 利根（tone_(kancolle)）
+   嘉琪 → 小照（akari_(pokemon)）
+   草薙葵 → 向坂环（kousaka_tamaki）
+   叶原乔恩 → 依神女苑（yorigami_jo'on）
+   加治丸 → 赤城（akagi_(azur_lane)）
+   布龙雅·扎希克 → 布洛妮娅·扎伊切克（bronya_zaychik）
+   泳装黑贞德 → 贞德〔Alter〕（泳装·Berserker）（jeanne_d'arc_alter_(swimsuit_berserker)_(fate)）
+   蓝橡树 → 小茂（blue_oak）
+   结城麻那 → 相田爱（aida_mana）
+   天宫翼 → 如月（kisaragi_(kancolle)）
+   决斗者 → 纯洁（junketsu）
+   罗力特 → 木木枭（rowlet）
+   希莉尔露 → 透也（hilbert_(pokemon)）
+   苍树麦 → 篝敦子（kagari_atsuko）
+   碧蓝 → BB（EXTRA）（bb_(fate/extra)）
+   黑暗之光 → 金色暗影（Darkness）（la+_darknesss）
+   马特拉奥基娜 → 摩多罗隐岐奈（matara_okina）
+   伊亚 → IA（ia_(vocaloid)）
+   御魂·惠美 → 恶魔焰（akuma_homura）
+   泳装尼禄 → 尼禄·克劳狄乌斯（泳装·Caster）（nero_claudius_(swimsuit_caster)_(fate)）
+   战姬 → 战舰栖姬（battleship_princess）
+   冲锋枪人形 → UMP9（ump9_(girls'_frontline)）
+   伊刻慕丝 → 乌贼娘（ikamusume）
+   波琳娜·克洛斯特曼 → 佩琳·H·克洛斯特曼（perrine_h._clostermann）
+   希金奈 → 敷波（shikinami_(kancolle)）
+   汉朱里 → 韩蛛俐（han_juri）
+   夏洛特·伊耶格尔 → 夏洛特·E·叶格（charlotte_e._yeager）
+   伊泽 → 伊势（ise_(kancolle)）
+   玉藻前·泳装圣杯骑士 → 玉藻前（泳装·Lancer）（tamamo_no_mae_(swimsuit_lancer)_(fate)）
+   战舰鸣音 → 隼鹰（jun'you_(kancolle)）
+   羽月 → 深雪（miyuki_(kancolle)）
+   秋川丽赛 → 久慈川理世（kujikawa_rise）
+   加賀 → 加贺（kaga_(azur_lane)）
+   沉默铃鹿 → 无声铃鹿（silence_suzuka_(umamusume)）
+   斯卡雷莫奇 → 散兵（scaramouche_(genshin_impact)）
+   神灵 → 神绮（shinki_(touhou)）
+   比鲁普 → 波加曼（piplup）
+   静谧之哈桑 → 静谧哈桑（hassan_of_serenity_(fate)）
+   月之癌泳装·贝贝 → BB（泳装·MoonCancer）（bb_(swimsuit_mooncancer)_(fate)）
+   水星石 → 翠星石（suiseiseki）
+   雨美怜 → 虞美人（yu_mei-ren_(fate)）
+   阿卡娜 → W（w_(arknights)）
+   苏尔扎伦 → 铃兰（suzuran_(arknights)）
+   莉拉 → 琴音（lyra_(pokemon)）
+   良善性格 → 优秀素质（nice_nature_(umamusume)）
+   伊号一六八潜 → 伊168（i-168_(kancolle)）
+   烈焰鸟 → 喷火龙（charizard）
+   结城桃子 → 茨木童子（ibaraki_douji_(fate)）
+   夕霜 → 夕云（yuugumo_(kancolle)）
+   鹤鸵 → 鲸头鹳（shoebill_(kemono_friends)）
+   斯普林菲尔德 → 春田（springfield_(girls'_frontline)）
+   玛修·基列莱特 → 玛修·基列莱特（危险野兽）（mash_kyrielight_(dangerous_beast)）
+   莫斯蒂马 → 莫斯提马（mostima_(arknights)）
+   南希·轻水 → 那智（nachi_(kancolle)）
+   迷特莉莉丝·泳装兰斯利 → 溶解莉莉丝（泳装·Lancer）（meltryllis_(swimsuit_lancer)_(fate)）
+   织雾 → 卷云（makigumo_(kancolle)）
+   罗托姆 → 洛托姆（rotom）
+   橙茶 → 橙黄白毫（orange_pekoe_(girls_und_panzer)）
+   赤松千代 → 赤松枫（akamatsu_kaede）
+   布莱恩德 → 祐树（brendan_(pokemon)）
+   伊丽莎白·巴托里 → 伊丽莎白·巴托里（CCC）（elizabeth_bathory_(fate/extra_ccc)）
+   莉恩 → 琳（lyn_(fire_emblem)）
+   初音未来 → 樱初音（sakura_miku）
+   初春饰音 → 鸟海（choukai_(kancolle)）
+   谜之女主角乙 → 谜之女主角XX（mysterious_heroine_xx_(fate)）
+   四柱千早 → 杀生院祈荒（sesshouin_kiara）
+   圣诞黑贞德 → 贞德〔Alter〕（圣诞·Lily）（jeanne_d'arc_alter_santa_lily_(fate)）
+   金鱼乔斯达 → 乔尼·乔斯达（johnny_joestar）
+   丸鱼 → 丸优（maru-yu_(kancolle)）
+   津豆卷短毛 → 角卷绵芽（tsunomaki_watame）
+   莉莉丝安斯莱姆 → 莉莉丝·安斯兰（lilith_aensland）
+   雷乃 → 长月（nagatsuki_(kancolle)）
+   尼禄克劳德 → 尼禄·克劳狄乌斯（新娘）（nero_claudius_(bride)_(fate)）
+   希尔达·瓦伦丁·戈内莉 → 希尔妲·瓦伦汀·哥纳利尔（hilda_valentine_goneril）
+   妙音 → 魅魔（mima_(touhou)）
+   长矛 → 标枪（javelin_(azur_lane)）
+   能登雪 → 能代（noshiro_(kancolle)）
+   山本美月 → 坂本美绪（sakamoto_mio）
+   八云紫 → 弱音白（yowane_haku）
+   弹丸 → 多摩（tama_(kancolle)）
+   意大利辣香肠 → 佩帕罗妮（pepperoni_(girls_und_panzer)）
+   伊欧诺 → 奇树（iono_(pokemon)）
+   最后订单 → 最后之作（last_order_(toaru_majutsu_no_index)）
+   八云紫 → 弥生（yayoi_(kancolle)）
+   苏风 → 凉风（suzukaze_(kancolle)）
+   曼哈顿咖啡厅 → 曼城茶座（manhattan_cafe_(umamusume)）
+   朝霜海尼昂 → 朝潮改二（asashio_kai_ni_(kancolle)）
+   宁云光 → 凝光（ningguang_(genshin_impact)）
+   朵朵 → 嘟嘟可（dodoco_(genshin_impact)）
+   芳贺和都 → 安藤（andou_(girls_und_panzer)）
+   雪月 → 白雪（shirayuki_(kancolle)）
+   千岛可罗娜 → 黑潮（kuroshio_(kancolle)）
+   塞蕾丝缇娅 → 塞莱斯·法乌娜（ceres_fauna）
+   女武神 → AK-12（ak-12_(girls'_frontline)）
+   汉纳玛亚裕介 → 花村辉辉（hanamura_yousuke）
+   汉萨·花柱 → 花咲蕾（hanasaki_tsubomi）
+   尼欧 → N（n_(pokemon)）
+   卢卡利欧 → 路卡利欧（lucario）
+   摩根·莱法伊 → 摩根·勒·菲（morgan_le_fay_(fate)）
+   诺埃尔·维拉米特 → 诺爱尔·维米利昂（noel_vermillion）
+   青翔 → 清兰（seiran_(touhou)）
+   特别的一周 → 特别周（special_week_(umamusume)）
+   温斯顿·楚 → 猎空（tracer_(overwatch)）
+   铃音 → 凉月（suzutsuki_(kancolle)）
+   暮光之心 → 劳埃德·福杰（twilight_(spy_x_family)）
+   织田信长 → 织田信长（Koha-Ace）（oda_nobunaga_(koha-ace)）
+   松本林檎 → 松野唐松（matsuno_karamatsu）
+   横川良绪 → 堀川雷鼓（horikawa_raiko）
+   贞德 → 阿尔托莉雅·潘德拉贡（Lily）（saber_lily）
+   松野由志末 → 松野十四松（matsuno_jyushimatsu）
+   结绳爱 → 绊爱（kizuna_ai）
+   南奏 → 南野奏（minamino_kanade）
+   金城 → 衣笠（kinugasa_(kancolle)）
+   雨城 → 荒潮（arashio_(kancolle)）
+   松本梅松 → 松野小松（matsuno_osomatsu）
+   仙台凯尼 → 川内改二（sendai_kai_ni_(kancolle)）
+   露萨米娜 → 露莎米奈（lusamine_(pokemon)）
+   乌瑟沃卡马鲁 → 牛若丸（ushiwakamaru_(fate)）
+   阿尔托莉雅·兰瑟 → 阿尔托莉雅·潘德拉贡〔Alter〕（Lancer）（artoria_pendragon_(lancer_alter)_(fate)）
+   结月林檎 → 花凛（兔女郎）（karin_(bunny)_(blue_archive)）
+   九号机体 → 9S（yorha_no._9_type_s）
+   西住诗帆 → 西住诗穗（nishizumi_shiho）
+   火纹罗宾（女） → 鲁弗莱（女）（robin_(fire_emblem)_(female)）
+   路飞 → 蒙奇·D·路飞（monkey_d._luffy）
+   真华 → 绫波（ayanami_(kancolle)）
+   凛 → 连装炮君（rensouhou-kun）
+   雾岛 → 五十铃（isuzu_(kancolle)）
+   石柱 → 苍星石（souseiseki）
+   畠山由里姫 → 绵月依姬（watatsuki_no_yorihime）
+   春川真葵 → 春川魔姬（harukawa_maki）
+   符号利多夫 → 鲁道夫象征（symboli_rudolf_(umamusume)）
+   东方白鹳 → 朱鹮（japanese_crested_ibis_(kemono_friends)）
+   小仓波卡 → 尾丸波尔卡（omaru_polka）
+   梅伊 → 美（mei_(overwatch)）
+   怪物君 → 黑白熊（monokuma）
+   玫瑰 → 玫瑰果（rosehip_(girls_und_panzer)）
+   利维 → 利威尔（levi_(shingeki_no_kyojin)）
+   切嗣速八 → 桐谷直叶（kirigaya_suguha）
+   盖欧卡 → 耿鬼（gengar）
+   佐田钻石 → 里见光钻（satono_diamond_(umamusume)）
+   莱比奇·科尔涅莉亚 → 西北风（libeccio_(kancolle)）
+   摩尔佩科·满月 → 莫鲁贝可（满腹形态）（morpeko_(full)）
+   塞伦·公主结系 → 咲恋（saren_(princess_connect!)）
+   斯凯拉·皮卡丘 → 风露（skyla_(pokemon)）
+   八云蓝 → 章鱼（一伊那尔栖）（takodachi_(ninomae_ina'nis)）
+   平泽唯 → 平泽忧（hirasawa_ui）
+   秋月安洁 → 右代宫缘寿（ushiromiya_ange）
+   爱德华·艾利克 → 爱德华·艾尔利克（edward_elric）
+   小岛惠理子 → 押田（oshida_(girls_und_panzer)）
+   伯灵顿·灼热训练 → 布莱默顿（灼热训练）（bremerton_(scorching-hot_training)_(azur_lane)）
+   初音未来追加音源 → 初音未来（Append）（hatsune_miku_(append)）
+   早川波留·科尔涅莉亚 → 江风（kawakaze_(kancolle)）
+   阿尔托莉雅 → 阿尔托莉雅·潘德拉贡〔Alter〕（泳装·Rider）（artoria_pendragon_(alter_swimsuit_rider)_(fate)）
+   檀香 → 火奴鲁鲁（honolulu_(azur_lane)）
+   拉姆莱萨·瓦伦汀 → 拉姆蕾萨尔·瓦伦丁（ramlethal_valentine）
+   丘比 → 小小兔（chibi_usa）
+   泉岛 → 矶波（isonami_(kancolle)）
+   斯凯迪·堕落之心 → 斯卡蒂（浊心）（skadi_the_corrupting_heart_(arknights)）
+   幽灵 → 幽灵鲨（specter_(arknights)）
+   露琴卡 → 铃瑚（ringo_(touhou)）
+   小林帽 → 小栗帽（oguri_cap_(umamusume)）
+   治愈和平 → 和平天使（cure_peace）
+   阿夏亚·多曼 → 芦屋道满（ashiya_douman_(fate)）
+   基修比·罗汉 → 岸边露伴（kishibe_rohan）
+   清水清光 → 加州清光（kashuu_kiyomitsu）
+   松野初冬 → 松野轻松（matsuno_choromatsu）
+   阿德贝戈 → 阿贝多（albedo_(genshin_impact)）
+   （泳装裁定者） → 阿尔托莉雅·潘德拉贡（泳装·Ruler）（artoria_pendragon_(swimsuit_ruler)_(fate)）
+   布卢普 → 布卢普（古拉的宠物）（bloop_(gawr_gura)）
+   春日部 → 香取（katori_(kancolle)）
+   妙香 → 妙高（myoukou_(kancolle)）
+   米风·波旁 → 美浦波旁（mihono_bourbon_(umamusume)）
+   杰西 → 武藏（jessie_(pokemon)）
+   光辉之夜 → 金色暗影（konjiki_no_yami）
+   墨拉克摩海猫鸣 → 丛云改二（murakumo_kai_ni_(kancolle)）
+   恶灵 → 恶毒（le_malin_(azur_lane)）
+   贞德（泳装骑士） → 贞德（泳装·Archer）（jeanne_d'arc_(swimsuit_archer)_(fate)）
+   艾尔莎 → 艾莎（elsa_(frozen)）
+   赫莲娜·布兰威尔 → 海伦娜·布拉瓦茨基（helena_blavatsky_(fate)）
+   叶露儿 → 百合·罗威尔（yuri_lowell）
+   羽野拓海 → 摩耶重炮（mayano_top_gun_(umamusume)）
+   伊苏红狐 → 虾夷赤狐（ezo_red_fox_(kemono_friends)）
+   月影叶露儿 → 月影百合（tsukikage_yuri）
+   萨卡莉亚 → 斯卡蒂（scathach_skadi_(fate)）
+   雷吉纳德 → 拉格纳·布莱德艾奇（ragna_the_bloodedge）
+   波波库 → 波波子（popuko）
+   贞德 → 贞德〔Alter〕（新宿1999）（jeanne_d'arc_alter_(ver._shinjuku_1999)_(fate)）
+   东静流 → 东刹那（higashi_setsuna）
+   初冬 → 古鹰（furutaka_(kancolle)）
+   御幸公主 → 刑部姬（osakabe-hime_(fate)）
+   黑化版 → 谜之女主角X〔Alter〕（mysterious_heroine_x_alter_(fate)）
+   莫莫苏佐铃音 → 桃铃音音（momosuzu_nene）
+   高滨安妮 → 高卷杏（takamaki_anne）
+   提基 → 琪琪（tiki_(fire_emblem)）
+   艾里斯 → 爱丽丝（aris_(blue_archive)）
+   西金鱼 → 西绢代（nishi_kinuyo）
+   萨莉亚 → 塞雷娅（saria_(arknights)）
+   阿尔托莉雅从者 → 阿尔托莉雅·潘德拉贡（Caster）（artoria_caster_(fate)）
+   松野东蒙杜 → 松野椴松（matsuno_todomatsu）
+   魔道祖师 → 附窗子（madotsuki）
+   马修伊万斯 → 间宫（mamiya_(kancolle)）
+   让·皮埃尔·波尔纳雷夫 → 让·皮埃尔·波鲁纳雷夫（jean_pierre_polnareff）
+   林田诗音 → 早霜（hayashimo_(kancolle)）
+   不列颠(火之纹章)(男) → 贝雷特（男）（byleth_(fire_emblem)_(male)）
+   征夷大将军安宅治定 → 大和守安定（yamato-no-kami_yasusada）
+   红帽少女 → 小红帽（little_red_riding_hood_(grimm)）
+   夏目铃 → 夏目凛（natsume_rin）
+   木枯枝八重 → 吉吊八千慧（kicchou_yachie）
+   金马 → 卡米那（kamina_(ttgl)）
+   欧夏沃特 → 水水獭（oshawott）
+   皇家 → 皇家方舟（ark_royal_(kancolle)）
+   月冈金 → 月冈恋（tsukioka_kogane）
+   摩理野凛枝 → 杜野凛世（morino_rinze）
+   夕宫雫 → 由乃（yuno_(hidamari_sketch)）
+   卡莫伊 → 神威（kamoi_(kancolle)）
+   莉泽·赫莱斯塔 → 莉泽·赫露艾斯塔（lize_helesta）
+   罗儿 → 萝露（roll_(mega_man)）
+   卡宾枪人形 → M4A1（m4a1_(girls'_frontline)）
+   爱丽丝 → 爱丽丝·玛格特罗伊德（PC-98）（alice_margatroid_(pc-98)）
+   阿比盖尔 → 阿比盖尔·威廉姆斯（泳装）（abigail_williams_(swimsuit_foreigner)_(fate)）
+   刘 → 隆（ryu_(street_fighter)）
+   帝因斯夕宫 → 灵乌路空（鸟形态）（reiuji_utsuho_(bird)）
+   黑子夏梨 → 骊驹早鬼（kurokoma_saki）
+   步枪人形 → AN-94（an-94_(girls'_frontline)）
+   伊莉斯 → IRyS（irys_(hololive)）
+   迪多 → 狄多（dido_(azur_lane)）
+   千叶知幸 → 桑山千雪（kuwayama_chiyuki）
+   海雾 → 海风（umikaze_(kancolle)）
+   沃森 → 沃特森（wattson_(apex_legends)）
+   雷泽 → 蕾塞（reze_(chainsaw_man)）
+   妙月士希 → 明堂院树（myoudouin_itsuki）
+   士道 → 冲田总司〔Alter〕（okita_souji_alter_(fate)）
+   艾利奥 → 朗日（elio_(pokemon)）
+   约瑟夫乔斯达 → 乔瑟夫·乔斯达（老年）（joseph_joestar_(old)）
+   海风 → 萩风（hagikaze_(kancolle)）
+   霞见春海 → 霞改二（kasumi_kai_ni_(kancolle)）
+   布鲁诺布奇亚拉蒂 → 布鲁诺·布加拉提（bruno_bucciarati）
+   卡利奥斯特罗 → 卡莉奥斯特罗（cagliostro_(granblue_fantasy)）
+   科伊亚斯卡 → 高扬斯卡娅（koyanskaya_(fate)）
+   比安卡 → 白露（bianca_(pokemon)）
+   米米基欧 → 谜拟丘（mimikyu）
+   烈焰兔 → 炎兔儿（scorbunny）
+   普鲁士莉雅 → 魔法少女伊莉雅（prisma_illya）
+   二十一 → 人造人21号（android_21）
+   守后 → 祥凤（shouhou_(kancolle)）
+   原村桃华 → 原村和（haramura_nodoka）
+   大月樱花 → 大室樱子（oomuro_sakurako）
+   女武神 → G11（g11_(girls'_frontline)）
+   久志加树 → 樋口枫（higuchi_kaede）
+   比留摩露娜 → 姬森璐娜（himemori_luna）
+   加雷阿斯 → 吉尔·德·雷（Caster）（gilles_de_rais_(caster)_(fate)）
+   津村国永 → 鹤丸国永（tsurumaru_kuninaga）
+   东条希 → 朱鹭子（tokiko_(touhou)）
+   鄂霍次克 → 择捉（etorofu_(kancolle)）
+   女武神 → M4 SOPMOD II（m4_sopmod_ii_(girls'_frontline)）
+   玛丽安妮·冯·埃德蒙德 → 玛莉安奴·冯·艾德蒙（marianne_von_edmund）
+   艾尔特拉 → 阿蒂拉（altera_(fate)）
+   鸣音水户 → 宫本武藏（泳装·Berserker）（miyamoto_musashi_(swimsuit_berserker)_(fate)）
+   黑岩黑子 → 北部玄驹（kitasan_black_(umamusume)）
+   能月三娜 → 名取纱那（natori_sana）
+   佐佐木知惠 → 佐佐木千枝（sasaki_chie）
+   女武神 → ST AR-15（st_ar-15_(girls'_frontline)）
+   光彦 → 岚（arashi_(kancolle)）
+   阿尔托莉雅·潘德拉贡 → 阿塔兰忒（atalanta_(fate)）
+   九代葵 → 菅牧典（kudamaki_tsukasa）
+   特林斯丁骑士 → 妖精骑士崔斯坦（fairy_knight_tristan_(fate)）
+   荒垣秋月 → 阿良良木历（araragi_koyomi）
+   魔镜丘比特 → 海洋天使（cure_marine）
+   水银仙子 → 水野亚美（水手水星）（sailor_mercury）
+   金巴 → 库玛（kuma_(persona_4)）
+   风神·吹雪 → 舞风（maikaze_(kancolle)）
+   驱逐舰娘 → Z23（z23_(azur_lane)）
+   杰诺斯·齐佩利 → 杰洛·齐贝林（gyro_zeppeli）
+   名取头十郎 → 鲶尾藤四郎（namazuo_toushirou）
+   米娜·迪特林德·威克 → 米娜·迪特林德·威廉（minna-dietlinde_wilcke）
+   帝列达·梅伊 → 丁礼田舞（teireida_mai）
+   弗雷德里卡·本克斯特尔 → 贝伦卡丝泰露（frederica_bernkastel）
+   长岛 → 大潮（ooshio_(kancolle)）
+   库洛 → 可鲁贝洛斯（kero）
+   索波勒 → 泪眼蜥（sobble）
+   小火龙 → 赫普（hop_(pokemon)）
+   白井黑子 → 博衣可佑理（hakui_koyori）
+   罗宾 → 鲁弗莱（男）（robin_(fire_emblem)_(male)）
+   长门有希 → 亲潮（oyashio_(kancolle)）
+   橘右京 → 桐条美鹤（kirijou_mitsuru）
+   卡伦·霍特森西娅 → 卡莲·奥尔黛西亚（caren_hortensia）
+   琴音 → 骨喰藤四郎（honebami_toushirou）
+   蜂谷透士 → 响（hibiki_(blue_archive)）
+   索娜 → 娑娜（sona_(league_of_legends)）
+   斯妮维 → 藤藤蛇（snivy）
+   塞莲塔津 → 龙月赛琳（selen_tatsuki）
+   稻妻稻中 → 远坂时臣（tohsaka_tokiomi）
+   幽灵 → 恶灵（wraith_(apex_legends)）
+   夏塔伊 → 香缇（shantae）
+   中村断章 → 乱藤四郎（midare_toushirou）
+   欧亚大陆雪鸮 → 雕鸮（eurasian_eagle_owl_(kemono_friends)）
+   浅葱 → 朝云（asagumo_(kancolle)）
+   结弦 → 莫妮卡（monika_(doki_doki_literature_club)）
+   安莉亚 → 阿妮拉（anila_(granblue_fantasy)）
+   皮皮米 → 皮皮美（pipimi）
+   格莱阿尼翁 → 格拉吉欧（gladion_(pokemon)）
+   千代子 → 千岁（chitose_(kancolle)）
+   真炎琥珀 → 埴安神袿姬（haniyasushin_keiki）
+   枢木苏扎克 → 枢木朱雀（kururugi_suzaku）
+   赛特 → 泽塔（zeta_(granblue_fantasy)）
+   枪娘（少女前线）游戏 → M16A1（m16a1_(girls'_frontline)）
+   詹姆斯 → 小次郎（james_(pokemon)）
+   绿 → 小绿（green_(pokemon)）
+   玛丽埃 → 玛丽（marie_(girls_und_panzer)）
+   雾岛 → 三隈（mikuma_(kancolle)）
+   伊势·轻型航母 → 伊26（i-26_(kancolle)）
+   企鹅君 → 帝企鹅（emperor_penguin_(kemono_friends)）
+   阿尔托莉雅·潘德拉贡 → 阿尔托莉雅·潘德拉贡〔Alter〕（泳装·二临）（artoria_pendragon_(alter_swimsuit_rider)_(second_ascension)_(fate)）
+   千叶 → 筑摩（chikuma_(kancolle)）
+   春野春雨 → 春乌菈菈（haru_urara_(umamusume)）
+   豹子 → 美洲豹（jaguar_(kemono_friends)）
+   鲁基修 → 路易吉（luigi）
+   水无月 → 文月（fumizuki_(kancolle)）
+   水手月 → 爱野美奈子（水手金星）（sailor_venus）
+   布欧蒂卡 → 布狄卡（boudica_(fate)）
+   露卡斯 → 小辉（lucas_(pokemon)）
+   乌倍伦 → 月亮伊布（umbreon）
+   结城惠 → 由依（yui_(angel_beats!)）
+   花月黛西 → 菊花公主（princess_daisy）
+   弗兰肯斯坦的怪物 → 弗兰肯斯坦（frankenstein's_monster_(fate)）
+   斯利维昂 → 仙子伊布（sylveon）
+   罗托姆电话 → 洛托姆手机（rotom_phone）
+   纽十三 → 纽恩13（nu-13）
+   雾岛开娜 → 吹雪改二（fubuki_kai_ni_(kancolle)）
+   艾莉拉·佩多拉 → 艾莉拉·潘多拉（elira_pendora）
+   莱欧娜·希德琳 → 蕾欧娜·海顿（leona_heidern）
+   水箭龟 → 杰尼龟（squirtle）
+   玉藻跨 → 玉藻十字（tamamo_cross_(umamusume)）
+   雨月巧 → 愈月巧可（yuzuki_choco）
+   黄昏 → 夕（dusk_(arknights)）
+   雾岛 → 吹雪（fubuki_(one-punch_man)）
+   神之子金藏 → 和泉守兼定（izumi-no-kami_kanesada）
+   水手火星 → 火野丽（水手火星）（sailor_mars）
+   源赖光 → 源赖光（泳装·Lancer）（minamoto_no_raikou_(swimsuit_lancer)_(fate)）
+   喀夏诺夫 → 樫野（kashino_(azur_lane)）
+   比嘉谷可奉 → 东山小红（higashiyama_kobeni）
+   里亚托罗 → 利托里奥（littorio_(kancolle)）
+   雷贝卡 → 瑞贝卡（rebecca_(cyberpunk)）
+   斯莱恩·特拉约尔 → 斯雷因·特洛耶特（slaine_troyard）
+   八重山 → 山城（yamashiro_(azur_lane)）
+   横须贺真由美 → 杖刀偶磨弓（joutouguu_mayumi）
+   激情唇 → 帕森莉普（passionlip_(fate)）
+   高子 → 加古（kako_(kancolle)）
+   比古 → 响（啦啦队）（hibiki_(cheerleader)_(blue_archive)）
+   吉多米斯塔 → 盖多·米斯达（guido_mista）
+   纳克利 → 野分（nowaki_(kancolle)）
+   唐三藏 → 玄奘三藏（xuangzang_sanzang_(fate)）
+   和泉屋阳子 → 绵月丰姬（watatsuki_no_toyohime）
+   格拉塞恩 → 冰伊布（glaceon）
+   星见一季 → 星宫莓（hoshimiya_ichigo）
+   速水 → 速吸（hayasui_(kancolle)）
+   卡帕奇奥 → 卡尔帕乔（carpaccio_(girls_und_panzer)）
+   卡尔娜 → 迦尔纳（karna_(fate)）
+   伊势神宫·闪光 → 荣进闪耀（eishin_flash_(umamusume)）
+   库伦阳光 → 阳光天使（HeartCatch）（cure_sunshine）
+   天使 → 安琪儿（KOF）（angel_(kof)）
+   凯尼斯 → 凯妮斯（caenis_(fate)）
+   安洁莉娜 → 安洁·卡特莉娜（ange_katrina）
+   久川纲夏 → 久川凪（hisakawa_nagi）
+   奇尼尔 → 火球鼠（cyndaquil）
+   法拉 → 法老之鹰（pharah_(overwatch)）
+   琴音 → 镜华（kyouka_(princess_connect!)）
+   仙人 → 纲手（tsunade_(naruto)）
+   贝德 → 卡特尔（bede_(pokemon)）
+   奇琪 → 琪琪（chi-chi_(dragon_ball)）
+   美游 → 美丽天使（cure_beauty）
+   阿兹拉 → 阿库娅（azura_(fire_emblem)）
+   福泽谕吉 → 福泽由美（fukuzawa_yumi）
+   库列姬奥利尔 → 库蕾姬·奥莉（kureiji_ollie）
+   宫本龙之介 → 雨生龙之介（uryuu_ryuunosuke）
+   镜音铃 → 魔法未来初音（magical_mirai_miku）
+   美狄亚 → 梅芙（medb_(fate)）
+   东条希 → 时乃空（tokino_sora）
+   美迪奇 → 梅杰德（medjed_(fate)）
+   加藤和美 → 加藤惠（katou_megumi）
+   雷加尔 → 米莉亚·蕾姬（millia_rage）
+   花舞奏 → 花朵天使（cure_blossom）
+   高木 → 望月（mochizuki_(kancolle)）
+   星川沙拉 → 星川莎拉（hoshikawa_sara）
+   朝日奈鸣音 → 大崎甘奈（osaki_amana）
+   风之蓝 → 日富美（hifumi_(blue_archive)）
+   索拉·心之奇旅 → 索拉（sora_(kingdom_hearts)）
+   金刚改二·战列舰 → 金刚改二（kongou_kai_ni_(kancolle)）
+   阿朱纳·命运之夜 → 阿周那（arjuna_(fate)）
+   南条斯塔娜 → 优木雪菜（yuuki_setsuna_(love_live!)）
+   烈焰龙 → 小火龙（charmander）
+   提皮格 → 暖暖猪（tepig）
+   斯卡蒂（泳装刺客）·命运 → 斯卡哈（泳装·Assassin）（scathach_(swimsuit_assassin)_(fate)）
+   托科亚米托瓦比比 → 比比（常闇永远）（bibi_(tokoyami_towa)）
+   罗莎莉亚·原神 → 罗莎莉亚（rosaria_(genshin_impact)）
+   雷电芽梨 → 温莉·洛克贝尔（winry_rockbell）
+   鲍尔 → 库巴（bowser）
+   卡尔斯 → 卡兹（kars_(jojo)）
+   田代丽娜 → 多田李衣菜（tada_riina）
+   鬼王万华（女） → 岸波白野（女）（kishinami_hakuno_(female)）
+   波波利欧 → 球球海狮（popplio）
+   林川秋希 → 早川秋（hayakawa_aki）
+   横川国裕 → 堀川国广（horikawa_kunihiro）
+   岩户久高 → 庭渡久侘歌（niwatari_kutaka）
+   女巫伊芙格妮娅 → 阿比盖尔·威廉姆斯（旅行装）（abigail_williams_(traveling_outfit)_(fate)）
+   不灭微笑的埃涅尔 → 欧根亲王（不灭的微笑）（prinz_eugen_(unfading_smile)_(azur_lane)）
+   埃亚法约塔拉 → 艾雅法拉（eyjafjalla_(arknights)）
+   神北子见 → 神北小毬（kamikita_komari）
+   秋月夏叶 → 有栖川夏叶（arisugawa_natsuha）
+   摇篮曲 → 童谣（nursery_rhyme_(fate)）
+   洛玛 → 罗马（roma_(kancolle)）
+   黑魔女 → 黑天使（cure_black）
+   克拉丽丝 → 克拉莉丝（clarisse_(granblue_fantasy)）
+   艾斯波恩 → 太阳伊布（espeon）
+   风龙 → 风云（kazagumo_(kancolle)）
+   弗里克 → 弗里斯克（frisk_(undertale)）
+   秋津洲玛丽亚 → 右代宫真理亚（ushiromiya_maria）
+   伊布 → 伊布（Ib）（ib_(ib)）
+   樫木兰 → 美竹兰（mitake_ran）
+   哈桑王 → 山中老人（王哈桑）（king_hassan_(fate)）
+   茨木莫 → 九十九八桥（tsukumo_yatsuhashi）
+   玛尔特 → 马尔斯（marth_(fire_emblem)）
+   越前水雾 → 铠冢霙（yoroizuka_mizore）
+   津岛善子 → 对马（tsushima_(kancolle)）
+   铃音青葉 → 凉风青叶（suzukaze_aoba）
+   马尔克 → 前进天使（cure_march）
+   春日载波 → 榛名改二（haruna_kai_ni_(kancolle)）
+   高野纱希 → 岳羽由香里（takeba_yukari）
+   风间小春 → 高波（takanami_(kancolle)）
+   塔卡娜 → 维卡拉（vikala_(granblue_fantasy)）
+   北泽诗织 → 北泽志保（kitazawa_shiho）
+   木下嘉帆 → 小宫果穗（komiya_kaho）
+   小菊玛丽 → 小樱茉莉（kozakura_marry）
+   希普 → 快乐天使（cure_happy）
+   莫莫维拉迪夫露 → 梦梦·贝莉雅·戴比路克（momo_velia_deviluke）
+   白黑子 → 白子（泳装）（shiroko_(swimsuit)_(blue_archive)）
+   苏茜曼巴瓦兰 → 苏西·曼芭拉班（sucy_manbavaran）
+   水星 → 木野真琴（水手木星）（sailor_jupiter）
+   格鲁奇 → 敲音猴（grookey）
+   妙蛙 → 喵喵（meowth）
+   丘利梅露 → 旋律天使（cure_melody）
+   雪地姬 → 白雪姬（shirayuki_hime）
+   阿良良木结月 → 阿良良木火怜（araragi_karen）
+   迷特莉丝 → 溶解莉莉丝（泳装·一临）（meltryllis_(swimsuit_lancer)_(first_ascension)_(fate)）
+   柴郡猫 → 柴郡（cheshire_(azur_lane)）
+   艾琳娜 → 伊蕾娜（elaina_(majo_no_tabitabi)）
+   一拳超人 → 埼玉（saitama_(one-punch_man)）
+   凯奈斯 → 肯尼斯·埃尔梅罗·阿奇博尔德（kayneth_el-melloi_archibald）
+   水伊文 → 水伊布（vaporeon）
+   非野 → 野宫（nonomi_(blue_archive)）
+   阿尔冯斯·爱利克 → 阿尔冯斯·艾尔利克（alphonse_elric）
+   冈崎叶名 → 冈崎梦美（okazaki_yumemi）
+   飞机场公主 → 飞行场姬（airfield_princess）
+   百肯 → 梅喧（baiken）
+   尤霍拉特·泰普阿 → A2（yorha_type_a_no._2）
+   弗洛伦斯·南丁格尔 → 弗洛伦斯·南丁格尔（万圣）（florence_nightingale_(trick_or_treatment)_(fate)）
+   玛雅 → 梅伊（may_(guilty_gear)）
+   基诺 → 奇诺（kino_(kino_no_tabi)）
+   库丘林·阿尔特尔 → 库·丘林〔Alter〕（cu_chulainn_alter_(fate)）
+   天翔千乘 → 天弓千亦（tenkyuu_chimata）
+   阿马吉 → 天城（amagi_(kancolle)）
+   夕颜 → 翡翠（hisui_(tsukihime)）
+   三日月伊吹 → 澪田唯吹（mioda_ibuki）
+   艾格妮丝·数字 → 爱丽数字（agnes_digital_(umamusume)）
+   阿瑟·潘德拉贡 → 亚瑟·潘德拉贡（arthur_pendragon_(fate)）
+   札德安·特里布亚尔 → 吉坦·特莱巴尔（zidane_tribal）
+   结月 → 优纪（yuuki_(sao)）
+   托奇 → 火稚鸡（torchic）
+   阿加卡斯·亚银 → 新垣绫濑（aragaki_ayase）
+   赛莉丝蒂娅·路德贝格 → 塞蕾丝缇雅·卢登贝鲁克（celestia_ludenberg）
+   赛伊恩天空 → 青云天空（seiun_sky_(umamusume)）
+   凛 → 莲（len_(tsukihime)）
+   苏莫尼奥 → 索米（suomi_(girls'_frontline)）
+   近藤希美 → 远野志贵（tohno_shiki）
+   山雪 → 山云（yamagumo_(kancolle)）
+   米卡伊亚 → 米卡娅（micaiah_(fire_emblem)）
+   比河羽羽娜 → 冰川日菜（hikawa_hina）
+   切伦 → 黑连（cheren_(pokemon)）
+   精灵骑士兰斯洛特 → 妖精骑士兰斯洛特（fairy_knight_lancelot_(fate)）
+   流媒摩登摩沙 → 宫本武藏（泳装·Berserker·二临）（miyamoto_musashi_(swimsuit_berserker)_(second_ascension)_(fate)）
+   盖欧 → 小豪（goh_(pokemon)）
+   多吉马南湖 → 堂岛菜菜子（doujima_nanako）
+   贝琳达·冯·瓦尔雷伊 → 贝尔娜提塔·冯·瓦雷（bernadetta_von_varley）
+   厄律克勒斯 → 尤瑞艾莉（euryale_(fate)）
+   露露 → 璐璐（lulu_(league_of_legends)）
+   草薙京吾 → 高坂京介（kousaka_kyousuke）
+   天狼座 → 天鹰（aquila_(kancolle)）
+   黑川艾伦 → 黑川艾莲（kurokawa_eren）
+   萤火丸 → 萤丸（hotarumaru）
+   莫娜 → 穆娜·霍希诺瓦（moona_hoshinova）
+   琴瑟 → 砂糖（sucrose_(genshin_impact)）
+   九五式 → 95式（type_95_(girls'_frontline)）
+   梅杜萨 → 莫德雷德（Trifas）（mordred_(memories_at_trifas)_(fate)）
+   星之金发 → 白金之星（star_platinum）
+   纳兰吉亚 → 纳兰迦·吉尔加（narancia_ghirga）
+   天条院亚古 → 天条院沙姬（tenjouin_asuka）
+   罗陆三五 → RO635（ro635_(girls'_frontline)）
+   莉莉亚 → 露莉亚（lyria_(granblue_fantasy)）
+   樱岛玛 → 樱岛麻衣（sakurajima_mai）
+   克劳德·冯·里格安 → 库罗德·冯·里刚（claude_von_riegan）
+   高塔娜·娜娜 → 小日向美穗（kohinata_miho）
+   俾斯麦 → 齐柏林伯爵（graf_zeppelin_(azur_lane)）
+   露西 → 拉克丝（lux_(league_of_legends)）
+   赛琳 → 赛莲（seiren_(suite_precure)）
+   金鬼伊 → 迅鲸（jingei_(kancolle)）
+   羽坂爱 → 早坂爱（hayasaka_ai）
+   加拉特亚 → 嘉妮特·蒂尔·亚历山德罗斯17世（garnet_til_alexandros_xvii）
+   帕拉米尼克斯 → 初雪（pramanix_(arknights)）
+   初春饰音 → 初春（hatsuharu_(kancolle)）
+   内波希 → 子日（nenohi_(kancolle)）
+   松本蓝乃 → 松本乱菊（matsumoto_rangiku）
+   千代 → 千代田（chiyoda_(kancolle)）
+   青崎奥哉 → 苍崎青子（aozaki_aoko）
+   楚楚 → 刻俄柏（ceobe_(arknights)）
+   迪欧娜 → 迪奥娜（diona_(genshin_impact)）
+   结月公主 → 优衣（yuuki_(princess_connect!)）
+   长州 → 信浓（shinano_(azur_lane)）
+   雷波尼 → 长耳兔（lopunny）
+   萌萌歌姬 → 小初音（chibi_miku）
+   春日可奈 → 阳光天使（Smile）（cure_sunny）
+   马里奥 → 洛克人（mega_man_(character)）
+   贝利泽 → 煌（blaze_(arknights)）
+   那加托 → 长门（nagato_(azur_lane)）
+   天王寺春日 → 天王遥（ten'ou_haruka）
+   古斯特 → 格斯（guts_(berserk)）
+   木星慎太郎 → 如月伸太郎（kisaragi_shintarou）
+   艾利斯 → 奥利薇（allister_(pokemon)）
+   魔理沙 → 白天使（cure_white）
+   神无小春 → 神原骏河（kanbaru_suruga）
+   库丘林 → 库·丘林（Caster）（cu_chulainn_(caster)_(fate)）
+   一夜舟四郎 → 药研藤四郎（yagen_toushirou）
+   阿尔斯特 → 阿拉斯托尔（alastor_(shakugan_no_shana)）
+   奇可丽塔 → 菊草叶（chikorita）
+   飞鱼 → 飞鹰（hiyou_(kancolle)）
+   叶面灵猫 → 叶伊布（leafeon）
+   琴伦·夏安 → 鹤丸刚志（curren_chan_(umamusume)）
+   目暮 → 黑白美（monomi_(danganronpa)）
+   迪米特里亚德 → 帝弥托利·亚历山大·布雷达德（dimitri_alexandre_blaiddyd）
+   布拉德曼特 → 布拉达曼特（bradamante_(fate)）
+   塞西莉亚·阿洛特 → 塞西莉亚·奥尔科特（cecilia_alcott）
+   春日部 → 霰（arare_(kancolle)）
+   月见 → 三日月（mikazuki_(kancolle)）
+   烈焰巨龙 → 烈咬陆鲨（garchomp）
+   鶴巻心 → 鹤卷心（tsurumaki_kokoro）
+   罗伯茨 → 塞缪尔·B·罗伯茨（samuel_b._roberts_(kancolle)）
+   雾雨二型 → 村雨改二（murasame_kai_ni_(kancolle)）
+   咲吉 → 狭雾（sagiri_(kancolle)）
+   多萝西娅·阿诺特 → 多洛缇雅·阿诺德（dorothea_arnault）
+   松屋 → 松轮（matsuwa_(kancolle)）
+   白音 → 调边亚子（shirabe_ako）
+   朝比奈未来 → 朝日奈未来（asahina_mirai）
+   零 → 杰洛（zero_(mega_man)）
+   空气律动艾尔 → 空中神宫（air_groove_(umamusume)）
+   迪格奥尔哥 → 迪亚哥·布兰度（diego_brando）
+   雷维 → 蕾薇（revy_(black_lagoon)）
+   拉姆达德尔塔 → 拉姆达戴露塔（lambdadelta）
+   冠斗（火纹）男 → 卡姆依（男）（corrin_(fire_emblem)_(male)）
+   沙多 → 佐渡（sado_(kancolle)）
+   扎拉 → 扎拉（泳池边）（zara_(poolside_coincidence)_(azur_lane)）
+   但丁·纳里塔 → 成田白仁（narita_brian_(umamusume)）
+   蜂 → 大黄蜂（hornet_(kancolle)）
+   科斯摩 → 科斯莫古（cosmog）
+   心斩·阿赛罗拉 → 忍野忍（姬丝秀忒）（kiss-shot_acerola-orion_heart-under-blade）
+   暴鲤龙 → 长尾火狐（braixen）
+   风信子 → 朝风（asakaze_(kancolle)）
+   罗丝蒙蒂 → 迷迭香（rosmontis_(arknights)）
+   金光闪耀 → 澄闪（goldenglow_(arknights)）
+   穆罕默德·阿夫多尔 → 穆罕默德·阿布德尔（mohammed_avdol）
+   埃尔梅利二世 → 埃尔梅罗二世（lord_el-melloi_ii）
+   山田艾露 → 山田妖精（yamada_elf）
+   高森爱子 → 高森蓝子（takamori_aiko）
+   云云 → 悠悠（yunyun_(konosuba)）
+   山岸藤花 → 山岸风花（yamagishi_fuuka）
+   皮奇 → 皮丘（pichu）
+   妙奇 → 水跃鱼（mudkip）
+   千秋阳菜 → 吉良吉影（kira_yoshikage）
+   春风·舰装 → 春风（harukaze_(kancolle)）
+   结城·战姬 → 如月（kisaragi_(azur_lane)）
+   莉塔恩 → 火斑喵（litten）
+   月火·夏目 → 阿良良木月火（araragi_tsukihi）
+   神仓依织 → 神座出流（kamukura_izuru）
+   安迪拉·格兰蓝 → 安迪拉（andira_(granblue_fantasy)）
+   哈乌·皮卡丘 → 哈乌（hau_(pokemon)）
+   嘉秋美智留 → 海王满（kaiou_michiru）
+   九鬼忍 → 久岐忍（kuki_shinobu）
+   月光治愈者 → 月光天使（cure_moonlight）
+   谜之女主角甲 → 谜之女主角X（mysterious_heroine_x_(fate)）
+   贞德 → 贞德〔Alter〕（复仇者·三临）（jeanne_d'arc_alter_(avenger)_(third_ascension)_(fate)）
+   阿马吉 → 天城（amagi_(azur_lane)）
+   射干（穿胸兔） → 斯卡哈（兔女郎）（scathach_(piercing_bunny)_(fate)）
+   蒂托·林克 → 卡通林克（toon_link）
+   女主角 → 女主角（宝可梦GO）（female_protagonist_(pokemon_go)）
+   加里 → 加里（Ib）（garry_(ib)）
+   褐色光环王 → 帝王光环（king_halo_(umamusume)）
+   贞德 → 贞德（三临）（jeanne_d'arc_(third_ascension)_(fate)）
+   喀勒姆 → 卡勒姆（calem_(pokemon)）
+   伊丝托拉·鲁尔 → 娅·修特拉（y'shtola_rhul）
+   小林莓 → 小早川纱枝（kobayakawa_sae）
+   山吹惠音 → 山吹沙绫（yamabuki_inori）
+   霍博姆企鹅 → 洪堡企鹅（humboldt_penguin_(kemono_friends)）
+   格拉夫·斯皮厄大将 → 施佩伯爵海军上将（admiral_graf_spee_(azur_lane)）
+   提妲 → 桃天使（cure_peach）
+   万圣节杰克 → 杰克·O（jack-o'_valentine）
+   高塔古多 → 爱宕（极速）（atago_(stunning_speedster)_(azur_lane)）
+   布琳希尔德 → 布伦希尔德（brynhildr_(fate)）
+   火野杏奈 → 日野茜（hino_akane_(idolmaster)）
+   索尼娅·无意识 → 索尼娅·内瓦曼（sonia_nevermind）
+   霍博姆貉子 → 槌之子（tsuchinoko_(kemono_friends)）
+   尤尼 → 由仁（yuni_(princess_connect!)）
+   日系蒂娜 → 晒黑琪露诺（tanned_cirno）
+   霍博姆驼鹿 → 驼鹿（moose_(kemono_friends)）
+   鬼门守虎 → 两面宿傩（ryoumen_sukuna_(jujutsu_kaisen)）
+   克罗姆 → 库洛姆（chrom_(fire_emblem)）
+   帕娜科塔 → 潘纳科达·福葛（pannacotta_fugo）
+   村正 → 千子村正（senji_muramasa_(fate)）
+   成田大仁 → 成田大进（narita_taishin_(umamusume)）
+   超级溪流 → 超级小溪（super_creek_(umamusume)）
+   普拉 → 焰（泳装）（pyra_(pro_swimmer)_(xenoblade)）
+   冰见紫娜 → 泉奈（izuna_(blue_archive)）
+   伊丽莎白 → 伊丽莎白·巴托里（勇者）（elizabeth_bathory_(brave)_(fate)）
+   塞伯·阿尔特尔 → 阿尔托莉雅〔Alter〕（新宿1999）（saber_alter_(ver._shinjuku_1999)_(fate)）
+   阿比盖尔 → 阿比盖尔·威廉姆斯（三临）（abigail_williams_(third_ascension)_(fate)）
+   女武神 → M200（m200_(girls'_frontline)）
+   伊布 → 伊吹（ibuki_(street_fighter)）
+   朱欧伊 → 佐伊（zooey_(granblue_fantasy)）
+   干叶 → 食铁兽（feater_(arknights)）
+   魂魄妖起 → 魂魄妖忌（konpaku_youki）
+   鲁恩 → 罗恩（roon_(azur_lane)）
+   阿罗埃拉 → 茉莉（acerola_(pokemon)）
+   贝蕾丝 → 贝阿朵莉丝（beatrix_(granblue_fantasy)）
+   步枪人形 → G36（g36_(girls'_frontline)）
+   艾妮 → 榎本贵音（ENE）（ene_(kagerou_project)）
+   奈尔 → 临光（nearl_(arknights)）
+   帕尼乌姆 → 灵魂（pneuma_(xenoblade)）
+   泳装比伊 → BB（泳装·二临）（bb_(swimsuit_mooncancer)_(second_ascension)_(fate)）
+   阿比盖尔·威廉姆斯 → 阿比盖尔·威廉姆斯（泳装·三临）（abigail_williams_(swimsuit_foreigner)_(third_ascension)_(fate)）
+   雨见幽木 → 梦子（yumeko_(touhou)）
+   特里丝 → 特里休·乌纳（trish_una）
+   逆流 → 长良（nagara_(kancolle)）
+   梅林 → 梅林（Prototype）（merlin_(fate/prototype)）
+   英格丽德·布兰德莱亚 → 英谷莉特·布兰德尔·加雷特（ingrid_brandl_galatea）
+   汤米米 → 特米米（tomimi_(arknights)）
+   蓬露 → 波姆·雷恩帕夫（pomu_rainpuff）
+   啾啾 → 陆行鸟（chocobo）
+   圣路易斯 → 圣路易斯（奢华座驾）（st._louis_(luxurious_wheels)_(azur_lane)）
+   丝苇 → 诗怀雅（swire_(arknights)）
+   死神 → 死亡主宰（dead_master）
+   千代子 → 木户蕾（kido_tsubomi）
+   青铜 → 翔鹤（shoukaku_(azur_lane)）
+   水手土星 → 土萌萤（水手土星）（sailor_saturn）
+   伊诺 → 沙俣（ingo_(pokemon)）
+   薇 → 蔚（vi_(league_of_legends)）
+   伊克尼特斯 → 森蚺（eunectes_(arknights)）
+   欧贝伦 → 奥伯龙（oberon_(fate)）
+   五号机 → 五虎退（gokotai）
+   灵梦 → 菲娜娜·龙宫（finana_ryugu）
+   名胜多托 → 名将怒涛（meisho_doto_(umamusume)）
+   泳装莉莉斯 → 溶解莉莉丝（泳装·二临）（meltryllis_(swimsuit_lancer)_(second_ascension)_(fate)）
+   卡利欧亚 → 奇鲁莉安（kirlia）
+   平林浩一 → 广濑康一（hirose_koichi）
+   玛丽 → 玛丽（Ib）（mary_(ib)）
+   削刀切光忠 → 烛台切光忠（shokudaikiri_mitsutada）
+   贞德（泳装弓剑） → 贞德（泳装·Archer·一临）（jeanne_d'arc_(swimsuit_archer)_(first_ascension)_(fate)）
+   莉琪娜 → 蕾吉娜（regina_(dokidoki!_precure)）
+   雅柏 → 来电汪（yamper）
+   苏苏尔罗 → 苏苏洛（sussurro_(arknights)）
+   元骑士 → 金属骑士（meta_knight）
+   范恩 → 巴恩（vane_(granblue_fantasy)）
+   红霞·秘机 → 红（projekt_red_(arknights)）
+   结月朱乃 → 葛叶（kuzuha_(nijisanji)）
+   再恋 → 铃仙·优昙华院·因幡（reisen_(touhou_bougetsushou)）
+   结次丸 → 小狐丸（kogitsunemaru）
+   巴鲁恩·邦尼安 → 保罗·班扬（paul_bunyan_(fate)）
+   妮托克里斯 → 尼托克丽丝（泳装）（nitocris_(swimsuit_assassin)_(fate)）
+   拉维尼亚·怀特莱 → 拉维尼亚·沃特雷（lavinia_whateley_(fate)）
+   心奏 → 心天使（cure_heart）
+   樱岛麻衣 → 春野遥（haruno_haruka）
+   库利扎瓦撒但妮亚麦道威尔 → 萨塔妮娅·库鲁米泽·麦克道尔（satanichia_kurumizawa_mcdowell）
+   伊号一三潜 → 伊13（i-13_(kancolle)）
+   风见幽香 → 风见幽香（PC-98）（kazami_yuuka_(pc-98)）
+   萌音美希 → SF-A2 开发代号 Miki（sf-a2_miki）
+   菊钉 → 菊月（kikuzuki_(kancolle)）
+   罗博子 → 萝卜子（roboco-san）
+   奏丽姆斯 → 节奏天使（cure_rhythm）
+   熠焰塞留斯 → 天狼星（灼热）（sirius_(scorching-hot_seirios)_(azur_lane)）
+   南·纳奥米 → 直美（naomi_(girls_und_panzer)）
+   贝拉特里克斯 → 伊丽莎白·巴托里（一临）（elizabeth_bathory_(first_ascension)_(fate)）
+   玛什·克伊里艾莉丝·泳装 → 玛修·基列莱特（泳装）（mash_kyrielight_(swimsuit_of_perpetual_summer)）
+   艾瑞卡·皮卡丘 → 艾莉嘉（erika_(pokemon)）
+   冲浪米 → 冲波（okinami_(kancolle)）
+   瑞鹤 → 瑞鹤（碧蓝航线）（zuikaku_(azur_lane)）
+   高罗 → 五郎（gorou_(genshin_impact)）
+   依露玛 → 入间美兔（iruma_miu）
+   兰斯 → 阿渡（lance_(pokemon)）
+   斯忒涅诺 → 斯忒诺（stheno_(fate)）
+   塔尼娅·德格列查夫 → 谭雅·德古雷查夫（tanya_degurechaff）
+   美纪郎多贝 → 目白多伯（mejiro_dober_(umamusume)）
+   托玛 → 托马（thoma_(genshin_impact)）
+   爱露珂 → 伊良湖（irako_(kancolle)）
+   （二阶进化） → 阿尔托莉雅·潘德拉贡（Caster·二临）（artoria_caster_(second_ascension)_(fate)）
+   蕾亚 → 蕾雅（rhea_(fire_emblem)）
+   清盛王 → 清少纳言（sei_shounagon_(fate)）
+   有栖菜莉 → 尤里（yuri_(doki_doki_literature_club)）
+   优美运动 → 美妙姿势（fine_motion_(umamusume)）
+   仰之薇加 → 爱慕织姬（admire_vega_(umamusume)）
+   格雷卡尔 → 格雷卡莱（grecale_(kancolle)）
+   百鬼夜行巴拉梅洛 → 百万天原莎乐美（hyakumantenbara_salome）
+   月之癌·三重升华 → BB（泳装·三临）（bb_(swimsuit_mooncancer)_(third_ascension)_(fate)）
+   懒惰兔勒马琳 → 恶毒（无力兔）（le_malin_(listless_lapin)_(azur_lane)）
+   谜之女主角丙 → 谜之女主角X〔Alter〕（一临）（mysterious_heroine_x_alter_(first_ascension)_(fate)）
+   神舟丸 → 神州丸（shinshuu_maru_(kancolle)）
+   步枪人形 → G41（g41_(girls'_frontline)）
+   歌舞台 → 宴（utage_(arknights)）
+   智能雌马 → 醒目飞鹰（smart_falcon_(umamusume)）
+   八田南美 → 矢田寺成美（yatadera_narumi）
+   莫德雷德 → 莫德雷德（泳装·Rider）（mordred_(swimsuit_rider)_(fate)）
+   酒吞童子 → 坂田金时（sakata_kintoki_(fate)）
+   比基尼惠 → 日奈（泳装）（hina_(swimsuit)_(blue_archive)）
+   提基 → 琪琪（成年）（tiki_(adult)_(fire_emblem)）
+   阿马米兰塔罗 → 天海兰太郎（amami_rantarou）
+   藤川透 → 腐川冬子（fukawa_touko）
+   月历叶 → 尤艾尔（yuel_(granblue_fantasy)）
+   泳鸣真银 → 巴御前（泳装·Saber）（tomoe_gozen_(swimsuit_saber)_(fate)）
+   蓝毒 → 蓝毒（浅滩律动）（blue_poison_(shoal_beat)_(arknights)）
+   久志(校服) → 羽留（体操服）（hasumi_(gym_uniform)_(blue_archive)）
+   塞伦 → 咲恋（泳装）（saren_(summer)_(princess_connect!)）
+   让·巴尔特 → 让·巴尔（jean_bart_(azur_lane)）
+   九甲九一 → 9A-91（9a-91_(girls'_frontline)）
+   绯炎 → 鞭刃（whislash_(arknights)）
+   名取空音 → 长波改二（naganami_kai_ni_(kancolle)）
+   贞德 → 贞德（碧蓝幻想）（jeanne_d'arc_(granblue_fantasy)）
+   马提坎菲库基塔鲁 → 待兼福来（matikanefukukitaru_(umamusume)）
+   扫除图子 → 东商变革（sweep_tosho_(umamusume)）
+   清姬 → 清姬（泳装·Lancer）（kiyohime_(swimsuit_lancer)_(fate)）
+   卡莉尔 → 凯露（泳装）（karyl_(summer)_(princess_connect!)）
+   剃刀 → 雷泽（razor_(genshin_impact)）
+   雪之下雪乃 → 电脑少女小白（siro_(dennou_shoujo_youtuber_siro)）
+   内维 → 内格夫（negev_(girls'_frontline)）
+   中途岛公主 → 中途岛栖姬（midway_princess）
+   马加兰 → 麦哲伦（magallan_(arknights)）
+   琪琪 → 琪琪（幼年）（tiki_(young)_(fire_emblem)）
+   羽坂美里 → 早坂美玲（hayasaka_mirei）
+   泳装贞德 → 贞德（泳装·Archer·二临）（jeanne_d'arc_(swimsuit_archer)_(second_ascension)_(fate)）
+   拉普拉玛 → 羽毛笔（la_pluma_(arknights)）
+   加密 → 密客（crypto_(apex_legends)）
+
+③ app 变更 180 条（其中按人物知识重填 115 条，其余为「色色眼睛」类重复字修复）
+   阿尔托莉雅·潘德拉贡（artoria_pendragon_(fate)）：金色盘发 / 绿色眼睛 / 银色骑士甲配蓝色长裙 / 娇小 / 平胸
+   阿尔托莉雅（Saber）（saber）：金色盘发 / 绿色眼睛 / 银色骑士甲配蓝色长裙 / 娇小 / 平胸
+   甘雨（ganyu_(genshin_impact)）：蓝紫色长发 / 紫红色眼睛 / 黑蓝配金色云纹旗袍 / 高挑 / 标准
+   玉藻前（tamamo_(fate)）：粉色长发 / 金色眼睛 / 蓝白色和服 / 高挑 / 巨乳
+   贞德（Alter）（jeanne_d'arc_alter_(fate)）：白金色长发 / 金色眼睛 / 黑色铠甲 / 高挑 / 巨乳
+   林克（link）：金色短发 / 蓝色眼睛 / 绿色勇者装 / 标准 / 标准
+   尼禄·克劳狄乌斯（nero_claudius_(fate)）：金色短发 / 绿色眼睛 / 红白色罗马装 / 娇小 / 平胸
+   噶呜·古拉（gawr_gura）：蓝白色长发 / 蓝紫色眼睛 / 蓝白色鲨鱼卫衣配黑色短裙 / 标准 / 标准
+   宝钟玛琳（houshou_marine）：红棕色长发 / 红色眼睛 / 红色海盗船长装 / 高挑 / 巨乳
+   雷姆（rem_(re:zero)）：蓝色短发遮右眼 / 蓝色眼睛 / 黑白女仆装 / 标准 / 标准
+   斯卡哈（scathach_(fate)）：紫红色长发 / 红色眼睛 / 黑色紧身衣 / 高挑 / 巨乳
+   荧（lumine_(genshin_impact)）：浅金色短发 / 金色眼睛 / 白色露肩上装配深色短裙 / 标准 / 标准
+   鱿鱼（Inkling）（inkling）： / 蓝色眼睛 /  /  / 
+   2B（yorha_no._2_type_b）：银色短发 / 蓝色眼睛 / 黑色哥特连衣裙配白色内衬 / 高挑 / 标准
+   寅丸星（toramaru_shou）：黑色短发 / 蓝色眼睛 / 武士服 /  / 
+   玛艾露贝莉·赫恩（maribel_hearn）： / 蓝色眼睛 / 海军制服 /  / 
+   时雨改二（shigure_kai_ni_(kancolle)）： / 蓝色眼睛 / 海军制服 /  / 
+   乔瑟夫·乔斯达（joseph_joestar）： / 蓝色眼睛 /  /  / 
+   夕立改二（yuudachi_kai_ni_(kancolle)）： / 蓝色眼睛 / 海军制服 /  / 
+   胡桃（hu_tao_(genshin_impact)）：深棕色双马尾 / 红色眼睛 / 黑红长衫配褐色短裤 / 娇小 / 平胸
+   丛云（murakumo_(kancolle)）： / 蓝色眼睛 /  /  / 
+   姬海棠果（himekaidou_hatate）：黑色短发 / 蓝色眼睛 /  /  / 
+   潮（ushio_(kancolle)）： / 蓝色眼睛 /  /  / 
+   塞尔达公主（princess_zelda）：金色长发 / 蓝色眼睛 / 白金色公主裙 / 标准 / 标准
+   钟离（zhongli_(genshin_impact)）：深棕色长发带琥珀色末端 / 金色眼睛 / 棕色西装长袍 / 高挑 / 标准
+   冲田总司（okita_souji_(fate)）：浅棕色短发 / 红色眼睛 / 白色和服配黑色羽织 / 娇小 / 平胸
+   兔田佩克拉（usada_pekora）：浅蓝色双马尾 / 红色眼睛 / 白蓝色兔耳围巾装 / 标准 / 标准
+   酒吞童子（shuten_douji_(fate)）：紫色长发 / 金色眼睛 / 紫色和服 / 娇小 / 平胸
+   刻晴（keqing_(genshin_impact)）：淡紫色双马尾 / 淡紫色眼睛 / 黑白配浅紫旗袍 / 标准 / 标准
+   阿斯托尔福（astolfo_(fate)）：粉色长发 / 紫色眼睛 / 黑白骑士装 / 标准 / 平胸
+   春丽（chun-li）：深棕色双丸子头 / 棕色眼睛 / 蓝色旗袍 / 高挑 / 标准
+   森美声（mori_calliope）：黑色长发带红色挑染 / 红色眼睛 / 黑色哥特装 / 高挑 / 标准
+   一伊那尔栖（ninomae_ina'nis）：深紫色长发 / 紫色眼睛 / 黑白巫女风装束 / 高挑 / 标准
+   凑阿库娅（minato_aqua）：粉紫色短发 / 粉紫色眼睛 / 白色女仆风装 / 娇小 / 标准
+   萨姆斯·阿兰（samus_aran）：金色长发 / 蓝色眼睛 / 橙色能量装甲 / 高挑 / 标准
+   源赖光（minamoto_no_raikou_(fate)）：紫色长发 / 红色眼睛 / 紫色和服配黑色铠甲 / 高挑 / 巨乳
+   美杜莎（medusa_(fate)）：紫色长发 / 紫色眼睛 / 黑色紧身衣配紫色披风 / 高挑 / 巨乳
+   GUMI（gumi）：绿色长发 / 绿色眼睛 / 绿色无袖上衣配黑色短裤 / 标准 / 标准
+   可莉（klee_(genshin_impact)）：金色双马尾 / 红色眼睛 / 红色外套配白色连衣裙 / 娇小 / 平胸
+   温迪（venti_(genshin_impact)）：深绿色短发带青绿挑染 / 青绿色眼睛 / 绿色吟游诗人装配红斗篷 / 娇小 / 平胸
+   BB（bb_(fate)）：紫黑色长发 / 红色眼睛 / 黑色紧身衣 / 高挑 / 巨乳
+   爱宕（atago_(azur_lane)）：棕红色长发 / 红色眼睛 / 白蓝色军装 / 高挑 / 巨乳
+   阿尔托莉雅·潘德拉贡〔Alter〕（saber_alter）：金色盘发 / 黄色眼睛 / 黑色骑士甲 / 娇小 / 平胸
+   大凤（taihou_(azur_lane)）：黑色长发 / 红色眼睛 / 红黑色军装 / 高挑 / 巨乳
+   达达利亚（tartaglia_(genshin_impact)）：橙色短发 / 蓝色眼睛 / 灰红配色愚人众军装 / 高挑 / 标准
+   星街彗星（hoshimachi_suisei）：深蓝色短发 / 蓝色眼睛 / 黑蓝色偶像装 / 标准 / 标准
+   赤红（red_(pokemon)）：红色短发 / 红色眼睛 /  /  / 
+   白银诺艾尔（shirogane_noel）：银色长发 / 蓝色眼睛 / 白银骑士甲 / 高挑 / 巨乳
+   欧根亲王（prinz_eugen_(azur_lane)）：银色长发 / 蓝色眼睛 / 黑红色军装 / 高挑 / 巨乳
+   溶解莉莉丝（meltryllis_(fate)）：浅紫色长发 / 紫色眼睛 / 黑色紧身衣配白色裙摆 / 高挑 / 平胸
+   布莱默顿（bremerton_(azur_lane)）：金色长发 / 蓝色眼睛 / 白色军装 / 高挑 / 巨乳
+   米浴（rice_shower_(umamusume)）：棕红色双马尾 / 红色眼睛 / 白红色马娘制服 / 娇小 / 平胸
+   派蒙（paimon_(genshin_impact)）：白色长发 / 深蓝色眼睛 / 白色小裙子配金色配饰 / 娇小 / 平胸
+   优菈（eula_(genshin_impact)）：浅蓝色短发 / 浅蓝紫色眼睛 / 白蓝骑士装 / 高挑 / 标准
+   目白麦昆（mejiro_mcqueen_(umamusume)）：浅金色长发 / 蓝色眼睛 / 白紫色马娘制服 / 标准 / 标准
+   天音彼方（amane_kanata）：白色长发 / 蓝色眼睛 / 白色天使装 / 高挑 / 巨乳
+   大空昴（oozora_subaru）：棕色短发 / 棕色眼睛 / 白色运动装 / 标准 / 标准
+   申鹤（shenhe_(genshin_impact)）：白色长发 / 青色眼睛 / 黑蓝紧身道服 / 高挑 / 标准
+   雪花菈米（yukihana_lamy）：深蓝色长发 / 蓝色眼睛 / 白蓝色装束 / 高挑 / 巨乳
+   黄金船（gold_ship_(umamusume)）：金色长发 / 金色眼睛 / 白金色马娘制服 / 高挑 / 巨乳
+   魈（xiao_(genshin_impact)）：墨绿色短发带青绿挑染 / 金色眼睛 / 黑绿配白色上装 / 标准 / 平胸
+   桐人（kirito）：黑色短发 / 黑色眼睛 / 黑色风衣 / 标准 / 标准
+   东海帝王（tokai_teio_(umamusume)）：棕红色长发 / 蓝色眼睛 / 白蓝色马娘制服 / 标准 / 标准
+   伊斯坎达尔（iskandar_(fate)）：金色头发 / 蓝色眼睛 /  /  / 
+   娜露梅雅（narmaya_(granblue_fantasy)）：金色头发 / 蓝色眼睛 /  /  / 
+   雪初音（yuki_miku）：青绿色长发双马尾 / 青绿色眼睛 / 白色雪初音洋装 / 标准 / 标准
+   鲁路修·兰佩路基（lelouch_lamperouge）：黑色短发 / 紫色眼睛 / 黑紫色皇帝装 / 标准 / 标准
+   菲谢尔（fischl_(genshin_impact)）：金绿色长发双马尾 / 绿色眼睛 / 紫黑色哥特洋装 / 娇小 / 平胸
+   艾米莉娅（emilia_(re:zero)）：银色长发 / 紫色眼睛 / 白紫色洋装 / 高挑 / 标准
+   能天使（exusiai_(arknights)）：红色短发 / 红色眼睛 / 黑色外套配红色内搭 / 标准 / 标准
+   红月卡莲（kallen_stadtfeld）：红色长发 / 蓝色眼睛 / 红色驾驶服 / 标准 / 标准
+   咚酱（兔田佩克拉）（don-chan_(usada_pekora)）：粉色短发 / 蓝色眼睛 / 制服 /  / 
+   秋津丸（akitsu_maru_(kancolle)）： / 蓝色眼睛 / 海军制服 /  / 
+   爱丽丝（alice_(alice_in_wonderland)）：金色长发 / 蓝色眼睛 /  /  / 
+   WA2000（wa2000_(girls'_frontline)）： / 蓝色眼睛 / 黑色战斗服 /  / 
+   凯莉（callie_(splatoon)）：蓝色短发 / 蓝色眼睛 /  /  / 
+   织田信长（oda_nobunaga_(fate)）：黑色长发 / 红色眼睛 / 黑色军装披红斗篷 / 标准 / 标准
+   爱丽速子（agnes_tachyon_(umamusume)）：金色头发 / 蓝色眼睛 /  /  / 
+   格特露德·巴克霍恩（gertrud_barkhorn）：金色头发 / 蓝色眼睛 /  /  / 
+   千叶希良（kirima_syaro）： / 蓝色眼睛 /  /  / 
+   夜兰（yelan_(genshin_impact)）：深蓝色短发带浅蓝末端 / 蓝绿色眼睛 / 深蓝色旗袍配白色披肩 / 高挑 / 巨乳
+   紫木千圣（nishikigi_chisato）： / 蓝色眼睛 /  /  / 
+   满潮（michishio_(kancolle)）：蓝色头发 / 蓝色眼睛 /  /  / 
+   萨拉托加（saratoga_(kancolle)）：蓝色头发 / 蓝色眼睛 /  /  / 
+   路易丝（louise_francoise_le_blanc_de_la_valliere）：金色头发 / 蓝色眼睛 /  /  / 
+   高雄（takao_(azur_lane)）：深蓝色长发 / 紫色眼睛 / 黑色军装 / 高挑 / 巨乳
+   纳西妲（nahida_(genshin_impact)）：白色长发带绿色末端 / 绿色眼睛 / 白色花朵短裙 / 娇小 / 平胸
+   凯尔希（kal'tsit_(arknights)）：白色长发 / 绿色眼睛 / 黑色长袍配白色内衬 / 高挑 / 标准
+   妮露（nilou_(genshin_impact)）：橙红色长发 / 蓝色眼睛 / 白金色舞娘装 / 高挑 / 标准
+   赤城（akagi_(azur_lane)）：黑色长发 / 红色眼睛 / 红白色巫女风军装 / 高挑 / 巨乳
+   迪卢克（diluc_(genshin_impact)）：暗红色长发 / 红色眼睛 / 黑色外套配红色衬衫 / 高挑 / 标准
+   IA（ia_(vocaloid)）：白色长发 / 金色眼睛 / 白色洋装 / 标准 / 标准
+   加贺（kaga_(azur_lane)）：白色长发 / 蓝色眼睛 / 蓝白色军装 / 高挑 / 巨乳
+   无声铃鹿（silence_suzuka_(umamusume)）：深紫色长发 / 紫色眼睛 / 白紫色马娘制服 / 高挑 / 标准
+   散兵（scaramouche_(genshin_impact)）：深蓝色短发 / 紫色眼睛 / 黑紫色愚人众装 / 标准 / 平胸
+   铃兰（suzuran_(arknights)）：浅棕色长发 / 绿色眼睛 / 白红色和风洋装 / 娇小 / 平胸
+   茨木童子（ibaraki_douji_(fate)）：金色长发 / 金色眼睛 / 红黑色和服 / 标准 / 标准
+   樱初音（sakura_miku）：粉色长发双马尾 / 青绿色眼睛 / 粉色和服式洋装 / 标准 / 标准
+   宵宫（yoimiya_(genshin_impact)）：金色长发 / 橙色眼睛 / 橙红色短和服 / 标准 / 标准
+   标枪（javelin_(azur_lane)）：金色双马尾 / 绿色眼睛 / 白色水手服 / 标准 / 标准
+   凝光（ningguang_(genshin_impact)）：白色盘发 / 金色眼睛 / 白色金纹旗袍 / 高挑 / 巨乳
+   白雪（shirayuki_(kancolle)）： / 蓝色眼睛 /  /  / 
+   斯琴高娃（signum）： / 蓝色眼睛 / 黑色长袍 /  / 
+   塞莱斯·法乌娜（ceres_fauna）： / 蓝色眼睛 / 白色长袍 /  / 
+   AK-12（ak-12_(girls'_frontline)）： / 蓝色眼睛 / 女武神战甲 /  / 
+   诗音（shiomi_syuko）：黑色头发 / 蓝色眼睛 /  /  / 
+   临野兰丸（kirino_ranmaru）：黑色短发 / 蓝色眼睛 /  /  / 
+   圣路易斯（st._louis_(azur_lane)）： / 蓝色眼睛 /  /  / 
+   花咲蕾（hanasaki_tsubomi）： / 蓝色眼睛 /  /  / 
+   N（n_(pokemon)）： / 蓝色眼睛 / 精灵装 /  / 
+   摩根·勒·菲（morgan_le_fay_(fate)）： / 蓝色眼睛 /  /  / 
+   特别周（special_week_(umamusume)）：棕色长发 / 绿色眼睛 / 白红色马娘制服 / 标准 / 标准
+   猎空（tracer_(overwatch)）： / 蓝色眼睛 /  /  / 
+   凉月（suzutsuki_(kancolle)）： / 蓝色眼睛 /  /  / 
+   劳埃德·福杰（twilight_(spy_x_family)）： / 蓝色眼睛 /  /  / 
+   松野唐松（matsuno_karamatsu）： / 蓝色眼睛 /  /  / 
+   莉欧·福蒂亚（lio_fotia）： / 蓝色眼睛 /  /  / 
+   阿尔托莉雅·潘德拉贡（Lily）（saber_lily）：金色盘发 / 绿色眼睛 / 白蓝色骑士裙装 / 娇小 / 平胸
+   绊爱（kizuna_ai）：棕色长发 / 绿色眼睛 / 白色无袖上衣配粉色蝴蝶结 / 标准 / 标准
+   9S（yorha_no._9_type_s）：银色短发 / 蓝色眼睛 / 黑色短裤装 / 标准 / 标准
+   爱德华·艾尔利克（edward_elric）：金色长发扎辫 / 金色眼睛 / 黑色外套配红色披风 / 标准 / 标准
+   凯亚（kaeya_(genshin_impact)）：深蓝色短发 / 蓝色眼睛 / 白色衬衫配蓝色披风 / 高挑 / 标准
+   初音未来（Append）（hatsune_miku_(append)）：青绿色长双马尾 / 青绿色眼睛 / 黑灰色 Append 装 / 标准 / 标准
+   斯卡蒂（浊心）（skadi_the_corrupting_heart_(arknights)）：银白色长发 / 红色眼睛 / 黑色礼装配红色披风 / 高挑 / 标准
+   幽灵鲨（specter_(arknights)）：白色长发 / 红色眼睛 / 白色修女装 / 高挑 / 标准
+   小栗帽（oguri_cap_(umamusume)）：黑色短发 / 红色眼睛 / 白蓝色马娘制服配帽子 / 娇小 / 平胸
+   阿贝多（albedo_(genshin_impact)）：浅金色中长发 / 蓝绿色眼睛 / 白金色炼金术士外套 / 标准 / 标准
+   贝优妮塔（bayonetta）：黑色短发 / 灰色眼睛 / 黑色紧身衣 / 高挑 / 巨乳
+   爱丽丝（aris_(blue_archive)）：浅紫色长发 / 紫色眼睛 / 白蓝色水手服 / 标准 / 标准
+   诺埃尔（noelle_(genshin_impact)）：银色短发 / 绿色眼睛 / 白红女仆骑士装 / 标准 / 标准
+   北斗（beidou_(genshin_impact)）：深棕偏红长发 / 红色眼睛 / 深红海盗船长装 / 高挑 / 巨乳
+   北部玄驹（kitasan_black_(umamusume)）：黑色长发 / 红色眼睛 / 黑红色马娘制服 / 标准 / 标准
+   藤藤蛇（snivy）：绿色短发 / 棕色眼睛 /  /  / 
+   羊驼苏里（alpaca_suri_(kemono_friends)）：棕色短发 / 棕色眼睛 /  /  / 
+   烟绯（yanfei_(genshin_impact)）：粉色长发 / 绿色眼睛 / 红白色律师装 / 娇小 / 平胸
+   重云（chongyun_(genshin_impact)）：浅蓝色短发 / 浅蓝色眼睛 / 白色道服配蓝色披风 / 标准 / 平胸
+   行秋（xingqiu_(genshin_impact)）：深蓝色短发 / 金色眼睛 / 蓝白书生装 / 标准 / 平胸
+   梅芙（medb_(fate)）：金色长发 / 绿色眼睛 /  /  / 
+   时乃空（tokino_sora）： / 蓝色眼睛 /  /  / 
+   飞鸟贵音（tomoe_hotaru）： / 蓝色眼睛 /  /  / 
+   梅杰德（medjed_(fate)）： / 蓝色眼睛 /  /  / 
+   结月亚娜（tsukumo_sana）： / 蓝色眼睛 /  /  / 
+   花朵天使（cure_blossom）： / 蓝色眼睛 /  /  / 
+   结城真琴（tsurumaki_maki）：黑色短发 / 蓝色眼睛 /  /  / 
+   望月（mochizuki_(kancolle)）： / 蓝色眼睛 /  /  / 
+   星川莎拉（hoshikawa_sara）： / 蓝色眼睛 /  /  / 
+   大崎甘奈（osaki_amana）： / 蓝色眼睛 /  /  / 
+   莫古力（moogle）：蓝色短发 / 蓝色眼睛 /  /  / 
+   高木女士（takagi-san）：黑色短发 / 蓝色眼睛 /  /  / 
+   日富美（hifumi_(blue_archive)）：金色长发 / 绿色眼睛 / 白粉色校服 / 标准 / 标准
+   塞雷扎瓦和纱（serizawa_asahi）： / 蓝色眼睛 /  /  / 
+   阿卡丽（akali）：黑色短发 / 红色眼睛 /  /  / 
+   罗莎莉亚（rosaria_(genshin_impact)）：白色短发 / 紫红色眼睛 / 黑红色修女装 / 高挑 / 巨乳
+   卡兹（kars_(jojo)）： / 红色眼睛 /  /  / 
+   山中老人（王哈桑）（king_hassan_(fate)）：黑色长发 / 蓝色眼睛 / 黑色斗篷长袍 / 魁梧 / 平胸
+   柴郡（cheshire_(azur_lane)）：金色长发 / 金色眼睛 / 黑白色女仆装 / 高挑 / 巨乳
+   野宫（nonomi_(blue_archive)）：金色长发 / 蓝色眼睛 / 白色校服配金色装饰 / 标准 / 巨乳
+   香菱（xiangling_(genshin_impact)）：深棕色双丸子头 / 琥珀色眼睛 / 橙红色厨师装 / 娇小 / 平胸
+   尤娜（yuna_(ff10)）：深棕色长发 / 蓝色眼睛 / 黄蓝色和风洋装 / 标准 / 标准
+   砂糖（sucrose_(genshin_impact)）：青绿色短发 / 金色眼睛 / 白色炼金术士外套 / 娇小 / 平胸
+   初雪（pramanix_(arknights)）：白色长发 / 蓝紫色眼睛 / 白蓝色雪原装束 / 标准 / 标准
+   但丁（dante_(devil_may_cry)）：银白色长发 / 蓝色眼睛 / 红色风衣 / 高挑 / 标准
+   迪奥娜（diona_(genshin_impact)）：粉色双马尾 / 绿色眼睛 / 蓝白色调酒师装 / 娇小 / 平胸
+   信浓（shinano_(azur_lane)）：白色长发 / 蓝色眼睛 / 白蓝色巫女装 / 高挑 / 巨乳
+   小田丘静（ogata_chieri）：棕色长直发 / 绿色眼睛 / 校服 /  / 
+   小初音（chibi_miku）：青绿色长发双马尾 / 青绿色眼睛 / 灰白无袖上衣配青绿领带黑色短裙 / 娇小 / 平胸
+   魔理沙（magical_ruby）： / 红色眼睛 /  /  / 
+   魔王（maou_(maoyuu)）：金色长发 / 红色眼睛 /  /  / 
+   蕾薇（revy_(black_lagoon)）： / 绿色眼睛 /  /  / 
+   橘秋津（izayoi_aki）： / 绿色眼睛 /  /  / 
+   娅·修特拉（y'shtola_rhul）：灰白色长发 / 淡金色眼睛 / 黑色长袍 / 高挑 / 标准
+   泉奈（izuna_(blue_archive)）：黑色长发 / 红色眼睛 / 白红色忍者装 / 标准 / 标准
+   宁瑠（neru_(blue_archive)）：橙色短发 / 橙色眼睛 / 黑色西装 / 标准 / 标准
+   特里休·乌纳（trish_una）：棕色长发 / 绿色眼睛 / 黑色紧身衣 /  / 
+   巴杰特·弗加·麦克雷米茨（bazett_fraga_mcremitz）： / 绿色眼睛 /  /  / 
+   五郎（gorou_(genshin_impact)）：橙棕色短发带兽耳 / 橙黄色眼睛 / 白红色军装 / 标准 / 平胸
+   托马（thoma_(genshin_impact)）：金色短发 / 绿色眼睛 / 黑红色家政服 / 高挑 / 标准
+   鞭刃（whislash_(arknights)）：红色短发 / 红色眼睛 /  /  / 
+   瓦普希（vampy）： / 红色眼睛 /  /  / 
+   雷泽（razor_(genshin_impact)）：银灰色长发 / 红色眼睛 / 深灰色狼皮装 / 标准 / 平胸
