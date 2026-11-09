@@ -33,7 +33,6 @@
 
   const S = { lib: [], all: [], cat: '全部', sub: '全部', q: '', nsfw: false, favTop: false,
               chars: [], global: [], shown: PAGE, sec: { moss: true, wai: true, pony: true, exp: true },
-              autoScene: true,
               /* 拖标签到分类芯片的改动：en → { cat, sub }。分类归属一律走 catOf()，override 优先 */
               catOverrides: {} };
 
@@ -806,46 +805,14 @@
       }),
     }));
   }
-  /* ---------- 自动补场景 ----------
-     勾选「自动补场景」且「已选」里没有任何 cat=场景 的标签时，从词库挑 2~3 个通用场景词拼进请求。
-     优先 室内 / 柔光 / 阳光 这类万金油，避免抽到「体育馆更衣室」这种奇怪场景；
-     只补进本次请求，不写进「已选」列表。 */
-  const SCENE_PREFER = ['室内', '柔光', '自然光', '柔和光线', '阳光', '户外', '室外', '白天'];
-  const libOf = en => S.lib.find(e => e && e.en === en);
-  const isSceneTag = en => { const e = libOf(en); return !!e && catOf(e) === '场景'; };
-  function autoScenePick() {
-    const pool = S.lib.filter(e => e && e.en && e.zh && !e.nsfw && catOf(e) === '场景');
-    if (!pool.length) return [];
-    const want = Math.random() < .5 ? 2 : 3;
-    const out = [];
-    const take = e => {
-      if (e && out.length < want && !out.some(x => x.en === e.en)) out.push({ zh: e.zh, en: e.en, w: 1 });
-    };
-    SCENE_PREFER.forEach(zh => take(pool.find(e => e.zh === zh)));
-    const generic = pool.filter(e => ['室内', '室外', '光线'].indexOf(subOf(e)) >= 0);
-    for (let guard = 0; out.length < want && generic.length && guard < 50; guard++) {
-      take(generic[Math.floor(Math.random() * generic.length)]);
-    }
-    return out;
-  }
-  /* 本次请求的全局标签：已选原样 + 必要时补的场景词（角色框里的场景标签也算已有） */
-  function reqTags() {
-    const tags = S.global.map(t => ({ tag: t.en, weight: t.w }));
-    const hasScene = tags.some(t => isSceneTag(t.tag)) ||
-      S.chars.some(c => (c.tags || []).some(t => isSceneTag(t.en)));
-    if (!S.autoScene || hasScene) return { tags, added: [] };
-    const picked = autoScenePick();
-    return { tags: tags.concat(picked.map(t => ({ tag: t.en, weight: 1 }))), added: picked.map(t => t.zh) };
-  }
   async function doGenerate() {
     if (!S.global.length && !S.chars.length) { toast('先选标签'); return; }
-    const pick = reqTags();
-    const tip = pick.added.length ? '（已自动补场景：' + pick.added.join('、') + '）' : '';
-    const stopWait = toastSticky('生成中…' + tip + '（含本地润色，预计 40-90 秒）');
+    const tags = S.global.map(t => ({ tag: t.en, weight: t.w }));
+    const stopWait = toastSticky('生成中…（含本地润色，预计 40-90 秒）');
     try {
       const wantMoss = S.sec.moss !== false;
       const d = await api('/api/generate', {
-        tags: pick.tags, chars: buildChars(),
+        tags: tags, chars: buildChars(),
         ai: false, density: $('#selDensity').value, nsfw: (function(){var e=document.getElementById('swNsfwTop');return e?!!e.checked:false;})(), mossPolish: wantMoss,
         polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
         apiFull: document.getElementById('swApi').checked,
@@ -882,11 +849,11 @@
         renderSel();
       } catch (e) { toast('拆解失败：' + e.message); return; }
     }
-    const pick = reqTags();
-    const stopWait2 = toastSticky('生成草稿中…' + (pick.added.length ? '（已自动补场景：' + pick.added.join('、') + '）' : ''));
+    const tags = S.global.map(t => ({ tag: t.en, weight: t.w }));
+    const stopWait2 = toastSticky('生成草稿中…');
     try {
       const d = await api('/api/generate', {
-        tags: pick.tags, chars: buildChars(),
+        tags: tags, chars: buildChars(),
         ai: false, density: $('#selDensity').value, nsfw: S.nsfw,
         polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
         neg: $('#selNeg') ? $('#selNeg').value : 'full',
@@ -1005,7 +972,7 @@
 
   /* ===================== 使用手册 ===================== */
   /* 内容按页面结构分节（① 概述 → ⑨ FAQ），顶部锚点按钮用 scrollIntoView 跳章。
-     只写界面真实现状：密度三档、自动补场景都已是生成链路里真实生效的逻辑。 */
+     只写界面真实现状：密度三档已是生成链路里真实生效的逻辑。 */
   function openGuide() {
     if ($('#guideDlg')) { $('#guideDlg').style.display = 'flex'; return; }
     const B = t => `<b style="color:#27364f">${t}</b>`;
@@ -1060,7 +1027,6 @@
           B('搜索') + '：同时匹配中文名、英文 tag、作品名与别名，「迷宫饭」「EVA」「蓝发」「long hair」都能命中；只输作品名会列出该作品的全部角色。',
           B('重置筛选') + '：清空搜索词和分类 / 子分类选择，回到「全部」。',
           B('描述框 + AI 扩写') + '：左上写自然语言，点「AI 扩写」补成标准格式；结果显示在右栏「扩写结果」，同时存进历史。',
-          B('自动补场景') + '：默认勾选，状态记在浏览器里，刷新后保持。点「生成结果」或「生成 MOSS」时，如果「已选」里没有任何场景类标签，会自动从词库挑 2~3 个通用场景词（优先 室内 / 柔光 / 阳光 / 白天，避免奇怪场景）拼进本次请求，并在提示里告诉你补了哪几个；补的词不会写进「已选」。不想要自动补就取消勾选。',
           B('点此选图反推 或拖图') + '：上传或拖入图片 → WD14 打标 → 命中的标签自动进「已选」，识别原文写进左上描述框；图里带 NSFW 标签时会自动打开标签库的 NSFW 开关。',
           B('标签卡') + '：单击加入「已选」（角色卡 = 直接建角色框）；左下 ★ 收藏，勾上「收藏」后置顶；角色卡右键可编辑（中文名 / 英文 tag / 作品 / 发色发型 / 眼睛 / 服装 / 体型 / 胸围）；自定义角色拖到垃圾桶即删除。',
           B('拖动标签') + '：拖到分类芯片或子分类芯片 = 改分类（只存在浏览器里，不动服务端词库）；拖到「已选」的角色框 = 归给该角色；拖到垃圾桶 = 从当前已选移除（若是自定义角色 / 自定义子分类，则是真删除）。',
@@ -1133,7 +1099,7 @@
         sub('Q1 生成出来为什么是标签串，不是通顺句子？') +
         P('润色选了「模板」或「关」。改成「API」或「本地」重新生成即可；只关心 WAI / Pony 时不受影响。') +
         sub('Q2 为什么角色外观和我的设定不一致？') +
-        P('词库里的角色自带外观（发色 / 瞳色 / 服装）。你手动加的同类标签优先，自动外观会跳过对应项；也可以右键角色卡直接改外观并保存。') +
+        P('词库里的角色自带外观（发色 / 瞳色 / 服装）。你手动加的同类标签优先，自动外观会跳过对应项；也可以右键角色卡直接改外观并保存。AI 扩写时会把文本里出现的角色外观当成硬约束放在最前面，你写在描述里的发色 / 瞳色 / 服装优先于词库，扩写不会改掉它们。') +
         sub('Q3 图反推结果里有英文没翻译？') +
         P('词库暂缺该词的中文译名，只能原样显示英文 tag；可当普通标签用，或建个自定义分类收纳。') +
         sub('Q4 为什么画不出多个角色？') +
@@ -1282,20 +1248,16 @@
     const c = LS.get('settings', {});
     if (c.api !== undefined) $('#swApi').checked = !!c.api;
     if (c.nsfwTop !== undefined && $('#swNsfwTop')) $('#swNsfwTop').checked = !!c.nsfwTop;
-    if (c.autoScene !== undefined && $('#autoScene')) $('#autoScene').checked = !!c.autoScene;
     if (c.density) $('#selDensity').value = c.density;
     if (c.neg) $('#selNeg').value = c.neg === 'lite' ? 'simple' : c.neg;
     if (c.polishMode && $('#selPolish')) $('#selPolish').value = c.polishMode;
     if (c.nsfw !== undefined) S.nsfw = !!c.nsfw;
     if (c.favTop !== undefined) S.favTop = !!c.favTop;
-    S.autoScene = $('#autoScene') ? $('#autoScene').checked : true;
   }
   function saveSettings() {
-    S.autoScene = $('#autoScene') ? $('#autoScene').checked : true;
     LS.set('settings', {
       api: $('#swApi').checked,
       nsfwTop: $('#swNsfwTop') ? $('#swNsfwTop').checked : false,
-      autoScene: S.autoScene,
       density: $('#selDensity').value,
       polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
       neg: $('#selNeg').value,
@@ -1304,7 +1266,7 @@
     });
   }
   function bindSettings() {
-    ['#swApi', '#swNsfwTop', '#autoScene', '#selDensity', '#selNeg', '#selPolish'].forEach(sel => {
+    ['#swApi', '#swNsfwTop', '#selDensity', '#selNeg', '#selPolish'].forEach(sel => {
       const el = document.querySelector(sel);
       if (el) el.addEventListener('change', saveSettings);
     });

@@ -19,7 +19,9 @@ FORMAT = ("输出格式：\n"
           "1. 角色数量、名字只能来自用户输入的表头，绝不能新增、改名、少写；\n"
           "2. 用户写的「外形：/服装：/动作：/其他：/场景：」只是素材，必须并入对应角色的描述，不要当成角色；\n"
           "3. 英文标签要翻译成中文再并入，不要单独列出；\n"
-          "4. 全中文，不要分镜、不要解释、不要编号列表。")
+          "4. 全中文，不要分镜、不要解释、不要编号列表；\n"
+          "5. 角色名、发色、瞳色、服装一经给定，禁止更改；不得把 A 的发色写到 B 身上；\n"
+          "6. 约束里的「（用户已写，禁止改）」「（词库）」「【禁止】」只是给你的标注，不要把括注和标注写进输出。")
 
 def _count_hint(text):
     m = re.search(r"([123一二三])\s*个?\s*角色", text)
@@ -42,7 +44,7 @@ def deepseek(text, nsfw):
              ("允许成人内容。" if nsfw else "保持健康正常内容，禁止成人、裸露、性暗示。"))
     body = {"model": cfg.get("model") or "deepseek-chat",
             "messages": [{"role": "system", "content": sys_p},
-                         {"role": "user", "content": _count_hint(text) + text}],
+                         {"role": "user", "content": text}],
             "temperature": 0.7, "max_tokens": 900}
     req = urllib.request.Request(cfg["url"].rstrip("/") + "/v1/chat/completions",
                                  data=json.dumps(body).encode(),
@@ -70,7 +72,7 @@ def deepseek_chat(sys_p, prompt, max_tokens=600, temperature=0.6):
 
 def _ollama(text, model, sys_p):
     body = {"model": model, "system": sys_p,
-            "prompt": _count_hint(text) + text, "stream": False, "keep_alive": "5s",
+            "prompt": text, "stream": False, "keep_alive": "5s",
             "options": {"temperature": 0.8, "num_predict": 800, "repeat_penalty": 1.15}}
     req = urllib.request.Request(OLLAMA + "/api/generate",
                                  data=json.dumps(body, ensure_ascii=False).encode(),
@@ -87,7 +89,11 @@ def ollama_nsfw(text):
     sys_p = "你是成人向动漫插画提示词写手。" + FORMAT + "允许成人内容，不要拒绝、不要点评。"
     return _ollama(text, MODEL_NSFW, sys_p)
 
-def expand(text, nsfw=False, use_api=True):
+def expand(text, nsfw=False, use_api=True, guard=""):
+    """guard：角色外观约束（app.py 的 build_char_guard 生成），统一拼在模型输入最前面。"""
+    raw = text
+    body = _count_hint(text) + text
+    text = (guard + body) if guard else body
     if use_api:
         try:
             r = deepseek(text, nsfw)
@@ -102,4 +108,4 @@ def expand(text, nsfw=False, use_api=True):
             return r, "ollama-nsfw" if nsfw else "ollama-safe"
     except Exception:
         pass
-    return text, "fallback"
+    return raw, "fallback"

@@ -134,6 +134,132 @@ def load_lib():
     return tags
 
 
+# ---------- 角色外观约束（扩写防篡改） ----------
+# 用户反馈：描述里写「明日香：发色咖啡色」，扩写后变成「发色黑长直」——模型把角色设定改了。
+# 做法：扩写前找出文本里出现过的角色，把外观拼成一段硬约束放在发给模型的内容最前面；
+#       用户自己写过的字段（发色/瞳色/服装/体型/胸围）以用户为准，词库只在缺失时补。
+_GUARD_NOTE = "（以用户描述为准，若用户已写则用用户的）"
+_ASSET_FLAG = "（用户已写，禁止改）"
+_LIB_FLAG = "（词库）"
+
+# 字段 → (中文标签, 「用户已写」判定正则)
+_APP_FIELDS = (
+    ("hair", "发色", re.compile(
+        r"发色|发型|头发|黑长直|长直发|双马尾|单马尾|马尾|丸子头|麻花辫|卷发|直发|"
+        r"长发|短发|法式刘海|刘海|散发|发梢|"
+        r"(?:黑|棕|金|银|白|红|蓝|粉|紫|灰|橙|绿|咖啡|栗|酒红|亚麻|茶|巧克力)(?:色)?(?:的)?"
+        r"(?:发|长发|短发|卷发|直发)")),
+    ("eyes", "瞳色", re.compile(
+        r"眼睛|眼瞳|瞳孔|眼珠|瞳色|异色瞳|"
+        r"(?:黑|棕|金|银|白|红|蓝|粉|紫|灰|橙|绿|琥珀|异色)(?:色)?(?:的)?(?:眼|瞳)")),
+    ("outfit", "服装", re.compile(
+        r"穿着|穿|裸|服装|衣服|外套|上衣|裙子|连衣裙|制服|校服|水手服|女仆|巫女|浴衣|和服|"
+        r"旗袍|泳装|比基尼|睡衣|衬衫|T恤|短裤|短裙|长裙|丝袜|袜子|鞋子|内衣|围裙|驾驶服|战斗服")),
+    ("body", "体型", re.compile(r"身材|体型|体态|娇小|纤细|高挑|丰满|匀称|苗条|微胖")),
+    ("chest", "胸围", re.compile(r"贫乳|巨乳|爆乳|平胸|小胸|大胸|胸部|胸围|罩杯")),
+)
+
+
+def _alias_of(zh):
+    """角色别名：中文名本身 + 「·」/「・」前的名字（明日香·兰格雷 → 明日香）。"""
+    out = [zh]
+    for sep in ("·", "・", "•", " "):
+        if sep in zh:
+            head = zh.split(sep)[0].strip()
+            if len(head) >= 2:
+                out.append(head)
+    return out
+
+
+def _role_hits(text, lib):
+    """找出文本里出现的角色：zh / 别名做包含匹配，最长匹配优先，区间不重叠。"""
+    if not text:
+        return []
+    cands = []
+    for e in lib:
+        if e.get("cat") != "角色":
+            continue
+        zh = (e.get("zh") or "").strip()
+        if len(zh) < 2:
+            continue
+        for a in _alias_of(zh):
+            i = text.find(a)
+            if i >= 0:
+                cands.append((len(a), i, a, e))
+    cands.sort(key=lambda x: (-x[0], x[1]))
+    used = [False] * len(text)
+    hits, seen = [], set()
+    for ln, i, a, e in cands:
+        if e.get("zh") in seen or any(used[i:i + ln]):
+            continue
+        for k in range(i, i + ln):
+            used[k] = True
+        seen.add(e.get("zh"))
+        hits.append({"zh": a, "name": e.get("zh") or a, "app": e.get("app") or {},
+                     "start": i, "end": i + ln})
+    hits.sort(key=lambda h: h["start"])
+    return hits
+
+
+def _role_body(text, hit, hits):
+    """取该角色在用户文本里的那段描述：优先「名字：描述」行，否则按名字位置切段。"""
+    for line in text.splitlines():
+        m = re.match(r"^([^：:]{1,16})[：:]\s*(.+)$", line.strip())
+        if m and m.group(1).strip() in (hit["zh"], hit["name"]):
+            return m.group(2)
+    if len(hits) <= 1:
+        return text
+    i = hits.index(hit)
+    end = hits[i + 1]["start"] if i + 1 < len(hits) else len(text)
+    return text[hit["end"]:end]
+
+
+def _phrase(body, m):
+    """把命中的关键词扩成一句可读的外观短语（发色咖啡色 → 咖啡色）。"""
+    i, j = m.start(), m.end()
+    while i > 0 and body[i - 1] not in "，,。；;、\n 　":
+        i -= 1
+    while j < len(body) and body[j] not in "，,。；;、\n":
+        j += 1
+    seg = body[i:j].strip()
+    for pre in ("发色", "发型", "头发", "眼睛", "眼瞳", "瞳孔", "瞳色", "服装", "穿着", "穿",
+                "衣服", "身材", "体型", "胸围"):
+        if seg.startswith(pre) and len(seg) > len(pre):
+            seg = seg[len(pre):].strip("：: ")
+            break
+    return seg
+
+
+def build_char_guard(text, lib=None):
+    """扩写前拼在模型输入最前面的角色外观约束；文本里没有已知角色就返回空串。"""
+    try:
+        lib = lib if lib is not None else load_lib()
+        hits = _role_hits(text, lib)
+    except Exception:
+        return ""
+    rows = []
+    for h in hits:
+        appd = h.get("app") or {}
+        body = _role_body(text, h, hits) or ""
+        parts = []
+        for key, label, rx in _APP_FIELDS:
+            m = rx.search(body)
+            if m:
+                p = _phrase(body, m)
+                if p:
+                    parts.append("%s=%s%s" % (label, p, _ASSET_FLAG))
+                    continue
+            val = str(appd.get(key) or "").strip()
+            if val:
+                parts.append("%s=%s%s" % (label, val, _LIB_FLAG))
+        if parts:
+            rows.append("- " + h["zh"] + "：" + "；".join(parts))
+    if not rows:
+        return ""
+    return ("【角色外观必须保持，不得更改】" + _GUARD_NOTE + "\n" +
+            "\n".join(rows) + "\n" +
+            "【禁止】不得把 A 的发色/瞳色/服装写到 B 身上；不得把上面的外观换成别的颜色/发型。\n")
+
 
 CFG_PATH = os.path.join(HERE, "api_config.json")
 DEFAULT_CFG = {"url": "https://api.deepseek.com", "model": "deepseek-chat",
@@ -440,12 +566,15 @@ class H(BaseHTTPRequestHandler):
             if HERE not in _sys.path:
                 _sys.path.insert(0, HERE)
             import expand_mod
+            # 角色约束注入：先按词库 + 用户原文生成硬约束，由 expand_mod 拼在模型输入最前面
+            guard = build_char_guard(text)
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
             try:
-                out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api)
+                out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard)
             except Exception as e:
                 out, engine = "", "error:" + str(e)[:80]
-            self._send(200, json.dumps({"expanded": out or text, "engine": engine, "local": not use_api}, ensure_ascii=False))
+            self._send(200, json.dumps({"expanded": out or text, "engine": engine,
+                                        "local": not use_api, "guard": guard}, ensure_ascii=False))
         elif p == "/api/config":
             cfg = {"url": str(data.get("url") or ""), "model": str(data.get("model") or ""),
                    "key": str(data.get("key") or "")}
