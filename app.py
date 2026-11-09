@@ -171,73 +171,128 @@ def _alias_of(zh):
     return out
 
 
-# 替换表：先长后短（「乳头环」必须先于「乳头」，否则会被拆成「胸口环」）
+# 英文露骨词词库里没有、单字兜底也管不到：做温和中性化（不参与删句判定）。
 _SFW_PAIRS = (
-    ("乳头环", "装饰"), ("跳蛋控制器", "小道具"), ("裸体围裙", "可爱围裙"),
-    ("阴蒂环", "饰品"), ("掰开B", "摆姿势"), ("掰逼", "摆姿势"),
-    ("逼真", "写实"), ("逼近", "靠近"), ("逼仄", "狭窄"), ("逼迫", "迫使"),
-    ("逼部", "身体"), ("小穴", "身体"),
-    ("乳头", "胸口"), ("奶子", "胸口"), ("乳房", "胸口"), ("胸部", "胸口"),
-    ("淫纹", "纹身"), ("淫荡", "俏皮"), ("淫水", "水痕"), ("淫液", "水痕"),
-    ("淫", "俏"),
-    ("精液", "水痕"), ("跳蛋", "小道具"), ("肛塞", "小道具"),
-    ("全裸", "泳装"), ("赤裸", "泳装"), ("裸体", "泳装"),
-    ("性交", "拥抱"), ("口交", "亲密"), ("自慰", "休息"),
-    ("高潮脸", "开心表情"), ("高潮", "兴奋"),
-    ("尿尿", "嬉戏"), ("撒尿", "嬉戏"), ("尿液", "水痕"), ("喷水", "洒水"),
-    ("阴茎", "身体"), ("阴蒂", "部位"), ("乳环", "饰品"), ("性器", "身体"),
     ("pussy", "body"), ("nipples", "chest"), ("cum", "water"),
 )
 
 
-def _sfw_sanitize(text):
-    """NSFW 关闭时：把露骨词替换成中性词，避免模型直接照抄"""
+def _sfw_repair(text):
+    """英文露骨词的中性化；中文露骨词走下面的整句删除，不在这里替换。"""
     out = text
     for a, b in _SFW_PAIRS:
         out = out.replace(a, b)
     return out
 
 
-# ---------- NSFW 词库检测 + 整句清洗 ----------
-# 旧做法只有一张手写替换表，漏一个词就漏一句。这里直接吃 tags_cn.json 里
-# 所有 nsfw == true 的条目（4000+ 词），命中的句子整句删掉，不再靠人肉补词。
-_NSFW_EXTRA = ("肉棒", "龟头", "潮吹", "爱液", "肛门", "抽插", "中出", "射精",
-               "奶头", "阴唇", "子宫", "调教", "肉穴", "淫水")
+def _sfw_sanitize(text):
+    """NSFW 关闭时的输入中性化：只做英文兜底（中文露骨词在输出侧整句删）。"""
+    return _sfw_repair(text)
+
+
+# ---------- NSFW 三级判定：露骨整句删 / 擦边原样留 ----------
+# 用户反馈：一刀切删掉「内裤外露 / 走光 / 内衣 / 长筒袜」这类擦边内容太狠。
+# 现在把 tags_cn.json 里 nsfw==true 的词分两档（词库文件本身不动，规则全在这）：
+#   露骨 = 性器官/性行为/体液词根、动作-亲密、明确的性玩具  → 命中整句删
+#   擦边 = 服装、外形/表情/姿势、非玩具道具等               → 原样保留（不删句、不改写）
+_EXPLICIT_ROOTS = (
+    "小穴", "阴道", "阴茎", "肉棒", "龟头", "包皮", "阴唇", "阴蒂", "肛门",
+    "乳首", "乳头", "乳晕", "奶头", "精液", "精子", "射精", "爱液", "淫水",
+    "潮吹", "尿液", "口交", "性交", "插入", "抽插", "中出", "肛交", "自慰",
+    "调教", "舔阴", "舔屌", "肉穴", "子宫", "孕肚",
+)
+
+# 词库的 sub 并不完全可靠：做爱/后入/手交/后穴 这些明确性行为落在「双人互动」
+# 或「单人」下，只按 sub=="亲密" 会漏。补一小撮词根，它们同样属于露骨。
+_EXPLICIT_ACTS = ("开裆裤袜", "开裆连裤袜", "开裆内裤", "开裆", 
+    "做爱", "后入", "乳交", "手交", "足交", "抠穴", "扣穴", "后穴", "屁穴",
+    "颜射", "深喉", "口爆", "吞精",
+)
+
+# 明确的性玩具（A 档）；词库里没收录或 flag 不稳的也硬编码兜住
+_TOY_WORDS = (
+    "跳蛋", "假阳具", "肛塞", "拉珠", "口球", "乳夹", "乳铃", "束缚绳", "手铐",
+    "眼罩", "项圈", "触手", "尿道棒", "震动棒", "飞机杯", "避孕套", "按摩棒", "贞操",
+)
+
+_EXPLICIT_MARK_RX = re.compile("|".join(
+    re.escape(w) for w in sorted(
+        set(_EXPLICIT_ROOTS) | set(_EXPLICIT_ACTS) | set(_TOY_WORDS),
+        key=len, reverse=True)))
 
 _NSFW_LOCK = threading.Lock()
-_NSFW_WORDS = None
-_NSFW_RX = None
-# 替换表兜不住的单字（含易误伤的「逼」）：命中同样整句删除
+_NSFW_TIERS = None      # (explicit_set, soft_set)
+_EXPLICIT_RX = None     # 露骨词正则（长词优先）
+# 单字兜底：词库外的残留露骨字。命中也整句删，但先屏蔽正常词（逼真/逼近/尿尿…）
 _RESIDUE_RX = re.compile(r"逼|淫|尿|屄|屌|肏")
+_RESIDUE_OK = frozenset((
+    "逼近", "逼真", "逼仄", "逼迫", "逼供", "逼问", "逼视", "逼婚", "逼债", "逼上",
+    "紧逼", "直逼", "催逼", "逼不得已", "逼人", "逼走", "屌丝",
+    "淫雨", "淫威", "淫祀", "淫辞",
+    "尿尿", "撒尿", "排尿", "尿急", "尿频", "尿布", "尿床", "尿检", "尿常规", "尿壶",
+))
 # 全被滤掉时的中性兜底，保证接口永远回一段干净文本
 _SFW_EMPTY = "场景：室内，柔和的光线，安静的氛围。"
 
 
+def _tag_explicit(zh, recs):
+    """单个词条是否露骨：含露骨词根/性玩具，或属于「动作-亲密」。"""
+    if _EXPLICIT_MARK_RX.search(zh):
+        return True
+    return any(e.get("cat") == "动作" and e.get("sub") == "亲密" for e in recs)
+
+
 def nsfw_words():
-    """惰性加载：tags_cn.json 里全部 nsfw==true 的中文词 + 补充词（只留长度 ≥2）。"""
-    global _NSFW_WORDS, _NSFW_RX
-    if _NSFW_WORDS is not None:
-        return _NSFW_WORDS
+    """惰性加载并分级：返回 (explicit_set, soft_set)。
+
+    只有 explicit_set 会触发整句删除；soft_set 是擦边词，原样保留。
+    """
+    global _NSFW_TIERS, _EXPLICIT_RX
+    if _NSFW_TIERS is not None:
+        return _NSFW_TIERS
     with _NSFW_LOCK:
-        if _NSFW_WORDS is not None:
-            return _NSFW_WORDS
-        words = set()
+        if _NSFW_TIERS is not None:
+            return _NSFW_TIERS
+        recs = {}
         try:
             with open(os.path.join(HERE, "tags_cn.json"), encoding="utf-8") as f:
                 data = json.load(f)
             for e in (data.get("tags") or []):
-                if not isinstance(e, dict) or e.get("nsfw") is not True:
+                if not isinstance(e, dict):
                     continue
                 zh = str(e.get("zh") or "").strip()
-                if len(zh) >= 2 and re.search(r"[\u4e00-\u9fff]", zh):
-                    words.add(zh)
+                # 「自定义/图反推」是用户自建条目、nsfw 缺省 False，不参与判定；
+                # 否则同名的正式词会被一条自建重名条目整条放过。
+                if (not zh or not re.search(r"[\u4e00-\u9fff]", zh)
+                        or str(e.get("cat") or "") == "自定义"):
+                    continue
+                recs.setdefault(zh, []).append(e)
         except Exception:
-            pass
-        words.update(_NSFW_EXTRA)
-        _NSFW_WORDS = frozenset(words)
-        _NSFW_RX = re.compile("|".join(
-            re.escape(w) for w in sorted(_NSFW_WORDS, key=len, reverse=True)))
-    return _NSFW_WORDS
+            recs = {}
+        # 同词多条记录：全部 nsfw=true 才算命中（半条 nsfw 的不动）
+        words = {zh for zh, es in recs.items()
+                 if len(zh) >= 2 and all(x.get("nsfw") is True for x in es)}
+        words |= set(_EXPLICIT_ROOTS) | set(_EXPLICIT_ACTS) | set(_TOY_WORDS)
+        explicit = {w for w in words if _tag_explicit(w, recs.get(w, ()))}
+        _EXPLICIT_RX = (re.compile("|".join(
+            re.escape(w) for w in sorted(explicit, key=len, reverse=True)))
+            if explicit else None)
+        _NSFW_TIERS = (frozenset(explicit), frozenset(words - explicit))
+    return _NSFW_TIERS
+
+
+def soft_words():
+    """擦边词集合（只保留、不删句），给自检/报表用。"""
+    return nsfw_words()[1]
+
+
+def _residue_hits(sent):
+    """单字兜底：先屏蔽正常词，剩下的 逼/淫/尿/屄/屌/肏 才算露骨。"""
+    s = sent
+    for w in _RESIDUE_OK:
+        if w in s:
+            s = s.replace(w, "〇")
+    return _RESIDUE_RX.findall(s)
 
 
 def _split_sentences(text):
@@ -279,24 +334,24 @@ def _tidy_filtered(text):
 
 
 def sanitize_nsfw_text(text):
-    """NSFW 关闭时的输出清洗：先换中性词，再按词库整句删除。
+    """NSFW 关闭时的输出清洗：只删露骨句，擦边原样保留。
 
-    返回 (清洗后文本, 命中数)；命中数 = 被删句子里命中的露骨词个数。
+    返回 (清洗后文本, 命中数)；命中数 = 被删句子里命中的露骨词/单字个数。
     """
     src = str(text or "")
     if not src.strip():
         return src, 0
     nsfw_words()
-    rx = _NSFW_RX
+    rx = _EXPLICIT_RX
     hits, kept = 0, []
-    for sent in _split_sentences(_sfw_sanitize(src)):
+    for sent in _split_sentences(src):
         found = rx.findall(sent) if rx is not None else []
         if not found:
-            found = _RESIDUE_RX.findall(sent)
+            found = _residue_hits(sent)
         if found:
             hits += len(found)
             continue
-        kept.append(sent)
+        kept.append(_sfw_repair(sent))
     return _tidy_filtered("".join(kept)), hits
 
 
