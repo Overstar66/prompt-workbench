@@ -181,25 +181,35 @@ ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest   # 成人向兜底
 
 ## 目录结构
 
-```
+`
 studio2/
-├── app.py                 后端 HTTP 服务 + 全部接口（标准库）
-├── parse_mod.py           拆标签：中英文匹配 + 角色外观补全
+├── 提示词工作台.lnk        ← 双击启动（推荐）
+├── 启动工作台.bat          ← 备用启动脚本（自动探测 Python）
+│
+├── app.py                 后端 HTTP 服务 + 全部接口（仅标准库）
+├── parse_mod.py           拆标签：中英文匹配 + 角色外貌补全
 ├── gen_mod.py             MOSS / WAI / Pony 拼装 + 负向自适应
 ├── expand_mod.py          扩写：DeepSeek / Ollama / 模板兜底
-├── wd14_mod.py            图反推：本地 ONNX 打标
-├── static/                前端（index.html + app.js）
-├── styles/                画风库 50 张缩略图
-├── docs/                  README 与说明书截图
-├── tags_cn.json           词库本体（18000+ 条）
-├── chars_app.json         内置角色外观表
-├── chars_extra.json       补充角色外观
+├── wd14_mod.py            图反推：WD14 ONNX 打标
+│
+├── static/                前端（index.html + app.js + favicon）
+├── styles/                画风库 50 张缩略图 + styles.json
+├── docs/                  README 配图、说明书截图、开发报告
+├── tools/                 开发脚本（词库构建 / 数据修正 / 验证）
+│
+├── tags_cn.json           词库（18000+ 条）
+├── chars_app.json         内置角色外貌表
+├── chars_extra.json       补充角色
 ├── custom_chars.json      用户自定义角色（运行时生成，不入库）
 ├── api_config.json        API 配置（不入库）
-├── verify_density.py      密度三档自检
-├── verify_nsfw_tiers.py   NSFW 三级判定自检
-└── build_*.py             词库构建脚本（可重跑，一般不用）
-```
+├── api_config.example.json
+├── icon.ico               程序图标
+├── README.md
+└── LICENSE
+`
+
+> 	ools/ 里的脚本只在维护词库时用，日常使用不需要。
+> 里面的路径多为相对项目根目录，移动目录后请检查后再运行。
 
 ## 数据说明
 
