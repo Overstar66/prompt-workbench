@@ -171,20 +171,133 @@ def _alias_of(zh):
     return out
 
 
+# 替换表：先长后短（「乳头环」必须先于「乳头」，否则会被拆成「胸口环」）
+_SFW_PAIRS = (
+    ("乳头环", "装饰"), ("跳蛋控制器", "小道具"), ("裸体围裙", "可爱围裙"),
+    ("阴蒂环", "饰品"), ("掰开B", "摆姿势"), ("掰逼", "摆姿势"),
+    ("逼真", "写实"), ("逼近", "靠近"), ("逼仄", "狭窄"), ("逼迫", "迫使"),
+    ("逼部", "身体"), ("小穴", "身体"),
+    ("乳头", "胸口"), ("奶子", "胸口"), ("乳房", "胸口"), ("胸部", "胸口"),
+    ("淫纹", "纹身"), ("淫荡", "俏皮"), ("淫水", "水痕"), ("淫液", "水痕"),
+    ("淫", "俏"),
+    ("精液", "水痕"), ("跳蛋", "小道具"), ("肛塞", "小道具"),
+    ("全裸", "泳装"), ("赤裸", "泳装"), ("裸体", "泳装"),
+    ("性交", "拥抱"), ("口交", "亲密"), ("自慰", "休息"),
+    ("高潮脸", "开心表情"), ("高潮", "兴奋"),
+    ("尿尿", "嬉戏"), ("撒尿", "嬉戏"), ("尿液", "水痕"), ("喷水", "洒水"),
+    ("阴茎", "身体"), ("阴蒂", "部位"), ("乳环", "饰品"), ("性器", "身体"),
+    ("pussy", "body"), ("nipples", "chest"), ("cum", "water"),
+)
+
+
 def _sfw_sanitize(text):
     """NSFW 关闭时：把露骨词替换成中性词，避免模型直接照抄"""
-    pairs = [
-        ("小穴", "身体"), ("逼部", "身体"), ("掰逼", "摆姿势"), ("掰开B", "摆姿势"),
-        ("乳头环", "装饰"), ("乳头", "胸口"), ("奶子", "胸口"), ("乳房", "胸口"),
-        ("精液", "水渍"), ("淫纹", "纹身"), ("跳蛋控制器", "小道具"),
-        ("跳蛋", "小道具"), ("肛塞", "小道具"), ("全裸", "泳装"), ("赤裸", "泳装"),
-        ("性交", "拥抱"), ("口交", "亲密"), ("自慰", "休息"), ("高潮", "开心"),
-        ("pussy", "body"), ("nipples", "chest"), ("cum", "water"),
-    ]
     out = text
-    for a, b in pairs:
+    for a, b in _SFW_PAIRS:
         out = out.replace(a, b)
     return out
+
+
+# ---------- NSFW 词库检测 + 整句清洗 ----------
+# 旧做法只有一张手写替换表，漏一个词就漏一句。这里直接吃 tags_cn.json 里
+# 所有 nsfw == true 的条目（4000+ 词），命中的句子整句删掉，不再靠人肉补词。
+_NSFW_EXTRA = ("肉棒", "龟头", "潮吹", "爱液", "肛门", "抽插", "中出", "射精",
+               "奶头", "阴唇", "子宫", "调教", "肉穴", "淫水")
+
+_NSFW_LOCK = threading.Lock()
+_NSFW_WORDS = None
+_NSFW_RX = None
+# 替换表兜不住的单字（含易误伤的「逼」）：命中同样整句删除
+_RESIDUE_RX = re.compile(r"逼|淫|尿|屄|屌|肏")
+# 全被滤掉时的中性兜底，保证接口永远回一段干净文本
+_SFW_EMPTY = "场景：室内，柔和的光线，安静的氛围。"
+
+
+def nsfw_words():
+    """惰性加载：tags_cn.json 里全部 nsfw==true 的中文词 + 补充词（只留长度 ≥2）。"""
+    global _NSFW_WORDS, _NSFW_RX
+    if _NSFW_WORDS is not None:
+        return _NSFW_WORDS
+    with _NSFW_LOCK:
+        if _NSFW_WORDS is not None:
+            return _NSFW_WORDS
+        words = set()
+        try:
+            with open(os.path.join(HERE, "tags_cn.json"), encoding="utf-8") as f:
+                data = json.load(f)
+            for e in (data.get("tags") or []):
+                if not isinstance(e, dict) or e.get("nsfw") is not True:
+                    continue
+                zh = str(e.get("zh") or "").strip()
+                if len(zh) >= 2 and re.search(r"[\u4e00-\u9fff]", zh):
+                    words.add(zh)
+        except Exception:
+            pass
+        words.update(_NSFW_EXTRA)
+        _NSFW_WORDS = frozenset(words)
+        _NSFW_RX = re.compile("|".join(
+            re.escape(w) for w in sorted(_NSFW_WORDS, key=len, reverse=True)))
+    return _NSFW_WORDS
+
+
+def _split_sentences(text):
+    """按 。！？!? 和换行切句，保留标点。"""
+    out, buf = [], ""
+    for ch in text:
+        buf += ch
+        if ch in "。！？!?\n":
+            out.append(buf)
+            buf = ""
+    if buf:
+        out.append(buf)
+    return out
+
+
+def _tidy_filtered(text):
+    """删句后的收尾：去空行 / 删只剩角色名的空壳行 / 按剩下的人改首行人数。"""
+    lines = []
+    for raw in (text or "").split("\n"):
+        ln = raw.strip()
+        if not ln:
+            continue
+        # 「明日香：」「明日香：，。」这种后面没内容的行，删掉
+        if re.match(r"^[^：:]{1,16}[：:]\s*[，,。；;、！!·…\s]*$", ln):
+            continue
+        lines.append(ln)
+    if not lines:
+        return ""
+    m = re.match(r"^(\d+)\s*个角色\s+(.+)$", lines[0])
+    if m and len(lines) > 1:
+        names = [x for x in m.group(2).split() if x]
+        have = [n for n in names
+                if any(ln.startswith(n + "：") or ln.startswith(n + ":") for ln in lines[1:])]
+        if have and len(have) != len(names):
+            lines[0] = "%d个角色 %s" % (len(have), " ".join(have))
+        elif not have:
+            lines.pop(0)
+    return "\n".join(lines)
+
+
+def sanitize_nsfw_text(text):
+    """NSFW 关闭时的输出清洗：先换中性词，再按词库整句删除。
+
+    返回 (清洗后文本, 命中数)；命中数 = 被删句子里命中的露骨词个数。
+    """
+    src = str(text or "")
+    if not src.strip():
+        return src, 0
+    nsfw_words()
+    rx = _NSFW_RX
+    hits, kept = 0, []
+    for sent in _split_sentences(_sfw_sanitize(src)):
+        found = rx.findall(sent) if rx is not None else []
+        if not found:
+            found = _RESIDUE_RX.findall(sent)
+        if found:
+            hits += len(found)
+            continue
+        kept.append(sent)
+    return _tidy_filtered("".join(kept)), hits
 
 
 def _role_hits(text, lib):
@@ -598,8 +711,18 @@ class H(BaseHTTPRequestHandler):
                 out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard)
             except Exception as e:
                 out, engine = "", "error:" + str(e)[:80]
+            # 输出侧：NSFW 关闭时必须干净——模型越界也按词库整句删掉
+            filtered = 0
+            if not nsfw_on:
+                if out:
+                    out, filtered = sanitize_nsfw_text(out)
+                if not out:
+                    out, _ = sanitize_nsfw_text(text)
+                if not out:
+                    out = _SFW_EMPTY
             self._send(200, json.dumps({"expanded": out or text, "engine": engine,
-                                        "local": not use_api, "guard": guard}, ensure_ascii=False))
+                                        "local": not use_api, "guard": guard,
+                                        "filtered": filtered}, ensure_ascii=False))
         elif p == "/api/config":
             cfg = {"url": str(data.get("url") or ""), "model": str(data.get("model") or ""),
                    "key": str(data.get("key") or "")}

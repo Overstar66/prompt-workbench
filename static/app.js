@@ -789,7 +789,9 @@
       if (!ex) { toast('扩写无内容'); return; }
       showResult([['扩写结果', ex]]);
       saveHist(ex);
-      toast('扩写完成' + (d.engine ? '（' + d.engine + '）' : ''));
+      const nf = Number(d.filtered) || 0;
+      toast('扩写完成' + (nf > 0 ? '（已过滤 ' + nf + ' 处露骨内容）'
+                                : (d.engine ? '（' + d.engine + '）' : '')));
     } catch (e) { toast('扩写失败：' + e.message); }
   }
 
