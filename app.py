@@ -761,6 +761,23 @@ class H(BaseHTTPRequestHandler):
             if not nsfw_on:
                 text = _sfw_sanitize(text)
             guard = build_char_guard(text)
+            # 扩写也要认「N个角色 A B」这类表头里声明的角色（它们不在词库里）
+            try:
+                import parse_mod as _pm
+                _p = _pm.parse_text(text)
+                _extra = []
+                for _c in (_p.get("chars") or [])[:4]:
+                    _nm = (_c.get("name") or _c.get("zh") or "").strip()
+                    if not _nm:
+                        continue
+                    _ap = _c.get("app") or {}
+                    _vals = [_ap.get(k) for k in ("hair", "eyes", "outfit") if _ap.get(k)]
+                    _txt = "，".join(_vals) or (_c.get("desc") or "").strip()[:60] or "保持原文设定"
+                    _extra.append("%s=%s" % (_nm, _txt))
+                if _extra:
+                    guard = (guard + "\n" if guard else "") + "【外观锁定，不得改名或互换】" + "；".join(_extra)
+            except Exception:
+                pass
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
             try:
                 out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard)

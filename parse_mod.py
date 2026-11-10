@@ -78,54 +78,96 @@ def parse_text(text):
     app_map = {e["zh"]: e.get("app") for e in lib if e.get("cat") == "角色" and e.get("app")}
 
     EXCLUDE = ("场景", "其他", "环境", "画面", "地点", "外形", "服装", "动作",
-               "表情", "身体", "画风", "风格", "光线", "时间", "氛围")
+               "表情", "身体", "画风", "风格", "光线", "时间", "氛围",
+               # 题材 / 服装品类，不是角色名
+               "百合", "内裤", "内衣", "情趣内衣", "制服", "道具", "姿势", "题材",
+               "剧情", "情节", "设定", "背景", "镜位", "构图", "色调", "镜头")
+    HEAD_RE = re.compile(r"^(\d+|[一二三四五六七八九十两])\s*个?\s*(角色|女生|女孩|女人|男孩|男生|男人|人|位)\s*(.+)$")
 
     header, blocks, sections = [], [], []
+    _had_label = False
     for line in text.split("\n"):
         line = line.strip()
         if not line:
             continue
-        m = re.match(r"^(\d+|[一二三])个角色\s+(.+)$", line)
+        m = HEAD_RE.match(line)
         if m:
-            header = [x for x in re.split(r"[\s、,，]+", m.group(2)) if x]
+            cand = [x for x in re.split(r"[\s、,，]+", m.group(3)) if x]
+            # 粘连写法：「两个角色角色a角色b」→ 拆成 角色a / 角色b
+            if len(cand) == 1 and len(cand[0]) > 3:
+                _rest = cand[0]
+                _tk = re.findall(r"角色\s*[A-Za-z0-9甲乙丙丁一二三四]", _rest)
+                if len(_tk) >= 2:
+                    cand = _tk
+                else:
+                    _known = sorted({e["zh"] for e in lib if e.get("cat") == "角色"
+                                     and e.get("zh") and e["zh"] in _rest}, key=len, reverse=True)
+                    if len(_known) >= 2 and "".join(_known) == _rest:
+                        cand = _known
+            # 声明了几个就取几个
+            _n = m.group(1)
+            try:
+                _n = {"两": 2, "二": 2, "三": 3, "四": 4, "五": 5}.get(_n) or int(_n)
+            except Exception:
+                _n = len(cand)
+            if _n and len(cand) > _n:
+                cand = cand[:_n]
+            # 「一个女孩，粉发，微笑，海边」不是表头：名字里不该出现外形/服装词
+            _bad = False
+            for x in cand:
+                # 表头是用户显式声明的名字：白名单不再否决（百合/内裤 也能当角色名）
+                if (HAIR_RE.search(x) or EYE_RE.search(x) or OUT_RE.search(x)
+                        or BODY_RE.search(x) or CHEST_RE.search(x)):
+                    _bad = True
+                    break
+            if cand and not _bad:
+                header = cand
+                continue
+            blocks.append(line)
             continue
         ms = re.match(r"^([^：:]{1,12})[：:]\s*(.+)$", line)
-        if ms and ms.group(1).strip() not in EXCLUDE:
-            sections.append((ms.group(1).strip(), ms.group(2).strip()))
-        else:
-            blocks.append(line)
+        if ms:
+            _had_label = True
+            if ms.group(1).strip() not in EXCLUDE:
+                sections.append((ms.group(1).strip(), ms.group(2).strip()))
+            continue
+        blocks.append(line)
+
+    def _mk(name, body):
+        feats = _match(body, idx)
+        return {"zh": name, "name": name, "tag": name,
+                "features": [f["zh"] for f in feats],
+                "features_en": [f["en"] for f in feats],
+                "desc": fill_app(name, body, app_map.get(name)),
+                "app": app_map.get(name)}
 
     chars = []
-    if sections:
+    if header:
+        # 表头优先：只认表头里的名字；冒号段按「名字匹配 → 按顺序」对应过去
+        named = {n: b for n, b in sections}
+        if all(n in named for n in header):
+            bodies = [named[n] for n in header]
+        elif len(sections) == len(header):
+            bodies = [b for _, b in sections]
+        elif sections:
+            bodies = ["，".join(b for _, b in sections)] * len(header)
+        else:
+            bodies = ["，".join(blocks)] * len(header)
+        for name, body in zip(header, bodies):
+            chars.append(_mk(name, body))
+    elif sections:
         for name, body in sections:
-            feats = _match(body, idx)
-            chars.append({"zh": name, "name": name, "tag": name,
-                          "features": [f["zh"] for f in feats],
-                          "features_en": [f["en"] for f in feats],
-                          "desc": fill_app(name, body, app_map.get(name)),
-                          "app": app_map.get(name)})
-    elif header:
-        body = "，".join(blocks)
-        body = re.sub(r"(外形|服装|动作|其他|表情|身体|画风)\s*[：:]", "", body)
-        feats = _match(body, idx)
-        for name in header:
-            chars.append({"zh": name, "name": name, "tag": name,
-                          "features": [f["zh"] for f in feats],
-                          "features_en": [f["en"] for f in feats],
-                          "desc": fill_app(name, body, app_map.get(name)),
-                          "app": app_map.get(name)})
+            chars.append(_mk(name, body))
+    elif _had_label:
+        # 只有「场景/服装/百合/内裤」这类标签行，没有真实角色 → 不硬凑角色
+        chars = []
     else:
         names = [(e["zh"], e) for e in lib if e.get("cat") == "角色" and e["zh"] in text]
         names.sort(key=lambda x: -len(x[0]))
         for nm, e in names:
             segs = [s for s in re.split(r"[。\n]", text) if nm in s]
             body = "，".join(segs)
-            feats = _match(body, idx)
-            chars.append({"zh": nm, "name": nm, "tag": nm,
-                          "features": [f["zh"] for f in feats],
-                          "features_en": [f["en"] for f in feats],
-                          "desc": fill_app(nm, body, app_map.get(nm)),
-                          "app": app_map.get(nm)})
+            chars.append(_mk(nm, body))
 
     scene_src = "\n".join([l for l in text.split("\n")
                            if re.match(r"^(场景|其他|环境|画面|地点)", l.strip())]) or text
