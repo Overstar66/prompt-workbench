@@ -1,39 +1,64 @@
 @echo off
 chcp 65001 >nul
+setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
-rem 如果 8901 已在监听，直接打开浏览器
 netstat -ano | findstr ":8901" | findstr "LISTENING" >nul
-if errorlevel 1 (
-  echo 正在启动提示词工作台...
+if not errorlevel 1 goto openpage
 
-  rem 优先用 pythonw（无控制台窗口）
-  where pythonw >nul 2>nul
-  if not errorlevel 1 (
-    start "" pythonw "%~dp0app.py"
-    goto wait
-  )
+echo 正在启动提示词工作台...
+set "PYRUN="
 
-  rem 其次 py 启动器
-  where py >nul 2>nul
-  if not errorlevel 1 (
-    start "" py -3 "%~dp0app.py"
-    goto wait
-  )
-
-  rem 最后 python
-  where python >nul 2>nul
-  if not errorlevel 1 (
-    start "" python "%~dp0app.py"
-    goto wait
-  )
-
-  echo [错误] 没有找到 Python。请安装 Python 3.10+ 并勾选 Add to PATH。
-  echo        或手动运行: python "%~dp0app.py"
-  pause
-  exit /b 1
+if exist "%~dp0python_path.txt" (
+  for /f "usebackq tokens=*" %%a in ("%~dp0python_path.txt") do set "PYRUN=%%a"
+  if exist "!PYRUN!" goto launch
+  set "PYRUN="
 )
 
-:wait
-ping -n 4 127.0.0.1 >nul
+where py >nul 2>nul
+if not errorlevel 1 (
+  set "PYRUN=py -3"
+  goto launch
+)
+
+for /f "delims=" %%p in ('where python 2^>nul') do (
+  echo %%p | findstr /i "WindowsApps" >nul
+  if errorlevel 1 (
+    set "PYRUN=%%p"
+    goto launch
+  )
+)
+
+for %%d in (
+  "%LocalAppData%\Programs\Python\Python313\python.exe"
+  "%LocalAppData%\Programs\Python\Python312\python.exe"
+  "%LocalAppData%\Programs\Python\Python311\python.exe"
+  "%LocalAppData%\Programs\Python\Python310\python.exe"
+  "C:\Python313\python.exe"
+  "C:\Python312\python.exe"
+  "C:\Python311\python.exe"
+  "C:\Python310\python.exe"
+) do (
+  if exist "%%~d" (
+    set "PYRUN=%%~d"
+    goto launch
+  )
+)
+
+echo.
+echo [错误] 没有找到可用的 Python。
+echo.
+echo   1. 安装 Python 3.10+：https://www.python.org/downloads/
+echo      安装时勾选 "Add Python to PATH"
+echo   2. 如果已经装了，把 pythonw.exe 的完整路径写进
+echo      本目录下的 python_path.txt（一行即可）
+echo.
+pause
+exit /b 1
+
+:launch
+start "" %PYRUN% "%~dp0app.py"
+ping -n 5 127.0.0.1 >nul
+
+:openpage
 start "" "http://127.0.0.1:8901"
