@@ -1,0 +1,15 @@
+### B_APINSFW  (2.4s)  note=API润色
+
+[MOSS]
+暖黄的灯光从天花板洒下来，把整个房间染成一片柔和的蜜色。略略略站在那里，蓝色的超长波浪发垂到腰际，发梢渐渐褪成浅蓝，头顶那根心形呆毛微微翘着，耳侧一对鲸鱼鳍状的耳朵让她看起来像是从哪个童话里游出来的。她穿着白色蕾丝围裙女仆装，或者换一身藏青色鲸鱼印花连衣裙配白过膝袜和黑色玛丽珍鞋，娇小的身子在暖光里显得格外柔软。她笑起来，圆圆的蓝眼睛弯成两道月牙，凑过去贴住逢坂大河的脸颊，又伸手去牵她的手，十指扣在一起。
+
+逢坂大河比她还要娇小些，浅棕色的长发散着，没有扎起来，琥珀色的眼睛在灯光下亮亮的。她穿着校服西装外套和百褶裙，白色长袜裹着细细的腿，胸前的弧度浅浅的，笑起来的时候带着点不好意思的软。两个女孩就这么挨着，略略略的鲸鱼鳍耳朵蹭过大河的鬓角，大河微微偏头，肩膀靠过去，贴得更紧了些。
+
+[负向-中]
+最差画质，低画质，普通画质，低分辨率，压缩噪点，模糊，错误的人体结构，畸形的手，多余的手指，缺失的手指，融合的手指，多出的肢体，缺失的肢体，长脖子，水印，签名，用户名，画师名，文字，标志，被裁切，出框，边框，马赛克，打码，遮挡
+
+[WAI]
+masterpiece, best quality, amazing quality, (2girls:1.45), (lueluelue), smile, mary_jane_shoes, heart_ahoge, thighhighs, dress, maid, petite, apron, gradient, lace, circle, naganami_(kancolle), blue_eyes, white_maid_outfit, (aisaka_taiga), amber_eyes, blazer, pleated_skirt, long_hair, flat_chest, school_uniform, loose_hair, light_brown_hair, brown_hair, hug, holding_hands, cheek_to_cheek, indoors, warm_lighting
+
+[WAI负向]
+extra hands, multiple hands, mutated hands, malformed hands, deformed hands, worst quality, low quality, normal quality, lowres, jpeg artifacts, blurry, bad anatomy, bad hands, missing fingers, extra fingers, extra digits, fewer digits, fused fingers, deformed, disfigured, malformed limbs, extra limbs, missing limbs, long neck, watermark, signature, username, artist name, text, logo, cropped, out of frame, border, censored, mosaic censoring, bar censor

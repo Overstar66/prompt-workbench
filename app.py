@@ -827,6 +827,18 @@ class H(BaseHTTPRequestHandler):
                 for _c in (req.get("chars") or []):
                     if not _c.get("app"):
                         _c["app"] = _appmap.get(_c.get("zh") or _c.get("name")) or {}
+                    # MOSS 补外观：把角色自带外观并进 desc（用户已写的内容优先，只补缺失项）
+                    try:
+                        _d = str(_c.get("desc") or "").strip()
+                        _add = []
+                        for _k in ("hair", "eyes", "outfit", "body", "chest"):
+                            _v = str((_c.get("app") or {}).get(_k) or "").strip()
+                            if _v and _v[:3] not in _d:
+                                _add.append(_v)
+                        if _add:
+                            _c["desc"] = "，".join(([_d] if _d else []) + _add)
+                    except Exception:
+                        pass
                 if not req.get("nsfw"):
                     _nsfw_en = {e.get("en") for e in _lib if e.get("nsfw")}
                     _tags = [x for x in (req.get("tags") or []) if (x.get("tag") or "") not in _nsfw_en]

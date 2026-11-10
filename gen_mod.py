@@ -512,8 +512,10 @@ def build_moss_rule(chars, taglist, sel_tags=None, style="动漫风格，柔和�
         chunk = list(dict.fromkeys(own + [x for x in g if x not in own]))
         if not chunk:
             chunk = body[:6]
+        _desc = (chars[i].get('desc') or '').strip() if i < len(chars) else ''
         if own:
-            lines.append(nm + '：' + '、'.join(chunk[:20]) + '。')
+            _parts = ([_desc] if _desc else []) + chunk[:20]
+            lines.append(nm + '：' + '、'.join(list(dict.fromkeys(_parts))) + '。')
             lines.append('')
             continue
         seg = []
@@ -526,7 +528,12 @@ def build_moss_rule(chars, taglist, sel_tags=None, style="动漫风格，柔和�
         if groups['动作']:
             seg.append('正在' + '、'.join([x for x in chunk if x in groups['动作']][:5]))
         seg = [x for x in seg if x and not x.endswith('着')]
-        lines.append(nm + '：' + ('；'.join(seg) if seg else '、'.join(chunk[:8])) + '。')
+        if _desc:
+            # 角色自带外观优先，后面再跟已选标签
+            _tail = '；'.join(seg) if seg else ''
+            lines.append(nm + '：' + _desc + ('；' + _tail if _tail else '') + '。')
+        else:
+            lines.append(nm + '：' + ('；'.join(seg) if seg else '、'.join(chunk[:8])) + '。')
         lines.append('')
     if groups['场景']:
         lines.append('场景：' + '、'.join(groups['场景'][:4]) + '。')
