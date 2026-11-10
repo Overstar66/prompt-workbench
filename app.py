@@ -775,7 +775,7 @@ class H(BaseHTTPRequestHandler):
                     _txt = "，".join(_vals) or (_c.get("desc") or "").strip()[:60] or "保持原文设定"
                     _extra.append("%s=%s" % (_nm, _txt))
                 if _extra:
-                    guard = (guard + "\n" if guard else "") + "【外观锁定，不得改名或互换】" + "；".join(_extra)
+                    guard = (guard + "\n" if guard else "") + "【外观锁定，角色名必须逐字原样保留，不得改名或另起人名，不得互换】" + "；".join(_extra)
             except Exception:
                 pass
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
