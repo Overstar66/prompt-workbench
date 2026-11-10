@@ -784,6 +784,37 @@ class H(BaseHTTPRequestHandler):
             except Exception as e:
                 out, engine = "", "error:" + str(e)[:80]
             # 输出侧：NSFW 关闭时必须干净——模型越界也按词库整句删掉
+            # 骨架矫正：扩写模型偶尔从正文里编出假角色（如「搞百合」），
+            # 这里按输入表头声明的角色名强制重排；多出来的段落丢弃，缺的不补。
+            try:
+                import re as _re2
+                _want = []
+                for _m2 in _re2.finditer(r"(?:【外观锁定[^】]*】)?([^，；\n]+?)=([^；\n]*)", guard or ""):
+                    _nm2 = _m2.group(1).strip().lstrip("【")
+                    if _nm2 and _nm2 not in _want and "=" not in _nm2:
+                        _want.append(_nm2)
+                if out and _want:
+                    _lines = out.split("\n")
+                    _secs, _scenes = [], []
+                    for _ln in _lines:
+                        _mm = _re2.match(r"^\s*([^：:]{1,12})[：:]\s*(.+)$", _ln)
+                        if not _mm:
+                            continue
+                        _nm3, _bd3 = _mm.group(1).strip(), _mm.group(2).strip()
+                        if _nm3 in ("场景", "环境", "地点", "画面"):
+                            _scenes.append(_bd3)
+                        elif _nm3 in _want:
+                            _secs.append((_nm3, _bd3))
+                    if _secs:
+                        _new = ["%d个角色 %s" % (len(_want), " ".join(_want))]
+                        for _nm3, _bd3 in _secs:
+                            _new.append("%s：%s" % (_nm3, _bd3))
+                        if _scenes:
+                            _new.append("场景：" + _scenes[0])
+                        out = "\n".join(_new)
+            except Exception:
+                pass
+
             filtered = 0
             if not nsfw_on:
                 if out:
