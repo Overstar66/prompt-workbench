@@ -4,6 +4,7 @@ import re
 
 QUALITY = "masterpiece, best quality, amazing quality"
 PONY_Q = "score_9, score_8_up, score_7_up, source_anime, rating_explicit"
+ANIMA_Q = "masterpiece, best quality, very aesthetic, absurdres"
 
 NEG_WAI = ('extra hands, multiple hands, mutated hands, malformed hands, deformed hands, worst quality, low quality, normal quality, lowres, jpeg artifacts, blurry, bad anatomy, bad hands, missing fingers, extra fingers, extra digits, fewer digits, fused fingers, deformed, disfigured, malformed limbs, extra limbs, missing limbs, long neck, watermark, signature, username, artist name, text, logo, cropped, out of frame, border, censored, mosaic censoring, bar censor')
 NEG_PONY = ("score_4, score_5, score_6, worst quality, low quality, lowres, bad anatomy, bad hands, "
@@ -444,6 +445,7 @@ def generate(req):
         if "solo" not in pony.lower():
             pony = pony + ", solo"
         pos_blob = pos_blob + " solo"
+    anima = build_positive(chars2, tags, ANIMA_Q, density=density)
     neg_wai = adapt_neg(build_neg("wai", neg_lvl), "wai", pos_blob, nsfw_on)
     neg_pony = adapt_neg(build_neg("pony", neg_lvl), "pony", pos_blob, nsfw_on)
     neg_moss = adapt_neg(build_neg("moss", neg_lvl), "moss", pos_blob, nsfw_on)
@@ -462,6 +464,8 @@ def generate(req):
         "neg": neg_wai,
         "pony": pony,
         "neg_pony": neg_pony,
+        "anima": anima,
+        "neg_anima": (neg_wai + ", " + _anti) if ((len(chars) or 1) == 1 and neg_wai) else neg_wai,
         "negLevel": str(neg_lvl).strip().lower(),
         "note": "本地生成",
     }

@@ -562,7 +562,7 @@
 
   /* ===================== 结果 ===================== */
   function renderChips() {
-    const map = [['moss', 'MOSS'], ['wai', 'WAI'], ['pony', 'Pony'], ['exp', '扩写结果']];
+    const map = [['moss', 'MOSS'], ['wai', 'WAI'], ['pony', 'Pony'], ['anima', 'Animagine'], ['exp', '扩写结果']];
     $('#secChips').innerHTML = map.map(([k, n]) =>
       `<span class="swchip ${S.sec[k] ? 'on' : ''}" data-k="${k}">${n}</span>`).join('');
     $('#secChips').querySelectorAll('.swchip').forEach(el => el.onclick = () => {
@@ -579,7 +579,7 @@
   function showResult(rows) {
     const body = $('#resBody');
     body.innerHTML = rows.map(([k, v]) => {
-      const sec = /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : 'exp';
+      const sec = /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : /Animagine/.test(k) ? 'anima' : 'exp';
       const fill = sec === 'exp' ? '<u data-fill="1">填入草稿</u>' : '';
       return `<div class="sec" data-sec="${sec}">
         <div class="lbl">${esc(k)}<span class="r">${fill}<u data-copy="${esc(k)}">复制</u></span></div>
@@ -833,9 +833,11 @@
         ['MOSS 中文', d.moss || '—'], ['负向 · MOSS', d.neg_zh || d.neg_moss || '—'],
         ['WAI / NoobAI', d.wai || '—'], ['负向 · WAI', d.neg || '—'],
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
+        ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
       ] : [
         ['WAI / NoobAI', d.wai || '—'], ['负向 · WAI', d.neg || '—'],
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
+        ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
       ]);
       stopWait(); toast('完成' + (d.note ? '（' + d.note + '）' : ''));
     } catch (e) { toast('生成失败：' + e.message); }
