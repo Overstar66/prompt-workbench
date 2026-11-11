@@ -835,11 +835,13 @@
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
         ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
         ['Krea2（自然语言）', d.krea || '—'],
+        ['负向 · Krea2', d.neg_krea || '该模型 CFG=1，负向不生效（需把 KSampler cfg 调到 3 以上才起作用）'],
       ] : [
         ['WAI / NoobAI', d.wai || '—'], ['负向 · WAI', d.neg || '—'],
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
         ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
         ['Krea2（自然语言）', d.krea || '—'],
+        ['负向 · Krea2', d.neg_krea || '该模型 CFG=1，负向不生效（需把 KSampler cfg 调到 3 以上才起作用）'],
       ]);
       stopWait(); toast('完成' + (d.note ? '（' + d.note + '）' : ''));
     } catch (e) { toast('生成失败：' + e.message); }

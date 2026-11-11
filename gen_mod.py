@@ -486,6 +486,7 @@ def generate(req):
         "pony": pony,
         "neg_pony": neg_pony,
         "krea": krea,
+        "neg_krea": "",  # Krea2 是 CFG=1 蒸馏模型，负向不生效
         "anima": anima,
         "neg_anima": (neg_wai + ", " + _anti) if ((len(chars) or 1) == 1 and neg_wai) else neg_wai,
         "negLevel": str(neg_lvl).strip().lower(),
