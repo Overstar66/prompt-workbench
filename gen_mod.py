@@ -463,6 +463,10 @@ def generate(req):
             pony = pony + ", solo"
         pos_blob = pos_blob + " solo"
     anima = build_positive(chars2, tags, ANIMA_Q, density=density)
+    try:
+        krea = build_krea(chars2, tags, taglist, density=density)
+    except Exception:
+        krea = ""
     neg_wai = adapt_neg(build_neg("wai", neg_lvl), "wai", pos_blob, nsfw_on)
     neg_pony = adapt_neg(build_neg("pony", neg_lvl), "pony", pos_blob, nsfw_on)
     neg_moss = adapt_neg(build_neg("moss", neg_lvl), "moss", pos_blob, nsfw_on)
@@ -481,11 +485,54 @@ def generate(req):
         "neg": neg_wai,
         "pony": pony,
         "neg_pony": neg_pony,
+        "krea": krea,
         "anima": anima,
         "neg_anima": (neg_wai + ", " + _anti) if ((len(chars) or 1) == 1 and neg_wai) else neg_wai,
         "negLevel": str(neg_lvl).strip().lower(),
         "note": "本地生成",
     }
+
+
+def build_krea(chars, tags, taglist=None, density="normal"):
+    """Krea2（Qwen-Image 系，Qwen3VL 文本编码器）：吃自然语言，不吃标签堆砌。
+    输出一句英文描述；CFG=1，负向基本无效，所以只返回正向。"""
+    taglist = taglist or []
+    zh2en = {}
+    for e in taglist:
+        z, en = (e.get("zh") or ""), (e.get("en") or "")
+        if z and en and e.get("cat") != "角色":
+            zh2en[z] = en.replace("_", " ")
+    def _w(t):
+        en = t.get("tag") or ""
+        return en.replace("_", " ") if en else ""
+    role_ens = {e.get("en") for e in taglist if e.get("cat") == "角色"}
+    names, parts = [], []
+    for c in (chars or [])[:4]:
+        nm = (c.get("en") or c.get("name") or "").replace("_", " ")
+        if nm:
+            names.append(nm)
+        feats = []
+        for t in (c.get("tags") or []):
+            x = _w(t)
+            if x and x not in feats and (t.get("tag") or "") not in role_ens:
+                feats.append(x)
+        if feats:
+            parts.append("%s, %s" % (nm or "a girl", ", ".join(feats[:18])))
+    scene = []
+    for t in (tags or []):
+        x = _w(t)
+        if x and x not in scene:
+            scene.append(x)
+    head = "A detailed anime illustration"
+    if names:
+        head += " of " + (" and ".join(names[:2]) if len(names) <= 2 else ", ".join(names[:-1]) + " and " + names[-1])
+    out = [head]
+    if parts:
+        out.append("Character details: " + "; ".join(parts))
+    if scene:
+        out.append("Scene: " + ", ".join(scene[:10]))
+    out.append("Soft lighting, clean lineart, high detail, full body composition")
+    return ". ".join([x for x in out if x]) + "."
 
 
 def build_moss_rule(chars, taglist, sel_tags=None, style="动漫风格，柔和光线，高细节"):
