@@ -166,6 +166,13 @@
   #nl,#draft{color:#111 !important;font-weight:500}
   #nl::placeholder{color:#b6c3d6;font-weight:400}
   .nl textarea{color:#111}
+
+  /* 结果区头部：文字不折行，标签多了自动换行，不挤压 */
+  .hd{white-space:nowrap;flex-wrap:wrap;height:auto;min-height:44px;padding-top:6px;padding-bottom:6px;row-gap:6px}
+  .hd .r,.hd u,.hd .sub{white-space:nowrap;margin-left:auto}
+  .swchips{display:flex;flex-wrap:wrap;gap:5px;margin-left:10px;min-width:0}
+  .swchip{flex:0 0 auto;white-space:nowrap}
+  #resBody .lbl{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -252,6 +259,6 @@
   </section>
 </main>
 
-<script src="app.js?v=20261111pane"></script>
+<script src="app.js?v=20261111wrap"></script>
 </body>
 </html>

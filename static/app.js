@@ -1232,7 +1232,10 @@
       if (lib) $('.lib').style.flex = '0 0 ' + lib + 'px';
       if (mid) $('.mid').style.flex = '0 0 ' + mid + 'px';
       if (p.bottom) $('.rbot').style.flex = '0 0 ' + Math.min(p.bottom, H * 0.55) + 'px';
-      if (p.tools) $('.tools').style.flex = '0 0 ' + Math.min(p.tools, W * 0.35) + 'px';
+      // 底部两栏按 2:1 比例（忽略旧像素值，避免草稿被挤成一条）
+      const _dr = document.querySelector('.draft'), _tl = document.querySelector('.tools');
+      if (_dr) _dr.style.flex = '2 1 0';
+      if (_tl) _tl.style.flex = '1 1 0';
       // 右侧永远占剩余宽度
       const r = document.querySelector('.right');
       if (r) { r.style.flex = '1 1 0'; r.style.minWidth = '300px'; }

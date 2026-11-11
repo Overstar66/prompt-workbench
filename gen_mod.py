@@ -345,6 +345,23 @@ def _app_en(c, taglist, sel_tags=None):
             if len(zh) >= 2 and zh in rest:
                 if pick(col + zh, col + "色" + zh):
                     break
+    # 兜底：描述里「颜色 + 发」，但词库整词没命中时，直接落成 blue_hair 这类标签
+    _CMAP = (("蓝", "blue"), ("银", "silver"), ("白", "white"), ("黑", "black"),
+             ("金", "blond"), ("红", "red"), ("粉", "pink"), ("紫", "purple"),
+             ("棕", "brown"), ("褐", "brown"), ("绿", "green"), ("橘", "orange"),
+             ("青", "blue"), ("灰", "grey"))
+    _hair_txt = app.get("hair") or ""
+    if "发" in _hair_txt:
+        for _zc, _ec in _CMAP:
+            if _zc in _hair_txt:
+                if (_ec + "_hair") not in out:
+                    out.append(_ec + "_hair")
+                break
+        for _zc, _ec in (("超长", "very_long_hair"), ("长发", "long_hair"),
+                         ("中长", "medium_hair"), ("短发", "short_hair"),
+                         ("波浪", "wavy_hair"), ("卷", "curly_hair")):
+            if _zc in _hair_txt and _ec not in out:
+                out.append(_ec)
     return [x for x in out if _app_kind(x, info) not in own]
 
 
