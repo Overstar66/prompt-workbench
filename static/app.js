@@ -1223,32 +1223,65 @@
   /* ===================== 面板拖拽 ===================== */
   function initResize() {
     const p = LS.get('pane', {});
-    if (p.lib) $('.lib').style.flex = '0 0 ' + p.lib + 'px';
-    if (p.mid) $('.mid').style.flex = '0 0 ' + p.mid + 'px';
-    if (p.bottom) $('.rbot').style.flex = '0 0 ' + p.bottom + 'px';
-    if (p.tools) $('.tools').style.flex = '0 0 ' + p.tools + 'px';
+    const applyPane = () => {
+      const W = window.innerWidth || document.documentElement.clientWidth || 1200;
+      const H = window.innerHeight || 800;
+      const maxSide = Math.max(240, W * 0.40);
+      const lib = Math.min(p.lib || 0, maxSide);
+      const mid = Math.min(p.mid || 0, maxSide);
+      if (lib) $('.lib').style.flex = '0 0 ' + lib + 'px';
+      if (mid) $('.mid').style.flex = '0 0 ' + mid + 'px';
+      if (p.bottom) $('.rbot').style.flex = '0 0 ' + Math.min(p.bottom, H * 0.55) + 'px';
+      if (p.tools) $('.tools').style.flex = '0 0 ' + Math.min(p.tools, W * 0.35) + 'px';
+      // 右侧永远占剩余宽度
+      const r = document.querySelector('.right');
+      if (r) { r.style.flex = '1 1 0'; r.style.minWidth = '300px'; }
+    };
+    applyPane();
+    window.addEventListener('resize', applyPane);
 
     document.querySelectorAll('.grip-v').forEach(g => {
       g.onmousedown = ev => {
         ev.preventDefault();
         const a = g.previousElementSibling, b = g.nextElementSibling;
         if (!a || !b) return;
-        const x0 = ev.clientX, aw = a.getBoundingClientRect().width, bw = b.getBoundingClientRect().width;
+        const parent = a.parentElement;
+        const totalW = parent.getBoundingClientRect().width;
+        const isRightCol = b.classList.contains('right');
+        const isMidCol = b.classList.contains('mid') || b.classList.contains('lib');
+        const x0 = ev.clientX;
+        const aw = a.getBoundingClientRect().width;
+        const bw = b.getBoundingClientRect().width;
+        const pairW = aw + bw;
+        const MIN_A = 200, MIN_B = 320;
         const move = e => {
-          const dx = e.clientX - x0;
-          a.style.flex = '0 0 ' + Math.max(220, aw + dx) + 'px';
-          b.style.flex = '0 0 ' + Math.max(240, bw - dx) + 'px';
+          let na = aw + (e.clientX - x0);
+          if (isRightCol) {
+            // 最右侧只吸收剩余宽度，左列上限 = 容器 - 右列最小宽
+            na = Math.min(Math.max(MIN_A, na), totalW - MIN_B - 12);
+            a.style.flex = '0 0 ' + na + 'px';
+            b.style.flex = '1 1 0';
+            b.style.minWidth = '0';
+          } else if (isMidCol) {
+            na = Math.min(Math.max(MIN_A, na), pairW - MIN_A);
+            a.style.flex = '0 0 ' + na + 'px';
+            b.style.flex = '0 0 ' + Math.max(MIN_A, pairW - na) + 'px';
+          } else {
+            na = Math.max(MIN_A, na);
+            a.style.flex = '0 0 ' + na + 'px';
+          }
         };
         const up = () => {
           document.removeEventListener('mousemove', move);
           document.removeEventListener('mouseup', up);
           const o = LS.get('pane', {});
-          const w = Math.round(a.getBoundingClientRect().width);
-          if (a.classList.contains('lib')) o.lib = w;
-          else if (a.classList.contains('mid')) o.mid = w;
-          else if (a.classList.contains('draft')) o.draft = w;
-          else o.tools = w;
-          o[b.classList.contains('tools') ? 'tools' : 'tools'] = Math.round(b.getBoundingClientRect().width);
+          const keyOf = el => el.classList.contains('lib') ? 'lib'
+            : el.classList.contains('mid') ? 'mid'
+            : el.classList.contains('draft') ? 'draft'
+            : el.classList.contains('tools') ? 'tools' : '';
+          const ka = keyOf(a), kb = keyOf(b);
+          if (ka) o[ka] = Math.round(a.getBoundingClientRect().width);
+          if (kb) o[kb] = Math.round(b.getBoundingClientRect().width);
           LS.set('pane', o);
         };
         document.addEventListener('mousemove', move);
