@@ -761,21 +761,24 @@ class H(BaseHTTPRequestHandler):
             if not nsfw_on:
                 text = _sfw_sanitize(text)
             guard = build_char_guard(text)
-            # 扩写也要认「N个角色 A B」这类表头里声明的角色（它们不在词库里）
+            # 表头角色：解析出来供两处用 —— ①扩写约束 ②输出骨架矫正
+            _hdr_names, _hdr_desc = [], {}
             try:
                 import parse_mod as _pm
                 _p = _pm.parse_text(text)
-                _extra = []
-                for _c in (_p.get("chars") or [])[:4]:
+                for _c in (_p.get("chars") or [])[:6]:
                     _nm = (_c.get("name") or _c.get("zh") or "").strip()
-                    if not _nm:
+                    if not _nm or _nm in _hdr_names:
                         continue
                     _ap = _c.get("app") or {}
-                    _vals = [_ap.get(k) for k in ("hair", "eyes", "outfit") if _ap.get(k)]
-                    _txt = "，".join(_vals) or (_c.get("desc") or "").strip()[:60] or "保持原文设定"
-                    _extra.append("%s=%s" % (_nm, _txt))
-                if _extra:
-                    guard = (guard + "\n" if guard else "") + "【外观锁定，角色名必须逐字原样保留，不得改名或另起人名，不得互换】" + "；".join(_extra)
+                    _vals = [str(_ap.get(k) or "").strip() for k in ("hair", "eyes", "outfit") if _ap.get(k)]
+                    _desc = (",".join(_vals) or (_c.get("desc") or "").strip())[:80]
+                    _hdr_names.append(_nm)
+                    _hdr_desc[_nm] = _desc
+                if _hdr_names:
+                    guard = ((guard + "\n") if guard else "") + \
+                        "【外观锁定，角色名必须逐字原样保留，不得改名或另起人名，不得互换】" + \
+                        "；".join("%s=%s" % (n, _hdr_desc[n] or "保持原文设定") for n in _hdr_names)
             except Exception:
                 pass
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
@@ -783,38 +786,30 @@ class H(BaseHTTPRequestHandler):
                 out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard)
             except Exception as e:
                 out, engine = "", "error:" + str(e)[:80]
-            # 输出侧：NSFW 关闭时必须干净——模型越界也按词库整句删掉
-            # 骨架矫正：扩写模型偶尔从正文里编出假角色（如「搞百合」），
-            # 这里按输入表头声明的角色名强制重排；多出来的段落丢弃，缺的不补。
+            # 骨架矫正：只保留表头声明的角色段，缺的按解析结果补一句，首行固定为完整名单
             try:
-                import re as _re2
-                _want = []
-                for _m2 in _re2.finditer(r"(?:【外观锁定[^】]*】)?([^，；\n]+?)=([^；\n]*)", guard or ""):
-                    _nm2 = _m2.group(1).strip().lstrip("【")
-                    if _nm2 and _nm2 not in _want and "=" not in _nm2:
-                        _want.append(_nm2)
-                if out and _want:
-                    _lines = out.split("\n")
-                    _secs, _scenes = [], []
-                    for _ln in _lines:
+                if out and _hdr_names:
+                    import re as _re2
+                    _secs, _scenes = {}, []
+                    for _ln in out.split("\n"):
                         _mm = _re2.match(r"^\s*([^：:]{1,12})[：:]\s*(.+)$", _ln)
                         if not _mm:
                             continue
                         _nm3, _bd3 = _mm.group(1).strip(), _mm.group(2).strip()
                         if _nm3 in ("场景", "环境", "地点", "画面"):
                             _scenes.append(_bd3)
-                        elif _nm3 in _want:
-                            _secs.append((_nm3, _bd3))
-                    if _secs:
-                        _new = ["%d个角色 %s" % (len(_want), " ".join(_want))]
-                        for _nm3, _bd3 in _secs:
-                            _new.append("%s：%s" % (_nm3, _bd3))
+                        elif _nm3 in _hdr_names:
+                            _secs.setdefault(_nm3, _bd3)
+                    if _secs or _scenes:
+                        _new = ["%d个角色 %s" % (len(_hdr_names), " ".join(_hdr_names))]
+                        for _n4 in _hdr_names:
+                            _body4 = _secs.get(_n4) or (_hdr_desc.get(_n4) or "保持原文设定")
+                            _new.append("%s：%s" % (_n4, _body4))
                         if _scenes:
                             _new.append("场景：" + _scenes[0])
                         out = "\n".join(_new)
             except Exception:
                 pass
-
             filtered = 0
             if not nsfw_on:
                 if out:
