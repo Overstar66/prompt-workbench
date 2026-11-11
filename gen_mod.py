@@ -362,7 +362,8 @@ def _app_en(c, taglist, sel_tags=None):
                          ("波浪", "wavy_hair"), ("卷", "curly_hair")):
             if _zc in _hair_txt and _ec not in out:
                 out.append(_ec)
-    return [x for x in out if _app_kind(x, info) not in own]
+    return [x for x in out if _app_kind(x, info) not in own
+            and (info.get(x) or ("", ""))[0] != "角色"]
 
 
 def _wtag(t):

@@ -93,6 +93,12 @@ echo       - goonsai/qwen2.5-3b-goonsai-nsfw-100k（成人向润色）
 ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k
 echo       模型准备完成。
 
+if errorlevel 1 (
+  echo.
+  echo 上一步出错了，把这里的文字截图发出来即可帮你判断。
+  pause
+)
+
 :launch
 echo.
 echo ============================================
