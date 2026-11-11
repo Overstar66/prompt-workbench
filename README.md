@@ -19,7 +19,9 @@
 
 ## 快速开始
 
-需要 Python 3.10+（后端只用标准库）。以下 4 步，路径均相对项目根目录。
+需要 Python 3.10 ~ 3.12（推荐 3.12；后端只用标准库）。
+3.14 / 3.15 也能启动，但 onnxruntime 目前没有对应安装包，图片反推不可用。
+以下 4 步，路径均相对项目根目录。
 
 **1. 获取代码**
 
@@ -54,7 +56,8 @@ cp api_config.example.json api_config.json
 python app.py
 ```
 
-Windows 也可双击 `启动工作台.bat`——脚本会自动探测 pythonw / py / python，找到就启动，找不到会提示安装 Python。
+Windows 双击 `install.bat` 走安装向导（内部调用 `install.ps1`，装依赖时显示下载进度）。
+只想启动的话，双击 `启动工作台.bat`——它会自动探测 pythonw / py / python，找不到会提示安装 Python。
 
 打开 <http://127.0.0.1:8901>。默认端口 **8901**，改 `app.py` 顶部的 `PORT = 8901` 后重启即可，访问地址跟着换。
 macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一致。
@@ -146,7 +149,7 @@ Q 版比例，海边、水手服、玫瑰花束，另有两只缩小分身。
 
 | 组件 | 用途 | 没有它会怎样 | 安装 / 配置 |
 |---|---|---|---|
-| Python 3.10+ | 运行后端 | 起不来 | 从 python.org 安装，勾选 PATH |
+| Python 3.10 ~ 3.12 | 运行后端 | 起不来 | 从 python.org 安装，勾选 PATH；3.14+ 图片反推不可用 |
 | onnxruntime + Pillow + numpy | 图反推 | 图反推不可用，其余功能正常 | `pip install onnxruntime pillow numpy` |
 | WD14 模型 | 图反推权重 | 图反推不可用，其余功能正常 | 下载 `wd-v1-4-moat-tagger-v2.onnx` + 同名 `.csv` |
 | DeepSeek API Key | API 扩写 / 润色 | 只能用 Ollama 或模板，功能仍完整 | 填 `api_config.json` 或界面「API」 |
@@ -191,7 +194,9 @@ ollama pull goonsai/qwen2.5-3b-goonsai-nsfw-100k:latest   # 成人向兜底
 `
 studio2/
 ├── 提示词工作台.lnk        ← 双击启动（推荐）
-├── 启动工作台.bat          ← 备用启动脚本（自动探测 Python）
+├── install.bat             ← 安装向导（调用 install.ps1）
+├── install.ps1 / launch.ps1
+├── 启动工作台.bat          ← 启动脚本（自动探测 Python）
 │
 ├── app.py                 后端 HTTP 服务 + 全部接口（仅标准库）
 ├── parse_mod.py           拆标签：中英文匹配 + 角色外貌补全
