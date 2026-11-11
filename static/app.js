@@ -1331,6 +1331,36 @@
       t = setTimeout(() => { S.q = sb.textContent.trim(); S.shown = PAGE; renderTags(); }, 160);
     };
 
+    /* 标签拖进「自然语言框」和「MOSS 草稿」：写中文，不写英文 tag */
+    ['#nl', '#draft'].forEach(sel => {
+      const box = document.querySelector(sel);
+      if (!box) return;
+      box.addEventListener('dragover', e => { e.preventDefault(); e.dataTransfer.dropEffect = 'copy'; });
+      box.addEventListener('drop', e => {
+        e.preventDefault();
+        let zh = '';
+        const p = window.__dragSel;
+        if (p) {
+          if (p.from === 'g') { const t = S.global[p.j]; zh = t ? t.zh : ''; }
+          else { const c = S.chars[p.i]; const t = c && c.tags[p.j]; zh = t ? t.zh : ''; }
+        }
+        if (!zh) {
+          const en = e.dataTransfer.getData('text/plain');
+          const t = S.lib.find(x => x.en === en);
+          zh = t ? t.zh : en;
+        }
+        if (!zh) return;
+        const s0 = box.selectionStart == null ? box.value.length : box.selectionStart;
+        const s1 = box.selectionEnd == null ? box.value.length : box.selectionEnd;
+        const before = box.value.slice(0, s0), after = box.value.slice(s1);
+        const sep = (!before || /[，,。；;\s]$/.test(before)) ? '' : '，';
+        box.value = before + sep + zh + after;
+        const pos = (before + sep + zh).length;
+        box.selectionStart = box.selectionEnd = pos;
+        box.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
     loadSettings(); bindSettings();
     initResize(); initScroll(); initReverse();
     renderChips(); renderHist(); renderSel();
