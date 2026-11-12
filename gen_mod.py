@@ -487,6 +487,7 @@ def generate(req):
         "pony": pony,
         "neg_pony": neg_pony,
         "krea": krea,
+        "qwen": krea,  # Qwen-Image 系（含 NSFW LoRA）与 Krea2 同为自然语言输入
         "neg_krea": "",  # Krea2 是 CFG=1 蒸馏模型，负向不生效
         "anima": anima,
         "neg_anima": (neg_wai + ", " + _anti) if ((len(chars) or 1) == 1 and neg_wai) else neg_wai,

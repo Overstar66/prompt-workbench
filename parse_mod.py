@@ -135,9 +135,25 @@ def parse_text(text):
 
     def _mk(name, body):
         feats = _match(body, idx)
+        zh_list = [f["zh"] for f in feats]
+        en_list = [f["en"] for f in feats]
+        # 角色自带外观：正文没写到的类别直接补成词条，拆出来就一目了然
+        try:
+            import gen_mod as _gm
+            _app = app_map.get(name) or {}
+            if _app:
+                _extra = _gm._app_en({"zh": name, "name": name, "app": _app,
+                                      "tags": [{"tag": e} for e in en_list]}, lib, [])
+                for _en in _extra:
+                    if _en and _en not in en_list:
+                        _zh = next((e["zh"] for e in lib if e.get("en") == _en), _en)
+                        en_list.append(_en)
+                        zh_list.append(_zh)
+        except Exception:
+            pass
         return {"zh": name, "name": name, "tag": name,
-                "features": [f["zh"] for f in feats],
-                "features_en": [f["en"] for f in feats],
+                "features": zh_list,
+                "features_en": en_list,
                 "desc": fill_app(name, body, app_map.get(name)),
                 "app": app_map.get(name)}
 

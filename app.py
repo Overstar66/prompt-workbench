@@ -870,11 +870,23 @@ class H(BaseHTTPRequestHandler):
                 for _c in (req.get("chars") or []):
                     if not _c.get("app"):
                         _c["app"] = _appmap.get(_c.get("zh") or _c.get("name")) or {}
-                    # MOSS 补外观：把角色自带外观并进 desc（用户已写的内容优先，只补缺失项）
+                    # MOSS 补外观：用户已写 / 已选的内容优先，只在「这一类都没写」时才补
                     try:
+                        import re as _reA
                         _d = str(_c.get("desc") or "").strip()
+                        _en2zh = {e.get("en"): e.get("zh") for e in _lib if e.get("en")}
+                        _tagzh = " ".join(str(t.get("zh") or _en2zh.get(t.get("tag")) or t.get("tag") or "") for t in (_c.get("tags") or []))
+                        _own = {
+                            "hair": bool(_reA.search(r"发|马尾|刘海|辫", _d + _tagzh)),
+                            "eyes": bool(_reA.search(r"眼|瞳", _d + _tagzh)),
+                            "outfit": bool(_reA.search(r"裙|服|衣|裤|袜|鞋|内衣|汉服|制服|外套|T恤|泳装|围裙", _d + _tagzh)),
+                            "body": bool(_reA.search(r"娇小|纤细|高挑|丰满|匀称|瘦|胖", _d + _tagzh)),
+                            "chest": bool(_reA.search(r"贫乳|巨乳|爆乳|平胸|小胸|大胸|胸部", _d + _tagzh)),
+                        }
                         _add = []
                         for _k in ("hair", "eyes", "outfit", "body", "chest"):
+                            if _own.get(_k):
+                                continue
                             _v = str((_c.get("app") or {}).get(_k) or "").strip()
                             if _v and _v[:3] not in _d:
                                 _add.append(_v)

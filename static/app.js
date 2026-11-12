@@ -562,7 +562,7 @@
 
   /* ===================== 结果 ===================== */
   function renderChips() {
-    const map = [['moss', 'MOSS'], ['wai', 'WAI'], ['pony', 'Pony'], ['anima', 'Animagine'], ['krea', 'Krea2'], ['exp', '扩写结果']];
+    const map = [['moss', 'MOSS'], ['wai', 'WAI'], ['pony', 'Pony'], ['anima', 'Animagine'], ['krea', 'Krea2'], ['qwen', 'Qwen-NSFW'], ['exp', '扩写结果']];
     $('#secChips').innerHTML = map.map(([k, n]) =>
       `<span class="swchip ${S.sec[k] ? 'on' : ''}" data-k="${k}">${n}</span>`).join('');
     $('#secChips').querySelectorAll('.swchip').forEach(el => el.onclick = () => {
@@ -579,7 +579,7 @@
   function showResult(rows) {
     const body = $('#resBody');
     body.innerHTML = rows.map(([k, v]) => {
-      const sec = /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : /Animagine/.test(k) ? 'anima' : /Krea/.test(k) ? 'krea' : 'exp';
+      const sec = /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : /Animagine/.test(k) ? 'anima' : /Krea/.test(k) ? 'krea' : /Qwen/.test(k) ? 'qwen' : 'exp';
       const fill = sec === 'exp' ? '<u data-fill="1">填入草稿</u>' : '';
       return `<div class="sec" data-sec="${sec}">
         <div class="lbl">${esc(k)}<span class="r">${fill}<u data-copy="${esc(k)}">复制</u></span></div>
@@ -835,12 +835,14 @@
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
         ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
         ['Krea2（自然语言）', d.krea || '—'],
+        ['Qwen-Image NSFW', d.qwen || '—'],
         ['负向 · Krea2', d.neg_krea || '该模型 CFG=1，负向不生效（需把 KSampler cfg 调到 3 以上才起作用）'],
       ] : [
         ['WAI / NoobAI', d.wai || '—'], ['负向 · WAI', d.neg || '—'],
         ['Pony V6 XL', d.pony || '—'], ['负向 · Pony', d.neg_pony || '—'],
         ['Animagine XL', d.anima || '—'], ['负向 · Animagine', d.neg_anima || '—'],
         ['Krea2（自然语言）', d.krea || '—'],
+        ['Qwen-Image NSFW', d.qwen || '—'],
         ['负向 · Krea2', d.neg_krea || '该模型 CFG=1，负向不生效（需把 KSampler cfg 调到 3 以上才起作用）'],
       ]);
       stopWait(); toast('完成' + (d.note ? '（' + d.note + '）' : ''));
