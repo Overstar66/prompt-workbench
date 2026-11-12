@@ -152,15 +152,7 @@
             if (!ans) {
               const hid = catHidden(); if (!hid.includes(c)) hid.push(c); LS.set('catHidden', hid);
               if (S.cat === c) S.cat = '全部';
-    // 恢复上次的已选（刷新不清空）
-    try {
-      const st = LS.get('selState', null);
-      if (st && typeof st === 'object') {
-        if (Array.isArray(st.chars)) S.chars = st.chars;
-        if (Array.isArray(st.global)) S.global = st.global;
-      }
-    } catch (_) {}
-    renderCats(); renderSub(); renderTags(); renderSel();
+    renderCats(); renderSub(); renderTags();
               toast('已删除分类：' + labelOf(c));
               return;
             }
@@ -479,7 +471,9 @@
     return out;
   }
 
+  let SEL_READY = false;      // boot 恢复完成后才允许写，避免空状态覆盖存档
   function saveSel() {
+    if (!SEL_READY) return;
     try {
       LS.set('selState', { chars: S.chars, global: S.global });
     } catch (_) {}
@@ -1441,7 +1435,16 @@
     const ov = LS.get('catOverrides', {});
     S.catOverrides = (ov && typeof ov === 'object' && !Array.isArray(ov)) ? ov : {};
     mergeCustomChars();                 // 自定义角色：localStorage 与后端（/api/chars）都合并
-    renderCats(); renderSub(); renderTags();
+    // 恢复上次的已选（刷新不清空）
+    try {
+      const st = LS.get('selState', null);
+      if (st && typeof st === 'object') {
+        if (Array.isArray(st.chars)) S.chars = st.chars;
+        if (Array.isArray(st.global)) S.global = st.global;
+      }
+    } catch (_) {}
+    SEL_READY = true;
+    renderCats(); renderSub(); renderTags(); renderSel();
   }
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();
 })();
