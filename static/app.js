@@ -152,7 +152,15 @@
             if (!ans) {
               const hid = catHidden(); if (!hid.includes(c)) hid.push(c); LS.set('catHidden', hid);
               if (S.cat === c) S.cat = '全部';
-              renderCats(); renderSub(); renderTags();
+    // 恢复上次的已选（刷新不清空）
+    try {
+      const st = LS.get('selState', null);
+      if (st && typeof st === 'object') {
+        if (Array.isArray(st.chars)) S.chars = st.chars;
+        if (Array.isArray(st.global)) S.global = st.global;
+      }
+    } catch (_) {}
+    renderCats(); renderSub(); renderTags(); renderSel();
               toast('已删除分类：' + labelOf(c));
               return;
             }
@@ -471,7 +479,13 @@
     return out;
   }
 
+  function saveSel() {
+    try {
+      LS.set('selState', { chars: S.chars, global: S.global });
+    } catch (_) {}
+  }
   function renderSel() {
+    saveSel();
     const body = $('#selBody');
     $('#selCount').textContent = S.global.length + S.chars.reduce((n, c) => n + c.tags.length, 0);
     const cf = detectConflicts();
@@ -769,12 +783,20 @@
     try {
       const d = await api('/api/parse', { text });
       if (d.error) throw new Error(d.error);
-      S.chars = (d.chars || []).map(c => {
+      (d.chars || []).forEach(c => {
         const nm = c.zh || c.tag || '';
         const desc = c.desc || text.split(/[。\n]/).filter(x => x.includes(nm)).join('，');
         const zhs = c.features || [];
         const ens = c.features_en || [];
-        return { name: nm, desc, tags: zhs.map((z, i) => ({ zh: z, en: ens[i] || z, w: 1 })) };
+        const tags = zhs.map((z, i) => ({ zh: z, en: ens[i] || z, w: 1 }));
+        const old = S.chars.find(x => x.name === nm);
+        if (old) {
+          // 同一个角色：保留角色框里已有的标签，只补新的
+          tags.forEach(t => { if (!old.tags.some(o => o.en === t.en)) old.tags.push(t); });
+          if (desc && desc.length > (old.desc || '').length) old.desc = desc;
+        } else {
+          S.chars.push({ name: nm, desc, tags });
+        }
       });
       (d.tags || []).forEach(t => {
         const x = S.lib.find(e => e.en === t.en || e.en === t.tag);
