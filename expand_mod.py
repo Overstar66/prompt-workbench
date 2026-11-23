@@ -59,6 +59,56 @@ _FMT_HINT = ("输出格式：第一行「N个角色 + 原始角色名」，N 和
              "每个角色一行「原始角色名：一段连贯描写」；最后一行「场景：地点、光线、氛围」。"
              "不要分镜、不要编号、不要解释。")
 
+# ---------------- 角色名 / 人数识别规则（扩写与英文模型适配共用） ----------------
+# 用户反馈：模型经常分不清哪个词是角色名，把「雨夜 / 倒影 / 霓虹」当人名，
+# 或者把带出处的名字拆开、改掉人数。这里把判定规则写死进 system。
+_NAME_RULES = (
+    "【角色名识别 · 必须先做】\n"
+    "- 英文双引号 \"...\" 里的整段就是角色名；名字后面紧跟的（...）或 (...)，括号里是角色出处（作品名），"
+    "属于名字的一部分，不能拆开、不能当成外貌/服装/场景描述。\n"
+    "- 人数是硬约束：输入里出现 1girl、1boy、solo、2girls、2boys、multiple girls、no humans、"
+    "N个角色 等数量标记时，角色数量必须与之一致，不能增加、减少或改写；solo 只能用于单人。\n"
+    "- 没有引号时，只把「N个角色 名字」表头和「名字：」行首的名字当角色名；"
+    "雨夜、倒影、霓虹、光线、构图这类场景/氛围词不是角色名。\n"
+    "- 不要改写、替换或拆分角色名，也不要凭空增加角色。"
+)
+
+# MOSS 中文扩写：保持既有「N个角色 / 名字：」骨架；引号由 polish() 统一补
+_MOSS_OUT_HINT = ("中文输出，每行「名字：描述」；角色名必须和输入逐字一致，"
+                  "名字后面的出处括号照原样保留在名字后。")
+
+# Anima / 光辉（Illustrious）英文 tag 输出
+_TAG_QUALITY = {
+    "anima": "masterpiece, best quality, very aesthetic, absurdres",
+    "illustrious": "masterpiece, best quality, amazing quality",
+}
+_TAG_MODEL = {"anima": "Anima", "illustrious": "Illustrious（光辉）"}
+
+
+def _tag_sys(target, nsfw=False):
+    """Anima / 光辉的 system：全英文 tag，角色名+出处翻成英文并保留引号。"""
+    q = _TAG_QUALITY.get(target) or _TAG_QUALITY["anima"]
+    m = _TAG_MODEL.get(target) or "Anima"
+    adult = ("允许成人向内容，可以保留露骨 tag；" if nsfw
+             else "不要输出任何成人、裸露、性相关的 tag；")
+    return (
+        ("你是动漫插画提示词写手，把用户输入改写成 %s 模型可直接使用的英文 tag 串。\n" % m)
+        + _NAME_RULES + "\n\n"
+        + "【输出格式】\n"
+        + "- 只输出一行英文 tag，用逗号+空格分隔；不要中文、不要句子、不要解释、不要编号、不要换行。\n"
+        + "- 标签顺序：质量 → 人数 → 角色 → 发型/瞳色/服装/动作/表情 → 场景/光线/构图。\n"
+        + "- 质量前缀固定为：%s。\n" % q
+        + "- 人数：单人女性写 1girl, solo；单人男性写 1boy, solo；两人写 2girls 或 1girl, 1boy；"
+          "输入已给的人数标记必须原样保留。\n"
+        + "- 角色：把角色名和括号里的出处都翻译成对应的英文官方名，写成 \"name (series)\"，"
+          "用英文双引号包住整段，括号留在引号内；多角色各写一条；"
+          "不知道英文名就用常见罗马音，不知道出处就省略括号，不要编造。\n"
+        + "- 其他标签用英文 Danbooru 风格小写词，空格代替下划线；不要重复。\n"
+        + "- " + adult + "\n"
+        + "- 只输出 tag 串。"
+    )
+
+
 
 def _cfg():
     try:
@@ -68,27 +118,36 @@ def _cfg():
 
 
 def _count_hint(text):
-    m = re.search(r"([123一二三])\s*个?\s*角色", text)
+    """从中文「N个角色」或英文 1girl/2boys/solo 里读人数；读不出返回空串。"""
+    t = text or ""
+    m = re.search(r"([123一二三])\s*个?\s*角色", t)
     n = {"1": 1, "一": 1, "2": 2, "二": 2, "3": 3, "三": 3}.get(m.group(1)) if m else 0
-    if not n and ("单人" in text or "一个人" in text):
-        n = 1
+    if not n:
+        # 1girl / 2girls / 1boy / 1other 可以同时出现，按数量相加
+        low = t.lower()
+        pairs = re.findall(r"\b(\d+)\s*(?:girls?|boys?|others?)\b", low)
+        if pairs:
+            n = sum(int(x) for x in pairs)
+        elif re.search(r"\bsolo\b", low) or "单人" in t or "一个人" in t:
+            n = 1
     return ("写%d个角色，不要增减角色数。\n" % n) if n else ""
 
 
 # ---------------- 后处理：老 align_format + clean_expanded 的纯文本部分 ----------------
 
 _NOTE_W = "用户已写|禁止改|禁止更改|勿改|不可改|词库|注意|可选|同上|待补充|禁止"
-_SEC = re.compile(r"^([^\s：:]{1,12})[：:]\s*(.*)$")
+_SEC = re.compile(r'^(?:"([^"]{1,60})"|“([^”]{1,60})”|([^\s：:]{1,12}))[：:]\s*(.*)$')
 _GENERIC = re.compile(r"^(角色|人物|少女|女生|女|她|他|主角|角色[A-Za-z]|人物[A-Za-z])[A-Za-z0-9一二三四五六七八九十]?$")
 _SCENE_KEYS = ("场景", "环境", "背景", "舞台", "氛围")
 _MISC_KEYS = ("其他", "画风", "风格", "构图", "画质", "光线")
 
 
 def _strip_notes(s):
-    """去掉模型自带的括注标注（如「（用户已写，禁止改）」「（词库）」），其余括号只去括号符。"""
+    """去掉模型自带的括注标注（如「（用户已写，禁止改）」「（词库）」）。
+    短括号（角色出处，如「圣园未花（蔚蓝档案）」）保留，只把超长括注的括号去掉。"""
     s = re.sub(r"[（(【\[][^（()）【】\[\]]{0,60}?(?:%s)[^（()）【】\[\]]{0,60}?[）)】\]]" % _NOTE_W, "", s)
-    s = re.sub(r"[（(]([^（）()]{1,200})[）)]", r"\1", s)
-    return s.replace("（", "").replace("）", "").replace("(", "").replace(")", "")
+    s = re.sub(r"[（(]([^（）()]{21,200})[）)]", r"\1", s)
+    return s.strip()
 
 
 def _squash(s):
@@ -175,6 +234,13 @@ def _names_from_guard(guard):
     return out
 
 
+def _qname(n):
+    n = str(n or "").strip()
+    if len(n) >= 2 and n[0] == '"' and n[-1] == '"':
+        return n
+    return '"%s"' % n if n else '""'
+
+
 def polish(raw, names=None, scene_hint=""):
     """把模型输出整成「第一行 N个角色 A B；每人一行；场景一行」。"""
     s = (raw or "").strip()
@@ -189,8 +255,8 @@ def polish(raw, names=None, scene_hint=""):
     for ln in lines:
         m = _SEC.match(ln)
         if m:
-            nm = m.group(1).strip()
-            cur = [nm, [m.group(2).strip()] if m.group(2).strip() else []]
+            nm = (m.group(1) or m.group(2) or m.group(3) or "").strip()
+            cur = [nm, [m.group(4).strip()] if m.group(4).strip() else []]
             secs.append(cur)
         elif cur is not None:
             cur[1].append(ln)
@@ -241,9 +307,9 @@ def polish(raw, names=None, scene_hint=""):
             merged[nm] = body
             order.append(nm)
 
-    out = ["%d个角色 %s" % (len(order), " ".join(order))]
+    out = ["%d个角色 %s" % (len(order), " ".join(_qname(nm) for nm in order))]
     for nm in order:
-        out.append("%s：%s" % (nm, merged[nm]))
+        out.append("%s：%s" % (_qname(nm), merged[nm]))
     sc = _dedupe(_squash("，".join(scene))) if scene else ""
     if not sc and scene_hint:
         sc = _squash(scene_hint)                       # 模型漏了场景 → 用用户原文的「环境：」
@@ -293,7 +359,8 @@ def deepseek_chat(sys_p, prompt, max_tokens=600, temperature=0.6):
 def _refused(t):
     if not t:
         return True
-    if len(t) < 80 and any(w in t for w in ("抱歉", "无法", "不能提供", "作为AI", "作为 AI")):
+    if len(t) < 80 and any(w in t for w in ("抱歉", "无法", "不能提供", "作为AI", "作为 AI",
+                                             "sorry", "cannot", "unable to")):
         return True
     return False
 
@@ -310,9 +377,48 @@ def _ask(text, guard, names):
         if h:
             parts.append(h)
     parts.append("关键词/要求：%s" % (text or "").strip())
+    parts.append(_MOSS_OUT_HINT)
     parts.append(_FMT_HINT)
     parts.append(_LEN_HINT)
     return "\n".join(parts)
+
+
+def _tag_ask(text, guard, names):
+    """Anima / 光辉：用户侧只给原文、人数与角色约束，格式由 system 负责。"""
+    parts = []
+    if guard:
+        parts.append(guard.rstrip())
+    if names:
+        parts.append("角色：%s" % "、".join(names))
+    h = _count_hint(text).strip()
+    if h:
+        parts.append(h)
+    parts.append("关键词/要求：%s" % (text or "").strip())
+    parts.append("按上面的角色名/人数规则识别后，输出一行英文 tag。")
+    return "\n".join(parts)
+
+
+def _clean_tags(t):
+    """模型偶尔会带代码围栏/换行/解释，这里只保留一行 tag 串。"""
+    s = (t or "").strip()
+    s = re.sub(r"^```[a-zA-Z0-9_-]*\s*", "", s)
+    s = re.sub(r"\s*```$", "", s)
+    s = s.replace("\r", "\n")
+    # 逐行保留 tag 行，丢掉明显的中文解释行
+    lines = []
+    for ln in s.split("\n"):
+        ln = ln.strip()
+        if not ln:
+            continue
+        if re.search(r"[\u4e00-\u9fff]", ln) and "," not in ln:
+            continue
+        lines.append(ln)
+    s = ", ".join(lines)
+    s = re.sub(r"\s*,\s*", ", ", s)
+    s = re.sub(r"(?:,\s*){2,}", ", ", s)
+    s = re.sub(r"[ \t\u3000]+", " ", s)
+    return s.strip(" ,，")
+
 
 
 def _scene_hint(text):
@@ -321,24 +427,39 @@ def _scene_hint(text):
     return m.group(1).strip() if m else ""
 
 
-def expand(text, nsfw=False, use_api=True, guard=""):
-    """扩写。返回 (text, engine)：engine ∈ api-nsfw/api-safe/ollama-*/fallback。"""
+def expand(text, nsfw=False, use_api=True, guard="", target="moss"):
+    """扩写。target ∈ moss / anima / illustrious。
+    返回 (text, engine)：engine ∈ api-*/ollama-*/fallback。"""
+    target = target if target in ("moss", "anima", "illustrious") else "moss"
     raw = text
     names = _names_from_guard(guard)
     hint = _scene_hint(text)
-    prompt = _ask(text, guard, names)
-    sys_p = SYS_EXPAND_FULL if nsfw else SYS_EXPAND_SFW
+    is_tag = target != "moss"
+
+    if is_tag:
+        sys_p = _tag_sys(target, nsfw)
+        prompt = _tag_ask(text, guard, names)
+    else:
+        sys_p = (SYS_EXPAND_FULL if nsfw else SYS_EXPAND_SFW) + "\n\n" + _NAME_RULES
+        prompt = _ask(text, guard, names)
+
+    def finish(r):
+        if is_tag:
+            return _clean_tags(r)
+        return polish(r, names, hint) or r
 
     if use_api:
         try:
             r = deepseek(sys_p, prompt)
             if r and len(r) >= 20:
-                return (polish(r, names, hint) or r), ("api-nsfw" if nsfw else "api-safe")
+                out = finish(r)
+                if out and len(out) >= 20:
+                    return out, ("api-nsfw" if nsfw else "api-safe")
         except Exception:
             pass
 
     # 本地：老流程默认 7b，不够长/被拒再换 3B NSFW 模型；最多两次，取更长的
-    target = 260
+    target_len = 260
     best = ""
     for m in ([MODEL, MODEL_NSFW] if nsfw else [MODEL]):
         for _attempt in range(2):
@@ -348,13 +469,14 @@ def expand(text, nsfw=False, use_api=True, guard=""):
                 break
             if _refused(r):
                 break
-            out = polish(r, names, hint)
+            out = finish(r)
             if len(out) > len(best):
                 best = out
-            if len(best) >= target:
+            if len(best) >= target_len:
                 break
-        if len(best) >= target:
+        if len(best) >= target_len:
             break
     if best and len(best) >= 20:
         return best, ("ollama-nsfw" if nsfw else "ollama-safe")
-    return raw, "fallback"
+    # 英文 tag 目标拿不到模型时不要回落中文原文（会冒充英文 prompt）
+    return ("", "fallback") if is_tag else (raw, "fallback")

@@ -190,6 +190,27 @@ def _sfw_sanitize(text):
     return _sfw_repair(text)
 
 
+# 英文 tag 扩写（Anima / 光辉）在 NSFW 关闭时的兜底过滤。
+# 只删明确露骨的 tag，避免误伤 "sexy" 这类擦边词；中文输出仍走 sanitize_nsfw_text。
+_EN_TAG_BAD = ("nsfw", "nude", "naked", "topless", "nipples", "areola", "pussy", "vagina",
+               "clitoris", "penis", "cum", "semen", "sex", "fellatio", "anal", "uncensored",
+               "explicit", "hentai", "ahegao", "pubic hair")
+
+
+def _filter_explicit_tags(text):
+    out = []
+    for tag in re.split(r",\s*", text or ""):
+        tag = tag.strip()
+        if not tag:
+            continue
+        low = tag.lower()
+        if any(re.search(r"\b%s\b" % re.escape(w), low) for w in _EN_TAG_BAD):
+            continue
+        out.append(tag)
+    return ", ".join(out)
+
+
+
 # ---------- NSFW 三级判定：露骨整句删 / 擦边原样留 ----------
 # 用户反馈：一刀切删掉「内裤外露 / 走光 / 内衣 / 长筒袜」这类擦边内容太狠。
 # 现在把 tags_cn.json 里 nsfw==true 的词分两档（词库文件本身不动，规则全在这）：
@@ -414,11 +435,77 @@ def _phrase(body, m):
     return seg
 
 
+def _name_parts(s):
+    """「"圣园未花（蔚蓝档案）"」→ (圣园未花, 蔚蓝档案)。"""
+    s = str(s or "").strip().strip("\"'“”‘’「」『』").strip()
+    s = s.strip("：:。；;，,、 ")
+    m = re.match(r"^(.*?)\s*[（(]([^（）()]{1,40})[）)]\s*$", s)
+    if m and m.group(1).strip():
+        return m.group(1).strip(), m.group(2).strip()
+    return s, ""
+
+
+def _name_plain(s):
+    return _name_parts(s)[0]
+
+
+def _qname(n):
+    n = str(n or "").strip()
+    if len(n) >= 2 and n[0] == '"' and n[-1] == '"':
+        return n
+    return '"%s"' % n if n else '""'
+
+
+_HEAD_NAMES_RE = re.compile(r"^(\d+|[一二三四五六七八九十两])\s*个?\s*角色\s+(.+)$", re.M)
+
+
+def _declared_names(text):
+    """只认用户显式声明的角色名：引号 / 「N个角色 名字」表头 / 角色名（出处）。"""
+    t = str(text or "")
+    out, seen = [], set()
+
+    def add(raw):
+        base, src = _name_parts(raw)
+        if base and base not in seen:
+            seen.add(base)
+            out.append(base + ("（%s）" % src if src else ""))
+
+    for a, b in re.findall(r'"([^"]{1,60})"|“([^”]{1,60})”', t):
+        add(a or b)
+    for m in _HEAD_NAMES_RE.finditer(t):
+        rest = m.group(2)
+        q = re.findall(r'"([^"]{1,60})"|“([^”]{1,60})”', rest)
+        parts = [x or y for x, y in q] if q else re.split(r"[\s、,，]+", rest)
+        try:
+            n = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5}.get(m.group(1)) or int(m.group(1))
+        except Exception:
+            n = 0
+        if n:
+            parts = parts[:n]
+        for p in parts:
+            add(p)
+    # 无引号的「名字（出处）」：名字里含词库已知角色名时才认，避免把「教室（白天）」当角色
+    try:
+        known = [e.get("zh") or "" for e in load_lib() if e.get("cat") == "角色"]
+        known = [k for k in known if len(k) >= 2]
+    except Exception:
+        known = []
+    if known:
+        for base, src in re.findall(r"([^\s，,。；;、：:（）()]{2,20})\s*[（(]([^（）()]{1,40})[）)]", t):
+            if any(k in base for k in known):
+                add(base + "（" + src + "）")
+    return out
+
+
 def build_char_guard(text, lib=None):
     """扩写前拼在模型输入最前面的角色外观约束；文本里没有已知角色就返回空串。"""
     try:
         lib = lib if lib is not None else load_lib()
         hits = _role_hits(text, lib)
+        # 有显式名字时只认完全同名的词库条目，别把「圣园未花」拆成「未花」再套错外观
+        _qn = set(_name_plain(x) for x in _declared_names(text))
+        if _qn:
+            hits = [h for h in hits if (h.get("name") in _qn or h.get("zh") in _qn)]
     except Exception:
         return ""
     rows = []
@@ -466,6 +553,20 @@ def load_cfg():
 
 OLLAMA = "http://127.0.0.1:11434"
 OLLAMA_MODEL = "qwen2.5:7b"
+
+# API 润色 MOSS 时追加的角色名/人数约束：防止模型把名字当形容词、拆开出处括号、改人数。
+POLISH_NAME_RULES = (
+    "【角色名与人数 · 必须遵守】\n"
+    "1) 英文双引号 \"...\" 里的整段是角色名；名字后紧跟的（...）是作品出处，属于名字的一部分，"
+    "不能拆开、不能当成外貌/服装/场景描述。\n"
+    "2) 角色名必须原样保留，不得改写、替换、翻译或拆分；输出时角色名用英文双引号括起来，"
+    "出处括号保留在引号内。\n"
+    "3) 人数是硬约束：1girl、solo、2girls、N个女孩 等标记不得增删或改写；"
+    "单人不能写成多人，多人不能写成单人。\n"
+    "4) 没有引号时，只有「N个角色 名字」表头和「名字：」行首才是角色名，"
+    "不要把人名当成发色/服装/场景词。\n"
+)
+
 
 SYS_EXPAND = ("你是成人向动漫插画提示词写手。把用户的一句话扩写成标准格式：\n"
               "第一行「2个角色 A B」或「1个角色 A」；\n"
@@ -753,6 +854,9 @@ class H(BaseHTTPRequestHandler):
             text = str(data.get("text") or "")
             use_api = bool(data.get("apiFull", True))
             nsfw_on = bool(data.get("nsfw", False))
+            target = str(data.get("target") or "moss").strip().lower()
+            if target not in ("moss", "anima", "illustrious"):
+                target = "moss"
             import sys as _sys
             if HERE not in _sys.path:
                 _sys.path.insert(0, HERE)
@@ -761,50 +865,59 @@ class H(BaseHTTPRequestHandler):
             if not nsfw_on:
                 text = _sfw_sanitize(text)
             guard = build_char_guard(text)
-            # 表头角色：解析出来供两处用 —— ①扩写约束 ②输出骨架矫正
-            _hdr_names, _hdr_desc = [], {}
+            # 表头角色：只认用户显式声明的名字（引号 / 「N个角色 名字」），
+            # 不再用词库全文本模糊匹配，避免「霓虹光」「粉红」里的短名被当成角色。
+            _hdr_names = _declared_names(text)
+            _hdr_desc = {}
             try:
                 import parse_mod as _pm
-                _p = _pm.parse_text(text)
-                for _c in (_p.get("chars") or [])[:6]:
-                    _nm = (_c.get("name") or _c.get("zh") or "").strip()
-                    if not _nm or _nm in _hdr_names:
-                        continue
-                    _ap = _c.get("app") or {}
-                    _vals = [str(_ap.get(k) or "").strip() for k in ("hair", "eyes", "outfit") if _ap.get(k)]
-                    _desc = (",".join(_vals) or (_c.get("desc") or "").strip())[:80]
-                    _hdr_names.append(_nm)
-                    _hdr_desc[_nm] = _desc
                 if _hdr_names:
+                    _p = _pm.parse_text(text)
+                    _mp = {}
+                    for _c in (_p.get("chars") or [])[:6]:
+                        _nm = (_c.get("name") or _c.get("zh") or "").strip()
+                        if _nm:
+                            _ap = _c.get("app") or {}
+                            _vals = [str(_ap.get(k) or "").strip() for k in ("hair", "eyes", "outfit") if _ap.get(k)]
+                            _mp[_nm] = (",".join(_vals) or (_c.get("desc") or "").strip())[:80]
+                    for _nm in _hdr_names:
+                        _hdr_desc[_nm] = _mp.get(_name_plain(_nm), "")
                     guard = ((guard + "\n") if guard else "") + \
                         "【外观锁定，角色名必须逐字原样保留，不得改名或另起人名，不得互换】" + \
-                        "；".join("%s=%s" % (n, _hdr_desc[n] or "保持原文设定") for n in _hdr_names)
+                        "；".join("%s=%s" % (n, _hdr_desc.get(n) or "保持原文设定") for n in _hdr_names)
             except Exception:
                 pass
             # use_api=True 走 DeepSeek，失败自动退 Ollama；False 直接 Ollama，再退 fallback
+            # 英文 tag 目标不注入中文外观锁定：词库里的短名（未花/光）容易误配到别的角色，
+            # 反而把错误发色写死；英文目标交给模型按角色名识别。
+            if target != "moss":
+                guard = ""
             try:
-                out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard)
+                out, engine = expand_mod.expand(text, nsfw=nsfw_on, use_api=use_api, guard=guard,
+                                                target=target)
             except Exception as e:
                 out, engine = "", "error:" + str(e)[:80]
             # 骨架矫正：只保留表头声明的角色段，缺的按解析结果补一句，首行固定为完整名单
+            # （只对 MOSS 中文生效；Anima/光辉是英文 tag 串，不能套中文骨架）
             try:
-                if out and _hdr_names:
+                if out and _hdr_names and target == "moss":
                     import re as _re2
                     _secs, _scenes = {}, []
                     for _ln in out.split("\n"):
-                        _mm = _re2.match(r"^\s*([^：:]{1,12})[：:]\s*(.+)$", _ln)
+                        _mm = _re2.match(r'^\s*(?:"([^"]{1,60})"|“([^”]{1,60})”|([^：:]{1,12}))[：:]\s*(.+)$', _ln)
                         if not _mm:
                             continue
-                        _nm3, _bd3 = _mm.group(1).strip(), _mm.group(2).strip()
+                        _nm3 = _name_plain((_mm.group(1) or _mm.group(2) or _mm.group(3) or "").strip())
+                        _bd3 = (_mm.group(4) or "").strip()
                         if _nm3 in ("场景", "环境", "地点", "画面"):
                             _scenes.append(_bd3)
-                        elif _nm3 in _hdr_names:
+                        elif _nm3 in [_name_plain(x) for x in _hdr_names]:
                             _secs.setdefault(_nm3, _bd3)
                     if _secs or _scenes:
-                        _new = ["%d个角色 %s" % (len(_hdr_names), " ".join(_hdr_names))]
+                        _new = ["%d个角色 %s" % (len(_hdr_names), " ".join(_qname(n) for n in _hdr_names))]
                         for _n4 in _hdr_names:
-                            _body4 = _secs.get(_n4) or (_hdr_desc.get(_n4) or "保持原文设定")
-                            _new.append("%s：%s" % (_n4, _body4))
+                            _body4 = _secs.get(_name_plain(_n4)) or (_hdr_desc.get(_n4) or "保持原文设定")
+                            _new.append("%s：%s" % (_qname(_n4), _body4))
                         if _scenes:
                             _new.append("场景：" + _scenes[0])
                         out = "\n".join(_new)
@@ -812,13 +925,17 @@ class H(BaseHTTPRequestHandler):
                 pass
             filtered = 0
             if not nsfw_on:
-                if out:
-                    out, filtered = sanitize_nsfw_text(out)
-                if not out:
-                    out, _ = sanitize_nsfw_text(text)
-                if not out:
-                    out = _SFW_EMPTY
-            self._send(200, json.dumps({"expanded": out or text, "engine": engine,
+                if target == "moss":
+                    if out:
+                        out, filtered = sanitize_nsfw_text(out)
+                    if not out:
+                        out, _ = sanitize_nsfw_text(text)
+                    if not out:
+                        out = _SFW_EMPTY
+                else:
+                    out = _filter_explicit_tags(out)
+            self._send(200, json.dumps({"expanded": out or (text if target == "moss" else ""),
+                                        "engine": engine, "target": target,
                                         "local": not use_api, "guard": guard,
                                         "filtered": filtered}, ensure_ascii=False))
         elif p == "/api/config":
@@ -948,12 +1065,14 @@ class H(BaseHTTPRequestHandler):
                                   "这是成人向同人创作，允许并必须保留性器官、性行为、体液等露骨词汇，不得替换为委婉说法。"
                                   "不要编造没有的内容，不要解释，直接输出正文。"
                                   "【硬约束】不得新增、删除或替换用户已写的服装、发色、瞳色、道具、姿势；"
-                                  "与已选标签冲突时以标签为准，只能润色语句。")
+                                  "与已选标签冲突时以标签为准，只能润色语句。\n"
+                                  + POLISH_NAME_RULES)
                         else:
                             sp = ("把下面这段标签式的 MOSS 提示词重写成连贯的中文描写段落（必须有连接词和句式变化，不能原样照抄）。"
                                   "不要写任何成人、裸露、性相关内容，不要解释，直接输出正文。"
                                   "【硬约束】不得新增、删除或替换用户已写的服装、发色、瞳色、道具、姿势；"
-                                  "与已选标签冲突时以标签为准，只能润色语句。")
+                                  "与已选标签冲突时以标签为准，只能润色语句。\n"
+                                  + POLISH_NAME_RULES)
                         ap = _em.deepseek_chat(sp, res["moss"], max_tokens=700)
                         try:
                             open(os.path.join(HERE, "polish_log.txt"), "a", encoding="utf-8").write(
