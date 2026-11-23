@@ -146,8 +146,17 @@ def adapt_neg(text, kind="wai", pos_blob="", nsfw_on=False):
     return sep.join(out)
 
 
+def _moss_name(c):
+    """MOSS 里的角色名：英文双引号包住；括号里的出处一并放在引号内。"""
+    nm = str(c.get("name") or c.get("zh") or "").strip()
+    src = str(c.get("source") or "").strip()
+    if src and "（" not in nm and "(" not in nm:
+        nm = nm + "（" + src + "）"
+    return ('"%s"' % nm) if nm else ""
+
+
 def _char_line(c, taglist):
-    name = c.get("name") or c.get("zh") or "角色"
+    name = _moss_name(c) or "角色"
     desc = (c.get("desc") or "").strip()
     feats = [t["tag"] for t in (c.get("tags") or []) if t.get("tag")]
     zh = [zh_of(taglist, f) for f in feats]
@@ -188,7 +197,7 @@ def build_moss(chars, taglist, sel_tags=None, style="动漫风格，柔和光线
 
     KEY = ("小穴", "插入", "精液", "乳", "乳环", "肛门", "阴蒂", "无码", "跳蛋", "淫纹", "爱液", "乳头", "屁股", "裸")
     body_words.sort(key=lambda w: 0 if any(k in w for k in KEY) else 1)
-    names = [(c.get("name") or c.get("zh") or "") for c in (chars or [])][:4]
+    names = [_moss_name(c) for c in (chars or [])][:4]
     names = [n for n in names if n]
     head = ("一个女孩：" if len(names) == 1 else "两个女孩：" if len(names) == 2
             else "三个女孩：" if len(names) == 3 else "女孩们：")
@@ -200,7 +209,7 @@ def build_moss(chars, taglist, sel_tags=None, style="动漫风格，柔和光线
     lines = [head, ""]
     if chars:
         for idx, c in enumerate(chars[:4]):
-            nm = (c.get("name") or c.get("zh") or "").strip()
+            nm = _moss_name(c) or "女孩"
             desc = (c.get("desc") or "").strip()
             if desc:
                 lines.append("%s：%s。" % (nm, desc))
@@ -557,7 +566,7 @@ def build_moss_rule(chars, taglist, sel_tags=None, style="动漫风格，柔和�
         c = cat(en)
         if c in groups and z not in groups[c]:
             groups[c].append(z)
-    names = [(c.get('name') or c.get('zh') or '').strip() for c in (chars or [])][:3]
+    names = [_moss_name(c) for c in (chars or [])][:3]
     names = [n for n in names if n]
     head = ('女孩' if not names else '一个女孩' if len(names) == 1 else '两个女孩' if len(names) == 2 else '三个女孩')
     head += ('：' + '、'.join(names)) if names else ''

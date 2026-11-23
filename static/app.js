@@ -9,6 +9,47 @@
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
   };
 
+  /* ===================== 深色模式 ===================== */
+  /* 主题来源优先级：URL ?theme= → localStorage.pw.theme → 系统偏好。
+     顶部预置脚本已在首屏前写好 data-theme，这里只负责按钮同步与交互。
+     用户手动切换后固定下来；没手动选过时继续跟随系统。 */
+  const THEME_KEY = 'pw.theme';
+  const mqDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  const themePref = () => { try { const v = localStorage.getItem(THEME_KEY); return v === 'light' || v === 'dark' ? v : ''; } catch (e) { return ''; } };
+  const systemTheme = () => (mqDark && mqDark.matches ? 'dark' : 'light');
+  function applyTheme(t) {
+    const r = document.documentElement;
+    r.setAttribute('data-theme', t);
+    r.style.colorScheme = t;
+    const b = $('#btnTheme');
+    if (!b) return;
+    const dark = t === 'dark';
+    const ti = b.querySelector('.ti'), tt = b.querySelector('.tt');
+    if (ti) ti.textContent = dark ? '☀️' : '🌙';
+    if (tt) tt.textContent = dark ? '浅色' : '深色';
+    b.title = dark ? '切换到浅色模式' : '切换到深色模式';
+    b.setAttribute('aria-pressed', String(dark));
+  }
+  function initTheme() {
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    const b = $('#btnTheme');
+    if (b) b.onclick = () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      applyTheme(next);
+    };
+    if (mqDark) {
+      const onSys = () => { if (!themePref()) applyTheme(systemTheme()); };
+      if (mqDark.addEventListener) mqDark.addEventListener('change', onSys);
+      else if (mqDark.addListener) mqDark.addListener(onSys);
+    }
+    window.addEventListener('storage', ev => {
+      if (ev.key !== THEME_KEY) return;
+      const v = ev.newValue;
+      applyTheme(v === 'light' || v === 'dark' ? v : systemTheme());
+    });
+  }
+
   const CATS = ['全部', '角色', '外形', '服装', '动作', '道具', '场景', '自定义', '自定义2', '自定义3'];
   const MINE = ['自定义', '自定义2', '自定义3'];
   const CATNAME = { '自定义': '其他', '自定义2': '自定义', '自定义3': '自定义2' };
@@ -58,7 +99,7 @@
     let t = $('#toast');
     if (!t) {
       t = document.createElement('div'); t.id = 'toast';
-      t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:999;background:linear-gradient(135deg,#5a95f7,#3a72d4);color:#fff;padding:9px 20px;border-radius:12px;font-size:13px;box-shadow:0 10px 28px rgba(76,139,245,.35);transition:opacity .25s';
+      t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:999;background:var(--ac-grad);color:#fff;padding:9px 20px;border-radius:12px;font-size:13px;box-shadow:0 10px 28px rgba(76,139,245,.35);transition:opacity .25s';
       document.body.appendChild(t);
     }
     t.textContent = m; t.style.opacity = '1';
@@ -68,7 +109,7 @@
     let t = document.getElementById('toast');
     if (!t) {
       t = document.createElement('div'); t.id = 'toast';
-      t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:999;background:linear-gradient(135deg,#5a95f7,#3a72d4);color:#fff;padding:10px 22px;border-radius:12px;font-size:13px;box-shadow:0 10px 28px rgba(76,139,245,.35)';
+      t.style.cssText = 'position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:999;background:var(--ac-grad);color:#fff;padding:10px 22px;border-radius:12px;font-size:13px;box-shadow:0 10px 28px rgba(76,139,245,.35)';
       document.body.appendChild(t);
     }
     t.textContent = msg; t.style.opacity = '1';
@@ -90,9 +131,9 @@
     const fields = opt.fields || [];
     const d = document.createElement('div');
     if (opt.id) d.id = opt.id;
-    d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:rgba(20,30,50,.35)';
+    d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:var(--ov)';
     const ctl = f => {
-      const st = 'width:100%;height:34px;border:1px solid #dbe6f6;border-radius:9px;padding:0 10px;font-size:13px;background:#fff';
+      const st = 'width:100%;height:34px;border:1px solid var(--bd-input);border-radius:9px;padding:0 10px;font-size:13px;background:var(--panel-input);color:var(--tx-1)';
       if (f.type === 'select') {
         return `<select data-k="${esc(f.key)}" style="${st};cursor:pointer">` +
           (f.options || []).map(o => `<option value="${esc(o.value)}"${o.value === f.value ? ' selected' : ''}>${esc(o.label)}</option>`).join('') +
@@ -101,9 +142,9 @@
       return `<input data-k="${esc(f.key)}"${f.type === 'password' ? ' type="password"' : ''} value="${esc(f.value == null ? '' : f.value)}"` +
         ` placeholder="${esc(f.placeholder || '')}" style="${st}">`;
     };
-    d.innerHTML = `<div style="width:${opt.width || 420}px;max-height:86vh;overflow:auto;background:#fff;border-radius:16px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.2)">
+    d.innerHTML = `<div style="width:${opt.width || 420}px;max-height:86vh;overflow:auto;background:var(--panel);color:var(--tx);border-radius:16px;padding:20px;box-shadow:var(--dlg-sh)">
       <div style="font-weight:700;font-size:15px;margin-bottom:14px">${esc(opt.title || '')}</div>
-      ${fields.map(f => `<div style="font-size:12px;color:#5a6c85">${esc(f.label)}</div>
+      ${fields.map(f => `<div style="font-size:12px;color:var(--tx-4)">${esc(f.label)}</div>
       ${ctl(f)}
       <div style="height:10px"></div>`).join('')}
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:4px">
@@ -163,7 +204,7 @@
           });
         };
       }
-      el.ondragover = e => { if (hasSub(el.dataset.cat)) { e.preventDefault(); el.style.borderColor = '#5a95f7'; } };
+      el.ondragover = e => { if (hasSub(el.dataset.cat)) { e.preventDefault(); el.style.borderColor = 'var(--ac)'; } };
       el.ondragleave = () => el.style.borderColor = '';
       el.ondrop = e => {
         e.preventDefault(); el.style.borderColor = '';
@@ -226,13 +267,13 @@
     const list = $('#subList');
     const base = ['全部'].concat(subsOf(S.cat));
     list.innerHTML = base.map(s => `<span class="${S.sub === s ? 'on' : ''}" data-sub="${esc(s)}">${esc(s)}</span>`).join('') +
-      subsCustom(S.cat).map(s => `<span class="${S.sub === s ? 'on' : ''} cust" data-sub="${esc(s)}" title="双击改名">${esc(s)}<b style="margin-left:4px;color:#c8d3e2;cursor:pointer" data-del-sub="${esc(s)}">×</b></span>`).join('') +
+      subsCustom(S.cat).map(s => `<span class="${S.sub === s ? 'on' : ''} cust" data-sub="${esc(s)}" title="双击改名">${esc(s)}<b style="margin-left:4px;color:var(--icon);cursor:pointer" data-del-sub="${esc(s)}">×</b></span>`).join('') +
       `<span class="addchar" id="addSub">＋ 新增分类</span>` +
       (S.cat === '角色' ? '<span class="addchar" id="addChar">＋ 添加角色</span>' : '');
 
     list.querySelectorAll('[data-sub]').forEach(el => {
       el.onclick = () => { S.sub = el.dataset.sub; S.shown = PAGE; renderSub(); renderTags(); };
-      el.ondragover = e => { e.preventDefault(); el.style.borderColor = '#5a95f7'; };
+      el.ondragover = e => { e.preventDefault(); el.style.borderColor = 'var(--ac)'; };
       el.ondragleave = () => el.style.borderColor = '';
       el.ondrop = e => {
         e.preventDefault(); el.style.borderColor = '';
@@ -484,7 +525,7 @@
     $('#selCount').textContent = S.global.length + S.chars.reduce((n, c) => n + c.tags.length, 0);
     const cf = detectConflicts();
     const okHtml = cf.length
-      ? `<div class="ok" style="background:#fff5f5;border-color:#ffd9d9;color:#d45050">⚠ 冲突：${cf.join('；')}</div>`
+      ? `<div class="ok bad">⚠ 冲突：${cf.join('；')}</div>`
       : '<div class="ok">✓ 无冲突</div>';
     body.innerHTML = okHtml +
       S.chars.map((c, i) => `<div class="box" data-char="${i}">
@@ -584,11 +625,11 @@
       el.style.display = S.sec[el.dataset.sec] ? '' : 'none';
     });
   }
-  function showResult(rows) {
+  function showResult(rows, allowFill) {
     const body = $('#resBody');
     body.innerHTML = rows.map(([k, v]) => {
-      const sec = /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : /Animagine/.test(k) ? 'anima' : /Krea/.test(k) ? 'krea' : 'exp';
-      const fill = sec === 'exp' ? '<u data-fill="1">填入草稿</u>' : '';
+      const sec = /^扩写结果/.test(k) ? 'exp' : /MOSS/.test(k) ? 'moss' : /WAI/.test(k) ? 'wai' : /Pony/.test(k) ? 'pony' : /Animagine/.test(k) ? 'anima' : /Krea/.test(k) ? 'krea' : 'exp';
+      const fill = (sec === 'exp' && allowFill !== false) ? '<u data-fill="1">填入草稿</u>' : '';
       return `<div class="sec" data-sec="${sec}">
         <div class="lbl">${esc(k)}<span class="r">${fill}<u data-copy="${esc(k)}">复制</u></span></div>
         <div class="out" data-k="${esc(k)}">${esc(v)}</div></div>`;
@@ -599,7 +640,7 @@
       navigator.clipboard.writeText(b ? b.textContent : ''); toast('已复制');
     });
     body.querySelectorAll('[data-fill]').forEach(el => el.onclick = () => {
-      const exp = body.querySelector('.out[data-k="扩写结果"]');
+      const exp = body.querySelector('[data-sec="exp"] .out');
       if (exp) { $('#draft').value = exp.textContent; toast('已填入草稿'); }
     });
   }
@@ -788,8 +829,9 @@
           // 同一个角色：保留角色框里已有的标签，只补新的
           tags.forEach(t => { if (!old.tags.some(o => o.en === t.en)) old.tags.push(t); });
           if (desc && desc.length > (old.desc || '').length) old.desc = desc;
+          if (!old.source && c.source) old.source = c.source;
         } else {
-          S.chars.push({ name: nm, desc, tags });
+          S.chars.push({ name: nm, desc, tags, source: c.source || '' });
         }
       });
       (d.tags || []).forEach(t => {
@@ -806,12 +848,17 @@
   async function doExpand() {
     const text = ($('#nl').value || '').trim();
     if (!text) { toast('先写描述'); return; }
+    const target = ($('#selExpandTarget') && $('#selExpandTarget').value) || 'moss';
+    const TARGET_LABEL = { moss: 'MOSS 中文', anima: 'Anima', illustrious: '光辉' };
     toast('扩写中…');
     try {
-      const d = await api('/api/expand', { text, apiFull: $('#swApi').checked, nsfw: $('#swNsfwTop') ? $('#swNsfwTop').checked : false });
+      const d = await api('/api/expand', { text, target, apiFull: $('#swApi').checked, nsfw: $('#swNsfwTop') ? $('#swNsfwTop').checked : false });
       const ex = (d.expanded || '').trim();
-      if (!ex) { toast('扩写无内容'); return; }
-      showResult([['扩写结果', ex]]);
+      if (!ex) {
+        toast(target === 'moss' ? '扩写无内容' : '扩写无内容（Anima / 光辉 需要可用的 API 或本地模型）');
+        return;
+      }
+      showResult([['扩写结果 · ' + (TARGET_LABEL[target] || target), ex]], target === 'moss');
       saveHist(ex);
       const nf = Number(d.filtered) || 0;
       toast('扩写完成' + (nf > 0 ? '（已过滤 ' + nf + ' 处露骨内容）'
@@ -821,7 +868,7 @@
 
   function buildChars() {
     return S.chars.map(c => ({
-      name: c.name, zh: c.name, en: c.en || '', pos: '',
+      name: c.name, zh: c.name, en: c.en || '', pos: '', source: c.source || '',
       app: c.app || null,          // 编辑过的外观（发色/瞳色/服装）随请求带上，后端缺 app 时才回退
       desc: c.desc ? fillApp(c.name, c.desc) : '',
       tags: c.tags.map(function (t) {
@@ -922,7 +969,7 @@
     const drop = $('#dropImg'), file = $('#fileImg');
     drop.onclick = () => file.click();
     file.onchange = () => { if (file.files && file.files[0]) doReverse(file.files[0]); };
-    drop.ondragover = e => { e.preventDefault(); drop.style.borderColor = '#5a95f7'; };
+    drop.ondragover = e => { e.preventDefault(); drop.style.borderColor = 'var(--ac)'; };
     drop.ondragleave = () => drop.style.borderColor = '';
     drop.ondrop = e => {
       e.preventDefault(); drop.style.borderColor = '';
@@ -1011,10 +1058,10 @@
       const st = document.createElement('style');
       st.id = 'guideCss';
       st.textContent = `
-        #guideDlg{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(18,26,44,.5);backdrop-filter:blur(3px)}
+        #guideDlg{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;padding:18px;background:var(--ov-strong);backdrop-filter:blur(3px)}
         #guideDlg *{box-sizing:border-box}
-        #guideDlg .gesheet{width:840px;max-width:96vw;max-height:78vh;display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 26px 70px rgba(20,40,80,.3)}
-        #guideDlg .ghero{position:relative;display:flex;align-items:center;gap:18px;padding:22px 46px 22px 26px;color:#fff;background:linear-gradient(135deg,#4c8bf5 0%,#7c5cf5 100%)}
+        #guideDlg .gesheet{width:840px;max-width:96vw;max-height:78vh;display:flex;flex-direction:column;background:var(--panel);border-radius:20px;overflow:hidden;box-shadow:var(--dlg-sh)}
+        #guideDlg .ghero{position:relative;display:flex;align-items:center;gap:18px;padding:22px 46px 22px 26px;color:#fff;background:var(--hero-grad)}
         #guideDlg .ghero:after{content:"";position:absolute;right:-40px;top:-70px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.09)}
         #guideDlg .ghero .gt{font-size:21px;font-weight:800;letter-spacing:.6px;line-height:1.2}
         #guideDlg .ghero .gs{margin-top:7px;font-size:12.5px;opacity:.92;line-height:1.5}
@@ -1024,38 +1071,38 @@
         #guideDlg .gb span{font-size:10.5px;opacity:.88}
         #guideDlg .gx{position:absolute;top:13px;right:15px;width:24px;height:24px;line-height:23px;text-align:center;border-radius:8px;cursor:pointer;color:#fff;opacity:.8;font-size:13px;z-index:2}
         #guideDlg .gx:hover{opacity:1;background:rgba(255,255,255,.18)}
-        #guideDlg .gtabs{display:flex;gap:7px;padding:12px 26px;border-bottom:1px solid #eef4fc;background:#fff}
-        #guideDlg .gtab{padding:6px 15px;border-radius:999px;border:1px solid #e2ebf8;background:#f8fbfe;color:#8494ab;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;transition:.15s}
-        #guideDlg .gtab:hover{border-color:#bcd7ff;color:#2f6fe0}
-        #guideDlg .gtab.on{background:linear-gradient(135deg,#5a95f7,#7a5df5);border-color:transparent;color:#fff;box-shadow:0 5px 14px rgba(76,139,245,.3)}
-        #guideDlg .gbody{flex:1;min-height:0;overflow:auto;padding:16px 26px 4px;background:#fbfdff}
+        #guideDlg .gtabs{display:flex;gap:7px;padding:12px 26px;border-bottom:1px solid var(--bd-soft);background:var(--panel)}
+        #guideDlg .gtab{padding:6px 15px;border-radius:999px;border:1px solid var(--bd-chip);background:var(--panel-chip);color:var(--tx-5);font-size:12.5px;font-weight:600;cursor:pointer;user-select:none;transition:.15s}
+        #guideDlg .gtab:hover{border-color:var(--bd-accent);color:var(--ac-2)}
+        #guideDlg .gtab.on{background:var(--tap-grad);border-color:transparent;color:#fff;box-shadow:0 5px 14px rgba(76,139,245,.3)}
+        #guideDlg .gbody{flex:1;min-height:0;overflow:auto;padding:16px 26px 4px;background:var(--panel-tint)}
         #guideDlg .gpanel{display:none}
         #guideDlg .gpanel.on{display:block}
-        #guideDlg .glead{padding:14px 16px;border-radius:14px;background:linear-gradient(120deg,#f2f7ff,#f8f5ff);border:1px solid #e4ecfb;margin-bottom:16px}
-        #guideDlg .glead-t{font-size:14px;font-weight:700;color:#27364f;line-height:1.55}
-        #guideDlg .glead-t b{color:#4c6bf5}
-        #guideDlg .glead-s{margin-top:5px;font-size:12px;color:#66799a;line-height:1.6}
-        #guideDlg .gtitle{font-size:12px;font-weight:700;color:#8ba0bd;letter-spacing:1.2px;margin:0 0 10px}
+        #guideDlg .glead{padding:14px 16px;border-radius:14px;background:var(--lead-grad);border:1px solid var(--lead-bd);margin-bottom:16px}
+        #guideDlg .glead-t{font-size:14px;font-weight:700;color:var(--tx-strong);line-height:1.55}
+        #guideDlg .glead-t b{color:var(--ac-2)}
+        #guideDlg .glead-s{margin-top:5px;font-size:12px;color:var(--tx-4);line-height:1.6}
+        #guideDlg .gtitle{font-size:12px;font-weight:700;color:var(--tx-5);letter-spacing:1.2px;margin:0 0 10px}
         #guideDlg .ggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:12px;margin-bottom:4px}
-        #guideDlg .gk{padding:13px 15px;border:1px solid #e8f0fb;border-radius:14px;background:#fff;box-shadow:0 2px 10px rgba(40,80,150,.05)}
-        #guideDlg .gk.hi{border-left:3px solid #4c8bf5;background:linear-gradient(135deg,#f8fbff,#fdfbff)}
-        #guideDlg .gk h4{margin:0 0 6px;display:flex;align-items:center;gap:7px;font-size:13.5px;color:#27364f;line-height:1.4}
+        #guideDlg .gk{padding:13px 15px;border:1px solid var(--bd-soft);border-radius:14px;background:var(--panel);box-shadow:0 2px 10px var(--ring)}
+        #guideDlg .gk.hi{border-left:3px solid var(--ac);background:var(--hi-grad)}
+        #guideDlg .gk h4{margin:0 0 6px;display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--tx-strong);line-height:1.4}
         #guideDlg .gk h4 .gi{font-size:14px;line-height:1}
-        #guideDlg .gk p{margin:0;font-size:12px;color:#5f7290;line-height:1.72}
-        #guideDlg .gk p b{color:#3a72d4}
+        #guideDlg .gk p{margin:0;font-size:12px;color:var(--tx-4);line-height:1.72}
+        #guideDlg .gk p b{color:var(--ac-2)}
         #guideDlg .gmini{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:7px 0 7px}
-        #guideDlg .gmini span{padding:2px 8px;border-radius:999px;background:#eef4ff;color:#3a72d4;font-size:11px;font-weight:600;white-space:nowrap}
-        #guideDlg .gmini i{color:#b9c9e2;font-style:normal;font-size:11px}
+        #guideDlg .gmini span{padding:2px 8px;border-radius:999px;background:var(--ac-bg);color:var(--ac-2);font-size:11px;font-weight:600;white-space:nowrap}
+        #guideDlg .gmini i{color:var(--icon);font-style:normal;font-size:11px}
         #guideDlg .gsteps{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:6px}
-        #guideDlg .gsteps span{padding:4px 12px;border-radius:999px;background:#fff;border:1px solid #dbe7ff;color:#3a72d4;font-size:12px;font-weight:600}
-        #guideDlg .gsteps i{color:#b9c9e2;font-style:normal}
-        #guideDlg .ghint{margin:0 0 16px;font-size:11.5px;color:#93a5c0;line-height:1.6}
+        #guideDlg .gsteps span{padding:4px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--bd-accent);color:var(--ac-2);font-size:12px;font-weight:600}
+        #guideDlg .gsteps i{color:var(--icon);font-style:normal}
+        #guideDlg .ghint{margin:0 0 16px;font-size:11.5px;color:var(--tx-5);line-height:1.6}
         #guideDlg .grows{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 12px}
-        #guideDlg .grow{display:flex;gap:10px;align-items:baseline;padding:7px 11px;border:1px solid #eef4fc;border-radius:10px;background:#fff}
-        #guideDlg .grow b{flex:0 0 72px;font-size:12.5px;color:#2f6fe0;white-space:nowrap}
-        #guideDlg .grow span{font-size:12px;color:#5f7290;line-height:1.6;min-width:0}
-        #guideDlg .gnote{display:flex;gap:8px;padding:8px 12px;margin-bottom:7px;border-radius:10px;background:#fffaf0;border:1px solid #fbe8c4;font-size:12px;color:#8a6a2f;line-height:1.62}
-        #guideDlg .gfoot{display:flex;gap:9px;justify-content:flex-end;padding:13px 26px;border-top:1px solid #eef4fc;background:#fff}
+        #guideDlg .grow{display:flex;gap:10px;align-items:baseline;padding:7px 11px;border:1px solid var(--bd-soft);border-radius:10px;background:var(--panel)}
+        #guideDlg .grow b{flex:0 0 72px;font-size:12.5px;color:var(--ac-2);white-space:nowrap}
+        #guideDlg .grow span{font-size:12px;color:var(--tx-4);line-height:1.6;min-width:0}
+        #guideDlg .gnote{display:flex;gap:8px;padding:8px 12px;margin-bottom:7px;border-radius:10px;background:var(--note-bg);border:1px solid var(--note-bd);font-size:12px;color:var(--note-tx);line-height:1.62}
+        #guideDlg .gfoot{display:flex;gap:9px;justify-content:flex-end;padding:13px 26px;border-top:1px solid var(--bd-soft);background:var(--panel)}
         @media (max-width:700px){
           #guideDlg{padding:10px}
           #guideDlg .gesheet{width:100%;max-width:100%;max-height:88vh}
@@ -1097,7 +1144,7 @@
         ${CARD('✍️', '文字 → 提示词', ['写描述', 'AI 扩写', '拆标签'], '一句话说清角色，扩写成标准格式，再拆回标签。')}
         ${CARD('🏷️', '标签 → 提示词', ['挑标签', '拖进角色框', '生成'], '词库点选、按角色归位，最精确也最可控。')}
       </div>
-      <p class="ghint" style="margin:0"><b style="color:#3a72d4">多角色</b>：一个角色一个框，位置标签拖进对应角色框才绑得住人；图反推常给一堆散标签，记得手动归位。</p>`;
+      <p class="ghint" style="margin:0"><b style="color:var(--ac-2)">多角色</b>：一个角色一个框，位置标签拖进对应角色框才绑得住人；图反推常给一堆散标签，记得手动归位。</p>`;
 
     const P1 = `
       <div class="gsteps"><span>① 反推 / 描述</span><i>→</i><span>② 挑标签</span><i>→</i><span>③ 出结果</span></div>
@@ -1105,7 +1152,8 @@
       <div class="gtitle">核心按钮速查</div>
       <div class="grows">
         ${ROW('生成结果', '一次出 MOSS + WAI + Pony 及各自负向')}
-        ${ROW('AI 扩写', '把描述补成标准格式，同时存进历史')}
+        ${ROW('AI 扩写', '把描述补成标准格式，同时存进历史；可选 MOSS / Anima / 光辉 三种目标')}
+        ${ROW('扩写目标', 'Anima / 光辉 输出全英文 tag，角色名与出处翻成英文并用双引号包住')}
         ${ROW('拆成标签', '草稿拆成角色与标签，各归各位')}
         ${ROW('生成 MOSS', '只按「已选」出中文段落与负向')}
         ${ROW('画风库', '50 张缩略图，点一张即加画风标签')}
@@ -1114,6 +1162,7 @@
         ${ROW('润色', 'API / 本地 / 模板 / 关，四档')}
         ${ROW('密度', '精简 / 标准 / 复杂，控制标签数量')}
         ${ROW('负向', '完整 / 精简 / 关，控制负向长度')}
+        ${ROW('深色模式', '顶部 🌙 一键切换；没手动选过时自动跟随系统，选择会记住')}
       </div>
       <p class="ghint" style="margin:12px 0 0">「生成结果」一次出 6 个区块（三种模型 + 三种负向），每块右上角可单独复制；润色只影响 MOSS 中文段落，WAI / Pony 始终是标签串。</p>`;
 
@@ -1211,21 +1260,21 @@
     if ($('#styleDlg')) { $('#styleDlg').style.display = 'flex'; return; }
     const d = document.createElement('div');
     d.id = 'styleDlg';
-    d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:rgba(20,30,50,.45)';
-    d.innerHTML = '<div style="width:760px;max-height:84vh;overflow:auto;background:#fff;border-radius:18px;padding:18px 20px">' +
+    d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:var(--ov)';
+    d.innerHTML = '<div style="width:760px;max-height:84vh;overflow:auto;background:var(--panel);color:var(--tx);border-radius:18px;padding:18px 20px">' +
       '<div style="display:flex;align-items:center;margin-bottom:12px"><b style="font-size:15px">🎨 画风库</b>' +
-      '<span style="margin-left:auto;color:#b6c3d6;cursor:pointer" id="styleX">✕</span></div>' +
-      '<div id="styleGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12px;color:#8fa3bd">加载中…</div></div>';
+      '<span style="margin-left:auto;color:var(--icon);cursor:pointer" id="styleX">✕</span></div>' +
+      '<div id="styleGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12px;color:var(--tx-5)">加载中…</div></div>';
     document.body.appendChild(d);
     d.querySelector('#styleX').onclick = () => d.remove();
     try {
       const r = await api('/api/styles');
       const list = r.styles || [];
       d.querySelector('#styleGrid').innerHTML = list.map((it, i) => `
-        <div data-si="${i}" style="cursor:pointer;border:1px solid #eef4fc;border-radius:12px;overflow:hidden;background:#fbfdff">
-          <div style="aspect-ratio:1/1;background:#f2f6fd center/contain no-repeat url('${String(it.img).replace(/'/g, '%27')}')"></div>
-          <div style="padding:6px 8px;color:#41526b;font-weight:600">${esc(it.name)}</div>
-          <div style="padding:0 8px 7px;color:#9db0c8;font-size:11px">${esc(it.tag || '')}</div>
+        <div data-si="${i}" style="cursor:pointer;border:1px solid var(--bd-soft);border-radius:12px;overflow:hidden;background:var(--panel-tint)">
+          <div style="aspect-ratio:1/1;background:var(--thumb-bg) center/contain no-repeat url('${String(it.img).replace(/'/g, '%27')}')"></div>
+          <div style="padding:6px 8px;color:var(--tx-2);font-weight:600">${esc(it.name)}</div>
+          <div style="padding:0 8px 7px;color:var(--tx-7);font-size:11px">${esc(it.tag || '')}</div>
         </div>`).join('');
       d.querySelectorAll('[data-si]').forEach(el => el.onclick = () => {
         const it = list[+el.dataset.si];
@@ -1340,6 +1389,7 @@
     if (c.density) $('#selDensity').value = c.density;
     if (c.neg) $('#selNeg').value = c.neg === 'lite' ? 'simple' : c.neg;
     if (c.polishMode && $('#selPolish')) $('#selPolish').value = c.polishMode;
+    if (c.expandTarget && $('#selExpandTarget')) $('#selExpandTarget').value = c.expandTarget;
     if (c.nsfw !== undefined) S.nsfw = !!c.nsfw;
     if (c.favTop !== undefined) S.favTop = !!c.favTop;
   }
@@ -1349,13 +1399,14 @@
       nsfwTop: $('#swNsfwTop') ? $('#swNsfwTop').checked : false,
       density: $('#selDensity').value,
       polishMode: $('#selPolish') ? $('#selPolish').value : 'api',
+      expandTarget: $('#selExpandTarget') ? $('#selExpandTarget').value : 'moss',
       neg: $('#selNeg').value,
       nsfw: S.nsfw,
       favTop: S.favTop,
     });
   }
   function bindSettings() {
-    ['#swApi', '#swNsfwTop', '#selDensity', '#selNeg', '#selPolish'].forEach(sel => {
+    ['#swApi', '#swNsfwTop', '#selDensity', '#selNeg', '#selPolish', '#selExpandTarget'].forEach(sel => {
       const el = document.querySelector(sel);
       if (el) el.addEventListener('change', saveSettings);
     });
@@ -1420,6 +1471,7 @@
     });
 
     loadSettings(); bindSettings();
+    initTheme();
     initResize(); initScroll(); initReverse();
     renderChips(); renderHist(); renderSel();
   }

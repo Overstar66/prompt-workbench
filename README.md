@@ -9,6 +9,10 @@
 
 ![界面截图](docs/screenshot.png)
 
+浅色与深色两套主题，顶栏一键切换，默认跟随系统：
+
+![深色模式](docs/screenshot-dark.png)
+
 ## 这是什么
 
 - 面向 Stable Diffusion / Illustrious / Pony 系模型，把「想画什么」变成可直接粘贴的提示词。
@@ -16,6 +20,29 @@
 - 一次输出 6 个区块：MOSS / WAI / Pony 三套正向，加各自负向。
 - 单文件后端 + 浏览器前端，无数据库、无需构建；只有勾选 API 时文字才出本机。
 - 适合一个人在本机长期用，不适合多人共享或公网部署。
+
+## 更新内容
+
+### 2026-11-23 · v1.5.4
+
+**深色模式**
+
+- 顶栏 🌙 / ☀️ 一键切换；没手动选过时跟随系统，选过会记住。
+- 打开 `http://127.0.0.1:8901/?theme=dark`（或 `light`）可临时指定主题，不写入本地记录。
+- 全站颜色改为设计变量，卡片、弹窗、说明书、滚动条与原生控件统一适配。
+
+**AI 扩写 / 润色**
+
+- 「AI 扩写」新增目标模型下拉：**MOSS 中文 / Anima / 光辉（Illustrious）**。
+- Anima / 光辉直接输出全英文 tag：角色名与括号里的出处翻译成对应英文，并保留英文双引号。
+- 两条 API 链路统一加入角色名规则：双引号内整段是角色名；括号里是作品出处；`1girl` / `solo` / `2girls` 等人数标记不增删、不改写；没有引号时只认「N个角色 名字」和「名字：」。
+- MOSS 输出与「润色 API」会给角色名加英文双引号，出处括号保留在引号内。
+- 「拆成标签」兼容带引号、带出处的角色名，出处会随角色保留到生成阶段。
+
+**修复**
+
+- `圣园未花（蔚蓝档案）` 不再被拆成「未花 / 光 / 蔚 / 红」多个角色，也不会套用错误的词库外观。
+- README 的浅色 / 深色截图同步更新。
 
 ## 快速开始
 
@@ -26,7 +53,7 @@
 **1. 获取代码**
 
 ```bash
-git clone https://github.com/Overstar66/prompt-workbench.git
+git clone https://github.com/shiraumesuki-alt/prompt-workbench.git
 cd prompt-workbench
 ```
 
@@ -88,6 +115,8 @@ macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一�
 |---|---|
 | 图反推 | WD14 打标 → 标签自动进入「已选」，并给一段中文描述（需可选依赖） |
 | AI 扩写 | 几句中文 → 完整分镜；DeepSeek API 或本地 Ollama |
+| 扩写目标 | MOSS / Anima / 光辉；Anima、光辉直接输出全英文 tag，角色名与出处翻成英文并保留双引号 |
+| 角色名规则 | 英文双引号内整段是角色名，括号里是出处；`1girl`、`solo` 等人数标记不会被改写或增删角色 |
 | 词库点选 | 18000+ 条、7 大类，搜索 / 收藏 / 拖拽分类 / 右键编辑角色 |
 | 画风库 | 50 张缩略图，点一张即加对应画风标签 |
 
@@ -110,6 +139,13 @@ macOS / Linux 用 `python app.py` 启动，没有 bat 脚本，其余操作一�
 | Pony | `score_9, score_8_up, ...` 前缀 + Pony 专用负向 |
 | 一键复制 | 每个区块右上角单独复制，6 个区块互不影响 |
 | 历史记录 | 最近 30 条扩写记录，可回填 |
+
+### 界面
+
+| 功能 | 说明 |
+|---|---|
+| 深色模式 | 顶栏 🌙 / ☀️ 一键切换；没手动选过时跟随系统，选过会记住 |
+| 主题直达 | 打开 `http://127.0.0.1:8901/?theme=dark`（或 `light`）可临时指定主题，不写入本地记录 |
 
 ## 效果展示
 
@@ -302,6 +338,7 @@ MIT，详见 [LICENSE](LICENSE)。
 
 ## 致谢
 
+- [Overstar66/prompt-workbench](https://github.com/Overstar66/prompt-workbench) — 本仓库的上游项目
 - [DeepSeek](https://deepseek.com) — API 扩写与润色
 - [Ollama](https://ollama.com) — 本地模型运行
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — 出图
